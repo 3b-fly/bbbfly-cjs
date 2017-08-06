@@ -1,0 +1,67 @@
+{
+  "Lib": "bbbfly-cjs",
+  "Version": "2.0.0",
+  "Name": "3b-fly's extension for Controls.js",
+  "Copyright": "Jan Nejedly",
+  "RequiredLibraries": {
+    "controls.js": "5.0.0"
+  },
+  "Packages": {
+
+    "appIndex": {
+      "FormEditor": false,
+      "DebugFiles": [
+        "app/index.js",
+        "app/lang/index_cs.js",
+        "app/lang/index_en.js"
+      ],
+      "ReleaseFiles": [
+        "app/index.js",
+        "app/lang/index_cs.js",
+        "app/lang/index_en.js"
+      ],
+      "Libraries": {
+        "controls.js": {
+          "Packages": ["Controls.js"]
+        }
+      }
+    },
+    "appLoader": {
+      "FormEditor": false,
+      "DebugFiles": ["app/loader.js"],
+      "ReleaseFiles": ["app/loader.js"],
+      "Libraries": {
+        "controls.js": {
+          "Packages": ["Controls.js"]
+        }
+      }
+    },
+
+    "crossbrowser": {
+      "DebugFiles": ["helpers/crossbrowser.js"],
+      "ReleaseFiles": ["helpers/crossbrowser.js"]
+    },
+    "downloader": {
+      "DebugFiles": ["helpers/downloader.js"],
+      "ReleaseFiles": ["helpers/downloader.js"]
+    },
+
+    "listener": {
+      "DebugFiles": ["extensions/listener.js"],
+      "ReleaseFiles": ["extensions/listener.js"],
+      "Libraries": {
+        "controls.js": { "Packages": ["Controls.js"] },
+        "bbbfly-cjs": { "Packages": ["crossbrowser"] }
+      }
+    },
+    "widget": {
+      "DebugFiles": ["extensions/widget.js"],
+      "ReleaseFiles": ["extensions/widget.js"],
+      "Libraries": {
+        "controls.js": { "Packages": ["Controls.js"] },
+        "bbbfly-cjs": { "Packages": ["crossbrowser"] }
+      }
+    }
+
+  }
+}

@@ -1,0 +1,187 @@
+/**
+ * @fileOverview Listener controls set.
+ * @author Jan Nejedly [support@3b-fly.eu]
+ * @copyright Jan Nejedly
+ * @version 2.0.0
+ *
+ * @requires {@link http://controlsjs.com/|controls.js v5.0.0}
+ * @requires {@link module:crossbrowser|helpers/crossbrowser.js}
+ */
+
+/** @ignore */
+var bbbfly = bbbfly || {};
+/**
+ * @namespace
+ * @description
+ *   Set any control {@link bbbfly.listener.Listenable|AllowListeners} property to true
+ *   or use {@link bbbfly.listener.SetListenable|SetListenable()} method
+ *   to allow its events listening.
+ *
+ * @example
+ * var appForm;
+ * function ngMain(){
+ *
+ *   appForm = new ngControls({
+ *     Invoker: {
+ *       Type: 'ngPanel',
+ *       Data: {
+ *         AllowListeners: true
+ *       }
+ *     }
+ *   });
+ *
+ *   var Listener = {
+ *     OnUpdate: function(){return true;}
+ *     OnUpdated: function(){}
+ *   };
+ *
+ *   appForm.Invoker.AddListener(['OnUpdate','OnUpdated'],Listener);
+ *
+ *   //...or...
+ *
+ *   bbbfly.listener.SetListenable(Listener,true);
+ *   Listener.AddListener(['OnUpdated'],{
+ *     OnUpdated: function(){}
+ *   });
+ *
+ *   appForm.Update();
+ * }
+ */
+bbbfly.listener = {};
+
+/**
+ * @function
+ * @description
+ *   Sets {@link bbbfly.listener.Listenable|Listenable} interface methods to passes object
+ *   if its {@link bbbfly.listener.Listenable|AllowListeners} property is set to true.
+ *
+ * @param {object} obj
+ *   Object whose events should be listenable
+ * @param {boolean} force
+ *   Set object listenable even if
+ *   its {@link bbbfly.listener.Listenable|AllowListeners} property is set to false
+ * @return {boolean} If was set
+ */
+bbbfly.listener.SetListenable = function(obj,force){
+  if(typeof obj.AllowListeners === 'undefined'){
+    obj.AllowListeners = false;
+  }
+
+  if(
+    obj && (typeof obj === 'object')
+    && (force || obj.AllowListeners)
+    && !obj._listeners
+  ){
+    obj._listeners = new Array();
+
+    obj.AddListener = ngAddEvent(
+      obj.AddListener,bbbfly.listener._addListener
+    );
+    obj.RemoveListener = ngAddEvent(
+      obj.RemoveListener,bbbfly.listener._removeListener
+    );
+
+    return true;
+  }
+  return false;
+};
+
+/**
+ * @function
+ * @name AddListener
+ * @memberOf bbbfly.listener.Listenable#
+ * @description Add object events listener. Listener must implement listening event functions.
+ *
+ * @param {string[]} eventNames - Names of events to listen
+ * @param {object} listener
+ * @return {boolean} If listener was added
+ */
+bbbfly.listener._addListener = function(eventNames,listener){
+  if(
+    ((typeof eventNames !== 'object') || !eventNames)
+    || ((typeof listener !== 'object') || !listener)
+  ){return false;}
+
+  for(var i in eventNames){
+    var eventNm = eventNames[i];
+    if(
+      (typeof eventNm !== 'string')
+      || (typeof listener[eventNm] !== 'function')
+      || ((typeof this[eventNm] !== 'function') && (this[eventNm] !== null))
+    ){return false;}
+  }
+
+  for(var i in eventNames){
+    var eventNm = eventNames[i];
+    var listeners = this._listeners[eventNm];
+    if(!Array.isArray(listeners)){
+      listeners = new Array();
+      this._listeners[eventNm] = listeners;
+
+      var invoke = function(){
+        var listeners = this._listeners[eventNm];
+        if(Array.isArray(listeners)){
+          for(var i in listeners){
+            var listener = listeners[i];
+            if(typeof listener[eventNm] === 'function'){
+              listener[eventNm].apply(
+                listener,(arguments ? arguments : [])
+              );
+            }
+          }
+        }
+        return true;
+      };
+      this[eventNm] = ngAddEvent(this[eventNm],invoke);
+    }
+
+    if(!listeners.includes(listener)){
+      listeners.push(listener);
+    }
+  }
+  return true;
+};
+
+/**
+ * @function
+ * @name RemoveListener
+ * @memberof bbbfly.listener.Listenable#
+ * @description Remove object event listener
+ *
+ * @param {string[]} eventNames - Names of events to do not listen
+ * @param {object} listener
+ * @return {boolean} If listener was removed
+ */
+bbbfly.listener._removeListener = function(eventNames,listener){
+  if(
+    ((typeof eventNames !== 'object') || !eventNames)
+    || ((typeof listener !== 'object') || !listener)
+  ){return false;}
+
+  for(var i in eventNames){
+    var eventNm = eventNames[i];
+    var listeners = this._listeners[eventNm];
+
+    if(Array.isArray(listeners)){
+      for(var i in listeners){
+        if(listeners[i] === listener){
+          listeners.splice(i,1);
+          break;
+        }
+      }
+    }
+  }
+  return true;
+};
+
+/** @ignore */
+var ngOnControlCreated = ngAddEvent(ngOnControlCreated,
+  function(control){bbbfly.listener.SetListenable(control);}
+);
+
+/**
+ * @interface Listenable
+ * @memberOf bbbfly.listener
+ *
+ * @property {boolean} [AllowListeners=false] - If set to true, interface methods will be added
+ */
