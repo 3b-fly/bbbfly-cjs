@@ -1,0 +1,103 @@
+{
+  "Lib": "bbbfly-cjs",
+  "Version": "2.0.0",
+  "Name": "3b-fly's extension for Controls.js",
+  "Copyright": "Jan Nejedly",
+  "RequiredLibraries": {
+    "controls.js": "5.0.0"
+  },
+  "Packages": {
+    "appIndex": {
+      "FormEditor": false,
+      "DebugFiles": [
+        "debug/app/index.js",
+        "debug/app/lang/index_cs.js",
+        "debug/app/lang/index_en.js"
+      ],
+      "ReleaseFiles": [
+        "release/app/index.js",
+        "release/app/lang/index_cs.js",
+        "release/app/lang/index_en.js"
+      ],
+      "Libraries": {
+        "controls.js": {
+          "Packages": [
+            "Controls.js"
+          ]
+        }
+      }
+    },
+    "appLoader": {
+      "FormEditor": false,
+      "DebugFiles": [
+        "debug/app/loader.js"
+      ],
+      "ReleaseFiles": [
+        "release/app/loader.js"
+      ],
+      "Libraries": {
+        "controls.js": {
+          "Packages": [
+            "Controls.js"
+          ]
+        }
+      }
+    },
+    "crossbrowser": {
+      "DebugFiles": [
+        "debug/helpers/crossbrowser.js"
+      ],
+      "ReleaseFiles": [
+        "release/helpers/crossbrowser.js"
+      ]
+    },
+    "downloader": {
+      "DebugFiles": [
+        "debug/helpers/downloader.js"
+      ],
+      "ReleaseFiles": [
+        "release/helpers/downloader.js"
+      ]
+    },
+    "listener": {
+      "DebugFiles": [
+        "debug/extensions/listener.js"
+      ],
+      "ReleaseFiles": [
+        "release/extensions/listener.js"
+      ],
+      "Libraries": {
+        "controls.js": {
+          "Packages": [
+            "Controls.js"
+          ]
+        },
+        "bbbfly-cjs": {
+          "Packages": [
+            "crossbrowser"
+          ]
+        }
+      }
+    },
+    "widget": {
+      "DebugFiles": [
+        "debug/extensions/widget.js"
+      ],
+      "ReleaseFiles": [
+        "release/extensions/widget.js"
+      ],
+      "Libraries": {
+        "controls.js": {
+          "Packages": [
+            "Controls.js"
+          ]
+        },
+        "bbbfly-cjs": {
+          "Packages": [
+            "crossbrowser"
+          ]
+        }
+      }
+    }
+  }
+}
