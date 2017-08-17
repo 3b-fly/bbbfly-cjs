@@ -10,6 +10,9 @@
  * @exports crossbrowser
  * @description
  *   Adds methods to JavaScript types if they are not defined yet.
+ *
+ * @controlsjs-library bbbfly-cjs
+ * @controlsjs-package crossbrowser
  */
 
 /**

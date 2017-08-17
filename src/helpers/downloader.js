@@ -68,6 +68,9 @@ bbbfly.downloader._downloadByIframe = function(downloader,url){
 /**
  * @class-static
  *
+ * @controlsjs-library bbbfly-cjs
+ * @controlsjs-package downloader
+ *
  * @property {bbbfly.Downloader.method} [Method=auto]
  *   Set this property to require certain download method.
  */

@@ -101,6 +101,9 @@ bbbfly.apploader._hide = function(){
 /**
  * @class-static
  *
+ * @controlsjs-library bbbfly-cjs
+ * @controlsjs-package appLoader
+ *
  * @example
  * function ngMain(){
  *

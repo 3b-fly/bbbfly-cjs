@@ -17,6 +17,9 @@ var bbbfly = bbbfly || {};
  *   or use {@link bbbfly.listener.SetListenable|SetListenable()} method
  *   to allow its events listening.
  *
+ * @controlsjs-library bbbfly-cjs
+ * @controlsjs-package listener
+ *
  * @example
  * var appForm;
  * function ngMain(){
