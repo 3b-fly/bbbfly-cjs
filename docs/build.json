@@ -1,0 +1,28 @@
+{
+  "source": {
+    "include": [
+      "../src/controls.jsdoc",
+      "../src/app/index.js",
+      "../src/app/loader.js",
+      "../src/helpers/crossbrowser.js",
+      "../src/helpers/downloader.js",
+      "../src/extensions/listener.js",
+      "../src/extensions/widget.js"
+    ]
+  },
+  "plugins": [
+    "../../controlsjs-jsdoc/plugins/class-static",
+    "../../controlsjs-jsdoc/plugins/event-callback",
+    "../../controlsjs-jsdoc/plugins/controlsjs-lib"
+  ],
+  "opts": {
+    "template": "../../controlsjs-jsdoc",
+    "destination": "./"
+  },
+  "templates": {
+    "applicationName": "bbbfly-cjs",
+    "linkPaths": {
+      "../src/": "https://github.com/3b-fly/bbbfly-cjs/blob/master/src/%path%#L%lineno%"
+    }
+  }
+}
