@@ -11,9 +11,9 @@
     ]
   },
   "plugins": [
-    "../../controlsjs-jsdoc/plugins/class-static",
     "../../controlsjs-jsdoc/plugins/event-callback",
-    "../../controlsjs-jsdoc/plugins/controlsjs-lib"
+    "../../controlsjs-jsdoc/plugins/controlsjs-lib",
+    "../../controlsjs-jsdoc/plugins/controlsjs-def"
   ],
   "opts": {
     "template": "../../controlsjs-jsdoc",

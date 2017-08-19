@@ -351,7 +351,8 @@ bbbfly.widget._setWidgetGroup = function(groupName){
 };
 
 /**
- * @class-static
+ * @class
+ * @static
  *
  * @controlsjs-library bbbfly-cjs
  * @controlsjs-package widget

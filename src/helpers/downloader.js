@@ -66,7 +66,8 @@ bbbfly.downloader._downloadByIframe = function(downloader,url){
 };
 
 /**
- * @class-static
+ * @class
+ * @static
  *
  * @controlsjs-library bbbfly-cjs
  * @controlsjs-package downloader

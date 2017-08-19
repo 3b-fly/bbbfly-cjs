@@ -70,7 +70,8 @@ bbbfly.appindex._leaveDialog = function(){
 };
 
 /**
- * @class-static
+ * @class
+ * @static
  *
  * @controlsjs-library bbbfly-cjs
  * @controlsjs-package appIndex

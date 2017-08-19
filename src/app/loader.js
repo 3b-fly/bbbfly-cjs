@@ -99,7 +99,8 @@ bbbfly.apploader._hide = function(){
 };
 
 /**
- * @class-static
+ * @class
+ * @static
  *
  * @controlsjs-library bbbfly-cjs
  * @controlsjs-package appLoader
