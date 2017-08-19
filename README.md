@@ -30,6 +30,10 @@
   6. Click "Add" button
   7. Click "Add" button to finish
 
+<br/>
+<br/>
+<br/>
+
 > ### License
-> Comply with [GPLv3 license](http://www.gnu.org/licenses/gpl-3.0.html) for non-commercial use.
+> Comply with [GPLv3 license](http://www.gnu.org/licenses/gpl-3.0.html) for non-commercial use.<br/>
 > License for commercial use is to be purchased at [purchase@3b-fly.eu](mailto:purchase@3b-fly.eu).
