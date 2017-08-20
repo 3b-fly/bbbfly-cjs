@@ -9,6 +9,15 @@
 - [On-line Documentation](https://3b-fly.github.io/bbbfly-cjs/)
 - [Documentation source](https://github.com/3b-fly/bbbfly-cjs/tree/master/docs/)
 
+### Packages
+
+- **crossbrowser** - Adds missing methods to JavaScript types.
+- **downloader** - Provides easy file download helper.
+- **listener** - Add event listener support to all created controls.
+- **widget** - Contains "bbbfly.Widget" control and widget registry.
+- **appLoader** - Allows easy application loading progress handling.
+- **appIndex** - Disables application files caching in debug mode and provides leave application dialog handling.
+
 ### Usage
 
 - **NetBeans**
