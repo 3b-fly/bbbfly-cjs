@@ -352,7 +352,7 @@ bbbfly.widget._setWidgetGroup = function(groupName){
 
 /**
  * @class
- * @static
+ * @hideconstructor
  *
  * @controlsjs-library bbbfly-cjs
  * @controlsjs-package widget

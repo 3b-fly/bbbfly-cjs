@@ -71,7 +71,7 @@ bbbfly.appindex._leaveDialog = function(){
 
 /**
  * @class
- * @static
+ * @hideconstructor
  *
  * @controlsjs-library bbbfly-cjs
  * @controlsjs-package appIndex

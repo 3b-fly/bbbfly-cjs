@@ -100,7 +100,7 @@ bbbfly.apploader._hide = function(){
 
 /**
  * @class
- * @static
+ * @hideconstructor
  *
  * @controlsjs-library bbbfly-cjs
  * @controlsjs-package appLoader

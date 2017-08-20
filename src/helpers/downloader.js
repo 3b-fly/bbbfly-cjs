@@ -67,7 +67,7 @@ bbbfly.downloader._downloadByIframe = function(downloader,url){
 
 /**
  * @class
- * @static
+ * @hideconstructor
  *
  * @controlsjs-library bbbfly-cjs
  * @controlsjs-package downloader
