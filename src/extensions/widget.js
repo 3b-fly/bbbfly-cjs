@@ -472,6 +472,7 @@ bbbfly.WidgetRegistry = {
 
 /**
  * @class
+ * @type control
  * @extends ngPanel
  *
  * @controlsjs-library bbbfly-cjs

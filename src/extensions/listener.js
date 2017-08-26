@@ -54,6 +54,8 @@ bbbfly.listener = {};
 
 /**
  * @function
+ * @name SetListenable
+ * @memberOf bbbfly.listener
  * @description
  *   Sets {@link bbbfly.listener.Listenable|Listenable} interface methods to passes object
  *   if its {@link bbbfly.listener.Listenable|AllowListeners} property is set to true.

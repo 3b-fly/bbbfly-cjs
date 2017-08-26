@@ -6,8 +6,8 @@
  */
 
 /**
- * @module crossbrowser
- * @exports crossbrowser
+ * @namespace
+ * @name bbbfly.crossbrowser
  * @description
  *   Adds methods to JavaScript types if they are not defined yet.
  *
@@ -18,7 +18,7 @@
 /**
  * @function
  * @name string․trim
- * @memberof module:crossbrowser#
+ * @memberof bbbfly.crossbrowser#
  *
  * @return {string}
  */
@@ -31,7 +31,7 @@ if(typeof String.prototype.trim !== 'function'){
 /**
  * @function
  * @name string․capitalize
- * @memberof module:crossbrowser#
+ * @memberof bbbfly.crossbrowser#
  *
  * @return {string}
  */
@@ -44,7 +44,7 @@ if(typeof String.prototype.capitalize !== 'function'){
 /**
  * @function
  * @name string․repeat
- * @memberof module:crossbrowser#
+ * @memberof bbbfly.crossbrowser#
  *
  * @param {integer} count
  * @return {string}
@@ -65,7 +65,7 @@ if(typeof String.prototype.repeat !== 'function'){
 /**
  * @function
  * @name string․leading
- * @memberof module:crossbrowser#
+ * @memberof bbbfly.crossbrowser#
  *
  * @param {string} str - string to repeat
  * @param {integer} length - minimal final string length
@@ -86,7 +86,7 @@ if(typeof String.prototype.leading !== 'function'){
 /**
  * @function
  * @name array․includes
- * @memberof module:crossbrowser#
+ * @memberof bbbfly.crossbrowser#
  *
  * @param {mixed} value
  * @return {boolean}
@@ -101,7 +101,7 @@ if(typeof Array.prototype.includes !== 'function'){
 /**
  * @function
  * @name Object․prototype.isObject
- * @memberof module:crossbrowser#
+ * @memberof bbbfly.crossbrowser#
  *
  * @param {mixed} value
  * @return {boolean}
@@ -115,7 +115,7 @@ if(typeof Object.isObject !== 'function'){
 /**
  * @function
  * @name Date․isDate
- * @memberof module:crossbrowser#
+ * @memberof bbbfly.crossbrowser#
  *
  * @param {mixed} value
  * @return {boolean}
@@ -129,7 +129,7 @@ if(typeof Date.isDate !== 'function'){
 /**
  * @function
  * @name Array․isArray
- * @memberof module:crossbrowser#
+ * @memberof bbbfly.crossbrowser#
  *
  * @param {mixed} value
  * @return {boolean}
