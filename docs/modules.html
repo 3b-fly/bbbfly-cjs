@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Namespace: listener</title>
+    <title>Modules</title>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -578,113 +578,74 @@
   }
 })();</script>
     <div class="main">
-<section class="kind-namespace">
-<header>
-    <h1 class="name">
-        <span class="ancestors"><a href="bbbfly.html">bbbfly</a>.</span>
-      listener
-  <span class="types">
-      <span class="type-signature namespace">
-        namespace
-      </span>
-  </span>
-    </h1>
-</header>
-<article>
-    <div class="container-overview">
-            <div class="description">Set any control <a href="bbbfly.listener.Listenable.html">AllowListeners</a> property to true  or use <a href="bbbfly.listener.html#.SetListenable">SetListenable()</a> method  to allow its events listening.</div>
+<section class="mainpage">
+  <header>
+    <h1 class="name">Packages</h1>
+  </header>
+  <article>
+      <dl>
+          <dt>
+            <div class="nameContainer">
+              <h4 class="name" id="appIndex">appIndex</h4>
+            </div>
+          </dt>
+          <dd>
+              <div class="description">Disables application files caching in debug mode  and provides leave application dialog handling.</div>
 <dl class="details">
 </dl>
-            <h3>Example</h3>
-  <pre><code class="language-javascript"><span class="token keyword">var</span> appForm<span class="token punctuation">;</span><span class="token keyword">function</span> <span class="token function">ngMain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  appForm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ngControls</span><span class="token punctuation">(</span><span class="token punctuation">{</span>    Invoker<span class="token punctuation">:</span> <span class="token punctuation">{</span>      Type<span class="token punctuation">:</span> <span class="token string">'ngPanel'</span><span class="token punctuation">,</span>      Data<span class="token punctuation">:</span> <span class="token punctuation">{</span>        AllowListeners<span class="token punctuation">:</span> <span class="token boolean">true</span>      <span class="token punctuation">}</span>    <span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">var</span> Listener <span class="token operator">=</span> <span class="token punctuation">{</span>    OnUpdate<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token punctuation">}</span>    OnUpdated<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">;</span>  appForm<span class="token punctuation">.</span>Invoker<span class="token punctuation">.</span><span class="token function">AddListener</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'OnUpdate'</span><span class="token punctuation">,</span><span class="token string">'OnUpdated'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>Listener<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//...or...</span>  bbbfly<span class="token punctuation">.</span>listener<span class="token punctuation">.</span><span class="token function">SetListenable</span><span class="token punctuation">(</span>Listener<span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  Listener<span class="token punctuation">.</span><span class="token function">AddListener</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'OnUpdated'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">{</span>    OnUpdated<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  appForm<span class="token punctuation">.</span><span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
-    </div>
-    <h3>Controls.js</h3>
-    <ul class="subsection-list"><li>
-        <span><b>library:</b> bbbfly-cjs</span>
-            <ul>
-                    <li><b>package:</b> listener</li>
-            </ul>
-    </li></ul>
-        <h3>Interfaces</h3>
-        <ul>
-            <li><a href="bbbfly.listener.Listenable.html">Listenable</a></li>
-        </ul>
-        <h3>Methods</h3>
-        <dl>
-<dt>
-    <div class="nameContainer">
-        <h4 id=".SetListenable">
-  <span class="attribs">
-      <span class="type-signature static">
-        static
-      </span>
-  </span>
-          bbbfly.listener.SetListenable
-          <span class="signature">(obj, force)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/listener.js#L55">extensions/listener.js, line 55</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Sets <a href="bbbfly.listener.Listenable.html">Listenable</a> interface methods to passes object  if its <a href="bbbfly.listener.Listenable.html">AllowListeners</a> property is set to true.</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">obj</span>
-                </td>
-            <td class="type">
-<span class="param-type">object</span>
-            </td>
-            <td class="description last">
-                Object whose events should be listenable
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">force</span>
-                </td>
-            <td class="type">
-<span class="param-type">boolean</span>
-            </td>
-            <td class="description last">
-                Set object listenable even if  its <a href="bbbfly.listener.Listenable.html">AllowListeners</a> property is set to false
-            </td>
-        </tr>
-	</tbody>
-</table>
+          </dd>
+          <dt>
+            <div class="nameContainer">
+              <h4 class="name" id="appLoader">appLoader</h4>
+            </div>
+          </dt>
+          <dd>
+              <div class="description">Allows easy application loading progress handling.</div>
 <dl class="details">
 </dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        boolean
-            </td>
-            <td class="description last">If was set</td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-        </dl>
-</article>
+          </dd>
+          <dt>
+            <div class="nameContainer">
+              <h4 class="name" id="crossbrowser">crossbrowser</h4>
+            </div>
+          </dt>
+          <dd>
+              <div class="description">Adds missing methods to JavaScript types.</div>
+<dl class="details">
+</dl>
+          </dd>
+          <dt>
+            <div class="nameContainer">
+              <h4 class="name" id="downloader">downloader</h4>
+            </div>
+          </dt>
+          <dd>
+              <div class="description">Provides easy file download helper.</div>
+<dl class="details">
+</dl>
+          </dd>
+          <dt>
+            <div class="nameContainer">
+              <h4 class="name" id="listener">listener</h4>
+            </div>
+          </dt>
+          <dd>
+              <div class="description">Adds event listener support to all created controls.</div>
+<dl class="details">
+</dl>
+          </dd>
+          <dt>
+            <div class="nameContainer">
+              <h4 class="name" id="widget">widget</h4>
+            </div>
+          </dt>
+          <dd>
+              <div class="description">Contains "bbbfly.Widget" control and widget registry.</div>
+<dl class="details">
+</dl>
+          </dd>
+      </dl>
+  </article>
 </section>
         <footer>
             Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Aug 27 2017 20:50:25 GMT+0200 (Central Europe Daylight Time)

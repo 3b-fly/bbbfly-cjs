@@ -21,17 +21,31 @@
 }
 .navigation {
   position: fixed;
-  float: left;
-  width: 320px;
+  left: 0px;
+  width: 367px;
   height: 100%;
   background-color: #1a1a1a;
+}
+.navigation .icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+  outline: 0;
+  opacity: 0.5;
+  -moz-opacity: 0.5;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+}
+.navigation .icon:hover {
+  opacity: 1;
+  -moz-opacity: 1;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
 }
 .navigation .applicationName {
   position: absolute;
   left: 0px;
   right: 0px;
   top: 10px;
-  margin: 0px;
+  margin: 0px 0px 0px 63px;
   padding: 10px 15px;
   font-size: 17px;
   line-height: 20px;
@@ -51,12 +65,32 @@
   color: #cccccc;
   text-decoration: underline;
 }
+.navigation .icons {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 60px;
+  height: 32px;
+  padding: 0px 15px;
+  margin-left: 63px;
+}
+.navigation .icons .icon.index,
+.navigation .icons .icon.tutorials {
+  float: left;
+  margin-right: 5px;
+}
+.navigation .icons .icon.files,
+.navigation .icons .icon.modules {
+  float: right;
+  margin-left: 5px;
+}
 .navigation .search {
   position: absolute;
   left: 0px;
   right: 0px;
-  top: 52px;
-  padding: 10px 15px;
+  top: 102px;
+  padding: 0px 15px;
+  margin-left: 63px;
 }
 .navigation .search input {
   width: 90%;
@@ -65,24 +99,25 @@
   line-height: 20px;
   border: 1px solid #555555;
   background-color: #333333;
-  color: #fff;
+  color: #ffffff;
   display: none;
 }
 .navigation .list {
   position: absolute;
   left: 0px;
   right: 0px;
-  top: 112px;
+  top: 147px;
   bottom: 0px;
   overflow: auto;
   padding: 0px 15px;
+  margin-left: 63px;
 }
 .navigation li.item {
-  border-top: 1px solid #333;
+  border-top: 1px solid #333333;
 }
 .navigation li.item a {
   outline: 0;
-  color: #bbb;
+  color: #bbbbbb;
   text-decoration: none;
 }
 .navigation li.item a:hover,
@@ -113,15 +148,46 @@
   font-size: 11px;
   padding: 2px 5px;
   float: right;
+  margin-left: 6px;
+  border: 1px solid #808080;
+  color: #808080;
 }
-.navigation li.item .title .static {
+.navigation li.item .title .type-signature.static {
+  border-width: 0px;
   background-color: #779c34;
-  color: #000;
+  color: #000000;
 }
-.navigation li.item .title .module,
-.navigation li.item .title .namespace {
+.navigation li.item .title .type-signature.abstract {
+  border-width: 0px;
+  background-color: #d96629;
+  color: #000000;
+}
+.navigation li.item .title .type-signature.module,
+.navigation li.item .title .type-signature.namespace {
+  border-width: 0px;
+  background-color: #913d9e;
+  color: #000000;
+}
+.navigation li.item .title .type-signature.number,
+.navigation li.item .title .type-signature.integer,
+.navigation li.item .title .type-signature.float,
+.navigation li.item .title .type-signature.boolean,
+.navigation li.item .title .type-signature.array,
+.navigation li.item .title .type-signature.string {
+  border-width: 0px;
   background-color: #808080;
-  color: #000;
+  color: #000000;
+}
+.navigation li.item .title .type-signature.object,
+.navigation li.item .title .type-signature.class {
+  border-width: 0px;
+  background-color: #3978ae;
+  color: #000000;
+}
+.navigation li.item .title .type-signature.control {
+  border-width: 0px;
+  background-color: #b19915;
+  color: #000000;
 }
 .navigation li.item .subtitle {
   cursor: default;
@@ -140,55 +206,83 @@
   font-size: 11px;
   padding-left: 8px;
 }
+.navigation .socialLinks {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 32px;
+  padding: 102px 15px 15px 15px;
+  border-right: 1px solid #333333;
+}
+.navigation .socialLinks .icon {
+  margin-bottom: 10px;
+}
 </style>
 <div class="navigation">
   <h3 class="applicationName">
-    <a href="index.html">bbbfly-cjs</a>
+    bbbfly-cjs
   </h3>
+  <div class="icons">
+    <a href="index.html" class="icon index">
+      <img src="icons/navigation/home.png" alt="Index" title="Index"/>
+    </a>
+      <a href="files.html" class="icon files">
+        <img src="icons/navigation/file.png" alt="Files" title="Files"/>
+      </a>
+      <a href="modules.html" class="icon modules">
+        <img src="icons/navigation/package.png" alt="Packages" title="Packages"/>
+      </a>
+  </div>
   <div class="search">
     <input id="nav-search" type="text" placeholder="Search Documentations"/>
   </div>
   <ul id="nav-list" class="list">
-<li class="item" data-name="crossbrowser">
-  <span class="title">
-    <a href="module-crossbrowser.html">crossbrowser</a>
-      <span class="type-signature module">module</span>
-  </span>
-    <ul class="methods itemMembers">
-      <span class="subtitle">Methods</span>
-        <li data-name="crossbrowser#array․includes">
-          <a href="module-crossbrowser.html#array%25E2%2580%25A4includes">array․includes</a>
-        </li>
-        <li data-name="crossbrowser#Array․isArray">
-          <a href="module-crossbrowser.html#Array%25E2%2580%25A4isArray">Array․isArray</a>
-        </li>
-        <li data-name="crossbrowser#Date․isDate">
-          <a href="module-crossbrowser.html#Date%25E2%2580%25A4isDate">Date․isDate</a>
-        </li>
-        <li data-name="crossbrowser#string․capitalize">
-          <a href="module-crossbrowser.html#string%25E2%2580%25A4capitalize">string․capitalize</a>
-        </li>
-        <li data-name="crossbrowser#string․leading">
-          <a href="module-crossbrowser.html#string%25E2%2580%25A4leading">string․leading</a>
-        </li>
-        <li data-name="crossbrowser#string․repeat">
-          <a href="module-crossbrowser.html#string%25E2%2580%25A4repeat">string․repeat</a>
-        </li>
-        <li data-name="crossbrowser#string․trim">
-          <a href="module-crossbrowser.html#string%25E2%2580%25A4trim">string․trim</a>
-        </li>
-    </ul>
-</li>
 <li class="item" data-name="bbbfly">
   <span class="title">
     <a href="bbbfly.html">bbbfly</a>
-      <span class="type-signature namespace">namespace</span>
+        <span class="type-signature namespace">
+          namespace
+        </span>
   </span>
     <ul class="sublist">
+<li class="item" data-name="bbbfly.crossbrowser">
+  <span class="title">
+    <a href="bbbfly.crossbrowser.html">bbbfly.crossbrowser</a>
+        <span class="type-signature namespace">
+          namespace
+        </span>
+  </span>
+    <ul class="methods itemMembers">
+      <span class="subtitle">Methods</span>
+        <li data-name="bbbfly.crossbrowser#array․includes">
+          <a href="bbbfly.crossbrowser.html#array%25E2%2580%25A4includes">array․includes</a>
+        </li>
+        <li data-name="bbbfly.crossbrowser#Array․isArray">
+          <a href="bbbfly.crossbrowser.html#Array%25E2%2580%25A4isArray">Array․isArray</a>
+        </li>
+        <li data-name="bbbfly.crossbrowser#Date․isDate">
+          <a href="bbbfly.crossbrowser.html#Date%25E2%2580%25A4isDate">Date․isDate</a>
+        </li>
+        <li data-name="bbbfly.crossbrowser#string․capitalize">
+          <a href="bbbfly.crossbrowser.html#string%25E2%2580%25A4capitalize">string․capitalize</a>
+        </li>
+        <li data-name="bbbfly.crossbrowser#string․leading">
+          <a href="bbbfly.crossbrowser.html#string%25E2%2580%25A4leading">string․leading</a>
+        </li>
+        <li data-name="bbbfly.crossbrowser#string․repeat">
+          <a href="bbbfly.crossbrowser.html#string%25E2%2580%25A4repeat">string․repeat</a>
+        </li>
+        <li data-name="bbbfly.crossbrowser#string․trim">
+          <a href="bbbfly.crossbrowser.html#string%25E2%2580%25A4trim">string․trim</a>
+        </li>
+    </ul>
+</li>
 <li class="item" data-name="bbbfly.listener">
   <span class="title">
     <a href="bbbfly.listener.html">bbbfly.listener</a>
-      <span class="type-signature namespace">namespace</span>
+        <span class="type-signature namespace">
+          namespace
+        </span>
   </span>
     <ul class="methods itemMembers">
       <span class="subtitle">Interfaces</span>
@@ -206,7 +300,9 @@
 <li class="item" data-name="bbbfly.AppIndex">
   <span class="title">
     <a href="bbbfly.AppIndex.html">bbbfly.AppIndex</a>
-        <span class="type-signature static">static</span>
+        <span class="type-signature object">
+          object
+        </span>
   </span>
     <ul class="methods itemMembers">
       <span class="subtitle">Methods</span>
@@ -224,7 +320,9 @@
 <li class="item" data-name="bbbfly.AppLoader">
   <span class="title">
     <a href="bbbfly.AppLoader.html">bbbfly.AppLoader</a>
-        <span class="type-signature static">static</span>
+        <span class="type-signature object">
+          object
+        </span>
   </span>
     <ul class="methods itemMembers">
       <span class="subtitle">Methods</span>
@@ -257,7 +355,9 @@
 <li class="item" data-name="bbbfly.Downloader">
   <span class="title">
     <a href="bbbfly.Downloader.html">bbbfly.Downloader</a>
-        <span class="type-signature static">static</span>
+        <span class="type-signature object">
+          object
+        </span>
   </span>
     <ul class="members itemMembers">
       <span class="subtitle">Properties</span>
@@ -287,6 +387,12 @@
 <li class="item" data-name="bbbfly.Widget">
   <span class="title">
     <a href="bbbfly.Widget.html">bbbfly.Widget</a>
+        <span class="type-signature control">
+          control
+        </span>
+        <span class="type-signature class">
+          class
+        </span>
   </span>
     <ul class="members itemMembers">
       <span class="subtitle">Properties</span>
@@ -364,7 +470,9 @@
 <li class="item" data-name="bbbfly.WidgetRegistry">
   <span class="title">
     <a href="bbbfly.WidgetRegistry.html">bbbfly.WidgetRegistry</a>
-        <span class="type-signature static">static</span>
+        <span class="type-signature object">
+          object
+        </span>
   </span>
     <ul class="methods itemMembers">
       <span class="subtitle">Methods</span>
@@ -403,6 +511,22 @@
     </ul>
 </li>
   </ul>
+  <div class="socialLinks">
+        <a href="mailto:support@3b-fly.eu" class="icon social">
+          <img
+            src="icons/social/email.png"
+            alt="Email"
+            title="Email"
+          />
+        </a>
+        <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs" class="icon social">
+          <img
+            src="icons/social/github.png"
+            alt="GitHub"
+            title="GitHub"
+          />
+        </a>
+  </div>
 </div>
 <script>(function(){
   var searchBox = document.getElementById('nav-search');
@@ -454,27 +578,37 @@
   }
 })();</script>
     <div class="main">
-        <h1 class="page-title" data-filename="bbbfly.Widget.html">Class: Widget</h1>
 <section class="kind-class">
 <header>
-    <h2 class="name">
+    <h1 class="name">
         <span class="ancestors"><a href="bbbfly.html">bbbfly</a>.</span>
-    Widget
-    </h2>
+      Widget
+  <span class="types">
+      <span class="type-signature class">
+        class
+      </span>
+      <span class="type-signature control">
+        control
+      </span>
+  </span>
+    </h1>
 </header>
 <article>
     <div class="container-overview">
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="Widget">
-          new bbbfly.Widget<span class="signature">(<span class="optional">def</span>, <span class="optional">ref</span>, <span class="optional">parent</span>)</span>
-        </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L489">extensions/widget.js, line 489</a>
-          </div>
+        <h2 id="Widget">
+          new 
+          bbbfly.Widget
+          <span class="signature">(<span class="optional">def</span>, <span class="optional">ref</span>, <span class="optional">parent</span>)</span>
+        </h2>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L490">extensions/widget.js, line 490</a>
+        </div>
     </div>
 </dt>
 <dd>
+        <h3>Parameters</h3>
 <table class="params">
     <thead>
 	<tr>
@@ -525,7 +659,7 @@
 	</tbody>
 </table>
 <dl class="details">
-  <h3 class="subsection-title">Properties</h3>
+    <h3>Properties</h3>
     <table class="props" my="test">
         <thead>
         <tr>
@@ -599,38 +733,39 @@
 </dl>
 </dd>
     </div>
-        <h3 class="subsection-title">Extends</h3>
+        <h3>Extends</h3>
         <ul class="subsection-list">
             <li>ngPanel</li>
         </ul>
-    <h3 class="subsection-title">Controls.js</h3>
+    <h3>Controls.js</h3>
     <ul class="subsection-list"><li>
         <span><b>library:</b> bbbfly-cjs</span>
             <ul>
                     <li><b>package:</b> widget</li>
             </ul>
     </li></ul>
-        <h3 class="subsection-title">Methods</h3>
+        <h3>Methods</h3>
         <dl>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="CanForceHide">
-          CanForceHide<span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id="CanForceHide">
+          CanForceHide
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L614">extensions/widget.js, line 614</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L615">extensions/widget.js, line 615</a>
+        </div>
     </div>
 </dt>
 <dd>
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#ForceHide">ForceHide()</a></li>
-            <li><a href="bbbfly.Widget.html#ForceShowOrHide">ForceShowOrHide()</a></li>
-            <li><a href="bbbfly.Widget.html#SetForced">SetForced()</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#ForceHide">ForceHide()</a></li>
+          <li><a href="bbbfly.Widget.html#ForceShowOrHide">ForceShowOrHide()</a></li>
+          <li><a href="bbbfly.Widget.html#SetForced">SetForced()</a></li>
+      </ul>
     </dd>
 </dl>
     <h5>Returns:</h5>
@@ -653,23 +788,24 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="CanForceShow">
-          CanForceShow<span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id="CanForceShow">
+          CanForceShow
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L602">extensions/widget.js, line 602</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L603">extensions/widget.js, line 603</a>
+        </div>
     </div>
 </dt>
 <dd>
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#ForceShow">ForceShow()</a></li>
-            <li><a href="bbbfly.Widget.html#ForceShowOrHide">ForceShowOrHide()</a></li>
-            <li><a href="bbbfly.Widget.html#SetForced">SetForced()</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#ForceShow">ForceShow()</a></li>
+          <li><a href="bbbfly.Widget.html#ForceShowOrHide">ForceShowOrHide()</a></li>
+          <li><a href="bbbfly.Widget.html#SetForced">SetForced()</a></li>
+      </ul>
     </dd>
 </dl>
     <h5>Returns:</h5>
@@ -692,22 +828,23 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="CanHide">
-          CanHide<span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id="CanHide">
+          CanHide
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L591">extensions/widget.js, line 591</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L592">extensions/widget.js, line 592</a>
+        </div>
     </div>
 </dt>
 <dd>
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#Hide">Hide()</a></li>
-            <li><a href="bbbfly.Widget.html#ShowOrHide">ShowOrHide()</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#Hide">Hide()</a></li>
+          <li><a href="bbbfly.Widget.html#ShowOrHide">ShowOrHide()</a></li>
+      </ul>
     </dd>
 </dl>
     <h5>Returns:</h5>
@@ -730,22 +867,23 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="CanShow">
-          CanShow<span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id="CanShow">
+          CanShow
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L580">extensions/widget.js, line 580</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L581">extensions/widget.js, line 581</a>
+        </div>
     </div>
 </dt>
 <dd>
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#Show">Show()</a></li>
-            <li><a href="bbbfly.Widget.html#ShowOrHide">ShowOrHide()</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#Show">Show()</a></li>
+          <li><a href="bbbfly.Widget.html#ShowOrHide">ShowOrHide()</a></li>
+      </ul>
     </dd>
 </dl>
     <h5>Returns:</h5>
@@ -768,26 +906,25 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="ForceHide">
-          ForceHide<span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id="ForceHide">
+          ForceHide
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L676">extensions/widget.js, line 676</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L677">extensions/widget.js, line 677</a>
+        </div>
     </div>
 </dt>
 <dd>
-    <div class="description">
-        Forced widget state can be changed only by force methods.
-    </div>
+      <div class="description">Forced widget state can be changed only by force methods.</div>
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#CanForceHide">CanForceHide()</a></li>
-            <li><a href="bbbfly.Widget.html#ForceShowOrHide">ForceShowOrHide()</a></li>
-            <li><a href="bbbfly.Widget.html#SetForced">SetForced()</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#CanForceHide">CanForceHide()</a></li>
+          <li><a href="bbbfly.Widget.html#ForceShowOrHide">ForceShowOrHide()</a></li>
+          <li><a href="bbbfly.Widget.html#SetForced">SetForced()</a></li>
+      </ul>
     </dd>
 </dl>
     <h5>Returns:</h5>
@@ -810,26 +947,25 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="ForceShow">
-          ForceShow<span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id="ForceShow">
+          ForceShow
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L663">extensions/widget.js, line 663</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L664">extensions/widget.js, line 664</a>
+        </div>
     </div>
 </dt>
 <dd>
-    <div class="description">
-        Forced widget state can be changed only by force methods.
-    </div>
+      <div class="description">Forced widget state can be changed only by force methods.</div>
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#CanForceShow">CanForceShow()</a></li>
-            <li><a href="bbbfly.Widget.html#ForceShowOrHide">ForceShowOrHide()</a></li>
-            <li><a href="bbbfly.Widget.html#SetForced">SetForced()</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#CanForceShow">CanForceShow()</a></li>
+          <li><a href="bbbfly.Widget.html#ForceShowOrHide">ForceShowOrHide()</a></li>
+          <li><a href="bbbfly.Widget.html#SetForced">SetForced()</a></li>
+      </ul>
     </dd>
 </dl>
     <h5>Returns:</h5>
@@ -852,25 +988,24 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="ForceShowOrHide">
-          ForceShowOrHide<span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id="ForceShowOrHide">
+          ForceShowOrHide
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L689">extensions/widget.js, line 689</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L690">extensions/widget.js, line 690</a>
+        </div>
     </div>
 </dt>
 <dd>
-    <div class="description">
-        Forced widget state can be changed only by force methods.
-    </div>
+      <div class="description">Forced widget state can be changed only by force methods.</div>
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#Show">ForceShow()</a></li>
-            <li><a href="bbbfly.Widget.html#Hide">ForceHide()</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#Show">ForceShow()</a></li>
+          <li><a href="bbbfly.Widget.html#Hide">ForceHide()</a></li>
+      </ul>
     </dd>
 </dl>
     <h5>Returns:</h5>
@@ -893,24 +1028,25 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="Hide">
-          Hide<span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id="Hide">
+          Hide
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L639">extensions/widget.js, line 639</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L640">extensions/widget.js, line 640</a>
+        </div>
     </div>
 </dt>
 <dd>
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#CanHide">CanHide()</a></li>
-            <li><a href="bbbfly.Widget.html#ShowOrHide">ShowOrHide()</a></li>
-            <li><a href="bbbfly.Widget.html#OnHide">OnHide</a></li>
-            <li><a href="bbbfly.Widget.html#OnHidden">OnHidden</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#CanHide">CanHide()</a></li>
+          <li><a href="bbbfly.Widget.html#ShowOrHide">ShowOrHide()</a></li>
+          <li><a href="bbbfly.Widget.html#OnHide">OnHide</a></li>
+          <li><a href="bbbfly.Widget.html#OnHidden">OnHidden</a></li>
+      </ul>
     </dd>
 </dl>
     <h5>Returns:</h5>
@@ -933,24 +1069,25 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="IsShown">
-          IsShown<span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id="IsShown">
+          IsShown
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L701">extensions/widget.js, line 701</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L702">extensions/widget.js, line 702</a>
+        </div>
     </div>
 </dt>
 <dd>
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#Show">Show()</a></li>
-            <li><a href="bbbfly.Widget.html#Hide">Hide()</a></li>
-            <li><a href="bbbfly.Widget.html#Show">ForceShow()</a></li>
-            <li><a href="bbbfly.Widget.html#Hide">ForceHide()</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#Show">Show()</a></li>
+          <li><a href="bbbfly.Widget.html#Hide">Hide()</a></li>
+          <li><a href="bbbfly.Widget.html#Show">ForceShow()</a></li>
+          <li><a href="bbbfly.Widget.html#Hide">ForceHide()</a></li>
+      </ul>
     </dd>
 </dl>
     <h5>Returns:</h5>
@@ -973,18 +1110,18 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="SetForced">
-          SetForced<span class="signature">(forced)</span>
+        <h4 id="SetForced">
+          SetForced
+          <span class="signature">(forced)</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L563">extensions/widget.js, line 563</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L564">extensions/widget.js, line 564</a>
+        </div>
     </div>
 </dt>
 <dd>
-    <div class="description">
-        Widget will be set force-shown or force-hidden depending on its actual state.  Forced widget state can be changed only by force methods.
-    </div>
+      <div class="description">Widget will be set force-shown or force-hidden depending on its actual state.  Forced widget state can be changed only by force methods.</div>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -1010,27 +1147,29 @@
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#CanForceShow">CanForceShow()</a></li>
-            <li><a href="bbbfly.Widget.html#CanForceHide">CanForceHide()</a></li>
-            <li><a href="bbbfly.Widget.html#ForceShow">ForceShow()</a></li>
-            <li><a href="bbbfly.Widget.html#ForceHide">ForceHide()</a></li>
-            <li><a href="bbbfly.Widget.html#ForceShowOrHide">ForceShowOrHide()</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#CanForceShow">CanForceShow()</a></li>
+          <li><a href="bbbfly.Widget.html#CanForceHide">CanForceHide()</a></li>
+          <li><a href="bbbfly.Widget.html#ForceShow">ForceShow()</a></li>
+          <li><a href="bbbfly.Widget.html#ForceHide">ForceHide()</a></li>
+          <li><a href="bbbfly.Widget.html#ForceShowOrHide">ForceShowOrHide()</a></li>
+      </ul>
     </dd>
 </dl>
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="SetWidgetGroup">
-          SetWidgetGroup<span class="signature">(groupName)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id="SetWidgetGroup">
+          SetWidgetGroup
+          <span class="signature">(groupName)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L714">extensions/widget.js, line 714</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L715">extensions/widget.js, line 715</a>
+        </div>
     </div>
 </dt>
 <dd>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -1075,24 +1214,25 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="Show">
-          Show<span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id="Show">
+          Show
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L626">extensions/widget.js, line 626</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L627">extensions/widget.js, line 627</a>
+        </div>
     </div>
 </dt>
 <dd>
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#CanShow">CanShow()</a></li>
-            <li><a href="bbbfly.Widget.html#ShowOrHide">ShowOrHide()</a></li>
-            <li><a href="bbbfly.Widget.html#OnShow">OnShow</a></li>
-            <li><a href="bbbfly.Widget.html#OnShown">OnShown</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#CanShow">CanShow()</a></li>
+          <li><a href="bbbfly.Widget.html#ShowOrHide">ShowOrHide()</a></li>
+          <li><a href="bbbfly.Widget.html#OnShow">OnShow</a></li>
+          <li><a href="bbbfly.Widget.html#OnShown">OnShown</a></li>
+      </ul>
     </dd>
 </dl>
     <h5>Returns:</h5>
@@ -1115,22 +1255,23 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="ShowOrHide">
-          ShowOrHide<span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id="ShowOrHide">
+          ShowOrHide
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L652">extensions/widget.js, line 652</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L653">extensions/widget.js, line 653</a>
+        </div>
     </div>
 </dt>
 <dd>
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#Show">Show()</a></li>
-            <li><a href="bbbfly.Widget.html#Hide">Hide()</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#Show">Show()</a></li>
+          <li><a href="bbbfly.Widget.html#Hide">Hide()</a></li>
+      </ul>
     </dd>
 </dl>
     <h5>Returns:</h5>
@@ -1152,19 +1293,20 @@
 </table>
 </dd>
         </dl>
-        <h3 class="subsection-title">Events</h3>
+        <h3>Events</h3>
         <dl>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="OnHidden">
-          OnHidden<span class="signature">(force)</span>
+        <h4 id="OnHidden">
+          OnHidden
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L545">extensions/widget.js, line 545</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L546">extensions/widget.js, line 546</a>
+        </div>
     </div>
 </dt>
 <dd>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -1190,25 +1332,26 @@
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#Hide">Hide()</a></li>
-            <li><a href="bbbfly.Widget.html#ForceHide">ForceHide()</a></li>
-            <li><a href="bbbfly.Widget.html#OnHide">OnHide</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#Hide">Hide()</a></li>
+          <li><a href="bbbfly.Widget.html#ForceHide">ForceHide()</a></li>
+          <li><a href="bbbfly.Widget.html#OnHide">OnHide</a></li>
+      </ul>
     </dd>
 </dl>
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="OnHide">
-          OnHide<span class="signature">(force)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id="OnHide">
+          OnHide
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L520">extensions/widget.js, line 520</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L521">extensions/widget.js, line 521</a>
+        </div>
     </div>
 </dt>
 <dd>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -1234,11 +1377,11 @@
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#Hide">Hide()</a></li>
-            <li><a href="bbbfly.Widget.html#ForceHide">ForceHide()</a></li>
-            <li><a href="bbbfly.Widget.html#OnHidden">OnHidden</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#Hide">Hide()</a></li>
+          <li><a href="bbbfly.Widget.html#ForceHide">ForceHide()</a></li>
+          <li><a href="bbbfly.Widget.html#OnHidden">OnHidden</a></li>
+      </ul>
     </dd>
 </dl>
     <h5>Returns:</h5>
@@ -1261,15 +1404,16 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="OnShow">
-          OnShow<span class="signature">(force)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id="OnShow">
+          OnShow
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L507">extensions/widget.js, line 507</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L508">extensions/widget.js, line 508</a>
+        </div>
     </div>
 </dt>
 <dd>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -1295,11 +1439,11 @@
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#Show">Show()</a></li>
-            <li><a href="bbbfly.Widget.html#ForceShow">ForceShow()</a></li>
-            <li><a href="bbbfly.Widget.html#OnShown">OnShown</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#Show">Show()</a></li>
+          <li><a href="bbbfly.Widget.html#ForceShow">ForceShow()</a></li>
+          <li><a href="bbbfly.Widget.html#OnShown">OnShown</a></li>
+      </ul>
     </dd>
 </dl>
     <h5>Returns:</h5>
@@ -1322,15 +1466,16 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="OnShown">
-          OnShown<span class="signature">(force)</span>
+        <h4 id="OnShown">
+          OnShown
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L533">extensions/widget.js, line 533</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L534">extensions/widget.js, line 534</a>
+        </div>
     </div>
 </dt>
 <dd>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -1356,11 +1501,11 @@
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
-        <ul>
-            <li><a href="bbbfly.Widget.html#Show">Show()</a></li>
-            <li><a href="bbbfly.Widget.html#ForceShow">ForceShow()</a></li>
-            <li><a href="bbbfly.Widget.html#OnShow">OnShow</a></li>
-        </ul>
+      <ul class="dummy">
+          <li><a href="bbbfly.Widget.html#Show">Show()</a></li>
+          <li><a href="bbbfly.Widget.html#ForceShow">ForceShow()</a></li>
+          <li><a href="bbbfly.Widget.html#OnShow">OnShow</a></li>
+      </ul>
     </dd>
 </dl>
 </dd>
@@ -1368,7 +1513,8 @@
 </article>
 </section>
         <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Aug 20 2017 10:09:52 GMT+0200 (Central Europe Daylight Time)
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Aug 27 2017 20:50:25 GMT+0200 (Central Europe Daylight Time)
+            <br/>Content icons made by <a target="_blank" href="http://www.freepik.com">Freepik</a> from <a target="_blank" href="http://www.flaticon.com">www.flaticon.com</a>
         </footer>
     </div>
 </div>

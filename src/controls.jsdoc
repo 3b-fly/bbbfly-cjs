@@ -3,6 +3,44 @@
  * @author Jan Nejedly [support@3b-fly.eu]
  * @copyright Jan Nejedly
  * @version 2.0.0
+ * @private
  */
 
 /** @namespace bbbfly */
+
+/**
+ * @module crossbrowser
+ * @description
+ *   Adds missing methods to JavaScript types.
+ */
+
+/**
+ * @module downloader
+ * @description
+ *   Provides easy file download helper.
+ */
+
+/**
+ * @module listener
+ * @description
+ *   Adds event listener support to all created controls.
+ */
+
+/**
+ * @module widget
+ * @description
+ *   Contains "bbbfly.Widget" control and widget registry.
+ */
+
+/**
+ * @module appLoader
+ * @description
+ *   Allows easy application loading progress handling.
+ */
+
+/**
+ * @module appIndex
+ * @description
+ *   Disables application files caching in debug mode
+ *   and provides leave application dialog handling.
+ */

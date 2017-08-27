@@ -1,6 +1,8 @@
 {
   "source": {
     "include": [
+      "../README.md",
+      "../package.json",
       "../src/controls.jsdoc",
       "../src/app/index.js",
       "../src/app/loader.js",
@@ -23,6 +25,10 @@
     "applicationName": "bbbfly-cjs",
     "linkPaths": {
       "../src/": "https://github.com/3b-fly/bbbfly-cjs/blob/master/src/%path%#L%lineno%"
+    },
+    "socialLinks": {
+      "Email": "mailto:support@3b-fly.eu",
+      "GitHub": "https://github.com/3b-fly/bbbfly-cjs"
     }
   }
 }

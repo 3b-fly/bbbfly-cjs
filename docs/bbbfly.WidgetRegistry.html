@@ -21,17 +21,31 @@
 }
 .navigation {
   position: fixed;
-  float: left;
-  width: 320px;
+  left: 0px;
+  width: 367px;
   height: 100%;
   background-color: #1a1a1a;
+}
+.navigation .icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+  outline: 0;
+  opacity: 0.5;
+  -moz-opacity: 0.5;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+}
+.navigation .icon:hover {
+  opacity: 1;
+  -moz-opacity: 1;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
 }
 .navigation .applicationName {
   position: absolute;
   left: 0px;
   right: 0px;
   top: 10px;
-  margin: 0px;
+  margin: 0px 0px 0px 63px;
   padding: 10px 15px;
   font-size: 17px;
   line-height: 20px;
@@ -51,12 +65,32 @@
   color: #cccccc;
   text-decoration: underline;
 }
+.navigation .icons {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 60px;
+  height: 32px;
+  padding: 0px 15px;
+  margin-left: 63px;
+}
+.navigation .icons .icon.index,
+.navigation .icons .icon.tutorials {
+  float: left;
+  margin-right: 5px;
+}
+.navigation .icons .icon.files,
+.navigation .icons .icon.modules {
+  float: right;
+  margin-left: 5px;
+}
 .navigation .search {
   position: absolute;
   left: 0px;
   right: 0px;
-  top: 52px;
-  padding: 10px 15px;
+  top: 102px;
+  padding: 0px 15px;
+  margin-left: 63px;
 }
 .navigation .search input {
   width: 90%;
@@ -65,24 +99,25 @@
   line-height: 20px;
   border: 1px solid #555555;
   background-color: #333333;
-  color: #fff;
+  color: #ffffff;
   display: none;
 }
 .navigation .list {
   position: absolute;
   left: 0px;
   right: 0px;
-  top: 112px;
+  top: 147px;
   bottom: 0px;
   overflow: auto;
   padding: 0px 15px;
+  margin-left: 63px;
 }
 .navigation li.item {
-  border-top: 1px solid #333;
+  border-top: 1px solid #333333;
 }
 .navigation li.item a {
   outline: 0;
-  color: #bbb;
+  color: #bbbbbb;
   text-decoration: none;
 }
 .navigation li.item a:hover,
@@ -113,15 +148,46 @@
   font-size: 11px;
   padding: 2px 5px;
   float: right;
+  margin-left: 6px;
+  border: 1px solid #808080;
+  color: #808080;
 }
-.navigation li.item .title .static {
+.navigation li.item .title .type-signature.static {
+  border-width: 0px;
   background-color: #779c34;
-  color: #000;
+  color: #000000;
 }
-.navigation li.item .title .module,
-.navigation li.item .title .namespace {
+.navigation li.item .title .type-signature.abstract {
+  border-width: 0px;
+  background-color: #d96629;
+  color: #000000;
+}
+.navigation li.item .title .type-signature.module,
+.navigation li.item .title .type-signature.namespace {
+  border-width: 0px;
+  background-color: #913d9e;
+  color: #000000;
+}
+.navigation li.item .title .type-signature.number,
+.navigation li.item .title .type-signature.integer,
+.navigation li.item .title .type-signature.float,
+.navigation li.item .title .type-signature.boolean,
+.navigation li.item .title .type-signature.array,
+.navigation li.item .title .type-signature.string {
+  border-width: 0px;
   background-color: #808080;
-  color: #000;
+  color: #000000;
+}
+.navigation li.item .title .type-signature.object,
+.navigation li.item .title .type-signature.class {
+  border-width: 0px;
+  background-color: #3978ae;
+  color: #000000;
+}
+.navigation li.item .title .type-signature.control {
+  border-width: 0px;
+  background-color: #b19915;
+  color: #000000;
 }
 .navigation li.item .subtitle {
   cursor: default;
@@ -140,55 +206,83 @@
   font-size: 11px;
   padding-left: 8px;
 }
+.navigation .socialLinks {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 32px;
+  padding: 102px 15px 15px 15px;
+  border-right: 1px solid #333333;
+}
+.navigation .socialLinks .icon {
+  margin-bottom: 10px;
+}
 </style>
 <div class="navigation">
   <h3 class="applicationName">
-    <a href="index.html">bbbfly-cjs</a>
+    bbbfly-cjs
   </h3>
+  <div class="icons">
+    <a href="index.html" class="icon index">
+      <img src="icons/navigation/home.png" alt="Index" title="Index"/>
+    </a>
+      <a href="files.html" class="icon files">
+        <img src="icons/navigation/file.png" alt="Files" title="Files"/>
+      </a>
+      <a href="modules.html" class="icon modules">
+        <img src="icons/navigation/package.png" alt="Packages" title="Packages"/>
+      </a>
+  </div>
   <div class="search">
     <input id="nav-search" type="text" placeholder="Search Documentations"/>
   </div>
   <ul id="nav-list" class="list">
-<li class="item" data-name="crossbrowser">
-  <span class="title">
-    <a href="module-crossbrowser.html">crossbrowser</a>
-      <span class="type-signature module">module</span>
-  </span>
-    <ul class="methods itemMembers">
-      <span class="subtitle">Methods</span>
-        <li data-name="crossbrowser#array․includes">
-          <a href="module-crossbrowser.html#array%25E2%2580%25A4includes">array․includes</a>
-        </li>
-        <li data-name="crossbrowser#Array․isArray">
-          <a href="module-crossbrowser.html#Array%25E2%2580%25A4isArray">Array․isArray</a>
-        </li>
-        <li data-name="crossbrowser#Date․isDate">
-          <a href="module-crossbrowser.html#Date%25E2%2580%25A4isDate">Date․isDate</a>
-        </li>
-        <li data-name="crossbrowser#string․capitalize">
-          <a href="module-crossbrowser.html#string%25E2%2580%25A4capitalize">string․capitalize</a>
-        </li>
-        <li data-name="crossbrowser#string․leading">
-          <a href="module-crossbrowser.html#string%25E2%2580%25A4leading">string․leading</a>
-        </li>
-        <li data-name="crossbrowser#string․repeat">
-          <a href="module-crossbrowser.html#string%25E2%2580%25A4repeat">string․repeat</a>
-        </li>
-        <li data-name="crossbrowser#string․trim">
-          <a href="module-crossbrowser.html#string%25E2%2580%25A4trim">string․trim</a>
-        </li>
-    </ul>
-</li>
 <li class="item" data-name="bbbfly">
   <span class="title">
     <a href="bbbfly.html">bbbfly</a>
-      <span class="type-signature namespace">namespace</span>
+        <span class="type-signature namespace">
+          namespace
+        </span>
   </span>
     <ul class="sublist">
+<li class="item" data-name="bbbfly.crossbrowser">
+  <span class="title">
+    <a href="bbbfly.crossbrowser.html">bbbfly.crossbrowser</a>
+        <span class="type-signature namespace">
+          namespace
+        </span>
+  </span>
+    <ul class="methods itemMembers">
+      <span class="subtitle">Methods</span>
+        <li data-name="bbbfly.crossbrowser#array․includes">
+          <a href="bbbfly.crossbrowser.html#array%25E2%2580%25A4includes">array․includes</a>
+        </li>
+        <li data-name="bbbfly.crossbrowser#Array․isArray">
+          <a href="bbbfly.crossbrowser.html#Array%25E2%2580%25A4isArray">Array․isArray</a>
+        </li>
+        <li data-name="bbbfly.crossbrowser#Date․isDate">
+          <a href="bbbfly.crossbrowser.html#Date%25E2%2580%25A4isDate">Date․isDate</a>
+        </li>
+        <li data-name="bbbfly.crossbrowser#string․capitalize">
+          <a href="bbbfly.crossbrowser.html#string%25E2%2580%25A4capitalize">string․capitalize</a>
+        </li>
+        <li data-name="bbbfly.crossbrowser#string․leading">
+          <a href="bbbfly.crossbrowser.html#string%25E2%2580%25A4leading">string․leading</a>
+        </li>
+        <li data-name="bbbfly.crossbrowser#string․repeat">
+          <a href="bbbfly.crossbrowser.html#string%25E2%2580%25A4repeat">string․repeat</a>
+        </li>
+        <li data-name="bbbfly.crossbrowser#string․trim">
+          <a href="bbbfly.crossbrowser.html#string%25E2%2580%25A4trim">string․trim</a>
+        </li>
+    </ul>
+</li>
 <li class="item" data-name="bbbfly.listener">
   <span class="title">
     <a href="bbbfly.listener.html">bbbfly.listener</a>
-      <span class="type-signature namespace">namespace</span>
+        <span class="type-signature namespace">
+          namespace
+        </span>
   </span>
     <ul class="methods itemMembers">
       <span class="subtitle">Interfaces</span>
@@ -206,7 +300,9 @@
 <li class="item" data-name="bbbfly.AppIndex">
   <span class="title">
     <a href="bbbfly.AppIndex.html">bbbfly.AppIndex</a>
-        <span class="type-signature static">static</span>
+        <span class="type-signature object">
+          object
+        </span>
   </span>
     <ul class="methods itemMembers">
       <span class="subtitle">Methods</span>
@@ -224,7 +320,9 @@
 <li class="item" data-name="bbbfly.AppLoader">
   <span class="title">
     <a href="bbbfly.AppLoader.html">bbbfly.AppLoader</a>
-        <span class="type-signature static">static</span>
+        <span class="type-signature object">
+          object
+        </span>
   </span>
     <ul class="methods itemMembers">
       <span class="subtitle">Methods</span>
@@ -257,7 +355,9 @@
 <li class="item" data-name="bbbfly.Downloader">
   <span class="title">
     <a href="bbbfly.Downloader.html">bbbfly.Downloader</a>
-        <span class="type-signature static">static</span>
+        <span class="type-signature object">
+          object
+        </span>
   </span>
     <ul class="members itemMembers">
       <span class="subtitle">Properties</span>
@@ -287,6 +387,12 @@
 <li class="item" data-name="bbbfly.Widget">
   <span class="title">
     <a href="bbbfly.Widget.html">bbbfly.Widget</a>
+        <span class="type-signature control">
+          control
+        </span>
+        <span class="type-signature class">
+          class
+        </span>
   </span>
     <ul class="members itemMembers">
       <span class="subtitle">Properties</span>
@@ -364,7 +470,9 @@
 <li class="item" data-name="bbbfly.WidgetRegistry">
   <span class="title">
     <a href="bbbfly.WidgetRegistry.html">bbbfly.WidgetRegistry</a>
-        <span class="type-signature static">static</span>
+        <span class="type-signature object">
+          object
+        </span>
   </span>
     <ul class="methods itemMembers">
       <span class="subtitle">Methods</span>
@@ -403,6 +511,22 @@
     </ul>
 </li>
   </ul>
+  <div class="socialLinks">
+        <a href="mailto:support@3b-fly.eu" class="icon social">
+          <img
+            src="icons/social/email.png"
+            alt="Email"
+            title="Email"
+          />
+        </a>
+        <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs" class="icon social">
+          <img
+            src="icons/social/github.png"
+            alt="GitHub"
+            title="GitHub"
+          />
+        </a>
+  </div>
 </div>
 <script>(function(){
   var searchBox = document.getElementById('nav-search');
@@ -454,24 +578,28 @@
   }
 })();</script>
     <div class="main">
-        <h1 class="page-title" data-filename="bbbfly.WidgetRegistry.html">Class: WidgetRegistry</h1>
 <section class="kind-class">
 <header>
-    <h2 class="name">
+    <h1 class="name">
         <span class="ancestors"><a href="bbbfly.html">bbbfly</a>.</span>
-    WidgetRegistry
-    </h2>
+      WidgetRegistry
+  <span class="types">
+      <span class="type-signature object">
+        object
+      </span>
+  </span>
+    </h1>
 </header>
 <article>
     <div class="container-overview">
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="WidgetRegistry">
+        <h2 id="WidgetRegistry">
           bbbfly.WidgetRegistry
-        </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L360">extensions/widget.js, line 360</a>
-          </div>
+        </h2>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L360">extensions/widget.js, line 360</a>
+        </div>
     </div>
 </dt>
 <dd>
@@ -479,29 +607,29 @@
 </dl>
 </dd>
     </div>
-    <h3 class="subsection-title">Controls.js</h3>
+    <h3>Controls.js</h3>
     <ul class="subsection-list"><li>
         <span><b>library:</b> bbbfly-cjs</span>
             <ul>
                     <li><b>package:</b> widget</li>
             </ul>
     </li></ul>
-        <h3 class="subsection-title">Methods</h3>
+        <h3>Methods</h3>
         <dl>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="CallAllGroupWidgets">
-          CallAllGroupWidgets<span class="signature">(group, funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{Array.&lt;mixed>}</span>
+        <h4 id="CallAllGroupWidgets">
+          CallAllGroupWidgets
+          <span class="signature">(group, funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{Array.&lt;mixed>}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L459">extensions/widget.js, line 459</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L459">extensions/widget.js, line 459</a>
+        </div>
     </div>
 </dt>
 <dd>
-    <div class="description">
-        Call all widgets in group method
-    </div>
+      <div class="description">Call all widgets in group method</div>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -568,18 +696,18 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="CallAllWidgets">
-          CallAllWidgets<span class="signature">(funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{Array.&lt;mixed>}</span>
+        <h4 id="CallAllWidgets">
+          CallAllWidgets
+          <span class="signature">(funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{Array.&lt;mixed>}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L448">extensions/widget.js, line 448</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L448">extensions/widget.js, line 448</a>
+        </div>
     </div>
 </dt>
 <dd>
-    <div class="description">
-        Call all widgets method
-    </div>
+      <div class="description">Call all widgets method</div>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -635,18 +763,18 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="CallWidget">
-          CallWidget<span class="signature">(widget, funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{mixed}</span>
+        <h4 id="CallWidget">
+          CallWidget
+          <span class="signature">(widget, funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{mixed}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L424">extensions/widget.js, line 424</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L424">extensions/widget.js, line 424</a>
+        </div>
     </div>
 </dt>
 <dd>
-    <div class="description">
-        Call widget method
-    </div>
+      <div class="description">Call widget method</div>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -712,18 +840,18 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="CallWidgetById">
-          CallWidgetById<span class="signature">(id, funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{mixed}</span>
+        <h4 id="CallWidgetById">
+          CallWidgetById
+          <span class="signature">(id, funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{mixed}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L436">extensions/widget.js, line 436</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L436">extensions/widget.js, line 436</a>
+        </div>
     </div>
 </dt>
 <dd>
-    <div class="description">
-        Call widget method
-    </div>
+      <div class="description">Call widget method</div>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -790,18 +918,18 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="GetGroupShownWidget">
-          GetGroupShownWidget<span class="signature">(group)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.Widget.html">bbbfly.Widget</a>}</span>
+        <h4 id="GetGroupShownWidget">
+          GetGroupShownWidget
+          <span class="signature">(group)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.Widget.html">bbbfly.Widget</a>}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L414">extensions/widget.js, line 414</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L414">extensions/widget.js, line 414</a>
+        </div>
     </div>
 </dt>
 <dd>
-    <div class="description">
-        Get widget shown in certain group
-    </div>
+      <div class="description">Get widget shown in certain group</div>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -846,18 +974,18 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="GetGroupWidgets">
-          GetGroupWidgets<span class="signature">(group)</span><span class="arrow-right"></span><span class="type-signature returnType">{Array.&lt;<a href="bbbfly.Widget.html">bbbfly.Widget</a>>}</span>
+        <h4 id="GetGroupWidgets">
+          GetGroupWidgets
+          <span class="signature">(group)</span><span class="arrow-right"></span><span class="type-signature returnType">{Array.&lt;<a href="bbbfly.Widget.html">bbbfly.Widget</a>>}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L404">extensions/widget.js, line 404</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L404">extensions/widget.js, line 404</a>
+        </div>
     </div>
 </dt>
 <dd>
-    <div class="description">
-        Get all widgets of certain group
-    </div>
+      <div class="description">Get all widgets of certain group</div>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -902,15 +1030,17 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="GetWidgetById">
-          GetWidgetById<span class="signature">(id)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.Widget.html">bbbfly.Widget</a>}</span>
+        <h4 id="GetWidgetById">
+          GetWidgetById
+          <span class="signature">(id)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.Widget.html">bbbfly.Widget</a>}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L395">extensions/widget.js, line 395</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L395">extensions/widget.js, line 395</a>
+        </div>
     </div>
 </dt>
 <dd>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -955,12 +1085,13 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="GetWidgets">
-          GetWidgets<span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{Array.&lt;<a href="bbbfly.Widget.html">bbbfly.Widget</a>>}</span>
+        <h4 id="GetWidgets">
+          GetWidgets
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{Array.&lt;<a href="bbbfly.Widget.html">bbbfly.Widget</a>>}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L387">extensions/widget.js, line 387</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L387">extensions/widget.js, line 387</a>
+        </div>
     </div>
 </dt>
 <dd>
@@ -986,15 +1117,17 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="RegisterWidget">
-          RegisterWidget<span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{bolean}</span>
+        <h4 id="RegisterWidget">
+          RegisterWidget
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{bolean}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L378">extensions/widget.js, line 378</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L378">extensions/widget.js, line 378</a>
+        </div>
     </div>
 </dt>
 <dd>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -1035,15 +1168,17 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="WidgetId">
-          WidgetId<span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{string|null}</span>
+        <h4 id="WidgetId">
+          WidgetId
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{string|null}</span>
         </h4>
-          <div class="tag-source">
-            <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L368">extensions/widget.js, line 368</a>
-          </div>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L368">extensions/widget.js, line 368</a>
+        </div>
     </div>
 </dt>
 <dd>
+        <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
@@ -1088,7 +1223,8 @@
 </article>
 </section>
         <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Aug 20 2017 10:09:52 GMT+0200 (Central Europe Daylight Time)
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Aug 27 2017 20:50:26 GMT+0200 (Central Europe Daylight Time)
+            <br/>Content icons made by <a target="_blank" href="http://www.freepik.com">Freepik</a> from <a target="_blank" href="http://www.flaticon.com">www.flaticon.com</a>
         </footer>
     </div>
 </div>
