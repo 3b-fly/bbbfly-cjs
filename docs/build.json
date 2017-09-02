@@ -5,6 +5,8 @@
       "../package.json",
       "../src/controls.jsdoc",
       "../src/app/index.js",
+      "../src/app/lang/index_cs.js",
+      "../src/app/lang/index_en.js",
       "../src/app/loader.js",
       "../src/helpers/crossbrowser.js",
       "../src/helpers/downloader.js",
@@ -13,9 +15,7 @@
     ]
   },
   "plugins": [
-    "../../controlsjs-jsdoc/plugins/event-callback",
-    "../../controlsjs-jsdoc/plugins/controlsjs-lib",
-    "../../controlsjs-jsdoc/plugins/controlsjs-def"
+    "../../controlsjs-jsdoc/plugins/controlsjs"
   ],
   "opts": {
     "template": "../../controlsjs-jsdoc",
@@ -23,7 +23,7 @@
   },
   "templates": {
     "applicationName": "bbbfly-cjs",
-    "linkPaths": {
+    "sourceLinks": {
       "../src/": "https://github.com/3b-fly/bbbfly-cjs/blob/master/src/%path%#L%lineno%"
     },
     "socialLinks": {

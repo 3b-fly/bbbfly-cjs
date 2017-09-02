@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Modules</title>
+    <title>Packages</title>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -80,7 +80,8 @@
   margin-right: 5px;
 }
 .navigation .icons .icon.files,
-.navigation .icons .icon.modules {
+.navigation .icons .icon.packages,
+.navigation .icons .icon.globals {
   float: right;
   margin-left: 5px;
 }
@@ -229,7 +230,7 @@
       <a href="files.html" class="icon files">
         <img src="icons/navigation/file.png" alt="Files" title="Files"/>
       </a>
-      <a href="modules.html" class="icon modules">
+      <a href="packages.html" class="icon packages">
         <img src="icons/navigation/package.png" alt="Packages" title="Packages"/>
       </a>
   </div>
@@ -451,19 +452,19 @@
           <a href="bbbfly.Widget.html#ShowOrHide">ShowOrHide</a>
         </li>
     </ul>
-    <ul class="callbacks itemMembers">
+    <ul class="events itemMembers">
       <span class="subtitle">Events</span>
-        <li data-name="bbbfly.Widget#OnHidden">
-          <a href="bbbfly.Widget.html#OnHidden">OnHidden</a>
+        <li data-name="OnHidden">
+          <a href="bbbfly.Widget.html#event:OnHidden">OnHidden</a>
         </li>
-        <li data-name="bbbfly.Widget#OnHide">
-          <a href="bbbfly.Widget.html#OnHide">OnHide</a>
+        <li data-name="OnHide">
+          <a href="bbbfly.Widget.html#event:OnHide">OnHide</a>
         </li>
-        <li data-name="bbbfly.Widget#OnShow">
-          <a href="bbbfly.Widget.html#OnShow">OnShow</a>
+        <li data-name="OnShow">
+          <a href="bbbfly.Widget.html#event:OnShow">OnShow</a>
         </li>
-        <li data-name="bbbfly.Widget#OnShown">
-          <a href="bbbfly.Widget.html#OnShown">OnShown</a>
+        <li data-name="OnShown">
+          <a href="bbbfly.Widget.html#event:OnShown">OnShown</a>
         </li>
     </ul>
 </li>
@@ -586,69 +587,182 @@
       <dl>
           <dt>
             <div class="nameContainer">
-              <h4 class="name" id="appIndex">appIndex</h4>
+              <h4 class="name" id="package:appIndex">appIndex</h4>
             </div>
           </dt>
-          <dd>
+          <dd class="member-content">
               <div class="description">Disables application files caching in debug mode  and provides leave application dialog handling.</div>
 <dl class="details">
+    <dt class="tag-version">Version:</dt>
+    <dd class="tag-version">
+      <ul class="dummy">
+        <li>2.0.0</li>
+      </ul>
+    </dd>
+    <dt class="tag-requires">Requires:</dt>
+    <dd class="tag-requires">
+      <ul class="dummy">
+          <li><a target="_blank" href="http://controlsjs.com/">controls.js v5.0.0</a></li>
+      </ul>
+    </dd>
 </dl>
+              <h5>Classes:</h5>
+              <ul>
+                  <li><a href="bbbfly.AppIndex.html">AppIndex</a></li>
+              </ul>
+              <h5>Files:</h5>
+              <ul>
+                  <li><a href="files.html#app/index.js">app/index.js</a></li>
+                  <li><a href="files.html#app/lang/index_cs.js">app/lang/index_cs.js</a></li>
+                  <li><a href="files.html#app/lang/index_en.js">app/lang/index_en.js</a></li>
+              </ul>
           </dd>
           <dt>
             <div class="nameContainer">
-              <h4 class="name" id="appLoader">appLoader</h4>
+              <h4 class="name" id="package:appLoader">appLoader</h4>
             </div>
           </dt>
-          <dd>
+          <dd class="member-content">
               <div class="description">Allows easy application loading progress handling.</div>
 <dl class="details">
+    <dt class="tag-version">Version:</dt>
+    <dd class="tag-version">
+      <ul class="dummy">
+        <li>2.0.0</li>
+      </ul>
+    </dd>
+    <dt class="tag-requires">Requires:</dt>
+    <dd class="tag-requires">
+      <ul class="dummy">
+          <li><a target="_blank" href="http://controlsjs.com/">controls.js v5.0.0</a></li>
+      </ul>
+    </dd>
 </dl>
+              <h5>Classes:</h5>
+              <ul>
+                  <li><a href="bbbfly.AppLoader.html">AppLoader</a></li>
+              </ul>
+              <h5>Files:</h5>
+              <ul>
+                  <li><a href="files.html#app/loader.js">app/loader.js</a></li>
+              </ul>
           </dd>
           <dt>
             <div class="nameContainer">
-              <h4 class="name" id="crossbrowser">crossbrowser</h4>
+              <h4 class="name" id="package:crossbrowser">crossbrowser</h4>
             </div>
           </dt>
-          <dd>
+          <dd class="member-content">
               <div class="description">Adds missing methods to JavaScript types.</div>
 <dl class="details">
+    <dt class="tag-version">Version:</dt>
+    <dd class="tag-version">
+      <ul class="dummy">
+        <li>2.0.0</li>
+      </ul>
+    </dd>
 </dl>
+              <h5>Namespaces:</h5>
+              <ul>
+                  <li><a href="bbbfly.crossbrowser.html">crossbrowser</a></li>
+              </ul>
+              <h5>Files:</h5>
+              <ul>
+                  <li><a href="files.html#helpers/crossbrowser.js">helpers/crossbrowser.js</a></li>
+              </ul>
           </dd>
           <dt>
             <div class="nameContainer">
-              <h4 class="name" id="downloader">downloader</h4>
+              <h4 class="name" id="package:downloader">downloader</h4>
             </div>
           </dt>
-          <dd>
+          <dd class="member-content">
               <div class="description">Provides easy file download helper.</div>
 <dl class="details">
+    <dt class="tag-version">Version:</dt>
+    <dd class="tag-version">
+      <ul class="dummy">
+        <li>2.0.0</li>
+      </ul>
+    </dd>
 </dl>
+              <h5>Classes:</h5>
+              <ul>
+                  <li><a href="bbbfly.Downloader.html">Downloader</a></li>
+              </ul>
+              <h5>Files:</h5>
+              <ul>
+                  <li><a href="files.html#helpers/downloader.js">helpers/downloader.js</a></li>
+              </ul>
           </dd>
           <dt>
             <div class="nameContainer">
-              <h4 class="name" id="listener">listener</h4>
+              <h4 class="name" id="package:listener">listener</h4>
             </div>
           </dt>
-          <dd>
+          <dd class="member-content">
               <div class="description">Adds event listener support to all created controls.</div>
 <dl class="details">
+    <dt class="tag-version">Version:</dt>
+    <dd class="tag-version">
+      <ul class="dummy">
+        <li>2.0.0</li>
+      </ul>
+    </dd>
+    <dt class="tag-requires">Requires:</dt>
+    <dd class="tag-requires">
+      <ul class="dummy">
+          <li><a target="_blank" href="http://controlsjs.com/">controls.js v5.0.0</a></li>
+          <li><a href="packages.html#package:crossbrowser">crossbrowser</a></li>
+      </ul>
+    </dd>
 </dl>
+              <h5>Namespaces:</h5>
+              <ul>
+                  <li><a href="bbbfly.listener.html">listener</a></li>
+              </ul>
+              <h5>Files:</h5>
+              <ul>
+                  <li><a href="files.html#extensions/listener.js">extensions/listener.js</a></li>
+              </ul>
           </dd>
           <dt>
             <div class="nameContainer">
-              <h4 class="name" id="widget">widget</h4>
+              <h4 class="name" id="package:widget">widget</h4>
             </div>
           </dt>
-          <dd>
+          <dd class="member-content">
               <div class="description">Contains "bbbfly.Widget" control and widget registry.</div>
 <dl class="details">
+    <dt class="tag-version">Version:</dt>
+    <dd class="tag-version">
+      <ul class="dummy">
+        <li>2.0.0</li>
+      </ul>
+    </dd>
+    <dt class="tag-requires">Requires:</dt>
+    <dd class="tag-requires">
+      <ul class="dummy">
+          <li><a target="_blank" href="http://controlsjs.com/">controls.js v5.0.0</a></li>
+          <li><a href="packages.html#package:crossbrowser">crossbrowser</a></li>
+      </ul>
+    </dd>
 </dl>
+              <h5>Classes:</h5>
+              <ul>
+                  <li><a href="bbbfly.Widget.html">Widget</a></li>
+                  <li><a href="bbbfly.WidgetRegistry.html">WidgetRegistry</a></li>
+              </ul>
+              <h5>Files:</h5>
+              <ul>
+                  <li><a href="files.html#extensions/widget.js">extensions/widget.js</a></li>
+              </ul>
           </dd>
       </dl>
   </article>
 </section>
         <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Aug 27 2017 20:50:25 GMT+0200 (Central Europe Daylight Time)
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sat Sep 02 2017 13:41:13 GMT+0200 (Central Europe Daylight Time)
             <br/>Content icons made by <a target="_blank" href="http://www.freepik.com">Freepik</a> from <a target="_blank" href="http://www.flaticon.com">www.flaticon.com</a>
         </footer>
     </div>

@@ -1,11 +1,9 @@
 /**
- * @fileOverview Listener controls set.
+ * @file
  * @author Jan Nejedly [support@3b-fly.eu]
  * @copyright Jan Nejedly
- * @version 2.0.0
  *
- * @requires {@link http://controlsjs.com/|controls.js v5.0.0}
- * @requires {@link module:crossbrowser|helpers/crossbrowser.js}
+ * @inpackage listener
  */
 
 /** @ignore */
@@ -17,8 +15,7 @@ var bbbfly = bbbfly || {};
  *   or use {@link bbbfly.listener.SetListenable|SetListenable()} method
  *   to allow its events listening.
  *
- * @controlsjs-library bbbfly-cjs
- * @controlsjs-package listener
+ * @inpackage listener
  *
  * @example
  * var appForm;
@@ -94,7 +91,7 @@ bbbfly.listener.SetListenable = function(obj,force){
 /**
  * @function
  * @name AddListener
- * @memberOf bbbfly.listener.Listenable#
+ * @memberof bbbfly.listener.Listenable#
  * @description Add object events listener. Listener must implement listening event functions.
  *
  * @param {string[]} eventNames - Names of events to listen
@@ -186,7 +183,7 @@ var ngOnControlCreated = ngAddEvent(ngOnControlCreated,
 
 /**
  * @interface Listenable
- * @memberOf bbbfly.listener
+ * @memberof bbbfly.listener
  *
  * @property {boolean} [AllowListeners=false] - If set to true, interface methods will be added
  */

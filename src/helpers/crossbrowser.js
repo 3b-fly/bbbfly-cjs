@@ -1,8 +1,9 @@
 /**
- * @fileOverview Crossbrowser compatibility set.
+ * @file
  * @author Jan Nejedly [support@3b-fly.eu]
  * @copyright Jan Nejedly
- * @version 2.0.0
+ *
+ * @inpackage crossbrowser
  */
 
 /**
@@ -11,8 +12,7 @@
  * @description
  *   Adds methods to JavaScript types if they are not defined yet.
  *
- * @controlsjs-library bbbfly-cjs
- * @controlsjs-package crossbrowser
+ * @inpackage crossbrowser
  */
 
 /**

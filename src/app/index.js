@@ -1,10 +1,9 @@
 /**
- * @fileOverview Application index set.
+ * @file
  * @author Jan Nejedly [support@3b-fly.eu]
  * @copyright Jan Nejedly
- * @version 2.0.0
  *
- * @requires {@link http://controlsjs.com/|controls.js v5.0.0}
+ * @inpackage appIndex
  */
 
 /** @ignore */
@@ -73,8 +72,7 @@ bbbfly.appindex._leaveDialog = function(){
  * @class
  * @hideconstructor
  *
- * @controlsjs-library bbbfly-cjs
- * @controlsjs-package appIndex
+ * @inpackage appIndex
  */
 bbbfly.AppIndex = {
 

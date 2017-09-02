@@ -1,46 +1,65 @@
 /**
  * @fileOverview Packages definition.
- * @author Jan Nejedly [support@3b-fly.eu]
- * @copyright Jan Nejedly
- * @version 2.0.0
  * @private
  */
 
 /** @namespace bbbfly */
 
 /**
- * @module crossbrowser
+ * @package crossbrowser
  * @description
  *   Adds missing methods to JavaScript types.
+ *
+ * @version 2.0.0
  */
 
 /**
- * @module downloader
+ * @package downloader
  * @description
  *   Provides easy file download helper.
+ *
+ * @version 2.0.0
  */
 
 /**
- * @module listener
+ * @package listener
  * @description
  *   Adds event listener support to all created controls.
+ *
+ * @version 2.0.0
+ *
+ * @requires {@link http://controlsjs.com/|controls.js v5.0.0}
+ * @requires {@link package:crossbrowser|crossbrowser}
  */
 
 /**
- * @module widget
+ * @package widget
  * @description
  *   Contains "bbbfly.Widget" control and widget registry.
+ *
+ * @version 2.0.0
+ *
+ * @requires {@link http://controlsjs.com/|controls.js v5.0.0}
+ * @requires {@link package:crossbrowser|crossbrowser}
  */
 
 /**
- * @module appLoader
+ * @package appLoader
  * @description
  *   Allows easy application loading progress handling.
+ *
+ * @version 2.0.0
+ *
+ * @requires {@link http://controlsjs.com/|controls.js v5.0.0}
  */
 
 /**
- * @module appIndex
+ * @package appIndex
  * @description
  *   Disables application files caching in debug mode
  *   and provides leave application dialog handling.
+ *
+ * @version 2.0.0
+ *
+ * @requires {@link http://controlsjs.com/|controls.js v5.0.0}
  */

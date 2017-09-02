@@ -1,8 +1,9 @@
 /**
- * @fileOverview Downloader helper set.
+ * @file
  * @author Jan Nejedly [support@3b-fly.eu]
  * @copyright Jan Nejedly
- * @version 2.0.0
+ *
+ * @inpackage downloader
  */
 
 /** @ignore */
@@ -69,8 +70,7 @@ bbbfly.downloader._downloadByIframe = function(downloader,url){
  * @class
  * @hideconstructor
  *
- * @controlsjs-library bbbfly-cjs
- * @controlsjs-package downloader
+ * @inpackage downloader
  *
  * @property {bbbfly.Downloader.method} [Method=auto]
  *   Set this property to require certain download method.

@@ -80,7 +80,8 @@
   margin-right: 5px;
 }
 .navigation .icons .icon.files,
-.navigation .icons .icon.modules {
+.navigation .icons .icon.packages,
+.navigation .icons .icon.globals {
   float: right;
   margin-left: 5px;
 }
@@ -229,7 +230,7 @@
       <a href="files.html" class="icon files">
         <img src="icons/navigation/file.png" alt="Files" title="Files"/>
       </a>
-      <a href="modules.html" class="icon modules">
+      <a href="packages.html" class="icon packages">
         <img src="icons/navigation/package.png" alt="Packages" title="Packages"/>
       </a>
   </div>
@@ -451,19 +452,19 @@
           <a href="bbbfly.Widget.html#ShowOrHide">ShowOrHide</a>
         </li>
     </ul>
-    <ul class="callbacks itemMembers">
+    <ul class="events itemMembers">
       <span class="subtitle">Events</span>
-        <li data-name="bbbfly.Widget#OnHidden">
-          <a href="bbbfly.Widget.html#OnHidden">OnHidden</a>
+        <li data-name="OnHidden">
+          <a href="bbbfly.Widget.html#event:OnHidden">OnHidden</a>
         </li>
-        <li data-name="bbbfly.Widget#OnHide">
-          <a href="bbbfly.Widget.html#OnHide">OnHide</a>
+        <li data-name="OnHide">
+          <a href="bbbfly.Widget.html#event:OnHide">OnHide</a>
         </li>
-        <li data-name="bbbfly.Widget#OnShow">
-          <a href="bbbfly.Widget.html#OnShow">OnShow</a>
+        <li data-name="OnShow">
+          <a href="bbbfly.Widget.html#event:OnShow">OnShow</a>
         </li>
-        <li data-name="bbbfly.Widget#OnShown">
-          <a href="bbbfly.Widget.html#OnShown">OnShown</a>
+        <li data-name="OnShown">
+          <a href="bbbfly.Widget.html#event:OnShown">OnShown</a>
         </li>
     </ul>
 </li>
@@ -598,24 +599,21 @@
           bbbfly.AppLoader
         </h2>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L123">app/loader.js, line 123</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L121">app/loader.js, line 121</a>
         </div>
     </div>
 </dt>
 <dd>
 <dl class="details">
 </dl>
-        <h5>Example</h5>
+        <h5>Examples</h5>
   <pre><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">ngMain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">ClearProgress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">SetStepsCount</span><span class="token punctuation">(</span>actions<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token keyword">in</span> actions<span class="token punctuation">)</span><span class="token punctuation">{</span>    bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">SetProgressMessage</span><span class="token punctuation">(</span>actions<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>    actions<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">MoveByStep</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token punctuation">}</span>  bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">Hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
 </dd>
     </div>
-    <h3>Controls.js</h3>
-    <ul class="subsection-list"><li>
-        <span><b>library:</b> bbbfly-cjs</span>
-            <ul>
-                    <li><b>package:</b> appLoader</li>
-            </ul>
-    </li></ul>
+        <h3>In Packages</h3>
+        <ul>
+              <li><a href="packages.html#package:appLoader">appLoader</a></li>
+        </ul>
         <h3>Methods</h3>
         <dl>
 <dt>
@@ -625,7 +623,7 @@
           <span class="signature">()</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L178">app/loader.js, line 178</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L176">app/loader.js, line 176</a>
         </div>
     </div>
 </dt>
@@ -647,7 +645,7 @@
           <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{div}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L138">app/loader.js, line 138</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L136">app/loader.js, line 136</a>
         </div>
     </div>
 </dt>
@@ -680,7 +678,7 @@
           <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{div}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L147">app/loader.js, line 147</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L145">app/loader.js, line 145</a>
         </div>
     </div>
 </dt>
@@ -713,7 +711,7 @@
           <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L210">app/loader.js, line 210</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L208">app/loader.js, line 208</a>
         </div>
     </div>
 </dt>
@@ -764,7 +762,7 @@
           <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L199">app/loader.js, line 199</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L197">app/loader.js, line 197</a>
         </div>
     </div>
 </dt>
@@ -803,7 +801,7 @@
           <span class="signature">(progress)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L166">app/loader.js, line 166</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L164">app/loader.js, line 164</a>
         </div>
     </div>
 </dt>
@@ -865,7 +863,7 @@
           <span class="signature">(message)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L156">app/loader.js, line 156</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L154">app/loader.js, line 154</a>
         </div>
     </div>
 </dt>
@@ -920,7 +918,7 @@
           <span class="signature">(count)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L187">app/loader.js, line 187</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L185">app/loader.js, line 185</a>
         </div>
     </div>
 </dt>
@@ -979,7 +977,7 @@
 </article>
 </section>
         <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Aug 27 2017 20:50:25 GMT+0200 (Central Europe Daylight Time)
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sat Sep 02 2017 13:41:13 GMT+0200 (Central Europe Daylight Time)
             <br/>Content icons made by <a target="_blank" href="http://www.freepik.com">Freepik</a> from <a target="_blank" href="http://www.flaticon.com">www.flaticon.com</a>
         </footer>
     </div>

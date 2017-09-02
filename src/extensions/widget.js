@@ -1,11 +1,9 @@
 /**
- * @fileOverview Widget controls set.
+ * @file
  * @author Jan Nejedly [support@3b-fly.eu]
  * @copyright Jan Nejedly
- * @version 2.0.0
  *
- * @requires {@link http://controlsjs.com/|controls.js v5.0.0}
- * @requires {@link module:crossbrowser|helpers/crossbrowser.js}
+ * @inpackage widget
  */
 
 /** @ignore */
@@ -354,8 +352,7 @@ bbbfly.widget._setWidgetGroup = function(groupName){
  * @class
  * @hideconstructor
  *
- * @controlsjs-library bbbfly-cjs
- * @controlsjs-package widget
+ * @inpackage widget
  */
 bbbfly.WidgetRegistry = {
   /** @private */
@@ -475,8 +472,7 @@ bbbfly.WidgetRegistry = {
  * @type control
  * @extends ngPanel
  *
- * @controlsjs-library bbbfly-cjs
- * @controlsjs-package widget
+ * @inpackage widget
  *
  * @param {object} [def=undefined] - Descendant definition
  * @param {object} [ref=undefined] - Reference owner
@@ -506,7 +502,7 @@ bbbfly.Widget = function(def,ref,parent){
     },
     Events: {
       /**
-       * @event-callback
+       * @event
        * @name OnShow
        * @memberof bbbfly.Widget#
        *
@@ -519,7 +515,7 @@ bbbfly.Widget = function(def,ref,parent){
        */
       OnShow: null,
       /**
-       * @event-callback
+       * @event
        * @name OnHide
        * @memberof bbbfly.Widget#
        *
@@ -532,7 +528,7 @@ bbbfly.Widget = function(def,ref,parent){
        */
       OnHide: null,
       /**
-       * @event-callback
+       * @event
        * @name OnShown
        * @memberof bbbfly.Widget#
        *
@@ -544,7 +540,7 @@ bbbfly.Widget = function(def,ref,parent){
        */
       OnShown: null,
       /**
-       * @event-callback
+       * @event
        * @name OnHidden
        * @memberof bbbfly.Widget#
        *

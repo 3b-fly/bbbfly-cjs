@@ -1,10 +1,9 @@
 /**
- * @fileOverview Application loader set.
+ * @file
  * @author Jan Nejedly [support@3b-fly.eu]
  * @copyright Jan Nejedly
- * @version 2.0.0
  *
- * @requires {@link http://controlsjs.com/|controls.js v5.0.0}
+ * @inpackage appLoader
  */
 
 /** @ignore */
@@ -102,8 +101,7 @@ bbbfly.apploader._hide = function(){
  * @class
  * @hideconstructor
  *
- * @controlsjs-library bbbfly-cjs
- * @controlsjs-package appLoader
+ * @inpackage appLoader
  *
  * @example
  * function ngMain(){

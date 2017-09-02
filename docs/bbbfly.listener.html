@@ -80,7 +80,8 @@
   margin-right: 5px;
 }
 .navigation .icons .icon.files,
-.navigation .icons .icon.modules {
+.navigation .icons .icon.packages,
+.navigation .icons .icon.globals {
   float: right;
   margin-left: 5px;
 }
@@ -229,7 +230,7 @@
       <a href="files.html" class="icon files">
         <img src="icons/navigation/file.png" alt="Files" title="Files"/>
       </a>
-      <a href="modules.html" class="icon modules">
+      <a href="packages.html" class="icon packages">
         <img src="icons/navigation/package.png" alt="Packages" title="Packages"/>
       </a>
   </div>
@@ -451,19 +452,19 @@
           <a href="bbbfly.Widget.html#ShowOrHide">ShowOrHide</a>
         </li>
     </ul>
-    <ul class="callbacks itemMembers">
+    <ul class="events itemMembers">
       <span class="subtitle">Events</span>
-        <li data-name="bbbfly.Widget#OnHidden">
-          <a href="bbbfly.Widget.html#OnHidden">OnHidden</a>
+        <li data-name="OnHidden">
+          <a href="bbbfly.Widget.html#event:OnHidden">OnHidden</a>
         </li>
-        <li data-name="bbbfly.Widget#OnHide">
-          <a href="bbbfly.Widget.html#OnHide">OnHide</a>
+        <li data-name="OnHide">
+          <a href="bbbfly.Widget.html#event:OnHide">OnHide</a>
         </li>
-        <li data-name="bbbfly.Widget#OnShow">
-          <a href="bbbfly.Widget.html#OnShow">OnShow</a>
+        <li data-name="OnShow">
+          <a href="bbbfly.Widget.html#event:OnShow">OnShow</a>
         </li>
-        <li data-name="bbbfly.Widget#OnShown">
-          <a href="bbbfly.Widget.html#OnShown">OnShown</a>
+        <li data-name="OnShown">
+          <a href="bbbfly.Widget.html#event:OnShown">OnShown</a>
         </li>
     </ul>
 </li>
@@ -595,16 +596,13 @@
             <div class="description">Set any control <a href="bbbfly.listener.Listenable.html">AllowListeners</a> property to true  or use <a href="bbbfly.listener.html#.SetListenable">SetListenable()</a> method  to allow its events listening.</div>
 <dl class="details">
 </dl>
-            <h3>Example</h3>
+            <h3>Examples</h3>
   <pre><code class="language-javascript"><span class="token keyword">var</span> appForm<span class="token punctuation">;</span><span class="token keyword">function</span> <span class="token function">ngMain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  appForm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ngControls</span><span class="token punctuation">(</span><span class="token punctuation">{</span>    Invoker<span class="token punctuation">:</span> <span class="token punctuation">{</span>      Type<span class="token punctuation">:</span> <span class="token string">'ngPanel'</span><span class="token punctuation">,</span>      Data<span class="token punctuation">:</span> <span class="token punctuation">{</span>        AllowListeners<span class="token punctuation">:</span> <span class="token boolean">true</span>      <span class="token punctuation">}</span>    <span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">var</span> Listener <span class="token operator">=</span> <span class="token punctuation">{</span>    OnUpdate<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token punctuation">}</span>    OnUpdated<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">;</span>  appForm<span class="token punctuation">.</span>Invoker<span class="token punctuation">.</span><span class="token function">AddListener</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'OnUpdate'</span><span class="token punctuation">,</span><span class="token string">'OnUpdated'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>Listener<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//...or...</span>  bbbfly<span class="token punctuation">.</span>listener<span class="token punctuation">.</span><span class="token function">SetListenable</span><span class="token punctuation">(</span>Listener<span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  Listener<span class="token punctuation">.</span><span class="token function">AddListener</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'OnUpdated'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">{</span>    OnUpdated<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  appForm<span class="token punctuation">.</span><span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
     </div>
-    <h3>Controls.js</h3>
-    <ul class="subsection-list"><li>
-        <span><b>library:</b> bbbfly-cjs</span>
-            <ul>
-                    <li><b>package:</b> listener</li>
-            </ul>
-    </li></ul>
+        <h3>In Packages</h3>
+        <ul>
+              <li><a href="packages.html#package:listener">listener</a></li>
+        </ul>
         <h3>Interfaces</h3>
         <ul>
             <li><a href="bbbfly.listener.Listenable.html">Listenable</a></li>
@@ -623,7 +621,7 @@
           <span class="signature">(obj, force)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/listener.js#L55">extensions/listener.js, line 55</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/listener.js#L52">extensions/listener.js, line 52</a>
         </div>
     </div>
 </dt>
@@ -687,7 +685,7 @@
 </article>
 </section>
         <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sun Aug 27 2017 20:50:25 GMT+0200 (Central Europe Daylight Time)
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sat Sep 02 2017 13:41:13 GMT+0200 (Central Europe Daylight Time)
             <br/>Content icons made by <a target="_blank" href="http://www.freepik.com">Freepik</a> from <a target="_blank" href="http://www.flaticon.com">www.flaticon.com</a>
         </footer>
     </div>
