@@ -54,7 +54,7 @@ bbbfly.listener = {};
  * @name SetListenable
  * @memberOf bbbfly.listener
  * @description
- *   Sets {@link bbbfly.listener.Listenable|Listenable} interface methods to passes object
+ *   Sets {@link bbbfly.listener.Listenable|Listenable} interface methods to passed object
  *   if its {@link bbbfly.listener.Listenable|AllowListeners} property is set to true.
  *
  * @param {object} obj
@@ -148,7 +148,7 @@ bbbfly.listener._addListener = function(eventNames,listener){
  * @function
  * @name RemoveListener
  * @memberof bbbfly.listener.Listenable#
- * @description Remove object event listener
+ * @description Remove object event listener.
  *
  * @param {string[]} eventNames - Names of events to do not listen
  * @param {object} listener
@@ -182,7 +182,8 @@ var ngOnControlCreated = ngAddEvent(ngOnControlCreated,
 );
 
 /**
- * @interface Listenable
+ * @interface
+ * @name Listenable
  * @memberof bbbfly.listener
  *
  * @property {boolean} [AllowListeners=false] - If set to true, interface methods will be added
