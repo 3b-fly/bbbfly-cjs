@@ -28,8 +28,8 @@
  *
  * @version 2.0.0
  *
- * @requires {@link http://controlsjs.com/|controls.js v5.0.0}
- * @requires {@link package:crossbrowser|crossbrowser}
+ * @requires {@link http://controlsjs.com/|controls.js (5.0.0): Controls.js}
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
  */
 
 /**
@@ -39,8 +39,8 @@
  *
  * @version 2.0.0
  *
- * @requires {@link http://controlsjs.com/|controls.js v5.0.0}
- * @requires {@link package:crossbrowser|crossbrowser}
+ * @requires {@link http://controlsjs.com/|controls.js (5.0.0): Controls.js}
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
  */
 
 /**
@@ -50,7 +50,7 @@
  *
  * @version 2.0.0
  *
- * @requires {@link http://controlsjs.com/|controls.js v5.0.0}
+ * @requires {@link http://controlsjs.com/|controls.js (5.0.0): Controls.js}
  */
 
 /**
@@ -61,5 +61,5 @@
  *
  * @version 2.0.0
  *
- * @requires {@link http://controlsjs.com/|controls.js v5.0.0}
+ * @requires {@link http://controlsjs.com/|controls.js (5.0.0): Controls.js}
  */
