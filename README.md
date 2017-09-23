@@ -3,8 +3,7 @@
 
 ### See
 
-- [Controls.js](http://controlsjs.com/)
-- [Controls.js on GitHub](https://github.com/controlsjs/controls.js)
+- [bbbfly-cjs-controls](https://github.com/3b-fly/bbbfly-cjs-controls)
 
 ### Documentation
 
@@ -40,6 +39,11 @@
   5. Fill path to unzipped directory into "Library path / URL" field.
   6. Click "Add" button
   7. Click "Add" button to finish
+
+### Controls.js
+
+- [Controls.js web page](http://controlsjs.com/)
+- [Controls.js on GitHub](https://github.com/controlsjs/controls.js)
 
 <br/>
 <br/>
