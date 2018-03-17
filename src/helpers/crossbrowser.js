@@ -100,7 +100,7 @@ if(typeof Array.prototype.includes !== 'function'){
 
 /**
  * @function
- * @name Object․prototype.isObject
+ * @name Object․isObject
  * @memberof bbbfly.crossbrowser#
  *
  * @param {mixed} value
@@ -109,6 +109,21 @@ if(typeof Array.prototype.includes !== 'function'){
 if(typeof Object.isObject !== 'function'){
   Object.isObject = function(value){
     return (Object.prototype.toString.call(value) === '[object Object]');
+  };
+}
+
+/**
+ * @function
+ * @name object․includes
+ * @memberof bbbfly.crossbrowser#
+ *
+ * @param {mixed} value
+ * @return {boolean}
+ */
+if(typeof Object.prototype.includes !== 'function'){
+  Object.prototype.includes = function(value){
+    for(var i in this){if(this[i] === value){return true;}}
+    return false;
   };
 }
 
