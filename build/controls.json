@@ -4,7 +4,8 @@
   "Name": "3b-fly's extension for Controls.js",
   "Copyright": "Jan Nejedly",
   "RequiredLibraries": {
-    "controls.js": "5.0.0"
+    "controls.js": "5.0.0",
+    "bbbfly-cjs": "2.0.0"
   },
   "Packages": {
     "appIndex": {
