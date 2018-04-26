@@ -2,7 +2,7 @@
  * @author Jan Nejedly support@3b-fly.eu
  * @copyright Jan Nejedly
  * @version 2.0.0
- * @license see license in 'LICENSE' file
+ * @license see license in 'LICENSE_GPLv3_with_commercial_exception' file
  */
 var bbbfly=bbbfly||{};bbbfly.apploader={};bbbfly.apploader._getMessageElm=function(){this._MessageElm||(this._MessageElm=document.getElementById("bbbflyAppLoaderMessage"));return this._MessageElm};bbbfly.apploader._getProgressElm=function(){this._ProgressElm||(this._ProgressElm=document.getElementById("bbbflyAppLoaderProgress"));return this._ProgressElm};bbbfly.apploader._setProgressMessage=function(a){var b=this.GetMessageElm();return b&&"string"===typeof a?(b.innerHTML=a,!0):!1};
 bbbfly.apploader._setProgress=function(a){return"number"===typeof a?(this._Progress=a,setTimeout(bbbfly.apploader._updateProgress,1),!0):!1};bbbfly.apploader._clearProgress=function(){this._Step=0;this.SetProgress(0)};bbbfly.apploader._updateProgress=function(){var a=bbbfly.AppLoader.GetProgressElm(),b=bbbfly.AppLoader._Progress;return a&&"number"===typeof b?(a.style.width=b+"%",!0):!1};

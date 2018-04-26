@@ -2,7 +2,7 @@
  * @author Jan Nejedly support@3b-fly.eu
  * @copyright Jan Nejedly
  * @version 2.0.0
- * @license see license in 'LICENSE' file
+ * @license see license in 'LICENSE_GPLv3_with_commercial_exception' file
  */
 var bbbfly=bbbfly||{};bbbfly.downloader={};bbbfly.downloader._setMethod=function(a){if("number"!==typeof a)return!1;for(var b in bbbfly.Downloader.method)if(bbbfly.Downloader.method[b]===a)return this.Method=a,!0;return!1};bbbfly.downloader._getMethod=function(){return"number"===typeof this.Method?this.Method:bbbfly.Downloader.method.auto};
 bbbfly.downloader._download=function(a){var b=this.GetMethod();b===bbbfly.Downloader.method.auto&&(b=bbbfly.downloader._detectMethod());switch(b){case bbbfly.Downloader.method.iframe:return bbbfly.downloader._downloadByIframe(this,a)}return!1};bbbfly.downloader._detectMethod=function(){return bbbfly.Downloader.method.iframe};
