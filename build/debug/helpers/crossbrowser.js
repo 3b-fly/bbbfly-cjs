@@ -5,43 +5,40 @@
  * @license see license in 'LICENSE_GPLv3_with_commercial_exception' file
  */
 
-if(typeof String.prototype.trim !== 'function'){
-  String.prototype.trim = function(){
-    return this.replace(/^\s+|\s+$/g,'');
+String.trim = function(string){
+  if(typeof string === 'string'){
+    return string.replace(/^\s+|\s+$/g,'');
+  }
+  return '';
+};
+if(typeof String.capitalize !== 'function'){
+  String.capitalize = function(string){
+    if(typeof string === 'string'){
+      return string.charAt(0).toUpperCase()+string.slice(1);
+    }
+    return '';
   };
 }
-if(typeof String.prototype.capitalize !== 'function'){
-  String.prototype.capitalize = function(){
-    return this.charAt(0).toUpperCase()+this.slice(1);
-  };
-}
-if(typeof String.prototype.repeat !== 'function'){
-  String.prototype.repeat = function(count){
+if(typeof String.repeat !== 'function'){
+  String.repeat = function(string,count){
     var result = '';
-    if((typeof count === 'number')){
-      var value = this.valueOf();
+    if((typeof string === 'string') && (typeof count === 'number')){
       for(var cnt = count;cnt>0;cnt--){
-        result += value;
+        result += string;
       }
     }
     return result;
   };
 }
-if(typeof String.prototype.leading !== 'function'){
-  String.prototype.leading = function(str,length){
+if(typeof String.leading !== 'function'){
+  String.leading = function(string,lead,length){
     var result = '';
-    var value = this.valueOf();
-    if((typeof str === 'string') && (typeof length === 'number')){
-      result = str.repeat(length - value.length);
+    var value = (typeof string === 'string') ? string : '';
+    if((typeof lead === 'string') && (typeof length === 'number')){
+      result = String.repeat(lead,(length - value.length));
     }
 
     return result+value;
-  };
-}
-if(typeof Array.prototype.includes !== 'function'){
-  Array.prototype.includes = function(value){
-    for(var i in this){if(this[i] === value){return true;}}
-    return false;
   };
 }
 if(typeof Object.isObject !== 'function'){
@@ -49,19 +46,33 @@ if(typeof Object.isObject !== 'function'){
     return (Object.prototype.toString.call(value) === '[object Object]');
   };
 }
-if(typeof Object.prototype.includes !== 'function'){
-  Object.prototype.includes = function(value){
-    for(var i in this){if(this[i] === value){return true;}}
+if(typeof Object.includes !== 'function'){
+  Object.includes = function(object,value){
+    if(Object.isObject(object)){
+      for(var i in object){
+        if(object[i] === value){return true;}
+      }
+    }
+    return false;
+  };
+}
+if(typeof Array.isArray !== 'function'){
+  Array.isArray = function(value){
+    return (Object.prototype.toString.call(value) === '[object Array]');
+  };
+}
+if(typeof Array.includes !== 'function'){
+  Array.includes = function(array,value){
+    if(Array.isArray(array)){
+      for(var i in array){
+        if(array[i] === value){return true;}
+      }
+    }
     return false;
   };
 }
 if(typeof Date.isDate !== 'function'){
   Date.isDate = function(value){
     return (Object.prototype.toString.call(value) === '[object Date]');
-  };
-}
-if(typeof Array.isArray !== 'function'){
-  Array.isArray = function(value){
-    return (Object.prototype.toString.call(value) === '[object Array]');
   };
 }

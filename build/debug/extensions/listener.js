@@ -69,7 +69,7 @@ bbbfly.listener._addListener = function(eventNames,listener){
       this[eventNm] = ngAddEvent(this[eventNm],invoke);
     }
 
-    if(!listeners.includes(listener)){
+    if(!Array.includes(listeners,listener)){
       listeners.push(listener);
     }
   }
