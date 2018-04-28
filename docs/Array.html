@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Class: AppIndex</title>
+    <title>Class: Array</title>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -631,8 +631,8 @@
 <section class="kind-class">
 <header>
     <h1 class="name">
-          <span class="ancestors"><a href="bbbfly.html">bbbfly</a>.</span>
-        AppIndex
+          <span class="ancestors"><a href="bbbfly.html">bbbfly</a><a href="bbbfly.crossbrowser.html">.crossbrowser</a></span>
+        Array
   <span class="types">
       <span class="type-signature object">
         object
@@ -644,11 +644,11 @@
     <div class="container-overview">
 <dt>
     <div class="nameContainer">
-        <h2 id="AppIndex">
-          bbbfly.AppIndex
+        <h2 id="Array">
+          Array
         </h2>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/index.js#L77">app/index.js, line 77</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/crossbrowser.js#L144">helpers/crossbrowser.js, line 144</a>
         </div>
     </div>
 </dt>
@@ -657,25 +657,25 @@
 </dl>
 </dd>
     </div>
-        <h3>In Packages</h3>
-        <ul>
-              <li><a href="packages.html#package:appIndex">appIndex</a></li>
-        </ul>
         <h3>Methods</h3>
         <dl>
 <dt>
     <div class="nameContainer">
-        <h4 id="AddTimestampToURL">
-          AddTimestampToURL
-          <span class="signature">(url)</span><span class="arrow-right"></span><span class="type-signature returnType">{string}</span>
+        <h4 id=".includes">
+  <span class="attribs">
+      <span class="type-signature static">
+        static
+      </span>
+  </span>
+          Array.includes
+          <span class="signature">(array, value)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/index.js#L79">app/index.js, line 79</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/crossbrowser.js#L166">helpers/crossbrowser.js, line 166</a>
         </div>
     </div>
 </dt>
 <dd>
-      <div class="description">Add timestamp parameter to URL.</div>
         <h5>Parameters:</h5>
 <table class="params">
     <thead>
@@ -688,10 +688,20 @@
 	<tbody>
         <tr>
                 <td class="name">
-                  <span class="param-name">url</span>
+                  <span class="param-name">array</span>
                 </td>
             <td class="type">
-<span class="param-type">string</span>
+<span class="param-type">array</span>
+            </td>
+            <td class="description last">
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">value</span>
+                </td>
+            <td class="type">
+<span class="param-type">mixed</span>
             </td>
             <td class="description last">
             </td>
@@ -711,7 +721,7 @@
     <tbody>
         <tr>
             <td class="type">
-                        string
+                        boolean
             </td>
             <td class="description last"></td>
         </tr>
@@ -720,62 +730,62 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 id="InitIndex">
-          InitIndex
-          <span class="signature">()</span>
+        <h4 id=".isArray">
+  <span class="attribs">
+      <span class="type-signature static">
+        static
+      </span>
+  </span>
+          Array.isArray
+          <span class="signature">(value)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/index.js#L89">app/index.js, line 89</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/crossbrowser.js#L152">helpers/crossbrowser.js, line 152</a>
         </div>
     </div>
 </dt>
 <dd>
-      <div class="description">Initialize index before loading starts.</div>
-<dl class="details">
-</dl>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="RequireLeaveDialog">
-          RequireLeaveDialog
-          <span class="signature">(<span class="optional">require</span>)</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/index.js#L98">app/index.js, line 98</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Require leave application dialog.</div>
         <h5>Parameters:</h5>
 <table class="params">
     <thead>
 	<tr>
 		<th>Name</th>
 		<th>Type</th>
-		<th>Default</th>
 		<th class="last">Description</th>
 	</tr>
 	</thead>
 	<tbody>
         <tr>
                 <td class="name">
-                  <span class="param-name">require</span>
+                  <span class="param-name">value</span>
                 </td>
             <td class="type">
-<span class="param-type">boolean</span>
+<span class="param-type">mixed</span>
             </td>
-                <td class="default">
-                    true
-                </td>
             <td class="description last">
-                        <span class="optional">optional</span>
             </td>
         </tr>
 	</tbody>
 </table>
 <dl class="details">
 </dl>
+    <h5>Returns:</h5>
+<table class="params">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="type">
+                        boolean
+            </td>
+            <td class="description last"></td>
+        </tr>
+    </tbody>
+</table>
 </dd>
         </dl>
 </article>
