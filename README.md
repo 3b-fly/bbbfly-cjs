@@ -12,12 +12,12 @@
 
 ### Packages
 
-- **crossbrowser** - Adds missing methods to JavaScript types.
-- **downloader** - Provides easy file download helper.
-- **listener** - Adds event listener support to all created controls.
-- **widget** - Contains "bbbfly.Widget" control and widget registry.
-- **appLoader** - Allows easy application loading progress handling.
-- **appIndex** - Disables application files caching in debug mode and provides leave application dialog handling.
+- **crossbrowser** - _Adds missing methods to JavaScript types._
+- **downloader** - _Provides easy file download helper._
+- **listener** - _Adds event listener support to all created controls._
+- **widget** - _Contains "bbbfly.Widget" control and widget registry._
+- **appLoader** - _Allows easy application loading progress handling._
+- **appIndex** - _Disables application files caching in debug mode and provides leave application dialog handling._
 
 ### Usage
 
