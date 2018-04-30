@@ -1,9 +1,10 @@
-/**
+/*!
  * @author Jan Nejedly support@3b-fly.eu
  * @copyright Jan Nejedly
  * @version 2.0.0
- * @license see license in 'LICENSE_GPLv3_with_commercial_exception' file
- */
+ * @license see license in 'LICENSE' file
+*/
+
 var bbbfly=bbbfly||{};bbbfly.widget={};bbbfly.widget.registry={};bbbfly.widget.registry._widgetId=function(a){return Object.isObject(a)&&(a=a.WidgetId,"string"===typeof a&&""!==a)?a:null};
 bbbfly.widget.registry._registerWidget=function(a){if(!Object.isObject(a))return!1;var b=this.WidgetId(a);if(!b||this._Widgets[b])return!1;this._Widgets[b]=a;a.AddEvent("OnShow",bbbfly.widget.registry._onWidgetShow);a.AddEvent("OnShown",bbbfly.widget.registry._onWidgetShown);a.AddEvent("OnHidden",bbbfly.widget.registry._onWidgetHidden);bbbfly.widget.registry._registerWidgetInGroup(a);return!0};
 bbbfly.widget.registry._registerWidgetInGroup=function(a){var b=bbbfly.WidgetRegistry,c=a.WidgetGroup;b&&"string"===typeof c&&("object"!==typeof b._WidgetGroups[c]&&(b._WidgetGroups[c]=[],b._WidgetGroups_Shown[c]=null),b._WidgetGroups[c].push(a))};
