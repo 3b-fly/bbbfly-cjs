@@ -10,6 +10,7 @@
       "../src/app/loader.js",
       "../src/helpers/crossbrowser.js",
       "../src/helpers/downloader.js",
+      "../src/helpers/datetime.js",
       "../src/extensions/listener.js",
       "../src/extensions/widget.js"
     ]

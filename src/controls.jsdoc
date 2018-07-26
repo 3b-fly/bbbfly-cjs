@@ -22,6 +22,14 @@
  */
 
 /**
+ * @package datetime
+ * @description
+ *   Extends date and time management.
+ *
+ * @version 2.0.0
+ */
+
+/**
  * @package listener
  * @description
  *   Adds event listener support to all created controls.

@@ -46,6 +46,10 @@
       "DebugFiles": ["helpers/downloader.js"],
       "ReleaseFiles": ["helpers/downloader.js"]
     },
+    "datetime": {
+      "DebugFiles": ["helpers/datetime.js"],
+      "ReleaseFiles": ["helpers/datetime.js"]
+    },
 
     "listener": {
       "DebugFiles": ["extensions/listener.js"],
@@ -63,6 +67,5 @@
         "bbbfly-cjs": { "Packages": ["crossbrowser"] }
       }
     }
-
   }
 }
