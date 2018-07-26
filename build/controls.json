@@ -60,6 +60,14 @@
         "release/helpers/downloader.js"
       ]
     },
+    "datetime": {
+      "DebugFiles": [
+        "debug/helpers/datetime.js"
+      ],
+      "ReleaseFiles": [
+        "release/helpers/datetime.js"
+      ]
+    },
     "listener": {
       "DebugFiles": [
         "debug/extensions/listener.js"

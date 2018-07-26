@@ -18,6 +18,7 @@
 - **widget** - _Contains "bbbfly.Widget" control and widget registry._
 - **appLoader** - _Allows easy application loading progress handling._
 - **appIndex** - _Disables application files caching in debug mode and provides leave application dialog handling._
+- **datetime** - _Extends date and time management._
 
 ### Usage
 
