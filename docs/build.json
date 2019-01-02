@@ -3,6 +3,7 @@
     "include": [
       "../README.md",
       "../package.json",
+      "../src/types.jsdoc",
       "../src/controls.jsdoc",
       "../src/app/index.js",
       "../src/app/lang/index_cs.js",
@@ -11,6 +12,7 @@
       "../src/helpers/crossbrowser.js",
       "../src/helpers/downloader.js",
       "../src/helpers/datetime.js",
+      "../src/helpers/geojs.js",
       "../src/extensions/listener.js",
       "../src/extensions/widget.js"
     ]
