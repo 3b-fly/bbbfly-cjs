@@ -1,0 +1,14 @@
+/**
+ * @fileOverview Types definition.
+ * @private
+ */
+
+/**
+ * @typedef {object} GeoJSON
+ * @description {@link http://geojson.org/geojson-spec.html|GeoJSON} object
+ */
+
+/**
+ * @typedef {string} WKT
+ * @description {@link http://www.geoapi.org/geoapi/apidocs/org/opengis/referencing/doc-files/WKT.html|WKT} string
+ */

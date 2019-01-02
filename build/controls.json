@@ -68,6 +68,14 @@
         "release/helpers/datetime.js"
       ]
     },
+    "geojs": {
+      "DebugFiles": [
+        "debug/helpers/geojs.js"
+      ],
+      "ReleaseFiles": [
+        "release/helpers/geojs.js"
+      ]
+    },
     "listener": {
       "DebugFiles": [
         "debug/extensions/listener.js"

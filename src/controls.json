@@ -50,6 +50,10 @@
       "DebugFiles": ["helpers/datetime.js"],
       "ReleaseFiles": ["helpers/datetime.js"]
     },
+    "geojs": {
+      "DebugFiles": ["helpers/geojs.js"],
+      "ReleaseFiles": ["helpers/geojs.js"]
+    },
 
     "listener": {
       "DebugFiles": ["extensions/listener.js"],

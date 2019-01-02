@@ -30,13 +30,24 @@
  */
 
 /**
+ * @package geojs
+ * @description
+ *   Provides geographical data formats conversion.
+ *
+ * @version 2.0.0
+ * @requires {@link http://terraformer.io/install/| Esri Terraformer (1.0.9)}
+ * @requires {@link http://terraformer.io/install/| Esri Terraformer WKT parser (1.2.0)}
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
+ */
+
+/**
  * @package listener
  * @description
  *   Adds event listener support to all created controls.
  *
  * @version 2.0.0
  *
- * @requires {@link http://controlsjs.com/|controls.js (5.0.0): Controls.js}
+ * @requires {@link http://controlsjs.com/|controls.js (5.0.0)}
  * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
  */
 
@@ -47,7 +58,7 @@
  *
  * @version 2.0.0
  *
- * @requires {@link http://controlsjs.com/|controls.js (5.0.0): Controls.js}
+ * @requires {@link http://controlsjs.com/|controls.js (5.0.0)}
  * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
  */
 
@@ -58,7 +69,7 @@
  *
  * @version 2.0.0
  *
- * @requires {@link http://controlsjs.com/|controls.js (5.0.0): Controls.js}
+ * @requires {@link http://controlsjs.com/|controls.js (5.0.0)}
  */
 
 /**
@@ -69,5 +80,5 @@
  *
  * @version 2.0.0
  *
- * @requires {@link http://controlsjs.com/|controls.js (5.0.0): Controls.js}
+ * @requires {@link http://controlsjs.com/|controls.js (5.0.0)}
  */
