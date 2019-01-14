@@ -46,28 +46,13 @@ bbbfly.listener._addListener = function(eventNames,listener){
     ){return false;}
   }
 
-  for(var i in eventNames){
-    var eventNm = eventNames[i];
+  for(var j in eventNames){
+    var eventNm = eventNames[j];
     var listeners = this._listeners[eventNm];
-    if(!Array.isArray(listeners)){
-      listeners = new Array();
-      this._listeners[eventNm] = listeners;
 
-      var invoke = function(){
-        var listeners = this._listeners[eventNm];
-        if(Array.isArray(listeners)){
-          for(var i in listeners){
-            var listener = listeners[i];
-            if(typeof listener[eventNm] === 'function'){
-              listener[eventNm].apply(
-                listener,(arguments ? arguments : [])
-              );
-            }
-          }
-        }
-        return true;
-      };
-      this[eventNm] = ngAddEvent(this[eventNm],invoke);
+    if(!Array.isArray(listeners)){
+      bbbfly.listener._doAddListener(this,eventNm);
+      listeners = this._listeners[eventNm];
     }
 
     if(!Array.includes(listeners,listener)){
@@ -87,15 +72,33 @@ bbbfly.listener._removeListener = function(eventNames,listener){
     var listeners = this._listeners[eventNm];
 
     if(Array.isArray(listeners)){
-      for(var i in listeners){
-        if(listeners[i] === listener){
-          listeners.splice(i,1);
+      for(var j in listeners){
+        if(listeners[j] === listener){
+          listeners.splice(j,1);
           break;
         }
       }
     }
   }
   return true;
+};
+bbbfly.listener._doAddListener = function(obj,eventNm){
+  obj._listeners[eventNm] = new Array();
+
+  obj[eventNm] = ngAddEvent(obj[eventNm],function(){
+    var listeners = this._listeners[eventNm];
+    if(Array.isArray(listeners)){
+      for(var i in listeners){
+        var listener = listeners[i];
+        if(typeof listener[eventNm] === 'function'){
+          listener[eventNm].apply(
+            listener,(arguments ? arguments : [])
+          );
+        }
+      }
+    }
+    return true;
+  });
 };
 var ngOnControlCreated = ngAddEvent(ngOnControlCreated,
   function(control){bbbfly.listener.SetListenable(control);}
