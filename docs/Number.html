@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Interface: Listenable</title>
+    <title>Class: Number</title>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -703,63 +703,54 @@
   }
 })();</script>
     <div class="main">
-<section class="kind-interface">
+<section class="kind-class">
 <header>
     <h1 class="name">
-          <span class="ancestors"><a href="bbbfly.html">bbbfly</a><a href="bbbfly.listener.html">.listener</a>.</span>
-        Listenable
+          <span class="ancestors"><a href="bbbfly.html">bbbfly</a><a href="bbbfly.crossbrowser.html">.crossbrowser</a></span>
+        Number
+  <span class="types">
+      <span class="type-signature object">
+        object
+      </span>
+  </span>
     </h1>
 </header>
 <article>
     <div class="container-overview">
-<dl class="details">
-    <h3>Properties</h3>
-    <table class="props" my="test">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr id="property:AllowListeners">
-                    <td class="name">
-                      <span class="param-name">AllowListeners</span>
-                    </td>
-                <td class="type">
-<span class="param-type">boolean</span>
-                </td>
-                    <td class="default">
-                        false
-                    </td>
-                <td class="description last">
-                        <span class="optional">optional</span>
-                  If set to true, interface methods will be added
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</dl>
+<dt>
+    <div class="nameContainer">
+        <h2 id="Number">
+          Number
+        </h2>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/crossbrowser.js#L222">helpers/crossbrowser.js, line 222</a>
+        </div>
+    </div>
+</dt>
+<dd>
 <dl class="details">
 </dl>
+</dd>
     </div>
         <h3>Methods</h3>
         <dl>
 <dt>
     <div class="nameContainer">
-        <h4 id="AddListener">
-          AddListener
-          <span class="signature">(eventNames, listener)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        <h4 id=".isNumber">
+  <span class="attribs">
+      <span class="type-signature static">
+        static
+      </span>
+  </span>
+          Number.isNumber
+          <span class="signature">(value)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/listener.js#L91">extensions/listener.js, line 91</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/crossbrowser.js#L230">helpers/crossbrowser.js, line 230</a>
         </div>
     </div>
 </dt>
 <dd>
-      <div class="description">Add object events listener. Listener must implement listening event functions.</div>
         <h5>Parameters:</h5>
 <table class="params">
     <thead>
@@ -772,21 +763,10 @@
 	<tbody>
         <tr>
                 <td class="name">
-                  <span class="param-name">eventNames</span>
+                  <span class="param-name">value</span>
                 </td>
             <td class="type">
-<span class="param-type"><a href="Array.html">Array</a>.&lt;string></span>
-            </td>
-            <td class="description last">
-                Names of events to listen
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">listener</span>
-                </td>
-            <td class="type">
-<span class="param-type">object</span>
+<span class="param-type">mixed</span>
             </td>
             <td class="description last">
             </td>
@@ -808,73 +788,7 @@
             <td class="type">
                         boolean
             </td>
-            <td class="description last">If listener was added</td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="RemoveListener">
-          RemoveListener
-          <span class="signature">(eventNames, listener)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/listener.js#L132">extensions/listener.js, line 132</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Remove object event listener.</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">eventNames</span>
-                </td>
-            <td class="type">
-<span class="param-type"><a href="Array.html">Array</a>.&lt;string></span>
-            </td>
-            <td class="description last">
-                Names of events to do not listen
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">listener</span>
-                </td>
-            <td class="type">
-<span class="param-type">object</span>
-            </td>
-            <td class="description last">
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        boolean
-            </td>
-            <td class="description last">If listener was removed</td>
+            <td class="description last"></td>
         </tr>
     </tbody>
 </table>
