@@ -13,7 +13,7 @@ bbbfly.downloader = {};
 
 /** @ignore */
 bbbfly.downloader._setMethod = function(method){
-  if(typeof method !== 'number'){return false;}
+  if(!Number.isNumber(method)){return false;}
   for(var i in bbbfly.Downloader.method){
     if(bbbfly.Downloader.method[i] === method){
       this.Method = method;
@@ -25,7 +25,7 @@ bbbfly.downloader._setMethod = function(method){
 
 /** @ignore */
 bbbfly.downloader._getMethod = function(){
-  return (typeof this.Method === 'number')
+  return (Number.isNumber(this.Method))
     ?this.Method : bbbfly.Downloader.method.auto;
 };
 

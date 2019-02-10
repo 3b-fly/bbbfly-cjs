@@ -107,7 +107,7 @@ bbbfly.listener._addListener = function(eventNames,listener){
   for(var i in eventNames){
     var eventNm = eventNames[i];
     if(
-      (typeof eventNm !== 'string')
+      !String.isString(eventNm)
       || (typeof listener[eventNm] !== 'function')
       || ((typeof this[eventNm] !== 'function') && (this[eventNm] !== null))
     ){return false;}

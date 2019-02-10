@@ -10,7 +10,7 @@ var bbbfly = bbbfly || {};
 bbbfly.datetime = {};
 bbbfly.datetime._bigIntToDateTime = function(bigint){
   var date = null;
-  if(typeof bigint === 'string'){
+  if(String.isString(bigint)){
     var parts = bbbfly.DateTime.bigintPattern.exec(bigint);
 
     if(parts){

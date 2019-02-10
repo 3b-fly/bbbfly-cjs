@@ -30,7 +30,7 @@ bbbfly.apploader._getProgressElm = function(){
 /** @ignore */
 bbbfly.apploader._setProgressMessage = function(message){
   var msgElm = this.GetMessageElm();
-  if(msgElm && (typeof message === 'string')){
+  if(msgElm && String.isString(message)){
     msgElm.innerHTML = message;
     return true;
   }
@@ -39,7 +39,7 @@ bbbfly.apploader._setProgressMessage = function(message){
 
 /** @ignore */
 bbbfly.apploader._setProgress = function(progress){
-  if(typeof progress === 'number'){
+  if(Number.isNumber(progress)){
     this._Progress = progress;
     setTimeout(bbbfly.apploader._updateProgress,1);
     return true;
@@ -57,7 +57,7 @@ bbbfly.apploader._clearProgress = function(){
 bbbfly.apploader._updateProgress = function(){
   var progressElm = bbbfly.AppLoader.GetProgressElm();
   var progress = bbbfly.AppLoader._Progress;
-  if(progressElm && (typeof progress === 'number')){
+  if(progressElm && Number.isNumber(progress)){
     progressElm.style.width = (progress+'%');
     return true;
   }
@@ -66,7 +66,7 @@ bbbfly.apploader._updateProgress = function(){
 
 /** @ignore */
 bbbfly.apploader._setStepsCnt = function(count){
-  if(typeof count === 'number'){
+  if(Number.isNumber(count)){
     this._StepsCnt = count;
     this._StepSize = Math.floor(100/count);
     return true;
@@ -77,8 +77,8 @@ bbbfly.apploader._setStepsCnt = function(count){
 /** @ignore */
 bbbfly.apploader._moveByStep = function(){
   if(
-    (typeof this._Step === 'number')
-    && (typeof this._StepSize === 'number')
+    (Number.isNumber(this._Step))
+    && (Number.isNumber(this._StepSize))
   ){
     this._Step++;
     return this.SetProgress(this._Step*this._StepSize);
@@ -218,7 +218,7 @@ bbbfly.AppLoader = {
 
 /** @ignore */
 var ngOnAppLoadProgress = ngOnAppLoadProgress || function(progress){
-  if(typeof progress === 'number'){
+  if(Number.isNumber(progress)){
     return bbbfly.AppLoader.SetProgress(progress);
   }
   return false;

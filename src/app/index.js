@@ -13,7 +13,7 @@ bbbfly.appindex = {};
 
 /** @ignore */
 bbbfly.appindex._addTimestampToURL = function(url){
-  if(typeof url !== 'string'){return '';}
+  if(!String.isString(url)){return '';}
   return url+((url.indexOf('?') === -1) ? '?' : '&')+'ts='+Date.now();
 };
 

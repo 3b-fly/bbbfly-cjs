@@ -9,7 +9,7 @@
 var bbbfly = bbbfly || {};
 bbbfly.appindex = {};
 bbbfly.appindex._addTimestampToURL = function(url){
-  if(typeof url !== 'string'){return '';}
+  if(!String.isString(url)){return '';}
   return url+((url.indexOf('?') === -1) ? '?' : '&')+'ts='+Date.now();
 };
 bbbfly.appindex._initIndex = function(){

@@ -39,7 +39,7 @@ bbbfly.geojs._geoJSONToWKT = function(json){
 
 /** @ignore */
 bbbfly.geojs._wktToGeoJSON = function(wkt,bbox){
-  if(typeof wkt === 'string'){
+  if(String.isString(wkt)){
     var parts = bbbfly.GeoJS.CollectionPattern.exec(wkt);
     if(parts){
 
@@ -86,7 +86,7 @@ bbbfly.geojs._wktToGeoJSON = function(wkt,bbox){
 
 /** @ignore */
 bbbfly.geojs._wktToGeoJSONGeometry = function(wkt,bbox){
-  if((typeof wkt === 'string') && (wkt)){
+  if(String.isString(wkt) && (wkt !== '')){
     var geometry = Terraformer.WKT.parse(wkt);
     if(geometry){
       geometry = geometry.toJSON();

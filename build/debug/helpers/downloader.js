@@ -9,7 +9,7 @@
 var bbbfly = bbbfly || {};
 bbbfly.downloader = {};
 bbbfly.downloader._setMethod = function(method){
-  if(typeof method !== 'number'){return false;}
+  if(!Number.isNumber(method)){return false;}
   for(var i in bbbfly.Downloader.method){
     if(bbbfly.Downloader.method[i] === method){
       this.Method = method;
@@ -19,7 +19,7 @@ bbbfly.downloader._setMethod = function(method){
   return false;
 };
 bbbfly.downloader._getMethod = function(){
-  return (typeof this.Method === 'number')
+  return (Number.isNumber(this.Method))
     ?this.Method : bbbfly.Downloader.method.auto;
 };
 bbbfly.downloader._download = function(url){

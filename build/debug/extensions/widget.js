@@ -12,7 +12,7 @@ bbbfly.widget.registry = {};
 bbbfly.widget.registry._widgetId = function(widget){
   if(Object.isObject(widget)){
     var widgetId = widget.WidgetId;
-    if((typeof widgetId === 'string') && (widgetId !== '')){
+    if(String.isString(widgetId) && (widgetId !== '')){
       return  widgetId;
     }
   }
@@ -36,7 +36,7 @@ bbbfly.widget.registry._registerWidgetInGroup = function(widget){
   var registry = bbbfly.WidgetRegistry;
   var widgetGroup = widget.WidgetGroup;
 
-  if(registry && (typeof widgetGroup === 'string')){
+  if(registry && String.isString(widgetGroup)){
     if(typeof registry._WidgetGroups[widgetGroup] !== 'object'){
       registry._WidgetGroups[widgetGroup] = new Array();
       registry._WidgetGroups_Shown[widgetGroup] = null;
@@ -48,7 +48,7 @@ bbbfly.widget.registry._unregisterWidgetFromGroup = function(widget){
   var registry = bbbfly.WidgetRegistry;
   var widgetGroup = widget.WidgetGroup;
 
-  if(registry && (typeof widgetGroup === 'string')){
+  if(registry && String.isString(widgetGroup)){
     var registryGroup = registry._WidgetGroups[widgetGroup];
     var registryGroupShown = bbbfly.WidgetRegistry._WidgetGroups_Shown;
 
@@ -69,26 +69,26 @@ bbbfly.widget.registry._getWidgets = function(){
   return this._Widgets;
 };
 bbbfly.widget.registry._getWidgetById = function(id){
-  if((typeof id === 'string') && this._Widgets[id]){
+  if(String.isString(id) && this._Widgets[id]){
     return this._Widgets[id];
   }
   return null;
 };
 bbbfly.widget.registry._getGroupWidgets = function(group){
-  if((typeof group === 'string') && this._WidgetGroups[group]){
+  if(String.isString(group) && this._WidgetGroups[group]){
     return this._WidgetGroups[group];
   }
   return null;
 };
 bbbfly.widget.registry._getGroupShownWidget = function(group){
-  if((typeof group === 'string') && this._WidgetGroups_Shown[group]){
+  if(String.isString(group) && this._WidgetGroups_Shown[group]){
     return this._WidgetGroups_Shown[group];
   }
   return null;
 };
 bbbfly.widget.registry._callWidget = function(widget,funcName,args){
   if(
-    Object.isObject(widget) && (typeof funcName === 'string')
+    Object.isObject(widget) && String.isString(funcName)
     && ((typeof args === 'undefined') || (typeof args === 'object'))
     && (typeof widget[funcName] === 'function')
   ){
@@ -105,7 +105,7 @@ bbbfly.widget.registry._callWidgetById = function(id,funcName,args){
 };
 bbbfly.widget.registry._callAllWidgets = function(funcName,args){
   if(
-    (typeof funcName !== 'string')
+    !String.isString(funcName)
     || ((typeof args !== 'undefined') && (typeof args !== 'object'))
   ){return null;}
 
@@ -115,7 +115,7 @@ bbbfly.widget.registry._callAllWidgets = function(funcName,args){
 };
 bbbfly.widget.registry._callAllGroupWidgets = function(group,funcName,args){
   if(
-    (typeof group !== 'string') || (typeof funcName !== 'string')
+    !String.isString(group) || !String.isString(funcName)
     || ((typeof args !== 'undefined') && (typeof args !== 'object'))
   ){return null;}
 
@@ -140,7 +140,7 @@ bbbfly.widget.registry._callWidgets = function(widgets,funcName,args){
 };
 bbbfly.widget.registry._onWidgetShow = function(force){
   var groupName = this.WidgetGroup;
-  if(typeof groupName === 'string'){
+  if(String.isString(groupName)){
     var group = bbbfly.WidgetRegistry.GetGroupWidgets(groupName);
     if(group){
       for(var i in group){
@@ -159,7 +159,7 @@ bbbfly.widget.registry._onWidgetShown = function(force){
   registry.CallAllWidgets('OnWidgetShown',[this]);
 
   var groupName = this.WidgetGroup;
-  if(typeof groupName === 'string'){
+  if(String.isString(groupName)){
     var group = registry.GetGroupWidgets(groupName);
     if(group){
       for(var i in group){
@@ -179,7 +179,7 @@ bbbfly.widget.registry._onWidgetHidden = function(force){
   registry.CallAllWidgets('OnWidgetHidden',[this]);
 
   var groupName = this.WidgetGroup;
-  if(typeof groupName === 'string'){
+  if(String.isString(groupName)){
     if(this === registry.GetGroupShownWidget(groupName)){
       registry._WidgetGroups_Shown[groupName] = null;
       registry.CallAllWidgets('OnWidgetGroupChanged',[groupName]);
@@ -273,7 +273,7 @@ bbbfly.widget._isShown = function(){
   return !!(this.Visible);
 };
 bbbfly.widget._setWidgetGroup = function(groupName){
-  if((typeof groupName === 'string') && (groupName !== this.WidgetGroup)){
+  if(String.isString(groupName) && (groupName !== this.WidgetGroup)){
     bbbfly.widget.registry._unregisterWidgetFromGroup(this);
     this.WidgetGroup = groupName;
     bbbfly.widget.registry._registerWidgetInGroup(this);
