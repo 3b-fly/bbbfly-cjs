@@ -25,6 +25,20 @@
 
 /**
  * @function
+ * @name isString
+ * @memberof String
+ *
+ * @param {mixed} value
+ * @return {boolean}
+ */
+if(typeof String.isString !== 'function'){
+  String.isString = function(value){
+    return (typeof value === 'string');
+  };
+}
+
+/**
+ * @function
  * @name trim
  * @memberof String
  *
@@ -202,5 +216,27 @@ if(typeof Array.includes !== 'function'){
 if(typeof Date.isDate !== 'function'){
   Date.isDate = function(value){
     return (Object.prototype.toString.call(value) === '[object Date]');
+  };
+}
+
+/**
+ * @class
+ * @name Number
+ * @alias Number
+ * @hideconstructor
+ * @memberof bbbfly.crossbrowser
+ */
+
+/**
+ * @function
+ * @name isNumber
+ * @memberof Number
+ *
+ * @param {mixed} value
+ * @return {boolean}
+ */
+if(typeof Number.isNumber !== 'function'){
+  Number.isNumber = function(value){
+    return ((typeof value === 'number') && !this.isNaN(value));
   };
 }

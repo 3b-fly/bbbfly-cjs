@@ -6,6 +6,11 @@
 */
 
 
+if(typeof String.isString !== 'function'){
+  String.isString = function(value){
+    return (typeof value === 'string');
+  };
+}
 String.trim = function(string){
   if(typeof string === 'string'){
     return string.replace(/^\s+|\s+$/g,'');
@@ -75,5 +80,10 @@ if(typeof Array.includes !== 'function'){
 if(typeof Date.isDate !== 'function'){
   Date.isDate = function(value){
     return (Object.prototype.toString.call(value) === '[object Date]');
+  };
+}
+if(typeof Number.isNumber !== 'function'){
+  Number.isNumber = function(value){
+    return ((typeof value === 'number') && !this.isNaN(value));
   };
 }
