@@ -6,6 +6,11 @@
 */
 
 
+if(typeof Boolean.isBoolean !== 'function'){
+  Boolean.isBoolean = function(value){
+    return (typeof value === 'boolean');
+  };
+}
 if(typeof String.isString !== 'function'){
   String.isString = function(value){
     return (typeof value === 'string');

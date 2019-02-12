@@ -43,7 +43,7 @@ bbbfly.appindex._initIndex = function(){
 
 /** @ignore */
 bbbfly.appindex._requireLeaveDialog = function(require){
-  if(typeof require !== 'boolean'){require = true;}
+  if(!Boolean.isBoolean(require)){require = true;}
 
   if(require){
     if(window.attachEvent){

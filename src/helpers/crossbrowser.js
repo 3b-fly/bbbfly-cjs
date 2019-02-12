@@ -17,6 +17,28 @@
 
 /**
  * @class
+ * @name Boolean
+ * @alias Boolean
+ * @hideconstructor
+ * @memberof bbbfly.crossbrowser
+ */
+
+/**
+ * @function
+ * @name isBoolean
+ * @memberof Boolean
+ *
+ * @param {mixed} value
+ * @return {boolean}
+ */
+if(typeof Boolean.isBoolean !== 'function'){
+  Boolean.isBoolean = function(value){
+    return (typeof value === 'boolean');
+  };
+}
+
+/**
+ * @class
  * @name String
  * @alias String
  * @hideconstructor
