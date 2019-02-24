@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Class: WidgetRegistry</title>
+    <title>Class: Function</title>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -737,8 +737,8 @@
 <section class="kind-class">
 <header>
     <h1 class="name">
-          <span class="ancestors"><a href="bbbfly.html">bbbfly</a>.</span>
-        WidgetRegistry
+          <span class="ancestors"><a href="bbbfly.html">bbbfly</a><a href="bbbfly.crossbrowser.html">.crossbrowser</a></span>
+        Function
   <span class="types">
       <span class="type-signature object">
         object
@@ -750,11 +750,11 @@
     <div class="container-overview">
 <dt>
     <div class="nameContainer">
-        <h2 id="WidgetRegistry">
-          bbbfly.WidgetRegistry
+        <h2 id="Function">
+          Function
         </h2>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L357">extensions/widget.js, line 357</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/crossbrowser.js#L280">helpers/crossbrowser.js, line 280</a>
         </div>
     </div>
 </dt>
@@ -763,25 +763,25 @@
 </dl>
 </dd>
     </div>
-        <h3>In Packages</h3>
-        <ul>
-              <li><a href="packages.html#package:widget">widget</a></li>
-        </ul>
         <h3>Methods</h3>
         <dl>
 <dt>
     <div class="nameContainer">
-        <h4 id="CallAllGroupWidgets">
-          CallAllGroupWidgets
-          <span class="signature">(group, funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="Array.html">Array</a>.&lt;mixed>}</span>
+        <h4 id=".isFunction">
+  <span class="attribs">
+      <span class="type-signature static">
+        static
+      </span>
+  </span>
+          Function.isFunction
+          <span class="signature">(value)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L456">extensions/widget.js, line 456</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/crossbrowser.js#L288">helpers/crossbrowser.js, line 288</a>
         </div>
     </div>
 </dt>
 <dd>
-      <div class="description">Call all widgets in group method</div>
         <h5>Parameters:</h5>
 <table class="params">
     <thead>
@@ -794,35 +794,12 @@
 	<tbody>
         <tr>
                 <td class="name">
-                  <span class="param-name">group</span>
+                  <span class="param-name">value</span>
                 </td>
             <td class="type">
-<span class="param-type">string</span>
+<span class="param-type">mixed</span>
             </td>
             <td class="description last">
-                Widget group id
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">funcName</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Method to call
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">args</span>
-                </td>
-            <td class="type">
-<span class="param-type"><a href="Array.html">Array</a>.&lt;mixed></span>
-            </td>
-            <td class="description last">
-                Method arguments
             </td>
         </tr>
 	</tbody>
@@ -840,534 +817,9 @@
     <tbody>
         <tr>
             <td class="type">
-                        <a href="Array.html">Array</a>.&lt;mixed>
-            </td>
-            <td class="description last">Array of returned values</td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="CallAllWidgets">
-          CallAllWidgets
-          <span class="signature">(funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="Array.html">Array</a>.&lt;mixed>}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L445">extensions/widget.js, line 445</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Call all widgets method</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">funcName</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Method to call
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">args</span>
-                </td>
-            <td class="type">
-<span class="param-type"><a href="Array.html">Array</a>.&lt;mixed></span>
-            </td>
-            <td class="description last">
-                Method arguments
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        <a href="Array.html">Array</a>.&lt;mixed>
-            </td>
-            <td class="description last">Array of returned values</td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="CallWidget">
-          CallWidget
-          <span class="signature">(widget, funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{mixed}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L421">extensions/widget.js, line 421</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Call widget method</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">widget</span>
-                </td>
-            <td class="type">
-<span class="param-type"><a href="bbbfly.Widget.html">bbbfly.Widget</a></span>
-            </td>
-            <td class="description last">
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">funcName</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Method to call
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">args</span>
-                </td>
-            <td class="type">
-<span class="param-type"><a href="Array.html">Array</a>.&lt;mixed></span>
-            </td>
-            <td class="description last">
-                Method arguments
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        mixed
-            </td>
-            <td class="description last">called method return value</td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="CallWidgetById">
-          CallWidgetById
-          <span class="signature">(id, funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{mixed}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L433">extensions/widget.js, line 433</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Call widget method</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">id</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Widget id
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">funcName</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Method to call
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">args</span>
-                </td>
-            <td class="type">
-<span class="param-type"><a href="Array.html">Array</a>.&lt;mixed></span>
-            </td>
-            <td class="description last">
-                Method arguments
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        mixed
-            </td>
-            <td class="description last">called method return value</td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="GetGroupShownWidget">
-          GetGroupShownWidget
-          <span class="signature">(group)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.Widget.html">bbbfly.Widget</a>}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L411">extensions/widget.js, line 411</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Get widget shown in certain group</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">group</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Widget group id
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        <a href="bbbfly.Widget.html">bbbfly.Widget</a>
+                        boolean
             </td>
             <td class="description last"></td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="GetGroupWidgets">
-          GetGroupWidgets
-          <span class="signature">(group)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="Array.html">Array</a>.&lt;<a href="bbbfly.Widget.html">bbbfly.Widget</a>>}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L401">extensions/widget.js, line 401</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Get all widgets of certain group</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">group</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Widget group id
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        <a href="Array.html">Array</a>.&lt;<a href="bbbfly.Widget.html">bbbfly.Widget</a>>
-            </td>
-            <td class="description last"></td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="GetWidgetById">
-          GetWidgetById
-          <span class="signature">(id)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.Widget.html">bbbfly.Widget</a>}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L392">extensions/widget.js, line 392</a>
-        </div>
-    </div>
-</dt>
-<dd>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">id</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Widget id
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        <a href="bbbfly.Widget.html">bbbfly.Widget</a>
-            </td>
-            <td class="description last"></td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="GetWidgets">
-          GetWidgets
-          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="Array.html">Array</a>.&lt;<a href="bbbfly.Widget.html">bbbfly.Widget</a>>}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L384">extensions/widget.js, line 384</a>
-        </div>
-    </div>
-</dt>
-<dd>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        <a href="Array.html">Array</a>.&lt;<a href="bbbfly.Widget.html">bbbfly.Widget</a>>
-            </td>
-            <td class="description last"></td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="RegisterWidget">
-          RegisterWidget
-          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{bolean}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L375">extensions/widget.js, line 375</a>
-        </div>
-    </div>
-</dt>
-<dd>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-            <td class="type">
-<span class="param-type"><a href="bbbfly.Widget.html">bbbfly.Widget</a></span>
-            </td>
-            <td class="description last">
-                Widget to register
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        bolean
-            </td>
-            <td class="description last">If widget was registered</td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="WidgetId">
-          WidgetId
-          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{string|null}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L365">extensions/widget.js, line 365</a>
-        </div>
-    </div>
-</dt>
-<dd>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-            <td class="type">
-<span class="param-type"><a href="bbbfly.Widget.html">bbbfly.Widget</a></span>
-            </td>
-            <td class="description last">
-                Widget
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        string
-                         | 
-                        null
-            </td>
-            <td class="description last">Widget ID</td>
         </tr>
     </tbody>
 </table>
