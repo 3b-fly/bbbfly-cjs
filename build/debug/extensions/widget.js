@@ -90,7 +90,7 @@ bbbfly.widget.registry._callWidget = function(widget,funcName,args){
   if(
     Object.isObject(widget) && String.isString(funcName)
     && ((typeof args === 'undefined') || (typeof args === 'object'))
-    && (typeof widget[funcName] === 'function')
+    && (Function.isFunction(widget[funcName]))
   ){
     return widget[funcName].apply(widget,(args ? args : []));
   }
@@ -129,7 +129,7 @@ bbbfly.widget.registry._callWidgets = function(widgets,funcName,args){
     ngApp.BeginUpdateParams();
     for(var i in widgets){
       var widget = widgets[i];
-      if(typeof widget[funcName] === 'function'){
+      if(Function.isFunction(widget[funcName])){
         returns.push(widget[funcName].apply(widget,(args ? args : [])));
       }
     }
@@ -234,13 +234,13 @@ bbbfly.widget._forceHide = function(){
 bbbfly.widget._doShow = function(force){
 
   ngApp.BeginUpdateParams();
-  if((typeof this.OnShow === 'function') && !this.OnShow(force)){
+  if(Function.isFunction(this.OnShow) && !this.OnShow(force)){
     ngApp.EndUpdateParams();
     return false;
   }
 
   this.SetVisible(true);
-  if(typeof this.OnShown === 'function'){this.OnShown(force);}
+  if(Function.isFunction(this.OnShown)){this.OnShown(force);}
 
   ngApp.EndUpdateParams();
   return true;
@@ -248,13 +248,13 @@ bbbfly.widget._doShow = function(force){
 bbbfly.widget._doHide = function(force){
 
   ngApp.BeginUpdateParams();
-  if((typeof this.OnHide === 'function') && !this.OnHide(force)){
+  if(Function.isFunction(this.OnHide) && !this.OnHide(force)){
     ngApp.EndUpdateParams();
     return false;
   }
 
   this.SetVisible(false);
-  if(typeof this.OnHidden === 'function'){this.OnHidden(force);}
+  if(Function.isFunction(this.OnHidden)){this.OnHidden(force);}
 
   ngApp.EndUpdateParams();
   return true;

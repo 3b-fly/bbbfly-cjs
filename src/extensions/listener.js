@@ -108,8 +108,8 @@ bbbfly.listener._addListener = function(eventNames,listener){
     var eventNm = eventNames[i];
     if(
       !String.isString(eventNm)
-      || (typeof listener[eventNm] !== 'function')
-      || ((typeof this[eventNm] !== 'function') && (this[eventNm] !== null))
+      || !Function.isFunction(listener[eventNm])
+      || (!Function.isFunction(this[eventNm]) && this[eventNm])
     ){return false;}
   }
 
@@ -170,7 +170,7 @@ bbbfly.listener._doAddListener = function(obj,eventNm){
     if(Array.isArray(listeners)){
       for(var i in listeners){
         var listener = listeners[i];
-        if(typeof listener[eventNm] === 'function'){
+        if(Function.isFunction(listener[eventNm])){
           listener[eventNm].apply(
             listener,(arguments ? arguments : [])
           );

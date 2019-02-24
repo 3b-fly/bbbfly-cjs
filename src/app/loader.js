@@ -66,7 +66,7 @@ bbbfly.apploader._updateProgress = function(){
 
 /** @ignore */
 bbbfly.apploader._setStepsCnt = function(count){
-  if(Number.isNumber(count)){
+  if(Number.isInteger(count)){
     this._StepsCnt = count;
     this._StepSize = Math.floor(100/count);
     return true;
@@ -77,8 +77,8 @@ bbbfly.apploader._setStepsCnt = function(count){
 /** @ignore */
 bbbfly.apploader._moveByStep = function(){
   if(
-    (Number.isNumber(this._Step))
-    && (Number.isNumber(this._StepSize))
+    (Number.isInteger(this._Step))
+    && (Number.isInteger(this._StepSize))
   ){
     this._Step++;
     return this.SetProgress(this._Step*this._StepSize);

@@ -262,3 +262,39 @@ if(typeof Number.isNumber !== 'function'){
     return ((typeof value === 'number') && !this.isNaN(value));
   };
 }
+
+/**
+ * @function
+ * @name isInteger
+ * @memberof Number
+ *
+ * @param {mixed} value
+ * @return {boolean}
+ */
+if(typeof Number.isInteger !== 'function'){
+  Number.isInteger = function(value){
+    return (Number.isNumber && (value % 1 === 0));
+  };
+}
+
+/**
+ * @class
+ * @name Function
+ * @alias Function
+ * @hideconstructor
+ * @memberof bbbfly.crossbrowser
+ */
+
+/**
+ * @function
+ * @name isFunction
+ * @memberof Function
+ *
+ * @param {mixed} value
+ * @return {boolean}
+ */
+if(typeof Function.isFunction !== 'function'){
+  Function.isFunction = function(value){
+    return (typeof value === 'function');
+  };
+}

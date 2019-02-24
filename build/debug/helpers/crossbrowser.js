@@ -92,3 +92,13 @@ if(typeof Number.isNumber !== 'function'){
     return ((typeof value === 'number') && !this.isNaN(value));
   };
 }
+if(typeof Number.isInteger !== 'function'){
+  Number.isInteger = function(value){
+    return (Number.isNumber && (value % 1 === 0));
+  };
+}
+if(typeof Function.isFunction !== 'function'){
+  Function.isFunction = function(value){
+    return (typeof value === 'function');
+  };
+}
