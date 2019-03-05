@@ -59,16 +59,24 @@
       "DebugFiles": ["extensions/listener.js"],
       "ReleaseFiles": ["extensions/listener.js"],
       "Libraries": {
-        "controls.js": { "Packages": ["Controls.js"] },
-        "bbbfly-cjs": { "Packages": ["crossbrowser"] }
+        "controls.js": {
+          "Packages": ["Controls.js"]
+        },
+        "bbbfly-cjs": {
+          "Packages": ["crossbrowser"]
+        }
       }
     },
     "widget": {
       "DebugFiles": ["extensions/widget.js"],
       "ReleaseFiles": ["extensions/widget.js"],
       "Libraries": {
-        "controls.js": { "Packages": ["Controls.js"] },
-        "bbbfly-cjs": { "Packages": ["crossbrowser"] }
+        "controls.js": {
+          "Packages": ["Controls.js"]
+        },
+        "bbbfly-cjs": {
+          "Packages": ["crossbrowser"]
+        }
       }
     }
   }
