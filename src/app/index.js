@@ -12,29 +12,29 @@ var bbbfly = bbbfly || {};
 bbbfly.appindex = {};
 
 /** @ignore */
-bbbfly.appindex._addTimestampToURL = function(url){
+bbbfly.appindex._addURLVersion = function(url){
   if(!String.isString(url)){return '';}
-  return url+((url.indexOf('?') === -1) ? '?' : '&')+'ts='+Date.now();
+
+  var v = (ngDEBUG) ? Date.now() : ngVERSION;
+  return url+((url.indexOf('?') === -1) ? '?' : '&')+'v='+(v ? v : '');
 };
 
 /** @ignore */
 bbbfly.appindex._initIndex = function(){
-  if(ngDEBUG){
-    if(typeof ngAppFiles === 'object'){
-      for(var file in ngAppFiles){
-        ngAppFiles[file] = this.AddTimestampToURL(
-          ngAppFiles[file]
-        );
-      }
+  if(typeof ngAppFiles === 'object'){
+    for(var file in ngAppFiles){
+      ngAppFiles[file] = this.AddURLVersion(
+        ngAppFiles[file]
+      );
     }
-    if(typeof ngAppDeviceFiles === 'object'){
-      for(var device in ngAppDeviceFiles){
-        if(typeof ngAppDeviceFiles[device] === 'object'){
-          for(var file in ngAppDeviceFiles[device]){
-            ngAppDeviceFiles[device][file] = this.AddTimestampToURL(
-              ngAppDeviceFiles[device][file]
-            );
-          }
+  }
+  if(typeof ngAppDeviceFiles === 'object'){
+    for(var device in ngAppDeviceFiles){
+      if(typeof ngAppDeviceFiles[device] === 'object'){
+        for(var file in ngAppDeviceFiles[device]){
+          ngAppDeviceFiles[device][file] = this.AddURLVersion(
+            ngAppDeviceFiles[device][file]
+          );
         }
       }
     }
@@ -78,14 +78,14 @@ bbbfly.AppIndex = {
 
   /**
    * @function
-   * @name AddTimestampToURL
+   * @name AddURLVersion
    * @memberof bbbfly.AppIndex#
-   * @description Add timestamp parameter to URL.
+   * @description Add version parameter to URL.
    *
    * @param {string} url
    * @return {string}
    */
-  AddTimestampToURL: bbbfly.appindex._addTimestampToURL,
+  AddURLVersion: bbbfly.appindex._addURLVersion,
   /**
    * @function
    * @name InitIndex
