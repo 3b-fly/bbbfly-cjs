@@ -17,15 +17,23 @@ module.exports = function(grunt) {
       debug: {
         files: [{
           cwd: srcPath,
-          src: ['**/*.js','**/*.png','**/*.jpg','**/*.gif','!**/libs/**'],
+          src: ['**/*.js','!**/libs/**'],
           dest: buildPath+'/debug',
           expand: true
         }]
       },
-      release: {
+      imgs_debug: {
         files: [{
           cwd: srcPath,
-          src: ['**/*.js','**/*.png','**/*.jpg','**/*.gif'],
+          src: ['**/*.{png,jpg,gif}','!**/libs/**'],
+          dest: buildPath+'/debug',
+          expand: true
+        }]
+      },
+      imgs_release: {
+        files: [{
+          cwd: srcPath,
+          src: ['**/*.{png,jpg,gif}','!**/libs/**'],
           dest: buildPath+'/release',
           expand: true
         }]
@@ -140,8 +148,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default',[
     'clean',
-    'copy:debug','copy:release','closureCompiler:release',
+    'copy:debug','closureCompiler:release',
     'comments:remove','usebanner',
+    'copy:imgs_debug','copy:imgs_release',
     'copy:libs_debug','copy:libs_release',
     'exportJSON',
     'copy:license'
