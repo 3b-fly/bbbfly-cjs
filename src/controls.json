@@ -22,6 +22,9 @@
         "app/lang/index_en.js"
       ],
       "Libraries": {
+        "bbbfly-cjs": {
+          "Packages": ["crossbrowser"]
+        },
         "controls.js": {
           "Packages": ["Controls.js"]
         }
