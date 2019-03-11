@@ -52,3 +52,12 @@
 > ### License
 > Comply with [GPLv3 license](http://www.gnu.org/licenses/gpl-3.0.html) for non-commercial use.<br/>
 > License for commercial use is to be purchased at [purchase@3b-fly.eu](mailto:purchase@3b-fly.eu).
+>
+> ### Third party licenses
+> Some packages contain third party code which falls under its own license.<br/>
+> Verify that you satisfy that third party license conditions before using listed packages.<br/>
+>
+>| package | library                                                                       | version | license |
+>| ------- | ----------------------------------------------------------------------------- | ------- | ------- |
+>| geojs   | [Esri Terraformer](https://github.com/Esri/terraformer)                       | 1.0.9   | MIT     |
+>| geojs   | [Esri Terraformer WKT parser](https://github.com/Esri/terraformer-wkt-parser) | 1.2.0   | MIT     |

@@ -33,10 +33,10 @@
  * @package geojs
  * @description
  *   Provides geographical data formats conversion.
+ *   Contains {@link http://terraformer.io/core/|Esri Terraformer 1.0.9}
+ *   and {@link http://terraformer.io/wkt-parser/|Esri Terraformer WKT parser 1.2.0}
  *
  * @version 2.0.0
- * @requires {@link http://terraformer.io/install/| Esri Terraformer (1.0.9)}
- * @requires {@link http://terraformer.io/install/| Esri Terraformer WKT parser (1.2.0)}
  * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
  */
 
@@ -54,7 +54,7 @@
 /**
  * @package widget
  * @description
- *   Contains "bbbfly.Widget" control and widget registry.
+ *   Contains widget control and registry.
  *
  * @version 2.0.0
  *

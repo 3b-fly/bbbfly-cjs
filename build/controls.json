@@ -21,6 +21,11 @@
         "release/app/lang/index_en.js"
       ],
       "Libraries": {
+        "bbbfly-cjs": {
+          "Packages": [
+            "crossbrowser"
+          ]
+        },
         "controls.js": {
           "Packages": [
             "Controls.js"
@@ -70,11 +75,22 @@
     },
     "geojs": {
       "DebugFiles": [
-        "debug/helpers/geojs.js"
+        "debug/helpers/geojs.js",
+        "debug/helpers/libs/terraformer_1.0.9/terraformer.js",
+        "debug/helpers/libs/terraformer-wkt-parser_1.2.0/parser.js"
       ],
       "ReleaseFiles": [
-        "release/helpers/geojs.js"
-      ]
+        "release/helpers/geojs.js",
+        "release/helpers/libs/terraformer_1.0.9/terraformer.js",
+        "release/helpers/libs/terraformer-wkt-parser_1.2.0/parser.js"
+      ],
+      "Libraries": {
+        "bbbfly-cjs": {
+          "Packages": [
+            "crossbrowser"
+          ]
+        }
+      }
     },
     "listener": {
       "DebugFiles": [
