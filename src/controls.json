@@ -26,7 +26,7 @@
           "Packages": ["crossbrowser"]
         },
         "controls.js": {
-          "Packages": ["Controls.js"]
+          "Packages": ["Loader"]
         }
       }
     },
@@ -35,8 +35,11 @@
       "DebugFiles": ["app/loader.js"],
       "ReleaseFiles": ["app/loader.js"],
       "Libraries": {
+        "bbbfly-cjs": {
+          "Packages": ["crossbrowser"]
+        },
         "controls.js": {
-          "Packages": ["Controls.js"]
+          "Packages": ["Loader"]
         }
       }
     },
