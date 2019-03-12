@@ -82,12 +82,12 @@
       "DebugFiles": [
         "debug/helpers/geojs.js",
         "debug/helpers/libs/terraformer_1.0.9/terraformer.js",
-        "debug/helpers/libs/terraformer-wkt-parser_1.2.0/parser.js"
+        "debug/helpers/libs/terraformer-wkt-parser_1.2.0/terraformer-wkt-parser.js"
       ],
       "ReleaseFiles": [
         "release/helpers/geojs.js",
         "release/helpers/libs/terraformer_1.0.9/terraformer.js",
-        "release/helpers/libs/terraformer-wkt-parser_1.2.0/parser.js"
+        "release/helpers/libs/terraformer-wkt-parser_1.2.0/terraformer-wkt-parser.js"
       ],
       "Libraries": {
         "bbbfly-cjs": {
