@@ -51,6 +51,23 @@ bbbfly.listener = {};
 
 /**
  * @function
+ * @name Initialize
+ * @memberOf bbbfly.listener
+ * @description
+ *   Initialize listener to add
+ *   {@link bbbfly.listener.Listenable|interface} methods automatically
+ *
+ * @see {@link bbbfly.listener.SetListenable|SetListenable()}
+ * @see {@link bbbfly.listener.Listenable|Listenable.AllowListeners}
+ */
+bbbfly.listener.Initialize = function(){
+  ngOnControlCreated = ngAddEvent(ngOnControlCreated,
+    function(control){bbbfly.listener.SetListenable(control);}
+  );
+};
+
+/**
+ * @function
  * @name SetListenable
  * @memberOf bbbfly.listener
  * @description
@@ -181,15 +198,14 @@ bbbfly.listener._doAddListener = function(obj,eventNm){
   });
 };
 
-/** @ignore */
-var ngOnControlCreated = ngAddEvent(ngOnControlCreated,
-  function(control){bbbfly.listener.SetListenable(control);}
-);
-
 /**
  * @interface
  * @name Listenable
  * @memberof bbbfly.listener
  *
- * @property {boolean} [AllowListeners=false] - If set to true, interface methods will be added
+ * @property {boolean} [AllowListeners=false]
+ *   Interface methods
+ *   {@link bbbfly.listener.Listenable#AddListener|AddListener()}
+ *   and {@link bbbfly.listener.Listenable#RemoveListener|RemoveListener()}
+ *   can be added if set to true
  */

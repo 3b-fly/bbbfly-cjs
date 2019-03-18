@@ -8,6 +8,11 @@
 
 var bbbfly = bbbfly || {};
 bbbfly.listener = {};
+bbbfly.listener.Initialize = function(){
+  ngOnControlCreated = ngAddEvent(ngOnControlCreated,
+    function(control){bbbfly.listener.SetListenable(control);}
+  );
+};
 bbbfly.listener.SetListenable = function(obj,force){
   if(typeof obj.AllowListeners === 'undefined'){
     obj.AllowListeners = false;
@@ -100,14 +105,15 @@ bbbfly.listener._doAddListener = function(obj,eventNm){
     return true;
   });
 };
-var ngOnControlCreated = ngAddEvent(ngOnControlCreated,
-  function(control){bbbfly.listener.SetListenable(control);}
-);
 
 /**
  * @interface
  * @name Listenable
  * @memberof bbbfly.listener
  *
- * @property {boolean} [AllowListeners=false] - If set to true, interface methods will be added
+ * @property {boolean} [AllowListeners=false]
+ *   Interface methods
+ *   {@link bbbfly.listener.Listenable#AddListener|AddListener()}
+ *   and {@link bbbfly.listener.Listenable#RemoveListener|RemoveListener()}
+ *   can be added if set to true
  */
