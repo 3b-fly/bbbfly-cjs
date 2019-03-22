@@ -47,7 +47,10 @@ var bbbfly = bbbfly || {};
  *   appForm.Update();
  * }
  */
-bbbfly.listener = {};
+bbbfly.listener = {
+  /** @ignore */
+  _initialized: false
+};
 
 /**
  * @function
@@ -61,9 +64,13 @@ bbbfly.listener = {};
  * @see {@link bbbfly.listener.Listenable|Listenable.AllowListeners}
  */
 bbbfly.listener.Initialize = function(){
+  if(this._initialized){return;}
+
   ngOnControlCreated = ngAddEvent(ngOnControlCreated,
     function(control){bbbfly.listener.SetListenable(control);}
   );
+
+  this._initialized = true;
 };
 
 /**

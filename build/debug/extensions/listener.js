@@ -7,11 +7,17 @@
 
 
 var bbbfly = bbbfly || {};
-bbbfly.listener = {};
+bbbfly.listener = {
+  _initialized: false
+};
 bbbfly.listener.Initialize = function(){
+  if(this._initialized){return;}
+
   ngOnControlCreated = ngAddEvent(ngOnControlCreated,
     function(control){bbbfly.listener.SetListenable(control);}
   );
+
+  this._initialized = true;
 };
 bbbfly.listener.SetListenable = function(obj,force){
   if(typeof obj.AllowListeners === 'undefined'){
