@@ -23,7 +23,7 @@ var bbbfly = bbbfly || {};
  *
  *   appForm = new ngControls({
  *     Invoker: {
- *       Type: 'ngPanel',
+ *       Type: 'bbbfly.Panel',
  *       Data: {
  *         AllowListeners: true
  *       }
@@ -36,15 +36,26 @@ var bbbfly = bbbfly || {};
  *   };
  *
  *   appForm.Invoker.AddListener(['OnUpdate','OnUpdated'],Listener);
+ *   appForm.Update();
+ * }
  *
- *   //...or...
+ * @example
+ * var appForm;
+ * function ngMain(){
  *
- *   bbbfly.listener.SetListenable(Listener,true);
- *   Listener.AddListener(['OnUpdated'],{
- *     OnUpdated: function(){}
+ *   appForm = new ngControls({
+ *     Invoker: {
+ *       Type: 'bbbfly.Panel'
+ *     }
  *   });
  *
- *   appForm.Update();
+ *   var Listener = {
+ *     OnUpdate: function(){return true;}
+ *     OnUpdated: function(){}
+ *   };
+ *
+ *   bbbfly.listener.SetListenable(appForm.Invoker,true);
+ *   appForm.Invoker.AddListener(['OnUpdate','OnUpdated'],Listener);
  * }
  */
 bbbfly.listener = {
