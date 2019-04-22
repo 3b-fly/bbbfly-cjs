@@ -351,7 +351,7 @@ bbbfly.Widget = function(def,ref,parent){
     }
   });
 
-  var c = ngCreateControlAsType(def,'ngPanel',ref, parent);
+  var c = ngCreateControlAsType(def,'bbbfly.Panel',ref,parent);
   if(c){bbbfly.WidgetRegistry.RegisterWidget(c);}
   return c;
 };

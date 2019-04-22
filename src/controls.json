@@ -4,8 +4,8 @@
   "Name": "3b-fly's extension for Controls.js",
   "Copyright": "Jan Nejedly",
   "RequiredLibraries": {
-    "controls.js": "5.0.0",
-    "bbbfly-cjs": "2.0.0"
+    "bbbfly-cjs-controls": "2.0.0",
+    "controls.js": "5.0.0"
   },
   "Packages": {
 
@@ -78,11 +78,11 @@
       "DebugFiles": ["extensions/listener.js"],
       "ReleaseFiles": ["extensions/listener.js"],
       "Libraries": {
-        "controls.js": {
-          "Packages": ["Controls.js"]
-        },
         "bbbfly-cjs": {
           "Packages": ["crossbrowser"]
+        },
+        "controls.js": {
+          "Packages": ["Controls.js"]
         }
       }
     },
@@ -90,11 +90,14 @@
       "DebugFiles": ["extensions/widget.js"],
       "ReleaseFiles": ["extensions/widget.js"],
       "Libraries": {
-        "controls.js": {
-          "Packages": ["Controls.js"]
+        "bbbfly-cjs-controls": {
+          "Packages": ["panel"]
         },
         "bbbfly-cjs": {
           "Packages": ["crossbrowser"]
+        },
+        "controls.js": {
+          "Packages": ["Controls.js"]
         }
       }
     }
