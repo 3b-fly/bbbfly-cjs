@@ -22,7 +22,9 @@ bbbfly.widget.registry._registerWidget = function(widget){
   if(!Object.isObject(widget)){return false;}
 
   var widgetId = this.WidgetId(widget);
-  if(!widgetId || this._Widgets[widgetId]){return false;}
+  if(!widgetId){return false;}
+
+  if(this._Widgets[widgetId]){return true;}
 
   this._Widgets[widgetId] = widget;
   widget.AddEvent('OnShow',bbbfly.widget.registry._onWidgetShow);
@@ -145,9 +147,19 @@ bbbfly.widget.registry._onWidgetShow = function(force){
     if(group){
       for(var i in group){
         var widget = group[i];
-        if((widget !== this) && widget.IsShown()){
-          var canHide = (force ? widget.CanForceHide() : widget.CanHide());
-          if(!canHide){ return false;}
+        if(widget !== this){
+
+          if(Function.isFunction(widget.IsShown) && widget.IsShown()){
+            var canHide = false;
+
+            if(force && Function.isFunction(widget.CanForceHide)){
+              canHide = widget.CanForceHide();
+            }
+            else if(Function.isFunction(widget.CanHide)){
+              canHide = widget.CanHide();
+            }
+            if(!canHide){return false;}
+          }
         }
       }
     }
@@ -165,8 +177,12 @@ bbbfly.widget.registry._onWidgetShown = function(force){
       for(var i in group){
         var widget = group[i];
         if(widget !== this){
-          if(force){widget.ForceHide();}
-          else{widget.Hide();}
+          if(force && Function.isFunction(widget.ForceHide)){
+            widget.ForceHide();
+          }
+          else if(Function.isFunction(widget.Hide)){
+            widget.Hide();
+          }
         }
       }
       registry._WidgetGroups_Shown[groupName] = this;
