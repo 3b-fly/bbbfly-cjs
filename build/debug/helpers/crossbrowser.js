@@ -94,7 +94,7 @@ if(typeof Number.isNumber !== 'function'){
 }
 if(typeof Number.isInteger !== 'function'){
   Number.isInteger = function(value){
-    return (Number.isNumber && (value % 1 === 0));
+    return (Number.isNumber(value) && (value % 1 === 0));
   };
 }
 if(typeof Function.isFunction !== 'function'){
