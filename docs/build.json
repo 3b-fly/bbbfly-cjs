@@ -13,6 +13,7 @@
       "../src/helpers/downloader.js",
       "../src/helpers/datetime.js",
       "../src/helpers/geojs.js",
+      "../src/helpers/renderer.js",
       "../src/extensions/listener.js",
       "../src/extensions/widget.js"
     ]

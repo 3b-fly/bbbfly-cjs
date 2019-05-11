@@ -358,7 +358,7 @@ bbbfly.Renderer = {
   FrameHTML: bbbfly.renderer._frameHTML,
   /**
    * @function
-   * @name FrameHTML
+   * @name DynamicFrameHTML
    * @memberof bbbfly.Renderer#
    *
    * @param {bbbfly.Renderer.frameprops} [props=undefined]

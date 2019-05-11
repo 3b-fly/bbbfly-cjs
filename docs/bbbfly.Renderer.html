@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Class: WidgetRegistry</title>
+    <title>Class: Renderer</title>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -794,7 +794,7 @@
 <header>
     <h1 class="name">
           <span class="ancestors"><a href="bbbfly.html">bbbfly</a>.</span>
-        WidgetRegistry
+        Renderer
   <span class="types">
       <span class="type-signature object">
         object
@@ -806,11 +806,11 @@
     <div class="container-overview">
 <dt>
     <div class="nameContainer">
-        <h2 id="WidgetRegistry">
-          bbbfly.WidgetRegistry
+        <h2 id="Renderer">
+          bbbfly.Renderer
         </h2>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L373">extensions/widget.js, line 373</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L290">helpers/renderer.js, line 290</a>
         </div>
     </div>
 </dt>
@@ -821,430 +821,609 @@
     </div>
         <h3>In Packages</h3>
         <ul>
-              <li><a href="packages.html#package:widget">widget</a></li>
+              <li><a href="packages.html#package:renderer">renderer</a></li>
         </ul>
+        <h3>Type Definitions</h3>
+        <dl>
+<dt>
+  <div class="nameContainer">
+    <h4 class="name" id=".frame">
+      frame
+  <span class="types">
+      <span class="type-signature object">
+        object
+      </span>
+  </span>
+    </h4>
+  </div>
+</dt>
+<dd class="member-content">
+<dl class="details">
+      <h5>Properties:</h5>
+    <table class="props" my="test">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr id="property:LeftTop">
+                    <td class="name">
+                      <span class="param-name">LeftTop</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.image">bbbfly.Renderer.image</a></span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:RightTop">
+                    <td class="name">
+                      <span class="param-name">RightTop</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.image">bbbfly.Renderer.image</a></span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:LeftBottom">
+                    <td class="name">
+                      <span class="param-name">LeftBottom</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.image">bbbfly.Renderer.image</a></span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:RightBottom">
+                    <td class="name">
+                      <span class="param-name">RightBottom</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.image">bbbfly.Renderer.image</a></span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:Left">
+                    <td class="name">
+                      <span class="param-name">Left</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.image">bbbfly.Renderer.image</a></span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:Top">
+                    <td class="name">
+                      <span class="param-name">Top</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.image">bbbfly.Renderer.image</a></span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:Right">
+                    <td class="name">
+                      <span class="param-name">Right</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.image">bbbfly.Renderer.image</a></span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:Bottom">
+                    <td class="name">
+                      <span class="param-name">Bottom</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.image">bbbfly.Renderer.image</a></span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:Pane">
+                    <td class="name">
+                      <span class="param-name">Pane</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.image">bbbfly.Renderer.image</a></span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</dl>
+<dl class="details">
+</dl>
+</dd>
+<dt>
+  <div class="nameContainer">
+    <h4 class="name" id=".frameprops">
+      frameprops
+  <span class="types">
+      <span class="type-signature object">
+        object
+      </span>
+  </span>
+    </h4>
+  </div>
+</dt>
+<dd class="member-content">
+    <div class="description">Frame image properties for certain state</div>
+<dl class="details">
+      <h5>Properties:</h5>
+    <table class="props" my="test">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr id="property:id">
+                    <td class="name">
+                      <span class="param-name">id</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+|
+<span class="param-type">undefined</span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Frame ID
+                </td>
+            </tr>
+            <tr id="property:L">
+                    <td class="name">
+                      <span class="param-name">L</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a></span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Left image properties
+                </td>
+            </tr>
+            <tr id="property:T">
+                    <td class="name">
+                      <span class="param-name">T</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a></span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Top image properties
+                </td>
+            </tr>
+            <tr id="property:R">
+                    <td class="name">
+                      <span class="param-name">R</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a></span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Right image properties
+                </td>
+            </tr>
+            <tr id="property:B">
+                    <td class="name">
+                      <span class="param-name">B</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a></span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Bottom image properties
+                </td>
+            </tr>
+            <tr id="property:LT">
+                    <td class="name">
+                      <span class="param-name">LT</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a></span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  LeftTop image properties
+                </td>
+            </tr>
+            <tr id="property:RT">
+                    <td class="name">
+                      <span class="param-name">RT</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a></span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  RightTop image properties
+                </td>
+            </tr>
+            <tr id="property:LB">
+                    <td class="name">
+                      <span class="param-name">LB</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a></span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  LeftBottom image properties
+                </td>
+            </tr>
+            <tr id="property:RB">
+                    <td class="name">
+                      <span class="param-name">RB</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a></span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  RightBottom image properties
+                </td>
+            </tr>
+            <tr id="property:P">
+                    <td class="name">
+                      <span class="param-name">P</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a></span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Pane image properties
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</dl>
+<dl class="details">
+</dl>
+</dd>
+<dt>
+  <div class="nameContainer">
+    <h4 class="name" id=".image">
+      image
+  <span class="types">
+      <span class="type-signature object">
+        object
+      </span>
+  </span>
+    </h4>
+  </div>
+</dt>
+<dd class="member-content">
+<dl class="details">
+      <h5>Properties:</h5>
+    <table class="props" my="test">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr id="property:...L">
+                    <td class="name">
+                      <span class="param-name">...L</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="global.html#px">px</a></span>
+                </td>
+                <td class="description last">
+                  Any <a>/[o]?[h]?[D|I]?[S|G]?L/</a> property
+                </td>
+            </tr>
+            <tr id="property:...T">
+                    <td class="name">
+                      <span class="param-name">...T</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="global.html#px">px</a></span>
+                </td>
+                <td class="description last">
+                  Any <a>/[o]?[h]?[D|I]?[S|G]?T/</a> property
+                </td>
+            </tr>
+            <tr id="property:W">
+                    <td class="name">
+                      <span class="param-name">W</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="global.html#px">px</a></span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:H">
+                    <td class="name">
+                      <span class="param-name">H</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="global.html#px">px</a></span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:Src">
+                    <td class="name">
+                      <span class="param-name">Src</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="global.html#url">url</a></span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</dl>
+<dl class="details">
+</dl>
+</dd>
+<dt>
+  <div class="nameContainer">
+    <h4 class="name" id=".imageprops">
+      imageprops
+  <span class="types">
+      <span class="type-signature object">
+        object
+      </span>
+  </span>
+    </h4>
+  </div>
+</dt>
+<dd class="member-content">
+    <div class="description">Image properties for certain state</div>
+<dl class="details">
+      <h5>Properties:</h5>
+    <table class="props" my="test">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr id="property:id">
+                    <td class="name">
+                      <span class="param-name">id</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+|
+<span class="param-type">undefined</span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Image ID
+                </td>
+            </tr>
+            <tr id="property:Src">
+                    <td class="name">
+                      <span class="param-name">Src</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="global.html#url">url</a></span>
+|
+<span class="param-type">undefined</span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Image source url
+                </td>
+            </tr>
+            <tr id="property:W">
+                    <td class="name">
+                      <span class="param-name">W</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="global.html#px">px</a></span>
+|
+<span class="param-type">undefined</span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Image width
+                </td>
+            </tr>
+            <tr id="property:H">
+                    <td class="name">
+                      <span class="param-name">H</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="global.html#px">px</a></span>
+|
+<span class="param-type">undefined</span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Image height
+                </td>
+            </tr>
+            <tr id="property:L">
+                    <td class="name">
+                      <span class="param-name">L</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="global.html#px">px</a></span>
+|
+<span class="param-type">undefined</span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Image cutout left position
+                </td>
+            </tr>
+            <tr id="property:T">
+                    <td class="name">
+                      <span class="param-name">T</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="global.html#px">px</a></span>
+|
+<span class="param-type">undefined</span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Image cutout top position
+                </td>
+            </tr>
+            <tr id="property:oL">
+                    <td class="name">
+                      <span class="param-name">oL</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="global.html#px">px</a></span>
+|
+<span class="param-type">undefined</span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Mouse-over image cutout left position
+                </td>
+            </tr>
+            <tr id="property:oT">
+                    <td class="name">
+                      <span class="param-name">oT</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="global.html#px">px</a></span>
+|
+<span class="param-type">undefined</span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Mouse-over image cutout top position
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</dl>
+<dl class="details">
+</dl>
+</dd>
+<dt>
+  <div class="nameContainer">
+    <h4 class="name" id=".state">
+      state
+  <span class="types">
+      <span class="type-signature object">
+        object
+      </span>
+  </span>
+    </h4>
+  </div>
+</dt>
+<dd class="member-content">
+<dl class="details">
+      <h5>Properties:</h5>
+    <table class="props" my="test">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr id="property:disabled">
+                    <td class="name">
+                      <span class="param-name">disabled</span>
+                    </td>
+                <td class="type">
+<span class="param-type">boolean</span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:invalid">
+                    <td class="name">
+                      <span class="param-name">invalid</span>
+                    </td>
+                <td class="type">
+<span class="param-type">boolean</span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:selected">
+                    <td class="name">
+                      <span class="param-name">selected</span>
+                    </td>
+                <td class="type">
+<span class="param-type">boolean</span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:grayed">
+                    <td class="name">
+                      <span class="param-name">grayed</span>
+                    </td>
+                <td class="type">
+<span class="param-type">boolean</span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:highlight">
+                    <td class="name">
+                      <span class="param-name">highlight</span>
+                    </td>
+                <td class="type">
+<span class="param-type">boolean</span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:mouseOver">
+                    <td class="name">
+                      <span class="param-name">mouseOver</span>
+                    </td>
+                <td class="type">
+<span class="param-type">boolean</span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</dl>
+<dl class="details">
+</dl>
+</dd>
+        </dl>
         <h3>Methods</h3>
         <dl>
 <dt>
     <div class="nameContainer">
-        <h4 id="CallAllGroupWidgets">
-          CallAllGroupWidgets
-          <span class="signature">(group, funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="Array.html">Array</a>.&lt;mixed>}</span>
+        <h4 id="DynamicFrameHTML">
+          DynamicFrameHTML
+          <span class="signature">(<span class="optional">props</span>, <span class="optional">state</span>, <span class="optional">className</span>, <span class="optional">innerHtml</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{string}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L472">extensions/widget.js, line 472</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Call all widgets in group method</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">group</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Widget group id
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">funcName</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Method to call
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">args</span>
-                </td>
-            <td class="type">
-<span class="param-type"><a href="Array.html">Array</a>.&lt;mixed></span>
-            </td>
-            <td class="description last">
-                Method arguments
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        <a href="Array.html">Array</a>.&lt;mixed>
-            </td>
-            <td class="description last">Array of returned values</td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="CallAllWidgets">
-          CallAllWidgets
-          <span class="signature">(funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="Array.html">Array</a>.&lt;mixed>}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L461">extensions/widget.js, line 461</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Call all widgets method</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">funcName</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Method to call
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">args</span>
-                </td>
-            <td class="type">
-<span class="param-type"><a href="Array.html">Array</a>.&lt;mixed></span>
-            </td>
-            <td class="description last">
-                Method arguments
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        <a href="Array.html">Array</a>.&lt;mixed>
-            </td>
-            <td class="description last">Array of returned values</td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="CallWidget">
-          CallWidget
-          <span class="signature">(widget, funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{mixed}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L437">extensions/widget.js, line 437</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Call widget method</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">widget</span>
-                </td>
-            <td class="type">
-<span class="param-type"><a href="bbbfly.Widget.html">bbbfly.Widget</a></span>
-            </td>
-            <td class="description last">
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">funcName</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Method to call
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">args</span>
-                </td>
-            <td class="type">
-<span class="param-type"><a href="Array.html">Array</a>.&lt;mixed></span>
-            </td>
-            <td class="description last">
-                Method arguments
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        mixed
-            </td>
-            <td class="description last">called method return value</td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="CallWidgetById">
-          CallWidgetById
-          <span class="signature">(id, funcName, args)</span><span class="arrow-right"></span><span class="type-signature returnType">{mixed}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L449">extensions/widget.js, line 449</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Call widget method</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">id</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Widget id
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">funcName</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Method to call
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">args</span>
-                </td>
-            <td class="type">
-<span class="param-type"><a href="Array.html">Array</a>.&lt;mixed></span>
-            </td>
-            <td class="description last">
-                Method arguments
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        mixed
-            </td>
-            <td class="description last">called method return value</td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="GetGroupShownWidget">
-          GetGroupShownWidget
-          <span class="signature">(group)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.Widget.html">bbbfly.Widget</a>}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L427">extensions/widget.js, line 427</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Get widget shown in certain group</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">group</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Widget group id
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        <a href="bbbfly.Widget.html">bbbfly.Widget</a>
-            </td>
-            <td class="description last"></td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="GetGroupWidgets">
-          GetGroupWidgets
-          <span class="signature">(group)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="Array.html">Array</a>.&lt;<a href="bbbfly.Widget.html">bbbfly.Widget</a>>}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L417">extensions/widget.js, line 417</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Get all widgets of certain group</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">group</span>
-                </td>
-            <td class="type">
-<span class="param-type">string</span>
-            </td>
-            <td class="description last">
-                Widget group id
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        <a href="Array.html">Array</a>.&lt;<a href="bbbfly.Widget.html">bbbfly.Widget</a>>
-            </td>
-            <td class="description last"></td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="GetWidgetById">
-          GetWidgetById
-          <span class="signature">(id)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.Widget.html">bbbfly.Widget</a>}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L408">extensions/widget.js, line 408</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L359">helpers/renderer.js, line 359</a>
         </div>
     </div>
 </dt>
@@ -1261,147 +1440,49 @@
 	<tbody>
         <tr>
                 <td class="name">
-                  <span class="param-name">id</span>
+                  <span class="param-name">props</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.frameprops">bbbfly.Renderer.frameprops</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">state</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.state">bbbfly.Renderer.state</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Frame images state
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">className</span>
                 </td>
             <td class="type">
 <span class="param-type">string</span>
             </td>
             <td class="description last">
-                Widget id
+                        <span class="optional">optional</span>
+                Frame images className
             </td>
         </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
         <tr>
+                <td class="name">
+                  <span class="param-name">innerHtml</span>
+                </td>
             <td class="type">
-                        <a href="bbbfly.Widget.html">bbbfly.Widget</a>
-            </td>
-            <td class="description last"></td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="GetWidgets">
-          GetWidgets
-          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="Array.html">Array</a>.&lt;<a href="bbbfly.Widget.html">bbbfly.Widget</a>>}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L400">extensions/widget.js, line 400</a>
-        </div>
-    </div>
-</dt>
-<dd>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        <a href="Array.html">Array</a>.&lt;<a href="bbbfly.Widget.html">bbbfly.Widget</a>>
-            </td>
-            <td class="description last"></td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="RegisterWidget">
-          RegisterWidget
-          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{bolean}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L391">extensions/widget.js, line 391</a>
-        </div>
-    </div>
-</dt>
-<dd>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-            <td class="type">
-<span class="param-type"><a href="bbbfly.Widget.html">bbbfly.Widget</a></span>
+<span class="param-type">string</span>
             </td>
             <td class="description last">
-                Widget to register
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        bolean
-            </td>
-            <td class="description last">If widget was registered</td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id="WidgetId">
-          WidgetId
-          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{string|null}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/widget.js#L381">extensions/widget.js, line 381</a>
-        </div>
-    </div>
-</dt>
-<dd>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-            <td class="type">
-<span class="param-type"><a href="bbbfly.Widget.html">bbbfly.Widget</a></span>
-            </td>
-            <td class="description last">
-                Widget
+                        <span class="optional">optional</span>
+                Frame innerHtml
             </td>
         </tr>
 	</tbody>
@@ -1420,13 +1501,489 @@
         <tr>
             <td class="type">
                         string
-                         | 
-                        null
             </td>
-            <td class="description last">Widget ID</td>
+            <td class="description last">Frame images Html</td>
         </tr>
     </tbody>
 </table>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id="FrameHTML">
+          FrameHTML
+          <span class="signature">(<span class="optional">props</span>, <span class="optional">state</span>, <span class="optional">className</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{string}</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L348">helpers/renderer.js, line 348</a>
+        </div>
+    </div>
+</dt>
+<dd>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">props</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.frameprops">bbbfly.Renderer.frameprops</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">state</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.state">bbbfly.Renderer.state</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Frame images state
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">className</span>
+                </td>
+            <td class="type">
+<span class="param-type">string</span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Frame images className
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+    <h5>Returns:</h5>
+<table class="params">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="type">
+                        string
+            </td>
+            <td class="description last">Frame images Html</td>
+        </tr>
+    </tbody>
+</table>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id="FrameProps">
+          FrameProps
+          <span class="signature">(<span class="optional">frame</span>, <span class="optional">state</span>, <span class="optional">id</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.Renderer.html#.frameprops">bbbfly.Renderer.frameprops</a>}</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L320">helpers/renderer.js, line 320</a>
+        </div>
+    </div>
+</dt>
+<dd>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">frame</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.frame">bbbfly.Renderer.frame</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Frame definition
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">state</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.state">bbbfly.Renderer.state</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Frame images state
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">id</span>
+                </td>
+            <td class="type">
+<span class="param-type">string</span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Frame images ID
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+    <h5>Returns:</h5>
+<table class="params">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="type">
+                        <a href="bbbfly.Renderer.html#.frameprops">bbbfly.Renderer.frameprops</a>
+            </td>
+            <td class="description last"></td>
+        </tr>
+    </tbody>
+</table>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id="ImageHTML">
+          ImageHTML
+          <span class="signature">(<span class="optional">props</span>, <span class="optional">left</span>, <span class="optional">top</span>, <span class="optional">right</span>, <span class="optional">bottom</span>, <span class="optional">state</span>, <span class="optional">className</span>, <span class="optional">style</span>, <span class="optional">innerHtml</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{string}</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L331">helpers/renderer.js, line 331</a>
+        </div>
+    </div>
+</dt>
+<dd>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">props</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">left</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="global.html#px">px</a></span>
+|
+<span class="param-type"><a href="global.html#percentage">percentage</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Image left position
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">top</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="global.html#px">px</a></span>
+|
+<span class="param-type"><a href="global.html#percentage">percentage</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Image top position
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">right</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="global.html#px">px</a></span>
+|
+<span class="param-type"><a href="global.html#percentage">percentage</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Image right position
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">bottom</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="global.html#px">px</a></span>
+|
+<span class="param-type"><a href="global.html#percentage">percentage</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Image bottom position
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">state</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.state">bbbfly.Renderer.state</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Image state
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">className</span>
+                </td>
+            <td class="type">
+<span class="param-type">string</span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Image className
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">style</span>
+                </td>
+            <td class="type">
+<span class="param-type">string</span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Additional image style
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">innerHtml</span>
+                </td>
+            <td class="type">
+<span class="param-type">string</span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Image innerHtml
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+    <h5>Returns:</h5>
+<table class="params">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="type">
+                        string
+            </td>
+            <td class="description last">Image Html</td>
+        </tr>
+    </tbody>
+</table>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id="ImageProps">
+          ImageProps
+          <span class="signature">(<span class="optional">img</span>, <span class="optional">state</span>, <span class="optional">id</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a>}</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L309">helpers/renderer.js, line 309</a>
+        </div>
+    </div>
+</dt>
+<dd>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">img</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.image">bbbfly.Renderer.image</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Image definition
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">state</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.state">bbbfly.Renderer.state</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Image state
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">id</span>
+                </td>
+            <td class="type">
+<span class="param-type">string</span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Image ID
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+    <h5>Returns:</h5>
+<table class="params">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="type">
+                        <a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a>
+            </td>
+            <td class="description last"></td>
+        </tr>
+    </tbody>
+</table>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id="RecalcFrame">
+          RecalcFrame
+          <span class="signature">(<span class="optional">frame</span>)</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L300">helpers/renderer.js, line 300</a>
+        </div>
+    </div>
+</dt>
+<dd>
+      <div class="description">fills in all frame image states.</div>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">frame</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.frame">bbbfly.Renderer.frame</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Frame definition
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id="RecalcImage">
+          RecalcImage
+          <span class="signature">(<span class="optional">img</span>)</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L291">helpers/renderer.js, line 291</a>
+        </div>
+    </div>
+</dt>
+<dd>
+      <div class="description">fills in all image states.</div>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">img</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.image">bbbfly.Renderer.image</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Image definition
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
 </dd>
         </dl>
 </article>
