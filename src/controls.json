@@ -73,6 +73,15 @@
         }
       }
     },
+    "renderer": {
+      "DebugFiles": ["helpers/renderer.js"],
+      "ReleaseFiles": ["helpers/renderer.js"],
+      "Libraries": {
+        "bbbfly-cjs": {
+          "Packages": ["crossbrowser"]
+        }
+      }
+    },
 
     "listener": {
       "DebugFiles": ["extensions/listener.js"],

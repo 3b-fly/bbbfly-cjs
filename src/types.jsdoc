@@ -3,6 +3,10 @@
  * @private
  */
 
+/** @typedef {integer} px */
+/** @typedef {string} percentage */
+/** @typedef {string} url */
+
 /**
  * @typedef {object} GeoJSON
  * @description {@link http://geojson.org/geojson-spec.html|GeoJSON} object

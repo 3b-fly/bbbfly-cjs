@@ -37,6 +37,17 @@
  *   and {@link http://terraformer.io/wkt-parser/|Esri Terraformer WKT parser 1.2.0}
  *
  * @version 2.0.0
+ *
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
+ */
+
+/**
+ * @package renderer
+ * @description
+ *   Provides HTML rendering funcions.
+ *
+ * @version 2.0.0
+ *
  * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
  */
 

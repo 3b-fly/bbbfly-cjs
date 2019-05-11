@@ -97,6 +97,21 @@
         }
       }
     },
+    "renderer": {
+      "DebugFiles": [
+        "debug/helpers/renderer.js"
+      ],
+      "ReleaseFiles": [
+        "release/helpers/renderer.js"
+      ],
+      "Libraries": {
+        "bbbfly-cjs": {
+          "Packages": [
+            "crossbrowser"
+          ]
+        }
+      }
+    },
     "listener": {
       "DebugFiles": [
         "debug/extensions/listener.js"
