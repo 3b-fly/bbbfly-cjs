@@ -594,6 +594,18 @@
         <li data-name="bbbfly.Renderer#RecalcImage">
           <a href="bbbfly.Renderer.html#RecalcImage">RecalcImage</a>
         </li>
+        <li data-name="bbbfly.Renderer#UpdateFrameHTML">
+          <a href="bbbfly.Renderer.html#UpdateFrameHTML">UpdateFrameHTML</a>
+        </li>
+        <li data-name="bbbfly.Renderer#UpdateFrameProps">
+          <a href="bbbfly.Renderer.html#UpdateFrameProps">UpdateFrameProps</a>
+        </li>
+        <li data-name="bbbfly.Renderer#UpdateImageHTML">
+          <a href="bbbfly.Renderer.html#UpdateImageHTML">UpdateImageHTML</a>
+        </li>
+        <li data-name="bbbfly.Renderer#UpdateImageProps">
+          <a href="bbbfly.Renderer.html#UpdateImageProps">UpdateImageProps</a>
+        </li>
     </ul>
 </li>
 <li class="item" data-name="bbbfly.Widget">
@@ -810,7 +822,7 @@
           bbbfly.Renderer
         </h2>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L290">helpers/renderer.js, line 290</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L338">helpers/renderer.js, line 338</a>
         </div>
     </div>
 </dt>
@@ -929,9 +941,9 @@
                 <td class="description last">
                 </td>
             </tr>
-            <tr id="property:Pane">
+            <tr id="property:Center">
                     <td class="name">
-                      <span class="param-name">Pane</span>
+                      <span class="param-name">Center</span>
                     </td>
                 <td class="type">
 <span class="param-type"><a href="bbbfly.Renderer.html#.image">bbbfly.Renderer.image</a></span>
@@ -970,9 +982,9 @@
         </tr>
         </thead>
         <tbody>
-            <tr id="property:id">
+            <tr id="property:Id">
                     <td class="name">
-                      <span class="param-name">id</span>
+                      <span class="param-name">Id</span>
                     </td>
                 <td class="type">
 <span class="param-type">string</span>
@@ -1080,16 +1092,16 @@
                   RightBottom image properties
                 </td>
             </tr>
-            <tr id="property:P">
+            <tr id="property:C">
                     <td class="name">
-                      <span class="param-name">P</span>
+                      <span class="param-name">C</span>
                     </td>
                 <td class="type">
 <span class="param-type"><a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a></span>
                 </td>
                 <td class="description last">
                         <span class="optional">optional</span>
-                  Pane image properties
+                  Center image properties
                 </td>
             </tr>
         </tbody>
@@ -1205,9 +1217,21 @@
         </tr>
         </thead>
         <tbody>
-            <tr id="property:id">
+            <tr id="property:Img">
                     <td class="name">
-                      <span class="param-name">id</span>
+                      <span class="param-name">Img</span>
+                    </td>
+                <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.image">bbbfly.Renderer.image</a></span>
+                </td>
+                <td class="description last">
+                        <span class="optional">optional</span>
+                  Full image definition
+                </td>
+            </tr>
+            <tr id="property:Id">
+                    <td class="name">
+                      <span class="param-name">Id</span>
                     </td>
                 <td class="type">
 <span class="param-type">string</span>
@@ -1267,8 +1291,6 @@
                     </td>
                 <td class="type">
 <span class="param-type"><a href="global.html#px">px</a></span>
-|
-<span class="param-type">undefined</span>
                 </td>
                 <td class="description last">
                         <span class="optional">optional</span>
@@ -1281,8 +1303,6 @@
                     </td>
                 <td class="type">
 <span class="param-type"><a href="global.html#px">px</a></span>
-|
-<span class="param-type">undefined</span>
                 </td>
                 <td class="description last">
                         <span class="optional">optional</span>
@@ -1295,8 +1315,6 @@
                     </td>
                 <td class="type">
 <span class="param-type"><a href="global.html#px">px</a></span>
-|
-<span class="param-type">undefined</span>
                 </td>
                 <td class="description last">
                         <span class="optional">optional</span>
@@ -1309,8 +1327,6 @@
                     </td>
                 <td class="type">
 <span class="param-type"><a href="global.html#px">px</a></span>
-|
-<span class="param-type">undefined</span>
                 </td>
                 <td class="description last">
                         <span class="optional">optional</span>
@@ -1423,7 +1439,7 @@
           <span class="signature">(<span class="optional">props</span>, <span class="optional">state</span>, <span class="optional">className</span>, <span class="optional">innerHtml</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{string}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L359">helpers/renderer.js, line 359</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L426">helpers/renderer.js, line 426</a>
         </div>
     </div>
 </dt>
@@ -1514,7 +1530,7 @@
           <span class="signature">(<span class="optional">props</span>, <span class="optional">state</span>, <span class="optional">className</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{string}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L348">helpers/renderer.js, line 348</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L415">helpers/renderer.js, line 415</a>
         </div>
     </div>
 </dt>
@@ -1593,7 +1609,7 @@
           <span class="signature">(<span class="optional">frame</span>, <span class="optional">state</span>, <span class="optional">id</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.Renderer.html#.frameprops">bbbfly.Renderer.frameprops</a>}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L320">helpers/renderer.js, line 320</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L368">helpers/renderer.js, line 368</a>
         </div>
     </div>
 </dt>
@@ -1673,7 +1689,7 @@
           <span class="signature">(<span class="optional">props</span>, <span class="optional">left</span>, <span class="optional">top</span>, <span class="optional">right</span>, <span class="optional">bottom</span>, <span class="optional">state</span>, <span class="optional">className</span>, <span class="optional">style</span>, <span class="optional">innerHtml</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{string}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L331">helpers/renderer.js, line 331</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L398">helpers/renderer.js, line 398</a>
         </div>
     </div>
 </dt>
@@ -1832,7 +1848,7 @@
           <span class="signature">(<span class="optional">img</span>, <span class="optional">state</span>, <span class="optional">id</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a>}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L309">helpers/renderer.js, line 309</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L357">helpers/renderer.js, line 357</a>
         </div>
     </div>
 </dt>
@@ -1912,7 +1928,7 @@
           <span class="signature">(<span class="optional">frame</span>)</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L300">helpers/renderer.js, line 300</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L348">helpers/renderer.js, line 348</a>
         </div>
     </div>
 </dt>
@@ -1952,7 +1968,7 @@
           <span class="signature">(<span class="optional">img</span>)</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L291">helpers/renderer.js, line 291</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L339">helpers/renderer.js, line 339</a>
         </div>
     </div>
 </dt>
@@ -1985,11 +2001,212 @@
 <dl class="details">
 </dl>
 </dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id="UpdateFrameHTML">
+          UpdateFrameHTML
+          <span class="signature">(<span class="optional">props</span>, <span class="optional">state</span>)</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L447">helpers/renderer.js, line 447</a>
+        </div>
+    </div>
+</dt>
+<dd>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">props</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.frameprops">bbbfly.Renderer.frameprops</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">state</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.state">bbbfly.Renderer.state</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Frame images state
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id="UpdateFrameProps">
+          UpdateFrameProps
+          <span class="signature">(<span class="optional">props</span>, <span class="optional">state</span>)</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L389">helpers/renderer.js, line 389</a>
+        </div>
+    </div>
+</dt>
+<dd>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">props</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.frameprops">bbbfly.Renderer.frameprops</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">state</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.state">bbbfly.Renderer.state</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Frame images state
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id="UpdateImageHTML">
+          UpdateImageHTML
+          <span class="signature">(<span class="optional">props</span>, <span class="optional">state</span>)</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L438">helpers/renderer.js, line 438</a>
+        </div>
+    </div>
+</dt>
+<dd>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">props</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">state</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.state">bbbfly.Renderer.state</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Image state
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id="UpdateImageProps">
+          UpdateImageProps
+          <span class="signature">(<span class="optional">props</span>, <span class="optional">state</span>)</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L379">helpers/renderer.js, line 379</a>
+        </div>
+    </div>
+</dt>
+<dd>
+      <div class="description">Recalculate image properties to certain state.</div>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">props</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.imageprops">bbbfly.Renderer.imageprops</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">state</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.Renderer.html#.state">bbbfly.Renderer.state</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+                Image state
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+</dd>
         </dl>
 </article>
 </section>
         <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sat May 11 2019 21:08:05 GMT+0200 (Central Europe Daylight Time)
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Wed May 15 2019 06:35:08 GMT+0200 (Central Europe Daylight Time)
             <br/>Content icons made by <a target="_blank" href="http://www.freepik.com">Freepik</a> from <a target="_blank" href="http://www.flaticon.com">www.flaticon.com</a>
         </footer>
     </div>
