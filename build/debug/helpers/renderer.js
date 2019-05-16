@@ -84,20 +84,20 @@ bbbfly.renderer._recalcFrame = function(frame){
     this.RecalcImage(frame.Center);
   }
 };
-bbbfly.renderer._imageProps = function(img,state,id){
+bbbfly.renderer._imageProxy = function(img,state,id){
   if(!Object.isObject(img)){return {W:0, H:0, _mock:true};}
 
-  var props = {Img:img, _mock:false};
-  if(String.isString(id)){props.Id = id;}
-  if(String.isString(img.Src)){props.Src = img.Src;}
+  var proxy = {Img:img, _mock:false};
+  if(String.isString(id)){proxy.Id = id;}
+  if(String.isString(img.Src)){proxy.Src = img.Src;}
 
-  if(Number.isInteger(img.W)){props.W = img.W;}
-  if(Number.isInteger(img.H)){props.H = img.H;}
+  if(Number.isInteger(img.W)){proxy.W = img.W;}
+  if(Number.isInteger(img.H)){proxy.H = img.H;}
 
-  this.UpdateImageProps(props,state);
-  return props;
+  this.UpdateImageProxy(proxy,state);
+  return proxy;
 };
-bbbfly.renderer._frameProps = function(frame,state,id){
+bbbfly.renderer._frameProxy = function(frame,state,id){
   if(!Object.isObject(frame)){frame = {};}
   var hasId = String.isString(id);
 
@@ -105,24 +105,24 @@ bbbfly.renderer._frameProps = function(frame,state,id){
     return (hasId) ? id+suffix : null;
   };
 
-  var props = {
-    L: this.ImageProps(frame.Left,state,imgId('_FL')),
-    T: this.ImageProps(frame.Top,state,imgId('_FT')),
-    R: this.ImageProps(frame.Right,state,imgId('_FR')),
-    B: this.ImageProps(frame.Bottom,state,imgId('_FB')),
-    LT: this.ImageProps(frame.LeftTop,state,imgId('_FLT')),
-    RT: this.ImageProps(frame.RightTop,state,imgId('_FRT')),
-    LB: this.ImageProps(frame.LeftBottom,state,imgId('_FLB')),
-    RB: this.ImageProps(frame.RightBottom,state,imgId('_FRB')),
-    C: this.ImageProps(frame.Center,state,imgId('_FC'))
+  var proxy = {
+    L: this.ImageProxy(frame.Left,state,imgId('_FL')),
+    T: this.ImageProxy(frame.Top,state,imgId('_FT')),
+    R: this.ImageProxy(frame.Right,state,imgId('_FR')),
+    B: this.ImageProxy(frame.Bottom,state,imgId('_FB')),
+    LT: this.ImageProxy(frame.LeftTop,state,imgId('_FLT')),
+    RT: this.ImageProxy(frame.RightTop,state,imgId('_FRT')),
+    LB: this.ImageProxy(frame.LeftBottom,state,imgId('_FLB')),
+    RB: this.ImageProxy(frame.RightBottom,state,imgId('_FRB')),
+    C: this.ImageProxy(frame.Center,state,imgId('_FC'))
   };
 
-  if(String.isString(id)){props.Id = id;}
-  return props;
+  if(String.isString(id)){proxy.Id = id;}
+  return proxy;
 };
-bbbfly.renderer._updateImageProps = function(props,state){
-  if(!Object.isObject(props) || props._mock){return;}
-  if(!Object.isObject(props.Img)){return;}
+bbbfly.renderer._updateImageProxy = function(proxy,state){
+  if(!Object.isObject(proxy || proxy._mock)){return;}
+  if(!Object.isObject(proxy.Img)){return;}
 
   var propName = '';
   if(Object.isObject(state)){
@@ -135,52 +135,52 @@ bbbfly.renderer._updateImageProps = function(props,state){
     else if(state.grayed){propName += 'G';}
   }
 
-  var l = props.Img[propName+'L'];
-  var t = props.Img[propName+'T'];
+  var l = proxy.Img[propName+'L'];
+  var t = proxy.Img[propName+'T'];
 
-  if(!Number.isInteger(l) || !Number.isInteger(t)){
-    this.RecalcImage(props.Img);
-    l = props.Img[propName+'L'];
-    t = props.Img[propName+'T'];
-  }
+    if(!Number.isInteger(l) || !Number.isInteger(t)){
+      this.RecalcImage(proxy.Img);
+      l = proxy.Img[propName+'L'];
+      t = proxy.Img[propName+'T'];
+    }
 
-  var ol = props.Img['o'+propName+'L'];
-  var ot = props.Img['o'+propName+'T'];
+  var ol = proxy.Img['o'+propName+'L'];
+  var ot = proxy.Img['o'+propName+'T'];
 
-  if(Number.isInteger(l)){props.L = l;}
-  if(Number.isInteger(t)){props.T = t;}
+  if(Number.isInteger(l)){proxy.L = l;}
+  if(Number.isInteger(t)){proxy.T = t;}
 
-  props.oL = Number.isInteger(ol) ? ol : props.L;
-  props.oT = Number.isInteger(ot) ? ot : props.T;
+  proxy.oL = Number.isInteger(ol) ? ol : proxy.L;
+  proxy.oT = Number.isInteger(ot) ? ot : proxy.T;
 };
-bbbfly.renderer._updateFrameProps = function(props,state){
-  if(!Object.isObject(props)){return;}
+bbbfly.renderer._updateFrameProxy = function(proxy,state){
+  if(!Object.isObject(proxy)){return;}
 
-  this.UpdateImageProps(props.L,state);
-  this.UpdateImageProps(props.T,state);
-  this.UpdateImageProps(props.R,state);
-  this.UpdateImageProps(props.B,state);
-  this.UpdateImageProps(props.LT,state);
-  this.UpdateImageProps(props.RT,state);
-  this.UpdateImageProps(props.LB,state);
-  this.UpdateImageProps(props.RB,state);
-  this.UpdateImageProps(props.C,state);
+  this.UpdateImageProxy(proxy.L,state);
+  this.UpdateImageProxy(proxy.T,state);
+  this.UpdateImageProxy(proxy.R,state);
+  this.UpdateImageProxy(proxy.B,state);
+  this.UpdateImageProxy(proxy.LT,state);
+  this.UpdateImageProxy(proxy.RT,state);
+  this.UpdateImageProxy(proxy.LB,state);
+  this.UpdateImageProxy(proxy.RB,state);
+  this.UpdateImageProxy(proxy.C,state);
 };
 bbbfly.renderer._imageHTML = function(
-  props,left,top,right,bottom,state,className,style,innerHtml
+  proxy,left,top,right,bottom,state,className,style,innerHtml
 ){
-  if(!Object.isObject(props) || props._mock){return '';}
-  if(!String.isString(props.Src) || (props.Src === '')){return '';}
+  if(!Object.isObject(proxy) || proxy._mock){return '';}
+  if(!String.isString(proxy.Src) || (proxy.Src === '')){return '';}
 
-  var widht = bbbfly.renderer._styleDim(props.W);
-  var height = bbbfly.renderer._styleDim(props.H);
+  var widht = bbbfly.renderer._styleDim(proxy.W);
+  var height = bbbfly.renderer._styleDim(proxy.H);
 
   var mouseOver = (state && state.mouseOver);
-  var l = mouseOver ? props.oL : props.L;
-  var t = mouseOver ? props.oT : props.T;
+  var l = mouseOver ? proxy.oL : proxy.L;
+  var t = mouseOver ? proxy.oT : proxy.T;
 
   var imgStyle = ' style="position:absolute;overflow:hidden';
-  imgStyle += ";background: transparent url('"+props.Src+"')";
+  imgStyle += ";background: transparent url('"+proxy.Src+"')";
 
   if(!widht && !height){imgStyle += 'repeat';}
   else if(!widht){imgStyle += ' repeat-x';}
@@ -206,56 +206,56 @@ bbbfly.renderer._imageHTML = function(
   imgStyle += String.isString(style) ? ';'+style+'"' : '"';
 
   var attrs = '';
-  if(String.isString(props.Id)){attrs += ' id="'+props.Id+'"';}
+  if(String.isString(proxy.Id)){attrs += ' id="'+proxy.Id+'"';}
   if(String.isString(className)){attrs += ' class="'+className+'"';}
 
   if(!String.isString(innerHtml)){innerHtml = '';}
   return '<div unselectable="on"'+imgStyle+attrs+'>'+innerHtml+'</div>';
 };
-bbbfly.renderer._frameHTML = function(props,state,className){
+bbbfly.renderer._frameHTML = function(proxy,state,className){
   var frameHtml = '';
 
-  if(Object.isObject(props)){
+  if(Object.isObject(proxy)){
     frameHtml += this.ImageHTML(
-      props.L,0,props.LT.H,null,props.LB.H,state,className
+      proxy.L,0,proxy.LT.H,null,proxy.LB.H,state,className
     );
     frameHtml += this.ImageHTML(
-      props.T,props.LT.W,0,props.RT.W,null,state,className
+      proxy.T,proxy.LT.W,0,proxy.RT.W,null,state,className
     );
     frameHtml += this.ImageHTML(
-      props.R,null,props.RT.H,0,props.RB.H,state,className
+      proxy.R,null,proxy.RT.H,0,proxy.RB.H,state,className
     );
     frameHtml += this.ImageHTML(
-      props.B,props.LB.W,null,props.RB.W,0,state,className
+      proxy.B,proxy.LB.W,null,proxy.RB.W,0,state,className
     );
     frameHtml += this.ImageHTML(
-      props.LT,0,0,null,null,state,className
+      proxy.LT,0,0,null,null,state,className
     );
     frameHtml += this.ImageHTML(
-      props.RT,null,0,0,null,state,className
+      proxy.RT,null,0,0,null,state,className
     );
     frameHtml += this.ImageHTML(
-      props.LB,0,null,null,0,state,className
+      proxy.LB,0,null,null,0,state,className
     );
     frameHtml += this.ImageHTML(
-      props.RB,null,null,0,0,state,className
+      proxy.RB,null,null,0,0,state,className
     );
     frameHtml += this.ImageHTML(
-      props.C,props.L.W,props.T.H,props.R.W,props.B.H,state,className
+      proxy.C,proxy.L.W,proxy.T.H,proxy.R.W,proxy.B.H,state,className
     );
   }
   return frameHtml;
 };
 bbbfly.renderer._dynamicFrameHTML = function(
-  props,state,className,innerHtml
+  proxy,state,className,innerHtml
 ){
-  var frameHtml = this.FrameHTML(props,state,className);
+  var frameHtml = this.FrameHTML(proxy,state,className);
 
   if(String.isString(innerHtml)){
-    var left = bbbfly.renderer._styleDim(props.L.W);
-    var top = bbbfly.renderer._styleDim(props.T.H);
-    var right = bbbfly.renderer._styleDim(props.R.W);
-    var bottom = bbbfly.renderer._styleDim(props.B.H);
+    var left = bbbfly.renderer._styleDim(proxy.L.W);
+    var top = bbbfly.renderer._styleDim(proxy.T.H);
+    var right = bbbfly.renderer._styleDim(proxy.R.W);
+    var bottom = bbbfly.renderer._styleDim(proxy.B.H);
 
     var attrs = '';
     if(left){attrs += 'padding-left:'+left+';';}
@@ -265,50 +265,50 @@ bbbfly.renderer._dynamicFrameHTML = function(
     if(attrs){attrs = ' style="'+attrs+'"';}
 
     if(String.isString(className)){attrs += ' class="'+className+'"';}
-    if(Object.isObject(props) && String.isString(props.Id)){
-      attrs += ' id="'+props.Id+'_C"';
+    if(Object.isObject(proxy) && String.isString(proxy.Id)){
+      attrs += ' id="'+proxy.Id+'_C"';
     }
 
     frameHtml += '<div unselectable="on"'+attrs+'>'+innerHtml+'</div>';
   }
   return frameHtml;
 };
-bbbfly.renderer._updateImageHTML = function(props,state){
-  if(!Object.isObject(props) || props._mock){return;}
-  if(!String.isString(props.Id) || (props.Id === '')){return;}
+bbbfly.renderer._updateImageHTML = function(proxy,state){
+  if(!Object.isObject(proxy) || proxy._mock){return;}
+  if(!String.isString(proxy.Id) || (proxy.Id === '')){return;}
 
-  var node = document.getElementById(props.Id);
+  var node = document.getElementById(proxy.Id);
   if(!node){return;}
 
   var mouseOver = (state && state.mouseOver);
-  var left = mouseOver ? props.oL : props.L;
-  var top = mouseOver ? props.oT : props.T;
+  var left = mouseOver ? proxy.oL : proxy.L;
+  var top = mouseOver ? proxy.oT : proxy.T;
 
   left = bbbfly.renderer._styleDim(left,true);
   top = bbbfly.renderer._styleDim(top,true);
 
   node.style.backgroundPosition = left+' '+top;
 };
-bbbfly.renderer._updateFrameHTML = function(props,state){
-  if(Object.isObject(props)){
-    this.UpdateImageHTML(props.L,state);
-    this.UpdateImageHTML(props.T,state);
-    this.UpdateImageHTML(props.R,state);
-    this.UpdateImageHTML(props.B,state);
-    this.UpdateImageHTML(props.LT,state);
-    this.UpdateImageHTML(props.RT,state);
-    this.UpdateImageHTML(props.LB,state);
-    this.UpdateImageHTML(props.RB,state);
-    this.UpdateImageHTML(props.C,state);
+bbbfly.renderer._updateFrameHTML = function(proxy,state){
+  if(Object.isObject(proxy)){
+    this.UpdateImageHTML(proxy.L,state);
+    this.UpdateImageHTML(proxy.T,state);
+    this.UpdateImageHTML(proxy.R,state);
+    this.UpdateImageHTML(proxy.B,state);
+    this.UpdateImageHTML(proxy.LT,state);
+    this.UpdateImageHTML(proxy.RT,state);
+    this.UpdateImageHTML(proxy.LB,state);
+    this.UpdateImageHTML(proxy.RB,state);
+    this.UpdateImageHTML(proxy.C,state);
   }
 };
 bbbfly.Renderer = {
   RecalcImage: bbbfly.renderer._recalcImage,
   RecalcFrame: bbbfly.renderer._recalcFrame,
-  ImageProps: bbbfly.renderer._imageProps,
-  FrameProps: bbbfly.renderer._frameProps,
-  UpdateImageProps: bbbfly.renderer._updateImageProps,
-  UpdateFrameProps: bbbfly.renderer._updateFrameProps,
+  ImageProxy: bbbfly.renderer._imageProxy,
+  FrameProxy: bbbfly.renderer._frameProxy,
+  UpdateImageProxy: bbbfly.renderer._updateImageProxy,
+  UpdateFrameProxy: bbbfly.renderer._updateFrameProxy,
   ImageHTML: bbbfly.renderer._imageHTML,
   FrameHTML: bbbfly.renderer._frameHTML,
   DynamicFrameHTML: bbbfly.renderer._dynamicFrameHTML,
@@ -317,19 +317,19 @@ bbbfly.Renderer = {
 };
 
 /**
- * @typedef {object} frameprops
+ * @typedef {object} frameproxy
  * @memberOf bbbfly.Renderer
  *
  * @description Frame image properties for certain state
  *
  * @property {string|undefined} [Id] - Frame ID
- * @property {bbbfly.Renderer.imageprops} [L] - Left image properties
- * @property {bbbfly.Renderer.imageprops} [T] - Top image properties
- * @property {bbbfly.Renderer.imageprops} [R] - Right image properties
- * @property {bbbfly.Renderer.imageprops} [B] - Bottom image properties
- * @property {bbbfly.Renderer.imageprops} [LT] - LeftTop image properties
- * @property {bbbfly.Renderer.imageprops} [RT] - RightTop image properties
- * @property {bbbfly.Renderer.imageprops} [LB] - LeftBottom image properties
- * @property {bbbfly.Renderer.imageprops} [RB] - RightBottom image properties
- * @property {bbbfly.Renderer.imageprops} [C] - Center image properties
+ * @property {bbbfly.Renderer.imageproxy} [L] - Left image properties
+ * @property {bbbfly.Renderer.imageproxy} [T] - Top image properties
+ * @property {bbbfly.Renderer.imageproxy} [R] - Right image properties
+ * @property {bbbfly.Renderer.imageproxy} [B] - Bottom image properties
+ * @property {bbbfly.Renderer.imageproxy} [LT] - LeftTop image properties
+ * @property {bbbfly.Renderer.imageproxy} [RT] - RightTop image properties
+ * @property {bbbfly.Renderer.imageproxy} [LB] - LeftBottom image properties
+ * @property {bbbfly.Renderer.imageproxy} [RB] - RightBottom image properties
+ * @property {bbbfly.Renderer.imageproxy} [C] - Center image properties
  */
