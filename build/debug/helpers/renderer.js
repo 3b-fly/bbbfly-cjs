@@ -23,52 +23,32 @@ bbbfly.renderer._styleDim = function(dim,neg){
   return '';
 };
 bbbfly.renderer._recalcImage = function(img){
-  if(Object.isObject(img)){
-    if(!Number.isInteger(img.L)){img.L = 0;}
-    if(!Number.isInteger(img.T)){img.T = 0;}
+  if(!Object.isObject(img)){return;}
 
-    if(!Number.isInteger(img.SL)){img.SL = img.L;}
-    if(!Number.isInteger(img.ST)){img.ST = img.T;}
-    if(!Number.isInteger(img.GL)){img.GL = img.L;}
-    if(!Number.isInteger(img.GT)){img.GT = img.T;}
+  if(!Number.isInteger(img.L)){img.L = 0;}
+  if(!Number.isInteger(img.T)){img.T = 0;}
 
-    if(!Number.isInteger(img.DL)){img.DL = img.L;}
-    if(!Number.isInteger(img.DT)){img.DT = img.T;}
-    if(!Number.isInteger(img.IL)){img.IL = img.L;}
-    if(!Number.isInteger(img.IT)){img.IT = img.T;}
+  bbbfly.renderer._updateImageProps(img,'L',['SL','GL','IL','DL']);
+  bbbfly.renderer._updateImageProps(img,'T',['ST','GT','IT','DT']);
 
-    if(!Number.isInteger(img.DSL)){img.DSL = img.SL;}
-    if(!Number.isInteger(img.DST)){img.DST = img.ST;}
-    if(!Number.isInteger(img.DGL)){img.DGL = img.GL;}
-    if(!Number.isInteger(img.DGT)){img.DGT = img.GT;}
+  bbbfly.renderer._updateImageProps(img,'SL',['ISL','DSL']);
+  bbbfly.renderer._updateImageProps(img,'ST',['IST','DST']);
+  bbbfly.renderer._updateImageProps(img,'GL',['IGL','DGL']);
+  bbbfly.renderer._updateImageProps(img,'GT',['IGT','DGT']);
 
-    if(!Number.isInteger(img.ISL)){img.ISL = img.SL;}
-    if(!Number.isInteger(img.IST)){img.IST = img.ST;}
-    if(!Number.isInteger(img.IGL)){img.IGL = img.GL;}
-    if(!Number.isInteger(img.IGT)){img.IGT = img.GT;}
+  bbbfly.renderer._updateImageProps(img,'DSL',['DISL']);
+  bbbfly.renderer._updateImageProps(img,'DST',['DIST']);
+  bbbfly.renderer._updateImageProps(img,'DGL',['DIGL']);
+  bbbfly.renderer._updateImageProps(img,'DGT',['DIGT']);
+};
+bbbfly.renderer._updateImageProps = function(img,source,target){
+  if(!Object.isObject(img) || !Array.isArray(target)){return;}
 
-    if(!Number.isInteger(img.hL)){img.hL = img.L;}
-    if(!Number.isInteger(img.hT)){img.hT = img.T;}
-
-    if(!Number.isInteger(img.hSL)){img.hSL = img.SL;}
-    if(!Number.isInteger(img.hST)){img.hST = img.ST;}
-    if(!Number.isInteger(img.hGL)){img.hGL = img.GL;}
-    if(!Number.isInteger(img.hGT)){img.hGT = img.GT;}
-
-    if(!Number.isInteger(img.hDL)){img.hDL = img.DL;}
-    if(!Number.isInteger(img.hDT)){img.hDT = img.DT;}
-    if(!Number.isInteger(img.hIL)){img.hIL = img.IL;}
-    if(!Number.isInteger(img.hIT)){img.hIT = img.IT;}
-
-    if(!Number.isInteger(img.hDSL)){img.hDSL = img.DSL;}
-    if(!Number.isInteger(img.hDST)){img.hDST = img.DST;}
-    if(!Number.isInteger(img.hDGL)){img.hDGL = img.DGL;}
-    if(!Number.isInteger(img.hDGT)){img.hDGT = img.DGT;}
-
-    if(!Number.isInteger(img.hISL)){img.hISL = img.ISL;}
-    if(!Number.isInteger(img.hIST)){img.hIST = img.IST;}
-    if(!Number.isInteger(img.hIGL)){img.hIGL = img.IGL;}
-    if(!Number.isInteger(img.hIGT)){img.hIGT = img.IGT;}
+  for(var i in target){
+    var prop = target[i];
+    if(!Number.isInteger(img[prop])){
+      img[prop] = img[source];
+    }
   }
 };
 bbbfly.renderer._recalcFrame = function(frame){
@@ -124,19 +104,30 @@ bbbfly.renderer._updateImageProxy = function(proxy,state){
   if(!Object.isObject(proxy || proxy._mock)){return;}
   if(!Object.isObject(proxy.Img)){return;}
 
+  var l = null;
+  var t = null;
+  var ol = null;
+  var ot = null;
+
   var propName = '';
   if(Object.isObject(state)){
-    if(state.highlight){propName += 'h';}
-
-    if(state.disabled){propName += 'D';} //TODO
-    else if(state.invalid){propName += 'I';}
+    if(state.disabled){propName += 'D';}
+    if(state.invalid){propName += 'I';}
 
     if(state.selected){propName += 'S';}
     else if(state.grayed){propName += 'G';}
+
+    if(state.highlight){
+      l = proxy.Img['h'+propName+'L'];
+      t = proxy.Img['h'+propName+'T'];
+      ol = proxy.Img['oh'+propName+'L'];
+      ot = proxy.Img['oh'+propName+'T'];
+    }
   }
 
-  var l = proxy.Img[propName+'L'];
-  var t = proxy.Img[propName+'T'];
+  if(!Number.isInteger(l) || !Number.isInteger(t)){
+    l = proxy.Img[propName+'L'];
+    t = proxy.Img[propName+'T'];
 
     if(!Number.isInteger(l) || !Number.isInteger(t)){
       this.RecalcImage(proxy.Img);
@@ -144,8 +135,9 @@ bbbfly.renderer._updateImageProxy = function(proxy,state){
       t = proxy.Img[propName+'T'];
     }
 
-  var ol = proxy.Img['o'+propName+'L'];
-  var ot = proxy.Img['o'+propName+'T'];
+    ol = proxy.Img['o'+propName+'L'];
+    ot = proxy.Img['o'+propName+'T'];
+  }
 
   if(Number.isInteger(l)){proxy.L = l;}
   if(Number.isInteger(t)){proxy.T = t;}
