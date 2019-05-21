@@ -462,11 +462,30 @@ bbbfly.Renderer = {
  */
 
 /**
+ * @typedef {px} imagepos
+ * @memberOf bbbfly.Renderer
+ * @description
+ *   Property name must meet <a>/[o]?[h]?[D]?[I]?[S|G]?[L|T]/</a> state mask
+ *   <br/><br/>
+ *   <ul>
+ *     <li><b>o</b> - mouse over</li>
+ *     <li><b>h</b> - highlight</li>
+ *     <li><b>D</b> - disabled</li>
+ *     <li><b>I</b> - invalid</li>
+ *     <li><b>S</b> - selected</li>
+ *     <li><b>G</b> - grayed</li>
+ *     <li><b>L</b> - left</li>
+ *     <li><b>T</b> - top</li>
+ *   </ul>
+ * </code>
+ */
+
+/**
  * @typedef {object} image
  * @memberOf bbbfly.Renderer
  *
- * @property {px} ...L - Any <a>/[o]?[h]?[D]?[I]?[S|G]?L/</a> property
- * @property {px} ...T - Any <a>/[o]?[h]?[D]?[I]?[S|G]?T/</a> property
+ * @property {bbbfly.Renderer.imagepos} ...L
+ * @property {bbbfly.Renderer.imagepos} ...T
  * @property {px} W
  * @property {px} H
  * @property {url} Src
