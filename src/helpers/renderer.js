@@ -51,10 +51,13 @@ bbbfly.renderer._recalcImage = function(img){
   bbbfly.renderer._updateImageProps(img,'L',['SL','GL','IL','DL']);
   bbbfly.renderer._updateImageProps(img,'T',['ST','GT','IT','DT']);
 
-  bbbfly.renderer._updateImageProps(img,'SL',['ISL','DSL']);
-  bbbfly.renderer._updateImageProps(img,'ST',['IST','DST']);
-  bbbfly.renderer._updateImageProps(img,'GL',['IGL','DGL']);
-  bbbfly.renderer._updateImageProps(img,'GT',['IGT','DGT']);
+  bbbfly.renderer._updateImageProps(img,'DL',['DIL','DGL','DSL']);
+  bbbfly.renderer._updateImageProps(img,'DT',['DIT','DGT','DST']);
+
+  bbbfly.renderer._updateImageProps(img,'SL',['ISL']);
+  bbbfly.renderer._updateImageProps(img,'ST',['IST']);
+  bbbfly.renderer._updateImageProps(img,'GL',['IGL']);
+  bbbfly.renderer._updateImageProps(img,'GT',['IGT']);
 
   bbbfly.renderer._updateImageProps(img,'DSL',['DISL']);
   bbbfly.renderer._updateImageProps(img,'DST',['DIST']);
