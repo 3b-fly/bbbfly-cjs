@@ -8,6 +8,18 @@
 
 var bbbfly = bbbfly || {};
 bbbfly.renderer = {};
+bbbfly.renderer._updateHTMLState = function(node,state){
+  if(!(node instanceof HTMLElement)){return;}
+  if(!Object.isObject(state)){return;}
+
+  for(var prop in state){
+    var attr = bbbfly.Renderer.stateattr[prop];
+    if(!String.isString(attr)){continue;}
+
+    if(state[prop]){node.setAttribute(attr,'1');}
+    else{node.removeAttribute(attr);}
+  }
+};
 bbbfly.renderer._styleDim = function(dim,neg){
   if(Number.isInteger(dim)){
     if(neg){dim *= -1;}
@@ -109,24 +121,24 @@ bbbfly.renderer._updateImageProxy = function(proxy,state){
   var ol = null;
   var ot = null;
 
+  var attrs = bbbfly.Renderer.stateattr;
+  var overAttr = attrs.mouseOver;
   var propName = '';
-  var overProp = bbbfly.Renderer.stateprop.mouseOver;
 
   if(Object.isObject(state)){
-    if(state.disabled){propName += bbbfly.Renderer.stateprop.disabled;}
-    if(state.invalid){propName += bbbfly.Renderer.stateprop.invalid;}
+    if(state.disabled){propName += attrs.disabled;}
+    if(state.invalid){propName += attrs.invalid;}
 
-    if(state.selected){propName += bbbfly.Renderer.stateprop.selected;}
-    else if(state.grayed){propName += bbbfly.Renderer.stateprop.grayed;}
+    if(state.selected){propName += attrs.selected;}
+    else if(state.grayed){propName += attrs.grayed;}
 
     if(state.highlight){
-      var hlProp = bbbfly.Renderer.stateprop.highlight;
-      var hlPropName = hlProp+propName;
+      var hlPropName = attrs.highlight+propName;
 
       l = proxy.Img[hlPropName+'L'];
       t = proxy.Img[hlPropName+'T'];
-      ol = proxy.Img[overProp+hlPropName+'L'];
-      ot = proxy.Img[overProp+hlPropName+'T'];
+      ol = proxy.Img[overAttr+hlPropName+'L'];
+      ot = proxy.Img[overAttr+hlPropName+'T'];
     }
   }
 
@@ -140,8 +152,8 @@ bbbfly.renderer._updateImageProxy = function(proxy,state){
       t = proxy.Img[propName+'T'];
     }
 
-    ol = proxy.Img[overProp+propName+'L'];
-    ot = proxy.Img[overProp+propName+'T'];
+    ol = proxy.Img[overAttr+propName+'L'];
+    ot = proxy.Img[overAttr+propName+'T'];
   }
 
   if(Number.isInteger(l)){proxy.L = l;}
@@ -300,6 +312,7 @@ bbbfly.renderer._updateFrameHTML = function(proxy,state){
   }
 };
 bbbfly.Renderer = {
+  UpdateHTMLState: bbbfly.renderer._updateHTMLState,
   RecalcImage: bbbfly.renderer._recalcImage,
   RecalcFrame: bbbfly.renderer._recalcFrame,
   ImageProxy: bbbfly.renderer._imageProxy,
@@ -312,7 +325,7 @@ bbbfly.Renderer = {
   UpdateImageHTML: bbbfly.renderer._updateImageHTML,
   UpdateFrameHTML: bbbfly.renderer._updateFrameHTML
 };
-bbbfly.Renderer.stateprop = {
+bbbfly.Renderer.stateattr = {
   disabled: 'D',
   invalid: 'I',
   selected: 'S',
