@@ -126,18 +126,23 @@ bbbfly.renderer._updateImageProxy = function(proxy,state){
   var ot = null;
 
   var propName = '';
-  if(Object.isObject(state)){
-    if(state.disabled){propName += 'D';}
-    if(state.invalid){propName += 'I';}
+  var overProp = bbbfly.Renderer.stateprop.mouseOver;
 
-    if(state.selected){propName += 'S';}
-    else if(state.grayed){propName += 'G';}
+  if(Object.isObject(state)){
+    if(state.disabled){propName += bbbfly.Renderer.stateprop.disabled;}
+    if(state.invalid){propName += bbbfly.Renderer.stateprop.invalid;}
+
+    if(state.selected){propName += bbbfly.Renderer.stateprop.selected;}
+    else if(state.grayed){propName += bbbfly.Renderer.stateprop.grayed;}
 
     if(state.highlight){
-      l = proxy.Img['h'+propName+'L'];
-      t = proxy.Img['h'+propName+'T'];
-      ol = proxy.Img['oh'+propName+'L'];
-      ot = proxy.Img['oh'+propName+'T'];
+      var hlProp = bbbfly.Renderer.stateprop.highlight;
+      var hlPropName = hlProp+propName;
+
+      l = proxy.Img[hlPropName+'L'];
+      t = proxy.Img[hlPropName+'T'];
+      ol = proxy.Img[overProp+hlPropName+'L'];
+      ot = proxy.Img[overProp+hlPropName+'T'];
     }
   }
 
@@ -151,8 +156,8 @@ bbbfly.renderer._updateImageProxy = function(proxy,state){
       t = proxy.Img[propName+'T'];
     }
 
-    ol = proxy.Img['o'+propName+'L'];
-    ot = proxy.Img['o'+propName+'T'];
+    ol = proxy.Img[overProp+propName+'L'];
+    ot = proxy.Img[overProp+propName+'T'];
   }
 
   if(Number.isInteger(l)){proxy.L = l;}
@@ -447,6 +452,18 @@ bbbfly.Renderer = {
    * @param {bbbfly.Renderer.state} [state=undefined] - Frame images state
    */
   UpdateFrameHTML: bbbfly.renderer._updateFrameHTML
+};
+
+/**
+ * @enum {string}
+ */
+bbbfly.Renderer.stateprop = {
+  disabled: 'D',
+  invalid: 'I',
+  selected: 'S',
+  grayed: 'G',
+  highlight: 'h',
+  mouseOver: 'o'
 };
 
 /**
