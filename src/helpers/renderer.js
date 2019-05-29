@@ -48,21 +48,37 @@ bbbfly.renderer._recalcImage = function(img){
   if(!Number.isInteger(img.L)){img.L = 0;}
   if(!Number.isInteger(img.T)){img.T = 0;}
 
-  bbbfly.renderer._updateImageProps(img,'L',['SL','GL','IL','DL']);
-  bbbfly.renderer._updateImageProps(img,'T',['ST','GT','IT','DT']);
+  bbbfly.renderer._updateImageProps(img,'L',['DL','RL','IL','CL','GL']);
+  bbbfly.renderer._updateImageProps(img,'T',['DT','RT','IT','CT','GT']);
 
-  bbbfly.renderer._updateImageProps(img,'DL',['DIL','DGL','DSL']);
-  bbbfly.renderer._updateImageProps(img,'DT',['DIT','DGT','DST']);
+  bbbfly.renderer._updateImageProps(img,'DL',['DRL','DIL','DCL','DGL']);
+  bbbfly.renderer._updateImageProps(img,'DT',['DRT','DIT','DCT','DGT']);
 
-  bbbfly.renderer._updateImageProps(img,'SL',['ISL']);
-  bbbfly.renderer._updateImageProps(img,'ST',['IST']);
+  bbbfly.renderer._updateImageProps(img,'RL',['RIL','RCL','RGL']);
+  bbbfly.renderer._updateImageProps(img,'RT',['RIT','RCT','RGT']);
+
+  bbbfly.renderer._updateImageProps(img,'CL',['ICL']);
+  bbbfly.renderer._updateImageProps(img,'CT',['ICT']);
   bbbfly.renderer._updateImageProps(img,'GL',['IGL']);
   bbbfly.renderer._updateImageProps(img,'GT',['IGT']);
 
-  bbbfly.renderer._updateImageProps(img,'DSL',['DISL']);
-  bbbfly.renderer._updateImageProps(img,'DST',['DIST']);
+  bbbfly.renderer._updateImageProps(img,'DRL',['DRIL','DRCL','DRGL']);
+  bbbfly.renderer._updateImageProps(img,'DRT',['DRIT','DRCT','DRGT']);
+
+  bbbfly.renderer._updateImageProps(img,'DCL',['DICL']);
+  bbbfly.renderer._updateImageProps(img,'DCT',['DICT']);
   bbbfly.renderer._updateImageProps(img,'DGL',['DIGL']);
   bbbfly.renderer._updateImageProps(img,'DGT',['DIGT']);
+
+  bbbfly.renderer._updateImageProps(img,'RCL',['RICL']);
+  bbbfly.renderer._updateImageProps(img,'RCT',['RICT']);
+  bbbfly.renderer._updateImageProps(img,'RGL',['RIGL']);
+  bbbfly.renderer._updateImageProps(img,'RGT',['RIGT']);
+
+  bbbfly.renderer._updateImageProps(img,'DICL',['DRICL']);
+  bbbfly.renderer._updateImageProps(img,'DICT',['DRICT']);
+  bbbfly.renderer._updateImageProps(img,'DIGL',['DRIGL']);
+  bbbfly.renderer._updateImageProps(img,'DIGT',['DRIGT']);
 };
 
 /** @ignore */
@@ -151,7 +167,7 @@ bbbfly.renderer._updateImageProxy = function(proxy,state){
     if(state.readonly){propName += attrs.readonly;}
     if(state.invalid){propName += attrs.invalid;}
 
-    if(state.selected){propName += attrs.selected;}
+    if(state.checked){propName += attrs.checked;}
     else if(state.grayed){propName += attrs.grayed;}
 
     if(state.highlight){
@@ -490,9 +506,9 @@ bbbfly.Renderer.stateattr = {
   mouseover: 'o',
   highlight: 'h',
   disabled: 'D',
-  readonly: 'E',
+  readonly: 'R',
   invalid: 'I',
-  selected: 'S',
+  checked: 'C',
   grayed: 'G'
 };
 
@@ -505,7 +521,7 @@ bbbfly.Renderer.stateattr = {
  * @property {boolean} disabled
  * @property {boolean} readonly
  * @property {boolean} invalid
- * @property {boolean} selected
+ * @property {boolean} checked
  * @property {boolean} grayed
  *
  *
@@ -516,16 +532,16 @@ bbbfly.Renderer.stateattr = {
  * @memberOf bbbfly.Renderer
  * @description
  *   Property name must meet
- *   <a>/[o]?[h]?[D]?[E]?[I]?[S|G]?[L|T]/</a>
+ *   <a>/[o]?[h]?[D]?[R]?[I]?[C|G]?[L|T]/</a>
  *   state mask
  *   <br/><br/>
  *   <ul>
  *     <li><b>o</b> - mouse over</li>
  *     <li><b>h</b> - highlight</li>
  *     <li><b>D</b> - disabled</li>
- *     <li><b>E</b> - read only</li>
+ *     <li><b>R</b> - read only</li>
  *     <li><b>I</b> - invalid</li>
- *     <li><b>S</b> - selected</li>
+ *     <li><b>C</b> - checked</li>
  *     <li><b>G</b> - grayed</li>
  *     <li><b>L</b> - left</li>
  *     <li><b>T</b> - top</li>
