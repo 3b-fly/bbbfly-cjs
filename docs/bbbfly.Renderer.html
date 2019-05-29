@@ -834,7 +834,7 @@
           bbbfly.Renderer
         </h2>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L354">helpers/renderer.js, line 354</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L355">helpers/renderer.js, line 355</a>
         </div>
     </div>
 </dt>
@@ -1215,7 +1215,7 @@
   </div>
 </dt>
 <dd class="member-content">
-    <div class="description">Property name must meet <a>/[o]?[h]?[D]?[I]?[S|G]?[L|T]/</a> state mask  <br/><br/>  <ul>    <li><b>o</b> - mouse over</li>    <li><b>h</b> - highlight</li>    <li><b>D</b> - disabled</li>    <li><b>I</b> - invalid</li>    <li><b>S</b> - selected</li>    <li><b>G</b> - grayed</li>    <li><b>L</b> - left</li>    <li><b>T</b> - top</li>  </ul></code></div>
+    <div class="description">Property name must meet  <a>/[o]?[h]?[D]?[E]?[I]?[S|G]?[L|T]/</a>  state mask  <br/><br/>  <ul>    <li><b>o</b> - mouse over</li>    <li><b>h</b> - highlight</li>    <li><b>D</b> - disabled</li>    <li><b>E</b> - read only</li>    <li><b>I</b> - invalid</li>    <li><b>S</b> - selected</li>    <li><b>G</b> - grayed</li>    <li><b>L</b> - left</li>    <li><b>T</b> - top</li>  </ul></code></div>
 <dl class="details">
 </dl>
 </dd>
@@ -1390,9 +1390,39 @@
         </tr>
         </thead>
         <tbody>
+            <tr id="property:mouseover">
+                    <td class="name">
+                      <span class="param-name">mouseover</span>
+                    </td>
+                <td class="type">
+<span class="param-type">boolean</span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:highlight">
+                    <td class="name">
+                      <span class="param-name">highlight</span>
+                    </td>
+                <td class="type">
+<span class="param-type">boolean</span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
             <tr id="property:disabled">
                     <td class="name">
                       <span class="param-name">disabled</span>
+                    </td>
+                <td class="type">
+<span class="param-type">boolean</span>
+                </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:readonly">
+                    <td class="name">
+                      <span class="param-name">readonly</span>
                     </td>
                 <td class="type">
 <span class="param-type">boolean</span>
@@ -1423,26 +1453,6 @@
             <tr id="property:grayed">
                     <td class="name">
                       <span class="param-name">grayed</span>
-                    </td>
-                <td class="type">
-<span class="param-type">boolean</span>
-                </td>
-                <td class="description last">
-                </td>
-            </tr>
-            <tr id="property:highlight">
-                    <td class="name">
-                      <span class="param-name">highlight</span>
-                    </td>
-                <td class="type">
-<span class="param-type">boolean</span>
-                </td>
-                <td class="description last">
-                </td>
-            </tr>
-            <tr id="property:mouseOver">
-                    <td class="name">
-                      <span class="param-name">mouseOver</span>
                     </td>
                 <td class="type">
 <span class="param-type">boolean</span>
@@ -1491,6 +1501,32 @@
         </tr>
         </thead>
         <tbody>
+            <tr id="property:mouseover">
+                    <td class="name">
+                      <span class="param-name">mouseover</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+                </td>
+                    <td class="default">
+                        o
+                    </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:highlight">
+                    <td class="name">
+                      <span class="param-name">highlight</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+                </td>
+                    <td class="default">
+                        h
+                    </td>
+                <td class="description last">
+                </td>
+            </tr>
             <tr id="property:disabled">
                     <td class="name">
                       <span class="param-name">disabled</span>
@@ -1500,6 +1536,19 @@
                 </td>
                     <td class="default">
                         D
+                    </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:readonly">
+                    <td class="name">
+                      <span class="param-name">readonly</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+                </td>
+                    <td class="default">
+                        E
                     </td>
                 <td class="description last">
                 </td>
@@ -1543,32 +1592,6 @@
                 <td class="description last">
                 </td>
             </tr>
-            <tr id="property:highlight">
-                    <td class="name">
-                      <span class="param-name">highlight</span>
-                    </td>
-                <td class="type">
-<span class="param-type">string</span>
-                </td>
-                    <td class="default">
-                        h
-                    </td>
-                <td class="description last">
-                </td>
-            </tr>
-            <tr id="property:mouseOver">
-                    <td class="name">
-                      <span class="param-name">mouseOver</span>
-                    </td>
-                <td class="type">
-<span class="param-type">string</span>
-                </td>
-                    <td class="default">
-                        o
-                    </td>
-                <td class="description last">
-                </td>
-            </tr>
         </tbody>
     </table>
 </dl>
@@ -1585,7 +1608,7 @@
           <span class="signature">(<span class="optional">proxy</span>, <span class="optional">state</span>, <span class="optional">className</span>, <span class="optional">innerHtml</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{string}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L453">helpers/renderer.js, line 453</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L454">helpers/renderer.js, line 454</a>
         </div>
     </div>
 </dt>
@@ -1676,7 +1699,7 @@
           <span class="signature">(<span class="optional">proxyundefined</span>, <span class="optional">state</span>, <span class="optional">className</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{string}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L442">helpers/renderer.js, line 442</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L443">helpers/renderer.js, line 443</a>
         </div>
     </div>
 </dt>
@@ -1755,7 +1778,7 @@
           <span class="signature">(<span class="optional">frame</span>, <span class="optional">state</span>, <span class="optional">id</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.Renderer.html#.frameproxy">bbbfly.Renderer.frameproxy</a>}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L395">helpers/renderer.js, line 395</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L396">helpers/renderer.js, line 396</a>
         </div>
     </div>
 </dt>
@@ -1835,7 +1858,7 @@
           <span class="signature">(<span class="optional">proxy</span>, <span class="optional">left</span>, <span class="optional">top</span>, <span class="optional">right</span>, <span class="optional">bottom</span>, <span class="optional">state</span>, <span class="optional">className</span>, <span class="optional">style</span>, <span class="optional">innerHtml</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{string}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L425">helpers/renderer.js, line 425</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L426">helpers/renderer.js, line 426</a>
         </div>
     </div>
 </dt>
@@ -1994,7 +2017,7 @@
           <span class="signature">(<span class="optional">img</span>, <span class="optional">state</span>, <span class="optional">id</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.Renderer.html#.imageproxy">bbbfly.Renderer.imageproxy</a>}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L384">helpers/renderer.js, line 384</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L385">helpers/renderer.js, line 385</a>
         </div>
     </div>
 </dt>
@@ -2074,7 +2097,7 @@
           <span class="signature">(<span class="optional">frame</span>)</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L375">helpers/renderer.js, line 375</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L376">helpers/renderer.js, line 376</a>
         </div>
     </div>
 </dt>
@@ -2114,7 +2137,7 @@
           <span class="signature">(<span class="optional">img</span>)</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L366">helpers/renderer.js, line 366</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L367">helpers/renderer.js, line 367</a>
         </div>
     </div>
 </dt>
@@ -2154,7 +2177,7 @@
           <span class="signature">(<span class="optional">proxy</span>, <span class="optional">state</span>)</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L474">helpers/renderer.js, line 474</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L475">helpers/renderer.js, line 475</a>
         </div>
     </div>
 </dt>
@@ -2204,7 +2227,7 @@
           <span class="signature">(<span class="optional">proxy</span>, <span class="optional">state</span>)</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L416">helpers/renderer.js, line 416</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L417">helpers/renderer.js, line 417</a>
         </div>
     </div>
 </dt>
@@ -2254,7 +2277,7 @@
           <span class="signature">(node, <span class="optional">state</span>)</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L355">helpers/renderer.js, line 355</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L356">helpers/renderer.js, line 356</a>
         </div>
     </div>
 </dt>
@@ -2303,7 +2326,7 @@
           <span class="signature">(<span class="optional">proxy</span>, <span class="optional">state</span>)</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L465">helpers/renderer.js, line 465</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L466">helpers/renderer.js, line 466</a>
         </div>
     </div>
 </dt>
@@ -2353,7 +2376,7 @@
           <span class="signature">(<span class="optional">proxy</span>, <span class="optional">state</span>)</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L406">helpers/renderer.js, line 406</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/renderer.js#L407">helpers/renderer.js, line 407</a>
         </div>
     </div>
 </dt>

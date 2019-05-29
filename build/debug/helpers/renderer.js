@@ -125,11 +125,12 @@ bbbfly.renderer._updateImageProxy = function(proxy,state){
   var ot = null;
 
   var attrs = bbbfly.Renderer.stateattr;
-  var overAttr = attrs.mouseOver;
+  var overAttr = attrs.mouseover;
   var propName = '';
 
   if(Object.isObject(state)){
     if(state.disabled){propName += attrs.disabled;}
+    if(state.readonly){propName += attrs.readonly;}
     if(state.invalid){propName += attrs.invalid;}
 
     if(state.selected){propName += attrs.selected;}
@@ -187,9 +188,9 @@ bbbfly.renderer._imageHTML = function(
   var widht = bbbfly.renderer._styleDim(proxy.W);
   var height = bbbfly.renderer._styleDim(proxy.H);
 
-  var mouseOver = (state && state.mouseOver);
-  var l = mouseOver ? proxy.oL : proxy.L;
-  var t = mouseOver ? proxy.oT : proxy.T;
+  var over = (state && state.mouseover);
+  var l = over ? proxy.oL : proxy.L;
+  var t = over ? proxy.oT : proxy.T;
 
   var imgStyle = ' style="position:absolute;overflow:hidden';
   imgStyle += ";background: transparent url('"+proxy.Src+"')";
@@ -292,9 +293,9 @@ bbbfly.renderer._updateImageHTML = function(proxy,state){
   var node = document.getElementById(proxy.Id);
   if(!node){return;}
 
-  var mouseOver = (state && state.mouseOver);
-  var left = mouseOver ? proxy.oL : proxy.L;
-  var top = mouseOver ? proxy.oT : proxy.T;
+  var over = (state && state.mouseover);
+  var left = over ? proxy.oL : proxy.L;
+  var top = over ? proxy.oT : proxy.T;
 
   left = bbbfly.renderer._styleDim(left,true);
   top = bbbfly.renderer._styleDim(top,true);
@@ -329,12 +330,13 @@ bbbfly.Renderer = {
   UpdateFrameHTML: bbbfly.renderer._updateFrameHTML
 };
 bbbfly.Renderer.stateattr = {
+  mouseover: 'o',
+  highlight: 'h',
   disabled: 'D',
+  readonly: 'E',
   invalid: 'I',
   selected: 'S',
-  grayed: 'G',
-  highlight: 'h',
-  mouseOver: 'o'
+  grayed: 'G'
 };
 
 /**
