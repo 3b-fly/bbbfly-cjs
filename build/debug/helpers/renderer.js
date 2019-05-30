@@ -40,35 +40,35 @@ bbbfly.renderer._recalcImage = function(img){
   if(!Number.isInteger(img.L)){img.L = 0;}
   if(!Number.isInteger(img.T)){img.T = 0;}
 
-  bbbfly.renderer._updateImageProps(img,'L',['DL','RL','IL','CL','GL']);
-  bbbfly.renderer._updateImageProps(img,'T',['DT','RT','IT','CT','GT']);
+  bbbfly.renderer._updateImageProps(img,'L',['DL','RL','IL','SL','GL']);
+  bbbfly.renderer._updateImageProps(img,'T',['DT','RT','IT','ST','GT']);
 
-  bbbfly.renderer._updateImageProps(img,'DL',['DRL','DIL','DCL','DGL']);
-  bbbfly.renderer._updateImageProps(img,'DT',['DRT','DIT','DCT','DGT']);
+  bbbfly.renderer._updateImageProps(img,'DL',['DRL','DIL','DSL','DGL']);
+  bbbfly.renderer._updateImageProps(img,'DT',['DRT','DIT','DST','DGT']);
 
-  bbbfly.renderer._updateImageProps(img,'RL',['RIL','RCL','RGL']);
-  bbbfly.renderer._updateImageProps(img,'RT',['RIT','RCT','RGT']);
+  bbbfly.renderer._updateImageProps(img,'RL',['RIL','RSL','RGL']);
+  bbbfly.renderer._updateImageProps(img,'RT',['RIT','RST','RGT']);
 
-  bbbfly.renderer._updateImageProps(img,'CL',['ICL']);
-  bbbfly.renderer._updateImageProps(img,'CT',['ICT']);
+  bbbfly.renderer._updateImageProps(img,'SL',['ISL']);
+  bbbfly.renderer._updateImageProps(img,'ST',['IST']);
   bbbfly.renderer._updateImageProps(img,'GL',['IGL']);
   bbbfly.renderer._updateImageProps(img,'GT',['IGT']);
 
-  bbbfly.renderer._updateImageProps(img,'DRL',['DRIL','DRCL','DRGL']);
-  bbbfly.renderer._updateImageProps(img,'DRT',['DRIT','DRCT','DRGT']);
+  bbbfly.renderer._updateImageProps(img,'DRL',['DRIL','DRSL','DRGL']);
+  bbbfly.renderer._updateImageProps(img,'DRT',['DRIT','DRST','DRGT']);
 
-  bbbfly.renderer._updateImageProps(img,'DCL',['DICL']);
-  bbbfly.renderer._updateImageProps(img,'DCT',['DICT']);
+  bbbfly.renderer._updateImageProps(img,'DSL',['DISL']);
+  bbbfly.renderer._updateImageProps(img,'DST',['DIST']);
   bbbfly.renderer._updateImageProps(img,'DGL',['DIGL']);
   bbbfly.renderer._updateImageProps(img,'DGT',['DIGT']);
 
-  bbbfly.renderer._updateImageProps(img,'RCL',['RICL']);
-  bbbfly.renderer._updateImageProps(img,'RCT',['RICT']);
+  bbbfly.renderer._updateImageProps(img,'RSL',['RISL']);
+  bbbfly.renderer._updateImageProps(img,'RST',['RIST']);
   bbbfly.renderer._updateImageProps(img,'RGL',['RIGL']);
   bbbfly.renderer._updateImageProps(img,'RGT',['RIGT']);
 
-  bbbfly.renderer._updateImageProps(img,'DICL',['DRICL']);
-  bbbfly.renderer._updateImageProps(img,'DICT',['DRICT']);
+  bbbfly.renderer._updateImageProps(img,'DISL',['DRISL']);
+  bbbfly.renderer._updateImageProps(img,'DIST',['DRIST']);
   bbbfly.renderer._updateImageProps(img,'DIGL',['DRIGL']);
   bbbfly.renderer._updateImageProps(img,'DIGT',['DRIGT']);
 };
@@ -149,7 +149,7 @@ bbbfly.renderer._updateImageProxy = function(proxy,state){
     if(state.readonly){propName += attrs.readonly;}
     if(state.invalid){propName += attrs.invalid;}
 
-    if(state.checked){propName += attrs.checked;}
+    if(state.selected){propName += attrs.selected;}
     else if(state.grayed){propName += attrs.grayed;}
 
     if(state.highlight){
@@ -351,7 +351,7 @@ bbbfly.Renderer.stateattr = {
   disabled: 'D',
   readonly: 'R',
   invalid: 'I',
-  checked: 'C',
+  selected: 'S',
   grayed: 'G'
 };
 
