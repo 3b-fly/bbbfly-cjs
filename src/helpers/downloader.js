@@ -86,7 +86,7 @@ bbbfly.Downloader = {
    * @name SetMethod
    * @memberof bbbfly.Downloader#
    *
-   * @param {bbbfly.Downloader.method} - Download method to use
+   * @param {bbbfly.Downloader.method} method - Download method to use
    * @return {boolean} If method was set
    */
   SetMethod: bbbfly.downloader._setMethod,
