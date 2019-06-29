@@ -12,24 +12,21 @@ var bbbfly = bbbfly || {};
 bbbfly.apploader = {};
 
 /** @ignore */
-bbbfly.apploader._getMessageElm = function(){
-  if(!this._MessageElm){
-    this._MessageElm = document.getElementById('bbbflyAppLoaderMessage');
-  }
-  return this._MessageElm;
-};
+bbbfly.apploader._getElm = function(id){
+  if((typeof id !== 'string') || (id === '')){return null;}
+  var elm = this._Elms[id];
 
-/** @ignore */
-bbbfly.apploader._getProgressElm = function(){
-  if(!this._ProgressElm){
-    this._ProgressElm = document.getElementById('bbbflyAppLoaderProgress');
+  if(!elm){
+    elm = document.getElementById(id);
+    this._Elms[id] = elm;
   }
-  return this._ProgressElm;
+
+  return elm;
 };
 
 /** @ignore */
 bbbfly.apploader._setProgressMessage = function(message){
-  var msgElm = this.GetMessageElm();
+  var msgElm = this.GetElm(bbbfly.AppLoader.eml.loadMessage);
   if(msgElm && String.isString(message)){
     msgElm.innerHTML = message;
     return true;
@@ -39,12 +36,18 @@ bbbfly.apploader._setProgressMessage = function(message){
 
 /** @ignore */
 bbbfly.apploader._setProgress = function(progress){
-  if(Number.isNumber(progress)){
-    this._Progress = progress;
-    setTimeout(bbbfly.apploader._updateProgress,1);
-    return true;
-  }
-  return false;
+  if(!Number.isNumber(progress)){return false;}
+
+  this._Progress = progress;
+  var fnc = function(){bbbfly.AppLoader.UpdateProgress();};
+
+  setTimeout(fnc,1);
+  return true;
+};
+
+/** @ignore */
+bbbfly.apploader._getProgress = function(){
+  return Number.isNumber(this._Progress) ? this._Progress : 0;
 };
 
 /** @ignore */
@@ -55,46 +58,54 @@ bbbfly.apploader._clearProgress = function(){
 
 /** @ignore */
 bbbfly.apploader._updateProgress = function(){
-  var progressElm = bbbfly.AppLoader.GetProgressElm();
-  var progress = bbbfly.AppLoader._Progress;
-  if(progressElm && Number.isNumber(progress)){
-    progressElm.style.width = (progress+'%');
-    return true;
-  }
-  return false;
+  var progressElm = this.GetElm(bbbfly.AppLoader.eml.loadProgress);
+  if(!progressElm){return false;}
+
+  progressElm.style.width = (this.GetProgress()+'%');
+  return true;
 };
 
 /** @ignore */
 bbbfly.apploader._setStepsCnt = function(count){
-  if(Number.isInteger(count)){
-    this._StepsCnt = count;
-    this._StepSize = Math.floor(100/count);
-    return true;
-  }
-  return false;
+  if(!Number.isInteger(count)){return false;}
+
+  this._StepsCnt = count;
+  this._StepSize = Math.floor(100/count);
+  return true;
 };
 
 /** @ignore */
 bbbfly.apploader._moveByStep = function(){
-  if(
-    (Number.isInteger(this._Step))
-    && (Number.isInteger(this._StepSize))
-  ){
-    this._Step++;
-    return this.SetProgress(this._Step*this._StepSize);
+  if(!Number.isInteger(this._Step) || !Number.isInteger(this._StepSize)){
+    return false;
   }
-  return false;
+
+  this._Step++;
+  return this.SetProgress(this._Step*this._StepSize);
+};
+
+/** @ignore */
+bbbfly.apploader._fail = function(){
+  this._Failed = true;
+
+  var errorElm = this.GetElm(bbbfly.AppLoader.eml.error);
+  if(!errorElm){return false;}
+
+  var loadElm = this.GetElm(bbbfly.AppLoader.eml.load);
+  if(loadElm){loadElm.style.display = 'none';}
+
+  errorElm.style.display = 'block';
+  return true;
 };
 
 /** @ignore */
 bbbfly.apploader._hide = function(){
-  var loader = document.getElementById('bbbflyAppLoader');
-  if(loader){
-    if(loader.className !== ''){loader.className += ' ';}
-    loader.className += 'bbbflyAppLoaderFinished';
-    return true;
-  }
-  return false;
+  var loader = this.GetElm(bbbfly.AppLoader.eml.loader);
+  if(this._Failed || !loader){return false;}
+
+  if(loader.className !== ''){loader.className += ' ';}
+  loader.className += 'bbbflyAppLoaderFinished';
+  return true;
 };
 
 /**
@@ -129,67 +140,82 @@ bbbfly.AppLoader = {
   _Step: 0,
 
   /** @private */
-  _MessageElm: null,
+  _Elms: {},
   /** @private */
-  _ProgressElm: null,
+  _Failed: false,
 
   /**
    * @function
-   * @name GetMessageElm
+   * @name GetElm
    * @memberof bbbfly.AppLoader#
-   * @description Get message node.
+   * @description Get html element
    *
+   * @param {bbbfly.AppLoader.eml} string
    * @return {div}
    */
-  GetMessageElm: bbbfly.apploader._getMessageElm,
-  /**
-   * @function
-   * @name GetProgressElm
-   * @memberof bbbfly.AppLoader#
-   * @description Get progress node.
-   *
-   * @return {div}
-   */
-  GetProgressElm: bbbfly.apploader._getProgressElm,
+  GetElm: bbbfly.apploader._getElm,
   /**
    * @function
    * @name SetProgressMessage
    * @memberof bbbfly.AppLoader#
-   * @description Set current progress message.
+   * @description Set current progress message
    *
    * @param {string} message
-   * @return {boolean} If message was valid.
+   * @return {boolean} If message was valid
    */
   SetProgressMessage: bbbfly.apploader._setProgressMessage,
   /**
    * @function
    * @name SetProgress
    * @memberof bbbfly.AppLoader#
-   * @description Set progress to certain percentage.
+   * @description Set percentage progress
    *
    * @param {float} progress - Percentage progress value
-   * @return {boolean} If progress was valid.
+   * @return {boolean} If progress was valid
    *
+   * @see {@link bbbfly.AppLoader#GetProgress|GetProgress()}
    * @see {@link bbbfly.AppLoader#ClearProgress|ClearProgress()}
    */
   SetProgress: bbbfly.apploader._setProgress,
   /**
    * @function
-   * @name ClearProgress
+   * @name GetProgress
    * @memberof bbbfly.AppLoader#
-   * @description Set progress to 0% (step 0).
+   * @description Get percentage progress
+   *
+   * @return {number} Progress
    *
    * @see {@link bbbfly.AppLoader#SetProgress|SetProgress()}
+   * @see {@link bbbfly.AppLoader#ClearProgress|ClearProgress()}
+   */
+  GetProgress: bbbfly.apploader._getProgress,
+  /**
+   * @function
+   * @name ClearProgress
+   * @memberof bbbfly.AppLoader#
+   * @description Set progress to 0% (step 0)
+   *
+   * @see {@link bbbfly.AppLoader#SetProgress|SetProgress()}
+   * @see {@link bbbfly.AppLoader#GetProgress|GetProgress()}
    */
   ClearProgress: bbbfly.apploader._clearProgress,
   /**
    * @function
+   * @name UpdateProgress
+   * @memberof bbbfly.AppLoader#
+   * @description Update progress visualization
+   *
+   * @return {number} If progress was updated
+   */
+  UpdateProgress: bbbfly.apploader._updateProgress,
+  /**
+   * @function
    * @name SetStepsCount
    * @memberof bbbfly.AppLoader#
-   * @description Define number of progress steps for easy progress handling.
+   * @description Define number of progress steps for easy progress handling
    *
    * @param {integer} count - Number of progress steps
-   * @return {boolean} If number of steps was valid.
+   * @return {boolean} If number of steps was valid
    *
    * @see {@link bbbfly.AppLoader#MoveByStep|MoveByStep()}
    */
@@ -198,28 +224,56 @@ bbbfly.AppLoader = {
    * @function
    * @name MoveByStep
    * @memberof bbbfly.AppLoader#
-   * @description Move progress by one defined step.
+   * @description Move progress by one defined step
    *
-   * @return {boolean} If number of steps was set.
+   * @return {boolean} If number of steps was set
    *
    * @see {@link bbbfly.AppLoader#SetStepsCount|SetStepsCount()}
    */
   MoveByStep: bbbfly.apploader._moveByStep,
   /**
    * @function
+   * @name Fail
+   * @memberof bbbfly.AppLoader#
+   *
+   * @return {boolean} If error was indicated
+   */
+  Fail: bbbfly.apploader._fail,
+  /**
+   * @function
    * @name Hide
    * @memberof bbbfly.AppLoader#
    *
    * @param {bbbfly.Downloader.method} - Download method to use
-   * @return {boolean} If loader was hidden.
+   * @return {boolean} If loader was hidden
    */
   Hide: bbbfly.apploader._hide
 };
 
+/**
+ * @enum {string}
+ * @description Loader html element IDs
+ */
+bbbfly.AppLoader.eml = {
+  loader: 'bbbflyAppLoader',
+
+  load: 'bbbflyAppLoaderLoad',
+  loadBar: 'bbbflyAppLoaderLoadBar',
+  loadProgress: 'bbbflyAppLoaderLoadProgress',
+  loadMessage: 'bbbflyAppLoaderLoadMessage',
+
+  error: 'bbbflyAppLoaderError',
+  errorMessage: 'bbbflyAppLoaderErrorMessage',
+  errorReload: 'bbbflyAppLoaderErrorReload'
+};
+
 /** @ignore */
 var ngOnAppLoadProgress = ngOnAppLoadProgress || function(progress){
-  if(Number.isNumber(progress)){
-    return bbbfly.AppLoader.SetProgress(progress);
-  }
+  return bbbfly.AppLoader.SetProgress(progress);
+};
+
+/** @ignore */
+var ngOnAppLoadFailed = ngOnAppLoadFailed || function(){
+  bbbfly.AppLoader.Fail();
   return false;
 };
