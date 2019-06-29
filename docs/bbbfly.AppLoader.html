@@ -431,16 +431,25 @@
           object
         </span>
   </span>
+    <ul class="members itemMembers">
+      <span class="subtitle">Members</span>
+        <li data-name="bbbfly.AppLoader.eml">
+          <a href="bbbfly.AppLoader.html#.eml">eml</a>
+        </li>
+    </ul>
     <ul class="methods itemMembers">
       <span class="subtitle">Methods</span>
         <li data-name="bbbfly.AppLoader#ClearProgress">
           <a href="bbbfly.AppLoader.html#ClearProgress">ClearProgress</a>
         </li>
-        <li data-name="bbbfly.AppLoader#GetMessageElm">
-          <a href="bbbfly.AppLoader.html#GetMessageElm">GetMessageElm</a>
+        <li data-name="bbbfly.AppLoader#Fail">
+          <a href="bbbfly.AppLoader.html#Fail">Fail</a>
         </li>
-        <li data-name="bbbfly.AppLoader#GetProgressElm">
-          <a href="bbbfly.AppLoader.html#GetProgressElm">GetProgressElm</a>
+        <li data-name="bbbfly.AppLoader#GetElm">
+          <a href="bbbfly.AppLoader.html#GetElm">GetElm</a>
+        </li>
+        <li data-name="bbbfly.AppLoader#GetProgress">
+          <a href="bbbfly.AppLoader.html#GetProgress">GetProgress</a>
         </li>
         <li data-name="bbbfly.AppLoader#Hide">
           <a href="bbbfly.AppLoader.html#Hide">Hide</a>
@@ -456,6 +465,9 @@
         </li>
         <li data-name="bbbfly.AppLoader#SetStepsCount">
           <a href="bbbfly.AppLoader.html#SetStepsCount">SetStepsCount</a>
+        </li>
+        <li data-name="bbbfly.AppLoader#UpdateProgress">
+          <a href="bbbfly.AppLoader.html#UpdateProgress">UpdateProgress</a>
         </li>
     </ul>
 </li>
@@ -834,7 +846,7 @@
           bbbfly.AppLoader
         </h2>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L121">app/loader.js, line 121</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L132">app/loader.js, line 132</a>
         </div>
     </div>
 </dt>
@@ -849,6 +861,152 @@
         <ul>
               <li><a href="packages.html#package:appLoader">appLoader</a></li>
         </ul>
+        <h3>Members</h3>
+        <dl>
+<dt>
+  <div class="nameContainer">
+    <h4 class="name" id=".eml">
+  <span class="attribs">
+      <span class="type-signature static">
+        static
+      </span>
+  </span>
+      eml
+  <span class="types">
+      <span class="type-signature enum">
+        enum
+      </span>
+      <span class="type-signature string">
+        string
+      </span>
+  </span>
+    </h4>
+  </div>
+</dt>
+<dd class="member-content">
+    <div class="description">Loader html element IDs</div>
+<dl class="details">
+    <table class="props" my="test">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr id="property:loader">
+                    <td class="name">
+                      <span class="param-name">loader</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+                </td>
+                    <td class="default">
+                        bbbflyAppLoader
+                    </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:load">
+                    <td class="name">
+                      <span class="param-name">load</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+                </td>
+                    <td class="default">
+                        bbbflyAppLoaderLoad
+                    </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:loadBar">
+                    <td class="name">
+                      <span class="param-name">loadBar</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+                </td>
+                    <td class="default">
+                        bbbflyAppLoaderLoadBar
+                    </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:loadProgress">
+                    <td class="name">
+                      <span class="param-name">loadProgress</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+                </td>
+                    <td class="default">
+                        bbbflyAppLoaderLoadProgress
+                    </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:loadMessage">
+                    <td class="name">
+                      <span class="param-name">loadMessage</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+                </td>
+                    <td class="default">
+                        bbbflyAppLoaderLoadMessage
+                    </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:error">
+                    <td class="name">
+                      <span class="param-name">error</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+                </td>
+                    <td class="default">
+                        bbbflyAppLoaderError
+                    </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:errorMessage">
+                    <td class="name">
+                      <span class="param-name">errorMessage</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+                </td>
+                    <td class="default">
+                        bbbflyAppLoaderErrorMessage
+                    </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:errorReload">
+                    <td class="name">
+                      <span class="param-name">errorReload</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+                </td>
+                    <td class="default">
+                        bbbflyAppLoaderErrorReload
+                    </td>
+                <td class="description last">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</dl>
+<dl class="details">
+</dl>
+</dd>
+        </dl>
         <h3>Methods</h3>
         <dl>
 <dt>
@@ -858,34 +1016,89 @@
           <span class="signature">()</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L176">app/loader.js, line 176</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L192">app/loader.js, line 192</a>
         </div>
     </div>
 </dt>
 <dd>
-      <div class="description">Set progress to 0% (step 0).</div>
+      <div class="description">Set progress to 0% (step 0)</div>
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
       <ul class="dummy">
           <li><a href="bbbfly.AppLoader.html#SetProgress">SetProgress()</a></li>
+          <li><a href="bbbfly.AppLoader.html#GetProgress">GetProgress()</a></li>
       </ul>
     </dd>
 </dl>
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 id="GetMessageElm">
-          GetMessageElm
-          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{div}</span>
+        <h4 id="Fail">
+          Fail
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L136">app/loader.js, line 136</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L234">app/loader.js, line 234</a>
         </div>
     </div>
 </dt>
 <dd>
-      <div class="description">Get message node.</div>
+<dl class="details">
+</dl>
+    <h5>Returns:</h5>
+<table class="params">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="type">
+                        boolean
+            </td>
+            <td class="description last">If error was indicated</td>
+        </tr>
+    </tbody>
+</table>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id="GetElm">
+          GetElm
+          <span class="signature">(string)</span><span class="arrow-right"></span><span class="type-signature returnType">{div}</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L147">app/loader.js, line 147</a>
+        </div>
+    </div>
+</dt>
+<dd>
+      <div class="description">Get html element</div>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">string</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.AppLoader.html#.eml">bbbfly.AppLoader.eml</a></span>
+            </td>
+            <td class="description last">
+            </td>
+        </tr>
+	</tbody>
+</table>
 <dl class="details">
 </dl>
     <h5>Returns:</h5>
@@ -908,18 +1121,25 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 id="GetProgressElm">
-          GetProgressElm
-          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{div}</span>
+        <h4 id="GetProgress">
+          GetProgress
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{number}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L145">app/loader.js, line 145</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L180">app/loader.js, line 180</a>
         </div>
     </div>
 </dt>
 <dd>
-      <div class="description">Get progress node.</div>
+      <div class="description">Get percentage progress</div>
 <dl class="details">
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+      <ul class="dummy">
+          <li><a href="bbbfly.AppLoader.html#SetProgress">SetProgress()</a></li>
+          <li><a href="bbbfly.AppLoader.html#ClearProgress">ClearProgress()</a></li>
+      </ul>
+    </dd>
 </dl>
     <h5>Returns:</h5>
 <table class="params">
@@ -932,9 +1152,9 @@
     <tbody>
         <tr>
             <td class="type">
-                        div
+                        number
             </td>
-            <td class="description last"></td>
+            <td class="description last">Progress</td>
         </tr>
     </tbody>
 </table>
@@ -946,7 +1166,7 @@
           <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L208">app/loader.js, line 208</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L242">app/loader.js, line 242</a>
         </div>
     </div>
 </dt>
@@ -985,7 +1205,7 @@
             <td class="type">
                         boolean
             </td>
-            <td class="description last">If loader was hidden.</td>
+            <td class="description last">If loader was hidden</td>
         </tr>
     </tbody>
 </table>
@@ -997,12 +1217,12 @@
           <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L197">app/loader.js, line 197</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L223">app/loader.js, line 223</a>
         </div>
     </div>
 </dt>
 <dd>
-      <div class="description">Move progress by one defined step.</div>
+      <div class="description">Move progress by one defined step</div>
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -1024,7 +1244,7 @@
             <td class="type">
                         boolean
             </td>
-            <td class="description last">If number of steps was set.</td>
+            <td class="description last">If number of steps was set</td>
         </tr>
     </tbody>
 </table>
@@ -1036,12 +1256,12 @@
           <span class="signature">(progress)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L164">app/loader.js, line 164</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L167">app/loader.js, line 167</a>
         </div>
     </div>
 </dt>
 <dd>
-      <div class="description">Set progress to certain percentage.</div>
+      <div class="description">Set percentage progress</div>
         <h5>Parameters:</h5>
 <table class="params">
     <thead>
@@ -1069,6 +1289,7 @@
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
       <ul class="dummy">
+          <li><a href="bbbfly.AppLoader.html#GetProgress">GetProgress()</a></li>
           <li><a href="bbbfly.AppLoader.html#ClearProgress">ClearProgress()</a></li>
       </ul>
     </dd>
@@ -1086,7 +1307,7 @@
             <td class="type">
                         boolean
             </td>
-            <td class="description last">If progress was valid.</td>
+            <td class="description last">If progress was valid</td>
         </tr>
     </tbody>
 </table>
@@ -1098,12 +1319,12 @@
           <span class="signature">(message)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L154">app/loader.js, line 154</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L157">app/loader.js, line 157</a>
         </div>
     </div>
 </dt>
 <dd>
-      <div class="description">Set current progress message.</div>
+      <div class="description">Set current progress message</div>
         <h5>Parameters:</h5>
 <table class="params">
     <thead>
@@ -1141,7 +1362,7 @@
             <td class="type">
                         boolean
             </td>
-            <td class="description last">If message was valid.</td>
+            <td class="description last">If message was valid</td>
         </tr>
     </tbody>
 </table>
@@ -1153,12 +1374,12 @@
           <span class="signature">(count)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L185">app/loader.js, line 185</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L211">app/loader.js, line 211</a>
         </div>
     </div>
 </dt>
 <dd>
-      <div class="description">Define number of progress steps for easy progress handling.</div>
+      <div class="description">Define number of progress steps for easy progress handling</div>
         <h5>Parameters:</h5>
 <table class="params">
     <thead>
@@ -1203,7 +1424,40 @@
             <td class="type">
                         boolean
             </td>
-            <td class="description last">If number of steps was valid.</td>
+            <td class="description last">If number of steps was valid</td>
+        </tr>
+    </tbody>
+</table>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id="UpdateProgress">
+          UpdateProgress
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{number}</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/app/loader.js#L202">app/loader.js, line 202</a>
+        </div>
+    </div>
+</dt>
+<dd>
+      <div class="description">Update progress visualization</div>
+<dl class="details">
+</dl>
+    <h5>Returns:</h5>
+<table class="params">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="type">
+                        number
+            </td>
+            <td class="description last">If progress was updated</td>
         </tr>
     </tbody>
 </table>
