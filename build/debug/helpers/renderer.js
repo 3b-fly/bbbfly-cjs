@@ -8,6 +8,10 @@
 
 var bbbfly = bbbfly || {};
 bbbfly.renderer = {};
+bbbfly.renderer._isImageLTPosition = function(propName){
+  if(!String.isString(propName)){return false;}
+  return this.ImgLTPattern.test(propName);
+};
 bbbfly.renderer._updateHTMLState = function(node,state){
   if(!(node instanceof HTMLElement)){return;}
   if(!Object.isObject(state)){return;}
@@ -332,6 +336,8 @@ bbbfly.renderer._updateFrameHTML = function(proxy,state){
   }
 };
 bbbfly.Renderer = {
+  ImgLTPattern: new RegExp('^[o]?[h]?[D]?[R]?[I]?[S|G]?[L|T]$'),
+  IsImageLTPosition: bbbfly.renderer._isImageLTPosition,
   UpdateHTMLState: bbbfly.renderer._updateHTMLState,
   RecalcImage: bbbfly.renderer._recalcImage,
   RecalcFrame: bbbfly.renderer._recalcFrame,

@@ -12,6 +12,12 @@ var bbbfly = bbbfly || {};
 bbbfly.renderer = {};
 
 /** @ignore */
+bbbfly.renderer._isImageLTPosition = function(propName){
+  if(!String.isString(propName)){return false;}
+  return this.ImgLTPattern.test(propName);
+};
+
+/** @ignore */
 bbbfly.renderer._updateHTMLState = function(node,state){
   if(!(node instanceof HTMLElement)){return;}
   if(!Object.isObject(state)){return;}
@@ -367,24 +373,38 @@ bbbfly.renderer._updateFrameHTML = function(proxy,state){
  * @hideconstructor
  *
  * @inpackage renderer
+ *
+ * @property {RegExp} [ImgLTPattern=^[o]?[h]?[D]?[R]?[I]?[S|G]?[L|T]$]
+ *   Image definition left/top position regular expression.
  */
 bbbfly.Renderer = {
+  ImgLTPattern: new RegExp('^[o]?[h]?[D]?[R]?[I]?[S|G]?[L|T]$'),
+
+  /**
+   * @function
+   * @name IsImageLTPosition
+   * @memberof bbbfly.Renderer#
+   * @description Checks image left/top position property name.
+   *
+   * @param {string} propName
+   * @return {boolean}
+   */
+  IsImageLTPosition: bbbfly.renderer._isImageLTPosition,
   /**
    * @function
    * @name UpdateHTMLState
    * @memberof bbbfly.Renderer#
-   * @description sets html node state attributes.
+   * @description Sets html node state attributes.
    *
    * @param {HTMLElement} node
    * @param {bbbfly.Renderer.state} [state=undefined]
    */
   UpdateHTMLState: bbbfly.renderer._updateHTMLState,
-
   /**
    * @function
    * @name RecalcImage
    * @memberof bbbfly.Renderer#
-   * @description fills in all image states.
+   * @description Fills in all image states.
    *
    * @param {bbbfly.Renderer.image} [img] - Image definition
    */
@@ -393,7 +413,7 @@ bbbfly.Renderer = {
    * @function
    * @name RecalcFrame
    * @memberof bbbfly.Renderer#
-   * @description fills in all frame image states.
+   * @description Fills in all frame image states.
    *
    * @param {bbbfly.Renderer.frame} [frame] - Frame definition
    */
