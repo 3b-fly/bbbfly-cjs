@@ -205,8 +205,8 @@ bbbfly.renderer._imageHTML = function(
   if(!Object.isObject(proxy) || proxy._mock){return '';}
   if(!String.isString(proxy.Src) || (proxy.Src === '')){return '';}
 
-  var widht = bbbfly.renderer._styleDim(proxy.W);
-  var height = bbbfly.renderer._styleDim(proxy.H);
+  var widht = this.StyleDim(proxy.W);
+  var height = this.StyleDim(proxy.H);
 
   var over = (state && state.mouseover);
   var l = over ? proxy.oL : proxy.L;
@@ -221,16 +221,16 @@ bbbfly.renderer._imageHTML = function(
   else{imgStyle += ' no-repeat';}
 
   imgStyle += ' scroll'
-    +' '+bbbfly.renderer._styleDim(l,true)
-    +' '+bbbfly.renderer._styleDim(t,true);
+    +' '+this.StyleDim(l,true)
+    +' '+this.StyleDim(t,true);
 
   if(widht){imgStyle += ';width:'+widht;}
   if(height){imgStyle += ';height:'+height;}
 
-  left = bbbfly.renderer._styleDim(left);
-  top = bbbfly.renderer._styleDim(top);
-  right = bbbfly.renderer._styleDim(right);
-  bottom = bbbfly.renderer._styleDim(bottom);
+  left = this.StyleDim(left);
+  top = this.StyleDim(top);
+  right = this.StyleDim(right);
+  bottom = this.StyleDim(bottom);
 
   if(left){imgStyle += ';left:'+left;}
   if(top){imgStyle += ';top:'+top;}
@@ -285,10 +285,10 @@ bbbfly.renderer._dynamicFrameHTML = function(
   var frameHtml = this.FrameHTML(proxy,state,className);
 
   if(String.isString(innerHtml)){
-    var left = bbbfly.renderer._styleDim(proxy.L.W);
-    var top = bbbfly.renderer._styleDim(proxy.T.H);
-    var right = bbbfly.renderer._styleDim(proxy.R.W);
-    var bottom = bbbfly.renderer._styleDim(proxy.B.H);
+    var left = this.StyleDim(proxy.L.W);
+    var top = this.StyleDim(proxy.T.H);
+    var right = this.StyleDim(proxy.R.W);
+    var bottom = this.StyleDim(proxy.B.H);
 
     var attrs = '';
     if(left){attrs += 'padding-left:'+left+';';}
@@ -317,8 +317,8 @@ bbbfly.renderer._updateImageHTML = function(proxy,state){
   var left = over ? proxy.oL : proxy.L;
   var top = over ? proxy.oT : proxy.T;
 
-  left = bbbfly.renderer._styleDim(left,true);
-  top = bbbfly.renderer._styleDim(top,true);
+  left = this.StyleDim(left,true);
+  top = this.StyleDim(top,true);
 
   node.style.backgroundPosition = left+' '+top;
 };
@@ -337,6 +337,7 @@ bbbfly.renderer._updateFrameHTML = function(proxy,state){
 };
 bbbfly.Renderer = {
   ImgLTPattern: new RegExp('^[o]?[h]?[D]?[R]?[I]?[S|G]?[L|T]$'),
+  StyleDim: bbbfly.renderer._styleDim,
   IsImageLTPosition: bbbfly.renderer._isImageLTPosition,
   UpdateHTMLState: bbbfly.renderer._updateHTMLState,
   RecalcImage: bbbfly.renderer._recalcImage,
