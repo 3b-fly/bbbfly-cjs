@@ -495,11 +495,17 @@
     </ul>
     <ul class="methods itemMembers">
       <span class="subtitle">Methods</span>
-        <li data-name="bbbfly.DateTime#BigIntToDateTime">
-          <a href="bbbfly.DateTime.html#BigIntToDateTime">BigIntToDateTime</a>
+        <li data-name="bbbfly.DateTime#BigIntToDate">
+          <a href="bbbfly.DateTime.html#BigIntToDate">BigIntToDate</a>
         </li>
-        <li data-name="bbbfly.DateTime#BigIntToDateTime">
-          <a href="bbbfly.DateTime.html#BigIntToDateTime">BigIntToDateTime</a>
+        <li data-name="bbbfly.DateTime#BigIntToUTCDateTime">
+          <a href="bbbfly.DateTime.html#BigIntToUTCDateTime">BigIntToUTCDateTime</a>
+        </li>
+        <li data-name="bbbfly.DateTime#DateToBigInt">
+          <a href="bbbfly.DateTime.html#DateToBigInt">DateToBigInt</a>
+        </li>
+        <li data-name="bbbfly.DateTime#UTCDateTimeToBigInt">
+          <a href="bbbfly.DateTime.html#UTCDateTimeToBigInt">UTCDateTimeToBigInt</a>
         </li>
     </ul>
 </li>
@@ -864,7 +870,7 @@
           bbbfly.DateTime
         </h2>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/datetime.js#L61">helpers/datetime.js, line 61</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/datetime.js#L86">helpers/datetime.js, line 86</a>
         </div>
     </div>
 </dt>
@@ -973,12 +979,120 @@
         <dl>
 <dt>
     <div class="nameContainer">
-        <h4 id="BigIntToDateTime">
-          BigIntToDateTime
+        <h4 id="BigIntToDate">
+          BigIntToDate
+          <span class="signature">(bigint)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="Date.html">Date</a>}</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/datetime.js#L105">helpers/datetime.js, line 105</a>
+        </div>
+    </div>
+</dt>
+<dd>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">bigint</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.DateTime.html#.bigint">bbbfly.DateTime.bigint</a></span>
+            </td>
+            <td class="description last">
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+    <h5>Returns:</h5>
+<table class="params">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="type">
+                        <a href="Date.html">Date</a>
+            </td>
+            <td class="description last"></td>
+        </tr>
+    </tbody>
+</table>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id="BigIntToUTCDateTime">
+          BigIntToUTCDateTime
+          <span class="signature">(bigint)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="Date.html">Date</a>}</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/datetime.js#L87">helpers/datetime.js, line 87</a>
+        </div>
+    </div>
+</dt>
+<dd>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">bigint</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.DateTime.html#.bigint">bbbfly.DateTime.bigint</a></span>
+            </td>
+            <td class="description last">
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+    <h5>Returns:</h5>
+<table class="params">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="type">
+                        <a href="Date.html">Date</a>
+            </td>
+            <td class="description last"></td>
+        </tr>
+    </tbody>
+</table>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id="DateToBigInt">
+          DateToBigInt
           <span class="signature">(date)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.DateTime.html#.bigint">bbbfly.DateTime.bigint</a>}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/datetime.js#L71">helpers/datetime.js, line 71</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/datetime.js#L114">helpers/datetime.js, line 114</a>
         </div>
     </div>
 </dt>
@@ -1027,12 +1141,12 @@
 </dd>
 <dt>
     <div class="nameContainer">
-        <h4 id="BigIntToDateTime">
-          BigIntToDateTime
-          <span class="signature">(bigint)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="Date.html">Date</a>}</span>
+        <h4 id="UTCDateTimeToBigInt">
+          UTCDateTimeToBigInt
+          <span class="signature">(date)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.DateTime.html#.bigint">bbbfly.DateTime.bigint</a>}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/datetime.js#L62">helpers/datetime.js, line 62</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/datetime.js#L96">helpers/datetime.js, line 96</a>
         </div>
     </div>
 </dt>
@@ -1049,10 +1163,10 @@
 	<tbody>
         <tr>
                 <td class="name">
-                  <span class="param-name">bigint</span>
+                  <span class="param-name">date</span>
                 </td>
             <td class="type">
-<span class="param-type"><a href="bbbfly.DateTime.html#.bigint">bbbfly.DateTime.bigint</a></span>
+<span class="param-type"><a href="Date.html">Date</a></span>
             </td>
             <td class="description last">
             </td>
@@ -1072,7 +1186,7 @@
     <tbody>
         <tr>
             <td class="type">
-                        <a href="Date.html">Date</a>
+                        <a href="bbbfly.DateTime.html#.bigint">bbbfly.DateTime.bigint</a>
             </td>
             <td class="description last"></td>
         </tr>
