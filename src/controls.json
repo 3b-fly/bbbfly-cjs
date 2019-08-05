@@ -54,7 +54,12 @@
     },
     "datetime": {
       "DebugFiles": ["helpers/datetime.js"],
-      "ReleaseFiles": ["helpers/datetime.js"]
+      "ReleaseFiles": ["helpers/datetime.js"],
+      "Libraries": {
+        "bbbfly-cjs": {
+          "Packages": ["crossbrowser"]
+        }
+      }
     },
     "geojs": {
       "DebugFiles": [

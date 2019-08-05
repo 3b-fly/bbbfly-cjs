@@ -76,7 +76,14 @@
       ],
       "ReleaseFiles": [
         "release/helpers/datetime.js"
-      ]
+      ],
+      "Libraries": {
+        "bbbfly-cjs": {
+          "Packages": [
+            "crossbrowser"
+          ]
+        }
+      }
     },
     "geojs": {
       "DebugFiles": [

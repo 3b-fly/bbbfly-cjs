@@ -27,6 +27,8 @@
  *   Extends date and time management.
  *
  * @version 2.0.0
+ *
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
  */
 
 /**

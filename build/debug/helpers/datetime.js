@@ -8,7 +8,7 @@
 
 var bbbfly = bbbfly || {};
 bbbfly.datetime = {};
-bbbfly.datetime._bigIntToDateTime = function(bigint){
+bbbfly.datetime._bigIntToUTCDateTime = function(bigint){
   var date = null;
   if(String.isString(bigint)){
     var parts = bbbfly.DateTime.bigintPattern.exec(bigint);
@@ -30,7 +30,7 @@ bbbfly.datetime._bigIntToDateTime = function(bigint){
   }
   return date;
 };
-bbbfly.datetime._dateTimeToBigInt = function(date){
+bbbfly.datetime._utcDateTimeToBigInt = function(date){
   var bigint = null;
   if(Date.isDate(date)){
     var year = date.getUTCFullYear();
@@ -45,9 +45,32 @@ bbbfly.datetime._dateTimeToBigInt = function(date){
   }
   return bigint;
 };
+bbbfly.datetime._bigIntToDate = function(bigint){
+  var utcDate = this.BigIntToUTCDateTime(bigint);
+  if(!Date.isDate(utcDate)){return null;}
+
+  return new Date(
+    utcDate.getUTCFullYear(),
+    utcDate.getUTCMonth(),
+    utcDate.getUTCDate(),
+    0,0,0,0
+  );
+};
+bbbfly.datetime._dateToBigInt = function(date){
+  if(!Date.isDate(date)){return null;}
+
+  var utcDate = new Date(0,0,0,0,0,0,0);
+  utcDate.setUTCFullYear(date.getFullYear());
+  utcDate.setUTCMonth(date.getMonth());
+  utcDate.setUTCDate(date.getDate());
+
+  return this.UTCDateTimeToBigInt(utcDate);
+};
 bbbfly.DateTime = {
-  BigIntToDateTime: bbbfly.datetime._bigIntToDateTime,
-  DateTimeToBigInt: bbbfly.datetime._dateTimeToBigInt
+  BigIntToUTCDateTime: bbbfly.datetime._bigIntToUTCDateTime,
+  UTCDateTimeToBigInt: bbbfly.datetime._utcDateTimeToBigInt,
+  BigIntToDate: bbbfly.datetime._bigIntToDate,
+  DateToBigInt: bbbfly.datetime._dateToBigInt
 };
 bbbfly.DateTime.bigintPattern = new RegExp(
     '^(-?)([1-8]{1})([0-9]{10})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})$'
