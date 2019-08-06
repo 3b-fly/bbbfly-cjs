@@ -44,46 +44,27 @@ bbbfly.renderer._recalcImage = function(img){
   if(!Number.isInteger(img.L)){img.L = 0;}
   if(!Number.isInteger(img.T)){img.T = 0;}
 
-  bbbfly.renderer._updateImageProps(img,'L',['DL','RL','IL','SL','GL']);
-  bbbfly.renderer._updateImageProps(img,'T',['DT','RT','IT','ST','GT']);
+  var map = this.ImgStateMap;
+  if(!Object.isObject(map)){return;}
 
-  bbbfly.renderer._updateImageProps(img,'DL',['DRL','DIL','DSL','DGL']);
-  bbbfly.renderer._updateImageProps(img,'DT',['DRT','DIT','DST','DGT']);
-
-  bbbfly.renderer._updateImageProps(img,'RL',['RIL','RSL','RGL']);
-  bbbfly.renderer._updateImageProps(img,'RT',['RIT','RST','RGT']);
-
-  bbbfly.renderer._updateImageProps(img,'SL',['ISL']);
-  bbbfly.renderer._updateImageProps(img,'ST',['IST']);
-  bbbfly.renderer._updateImageProps(img,'GL',['IGL']);
-  bbbfly.renderer._updateImageProps(img,'GT',['IGT']);
-
-  bbbfly.renderer._updateImageProps(img,'DRL',['DRIL','DRSL','DRGL']);
-  bbbfly.renderer._updateImageProps(img,'DRT',['DRIT','DRST','DRGT']);
-
-  bbbfly.renderer._updateImageProps(img,'DSL',['DISL']);
-  bbbfly.renderer._updateImageProps(img,'DST',['DIST']);
-  bbbfly.renderer._updateImageProps(img,'DGL',['DIGL']);
-  bbbfly.renderer._updateImageProps(img,'DGT',['DIGT']);
-
-  bbbfly.renderer._updateImageProps(img,'RSL',['RISL']);
-  bbbfly.renderer._updateImageProps(img,'RST',['RIST']);
-  bbbfly.renderer._updateImageProps(img,'RGL',['RIGL']);
-  bbbfly.renderer._updateImageProps(img,'RGT',['RIGT']);
-
-  bbbfly.renderer._updateImageProps(img,'DISL',['DRISL']);
-  bbbfly.renderer._updateImageProps(img,'DIST',['DRIST']);
-  bbbfly.renderer._updateImageProps(img,'DIGL',['DRIGL']);
-  bbbfly.renderer._updateImageProps(img,'DIGT',['DRIGT']);
+  bbbfly.renderer._updateImageProps(img,map);
 };
-bbbfly.renderer._updateImageProps = function(img,source,target){
-  if(!Object.isObject(img) || !Array.isArray(target)){return;}
+bbbfly.renderer._updateImageProps = function(img,map,source){
+  if(!Object.isObject(img) || !Object.isObject(map)){return;}
+  if(!String.isString(source)){source = '';}
 
-  for(var i in target){
-    var prop = target[i];
-    if(!Number.isInteger(img[prop])){
-      img[prop] = img[source];
+  for(var state in map){
+    if(!Number.isInteger(img[state+'L'])){
+      img[state+'L'] = img[source+'L'];
     }
+    if(!Number.isInteger(img[state+'T'])){
+      img[state+'T'] = img[source+'T'];
+    }
+
+    var obj = map[state];
+    if(!Object.isObject(obj)){continue;}
+
+    bbbfly.renderer._updateImageProps(img,obj,state);
   }
 };
 bbbfly.renderer._recalcFrame = function(frame){
@@ -420,6 +401,23 @@ bbbfly.renderer._updateFrameHTML = function(proxy,state){
 };
 bbbfly.Renderer = {
   ImgLTPattern: new RegExp('^[o]?[h]?[D]?[R]?[I]?[S|G]?[L|T]$'),
+
+  ImgStateMap: {
+    D: {
+      DR: { DRI: true, DRS: true, DRG: true },
+      DI: true,
+      DS: { DIS: { DRIS: true } },
+      DG: { DIG: { DRIG: true } }
+    },
+    R: {
+      RI: true,
+      RS: { RIS: true },
+      RG: { RIG: true }
+    },
+    I: true,
+    S: { IS: true },
+    G: { IG: true }
+  },
   ImageHTMLProps: bbbfly.renderer._imageHTMLProps,
   StyleDim: bbbfly.renderer._styleDim,
   IsImageLTPosition: bbbfly.renderer._isImageLTPosition,
