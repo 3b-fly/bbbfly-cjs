@@ -8,6 +8,36 @@
 
 var bbbfly = bbbfly || {};
 bbbfly.renderer = {};
+bbbfly.renderer._imageStateProps = function(state){
+  if(!Object.isObject(this._ImgStateProps)){
+    var props = {};
+
+    for(var i in bbbfly.Renderer.stateattr){
+      var attr = bbbfly.Renderer.stateattr[i];
+      props[attr] = [];
+    }
+
+    var scan = function(map){
+      if(!Object.isObject(map)){return;}
+
+      for(var prop in map){
+        var idx = prop.length;
+
+        while(idx--){
+          var attr = prop.charAt(idx);
+          var stack = props[attr];
+          if(Array.isArray(stack)){stack.push(prop);}
+        }
+        scan(map[prop]);
+      }
+    };
+
+    scan(this.ImgStateMap);
+    this._ImgStateProps = props;
+  }
+
+  return this._ImgStateProps[state];
+};
 bbbfly.renderer._isImageLTPosition = function(propName){
   if(!String.isString(propName)){return false;}
   return this.ImgLTPattern.test(propName);
@@ -37,6 +67,31 @@ bbbfly.renderer._styleDim = function(dim,neg){
     return dim;
   }
   return '';
+};
+bbbfly.renderer._recalcImageState = function(img,state,pos){
+  if(!Object.isObject(img)){return;}
+  if(!Object.isObject(pos)){return;}
+
+  var props = this.ImageStateProps(state);
+  if(!Array.isArray(props)){return;}
+
+  var left = Number.isInteger(pos.L);
+  var top = Number.isInteger(pos.T);
+
+  for(var i in props){
+    if(left){
+      var lProp = props[i]+'L';
+      if(!Number.isInteger(img[lProp])){
+        img[lProp] = pos.L;
+      }
+    }
+    if(top){
+      var tProp = props[i]+'T';
+      if(!Number.isInteger(img[tProp])){
+        img[tProp] = pos.T;
+      }
+    }
+  }
 };
 bbbfly.renderer._recalcImage = function(img){
   if(!Object.isObject(img)){return;}
@@ -418,10 +473,14 @@ bbbfly.Renderer = {
     S: { IS: true },
     G: { IG: true }
   },
+
+  _ImgStateProps: null,
+  ImageStateProps: bbbfly.renderer._imageStateProps,
   ImageHTMLProps: bbbfly.renderer._imageHTMLProps,
   StyleDim: bbbfly.renderer._styleDim,
   IsImageLTPosition: bbbfly.renderer._isImageLTPosition,
   UpdateHTMLState: bbbfly.renderer._updateHTMLState,
+  RecalcImageState: bbbfly.renderer._recalcImageState,
   RecalcImage: bbbfly.renderer._recalcImage,
   RecalcFrame: bbbfly.renderer._recalcFrame,
   ImageProxy: bbbfly.renderer._imageProxy,

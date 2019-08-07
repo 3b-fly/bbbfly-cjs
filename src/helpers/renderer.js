@@ -12,6 +12,38 @@ var bbbfly = bbbfly || {};
 bbbfly.renderer = {};
 
 /** @ignore */
+bbbfly.renderer._imageStateProps = function(state){
+  if(!Object.isObject(this._ImgStateProps)){
+    var props = {};
+
+    for(var i in bbbfly.Renderer.stateattr){
+      var attr = bbbfly.Renderer.stateattr[i];
+      props[attr] = [];
+    }
+
+    var scan = function(map){
+      if(!Object.isObject(map)){return;}
+
+      for(var prop in map){
+        var idx = prop.length;
+
+        while(idx--){
+          var attr = prop.charAt(idx);
+          var stack = props[attr];
+          if(Array.isArray(stack)){stack.push(prop);}
+        }
+        scan(map[prop]);
+      }
+    };
+
+    scan(this.ImgStateMap);
+    this._ImgStateProps = props;
+  }
+
+  return this._ImgStateProps[state];
+};
+
+/** @ignore */
 bbbfly.renderer._isImageLTPosition = function(propName){
   if(!String.isString(propName)){return false;}
   return this.ImgLTPattern.test(propName);
@@ -45,6 +77,33 @@ bbbfly.renderer._styleDim = function(dim,neg){
     return dim;
   }
   return '';
+};
+
+/** @ignore */
+bbbfly.renderer._recalcImageState = function(img,state,pos){
+  if(!Object.isObject(img)){return;}
+  if(!Object.isObject(pos)){return;}
+
+  var props = this.ImageStateProps(state);
+  if(!Array.isArray(props)){return;}
+
+  var left = Number.isInteger(pos.L);
+  var top = Number.isInteger(pos.T);
+
+  for(var i in props){
+    if(left){
+      var lProp = props[i]+'L';
+      if(!Number.isInteger(img[lProp])){
+        img[lProp] = pos.L;
+      }
+    }
+    if(top){
+      var tProp = props[i]+'T';
+      if(!Number.isInteger(img[tProp])){
+        img[tProp] = pos.T;
+      }
+    }
+  }
 };
 
 /** @ignore */
@@ -467,6 +526,11 @@ bbbfly.Renderer = {
     G: { IG: true }
   },
 
+  _ImgStateProps: null,
+
+  /** @private */
+  ImageStateProps: bbbfly.renderer._imageStateProps,
+
   /** @private */
   ImageHTMLProps: bbbfly.renderer._imageHTMLProps,
 
@@ -498,16 +562,27 @@ bbbfly.Renderer = {
    * @description Sets html node state attributes.
    *
    * @param {HTMLElement} node
-   * @param {bbbfly.Renderer.state} [state=undefined]
+   * @param {bbbfly.Renderer.state} state
    */
   UpdateHTMLState: bbbfly.renderer._updateHTMLState,
+  /**
+   * @function
+   * @name RecalcImageState
+   * @memberof bbbfly.Renderer#
+   * @description Fills in all state positions.
+   *
+   * @param {bbbfly.Renderer.image} img - Image definition
+   * @param {bbbfly.Renderer.state} state - State to recalc
+   * @param {bbbfly.Renderer.pos} pos - State position
+   */
+  RecalcImageState: bbbfly.renderer._recalcImageState,
   /**
    * @function
    * @name RecalcImage
    * @memberof bbbfly.Renderer#
    * @description Fills in all image states.
    *
-   * @param {bbbfly.Renderer.image} [img] - Image definition
+   * @param {bbbfly.Renderer.image} img - Image definition
    */
   RecalcImage: bbbfly.renderer._recalcImage,
   /**
@@ -516,7 +591,7 @@ bbbfly.Renderer = {
    * @memberof bbbfly.Renderer#
    * @description Fills in all frame image states.
    *
-   * @param {bbbfly.Renderer.frame} [frame] - Frame definition
+   * @param {bbbfly.Renderer.frame} frame - Frame definition
    */
   RecalcFrame: bbbfly.renderer._recalcFrame,
   /**
@@ -692,6 +767,14 @@ bbbfly.Renderer.stateattr = {
  *     <li><b>T</b> - top</li>
  *   </ul>
  * </code>
+ */
+
+/**
+ * @typedef {object} pos
+ * @memberOf bbbfly.Renderer
+ *
+ * @property {px} L
+ * @property {px} T
  */
 
 /**
