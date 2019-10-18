@@ -100,15 +100,13 @@ bbbfly.listener.Initialize = function(){
  * @return {boolean} If was set
  */
 bbbfly.listener.SetListenable = function(obj,force){
+  if(!Object.isObject(obj)){return false;}
+
   if(typeof obj.AllowListeners === 'undefined'){
     obj.AllowListeners = false;
   }
 
-  if(
-    obj && (typeof obj === 'object')
-    && (force || obj.AllowListeners)
-    && !obj._listeners
-  ){
+  if((force || obj.AllowListeners) && !obj._listeners){
     obj._listeners = new Array();
 
     obj.AddListener = ngAddEvent(
@@ -134,10 +132,9 @@ bbbfly.listener.SetListenable = function(obj,force){
  * @return {boolean} If listener was added
  */
 bbbfly.listener._addListener = function(eventNames,listener){
-  if(
-    ((typeof eventNames !== 'object') || !eventNames)
-    || ((typeof listener !== 'object') || !listener)
-  ){return false;}
+  if(!Array.isArray(eventNames) || !Object.isObject(listener)){
+    return false;
+  }
 
   for(var i in eventNames){
     var eventNm = eventNames[i];
@@ -175,10 +172,9 @@ bbbfly.listener._addListener = function(eventNames,listener){
  * @return {boolean} If listener was removed
  */
 bbbfly.listener._removeListener = function(eventNames,listener){
-  if(
-    ((typeof eventNames !== 'object') || !eventNames)
-    || ((typeof listener !== 'object') || !listener)
-  ){return false;}
+  if(!Array.isArray(eventNames) || !Object.isObject(listener)){
+    return false;
+  }
 
   for(var i in eventNames){
     var eventNm = eventNames[i];
