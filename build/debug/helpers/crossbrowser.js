@@ -72,14 +72,19 @@ if(typeof Array.isArray !== 'function'){
     return (Object.prototype.toString.call(value) === '[object Array]');
   };
 }
-if(typeof Array.includes !== 'function'){
-  Array.includes = function(array,value){
+if(typeof Array.indexOf !== 'function'){
+  Array.indexOf = function(array,value){
     if(Array.isArray(array)){
       for(var i in array){
-        if(array[i] === value){return true;}
+        if(array[i] === value){return i;}
       }
     }
-    return false;
+    return -1;
+  };
+}
+if(typeof Array.includes !== 'function'){
+  Array.includes = function(array,value){
+    return (Array.indexOf(array,value) > -1);
   };
 }
 if(typeof Date.isDate !== 'function'){

@@ -201,6 +201,26 @@ if(typeof Array.isArray !== 'function'){
 
 /**
  * @function
+ * @name indexOf
+ * @memberof Array
+ *
+ * @param {array} array
+ * @param {mixed} value
+ * @return {boolean}
+ */
+if(typeof Array.indexOf !== 'function'){
+  Array.indexOf = function(array,value){
+    if(Array.isArray(array)){
+      for(var i in array){
+        if(array[i] === value){return i;}
+      }
+    }
+    return -1;
+  };
+}
+
+/**
+ * @function
  * @name includes
  * @memberof Array
  *
@@ -210,12 +230,7 @@ if(typeof Array.isArray !== 'function'){
  */
 if(typeof Array.includes !== 'function'){
   Array.includes = function(array,value){
-    if(Array.isArray(array)){
-      for(var i in array){
-        if(array[i] === value){return true;}
-      }
-    }
-    return false;
+    return (Array.indexOf(array,value) > -1);
   };
 }
 
