@@ -122,20 +122,32 @@ bbbfly.renderer._recalcImage = function(img){
 /** @ignore */
 bbbfly.renderer._updateImageProps = function(img,map,source){
   if(!Object.isObject(img) || !Object.isObject(map)){return;}
-  if(!String.isString(source)){source = '';}
+  var hasSource = String.isString(source);
 
-  for(var state in map){
-    if(!Number.isInteger(img[state+'L'])){
-      img[state+'L'] = img[source+'L'];
+  for(var mapState in map){
+    if(!Number.isInteger(img[mapState+'L'])){
+      img[mapState+'L'] = hasSource ? img[source+'L'] : undefined;
     }
-    if(!Number.isInteger(img[state+'T'])){
-      img[state+'T'] = img[source+'T'];
+    if(!Number.isInteger(img[mapState+'T'])){
+      img[mapState+'T'] = hasSource ? img[source+'T'] : undefined;
     }
 
-    var obj = map[state];
-    if(!Object.isObject(obj)){continue;}
+    var mapObj = map[mapState];
+    if(!Object.isObject(mapObj)){continue;}
 
-    bbbfly.renderer._updateImageProps(img,obj,state);
+    bbbfly.renderer._updateImageProps(img,mapObj,mapState);
+  }
+
+  if(!hasSource){
+    for(var imgState in img){
+      if(Number.isInteger(img[imgState])){continue;}
+
+      if(bbbfly.Renderer.IsImageLTPosition(imgState)){
+        var defState = imgState.slice(-1);
+        img[imgState] = img[defState];
+        console.info(imgState,defState,img[defState]);
+      }
+    }
   }
 };
 
@@ -510,20 +522,33 @@ bbbfly.Renderer = {
   ImgLTPattern: new RegExp('^[o]?[h]?[D]?[R]?[I]?[S|G]?[L|T]$'),
 
   ImgStateMap: {
-    D: {
-      DR: { DRI: true, DRS: true, DRG: true },
-      DI: true,
-      DS: { DIS: { DRIS: true } },
-      DG: { DIG: { DRIG: true } }
-    },
-    R: {
-      RI: true,
-      RS: { RIS: true },
-      RG: { RIG: true }
-    },
-    I: true,
-    S: { IS: true },
-    G: { IG: true }
+    D: { DR:true, DI:true, DS:true, DG:true },
+    R: { DR:true, RI:true, RS:true, RG:true },
+    I: { DI:true, RI:true, IS:true, IG:true },
+    S: { DS:true, RS:true, IS:true },
+    G: { DG:true, RG:true, IG:true },
+
+    DR: { DRI:true, DRS:true, DRG:true },
+    DI: { DRI:true, DIS:true, DIG:true },
+    DS: { DRS:true, DIS:true },
+    DG: { DRG:true, DIG:true },
+
+    RI: { DRI:true, RIS:true, RIG:true },
+    RS: { DRS:true, RIS:true },
+    RG: { DRG:true, RIG:true },
+
+    IS: { DIS:true, RIS:true },
+    IG: { DIG:true, RIG:true },
+
+    DRI: { DRIS:true, DRIG:true },
+    DRS: { DRIS:true },
+    DRG: { DRIG:true },
+
+    DIS: { DRIS:true },
+    DIG: { DRIG:true },
+
+    RIS: { DRIS:true },
+    RIG: { DRIG:true }
   },
 
   _ImgStateProps: null,
