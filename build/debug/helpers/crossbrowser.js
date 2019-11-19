@@ -6,11 +6,13 @@
 */
 
 
+
 if(typeof Boolean.isBoolean !== 'function'){
   Boolean.isBoolean = function(value){
     return (typeof value === 'boolean');
   };
 }
+
 if(typeof String.isString !== 'function'){
   String.isString = function(value){
     return (typeof value === 'string');
@@ -22,6 +24,7 @@ String.trim = function(string){
   }
   return '';
 };
+
 if(typeof String.capitalize !== 'function'){
   String.capitalize = function(string){
     if(typeof string === 'string'){
@@ -30,6 +33,7 @@ if(typeof String.capitalize !== 'function'){
     return '';
   };
 }
+
 if(typeof String.repeat !== 'function'){
   String.repeat = function(string,count){
     var result = '';
@@ -41,6 +45,7 @@ if(typeof String.repeat !== 'function'){
     return result;
   };
 }
+
 if(typeof String.leading !== 'function'){
   String.leading = function(string,lead,length){
     var result = '';
@@ -52,11 +57,13 @@ if(typeof String.leading !== 'function'){
     return result+value;
   };
 }
+
 if(typeof Object.isObject !== 'function'){
   Object.isObject = function(value){
     return (Object.prototype.toString.call(value) === '[object Object]');
   };
 }
+
 if(typeof Object.includes !== 'function'){
   Object.includes = function(object,value){
     if(Object.isObject(object)){
@@ -67,11 +74,13 @@ if(typeof Object.includes !== 'function'){
     return false;
   };
 }
+
 if(typeof Array.isArray !== 'function'){
   Array.isArray = function(value){
     return (Object.prototype.toString.call(value) === '[object Array]');
   };
 }
+
 if(typeof Array.indexOf !== 'function'){
   Array.indexOf = function(array,value){
     if(Array.isArray(array)){
@@ -82,26 +91,31 @@ if(typeof Array.indexOf !== 'function'){
     return -1;
   };
 }
+
 if(typeof Array.includes !== 'function'){
   Array.includes = function(array,value){
     return (Array.indexOf(array,value) > -1);
   };
 }
+
 if(typeof Date.isDate !== 'function'){
   Date.isDate = function(value){
     return (Object.prototype.toString.call(value) === '[object Date]');
   };
 }
+
 if(typeof Number.isNumber !== 'function'){
   Number.isNumber = function(value){
     return ((typeof value === 'number') && !this.isNaN(value));
   };
 }
+
 if(typeof Number.isInteger !== 'function'){
   Number.isInteger = function(value){
     return (Number.isNumber(value) && (value % 1 === 0));
   };
 }
+
 if(typeof Function.isFunction !== 'function'){
   Function.isFunction = function(value){
     return (typeof value === 'function');

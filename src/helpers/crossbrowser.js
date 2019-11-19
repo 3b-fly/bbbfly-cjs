@@ -23,15 +23,15 @@
  * @memberof bbbfly.crossbrowser
  */
 
-/**
- * @function
- * @name isBoolean
- * @memberof Boolean
- *
- * @param {mixed} value
- * @return {boolean}
- */
 if(typeof Boolean.isBoolean !== 'function'){
+  /**
+   * @function
+   * @name isBoolean
+   * @memberof Boolean
+   *
+   * @param {mixed} value
+   * @return {boolean}
+   */
   Boolean.isBoolean = function(value){
     return (typeof value === 'boolean');
   };
@@ -45,15 +45,15 @@ if(typeof Boolean.isBoolean !== 'function'){
  * @memberof bbbfly.crossbrowser
  */
 
-/**
- * @function
- * @name isString
- * @memberof String
- *
- * @param {mixed} value
- * @return {boolean}
- */
 if(typeof String.isString !== 'function'){
+  /**
+   * @function
+   * @name isString
+   * @memberof String
+   *
+   * @param {mixed} value
+   * @return {boolean}
+   */
   String.isString = function(value){
     return (typeof value === 'string');
   };
@@ -75,15 +75,15 @@ String.trim = function(string){
   return '';
 };
 
-/**
- * @function
- * @name capitalize
- * @memberof String
- *
- * @param {string} string
- * @return {string}
- */
 if(typeof String.capitalize !== 'function'){
+  /**
+   * @function
+   * @name capitalize
+   * @memberof String
+   *
+   * @param {string} string
+   * @return {string}
+   */
   String.capitalize = function(string){
     if(typeof string === 'string'){
       return string.charAt(0).toUpperCase()+string.slice(1);
@@ -92,16 +92,16 @@ if(typeof String.capitalize !== 'function'){
   };
 }
 
-/**
- * @function
- * @name repeat
- * @memberof String
- *
- * @param {string} string
- * @param {integer} count
- * @return {string}
- */
 if(typeof String.repeat !== 'function'){
+  /**
+   * @function
+   * @name repeat
+   * @memberof String
+   *
+   * @param {string} string
+   * @param {integer} count
+   * @return {string}
+   */
   String.repeat = function(string,count){
     var result = '';
     if((typeof string === 'string') && (typeof count === 'number')){
@@ -113,17 +113,17 @@ if(typeof String.repeat !== 'function'){
   };
 }
 
-/**
- * @function
- * @name leading
- * @memberof String
- *
- * @param {string} string - base string
- * @param {string} lead - string to repeat
- * @param {integer} length - minimal final string length
- * @return {string}
- */
 if(typeof String.leading !== 'function'){
+  /**
+   * @function
+   * @name leading
+   * @memberof String
+   *
+   * @param {string} string - base string
+   * @param {string} lead - string to repeat
+   * @param {integer} length - minimal final string length
+   * @return {string}
+   */
   String.leading = function(string,lead,length){
     var result = '';
     var value = (typeof string === 'string') ? string : '';
@@ -143,30 +143,30 @@ if(typeof String.leading !== 'function'){
  * @memberof bbbfly.crossbrowser
  */
 
-/**
- * @function
- * @name isObject
- * @memberof Object
- *
- * @param {mixed} value
- * @return {boolean}
- */
 if(typeof Object.isObject !== 'function'){
+  /**
+   * @function
+   * @name isObject
+   * @memberof Object
+   *
+   * @param {mixed} value
+   * @return {boolean}
+   */
   Object.isObject = function(value){
     return (Object.prototype.toString.call(value) === '[object Object]');
   };
 }
 
-/**
- * @function
- * @name includes
- * @memberof Object
- *
- * @param {object} object
- * @param {mixed} value
- * @return {boolean}
- */
 if(typeof Object.includes !== 'function'){
+  /**
+   * @function
+   * @name includes
+   * @memberof Object
+   *
+   * @param {object} object
+   * @param {mixed} value
+   * @return {boolean}
+   */
   Object.includes = function(object,value){
     if(Object.isObject(object)){
       for(var i in object){
@@ -185,30 +185,30 @@ if(typeof Object.includes !== 'function'){
  * @memberof bbbfly.crossbrowser
  */
 
-/**
- * @function
- * @name isArray
- * @memberof Array
- *
- * @param {mixed} value
- * @return {boolean}
- */
 if(typeof Array.isArray !== 'function'){
+  /**
+   * @function
+   * @name isArray
+   * @memberof Array
+   *
+   * @param {mixed} value
+   * @return {boolean}
+   */
   Array.isArray = function(value){
     return (Object.prototype.toString.call(value) === '[object Array]');
   };
 }
 
-/**
- * @function
- * @name indexOf
- * @memberof Array
- *
- * @param {array} array
- * @param {mixed} value
- * @return {boolean}
- */
 if(typeof Array.indexOf !== 'function'){
+  /**
+   * @function
+   * @name indexOf
+   * @memberof Array
+   *
+   * @param {array} array
+   * @param {mixed} value
+   * @return {boolean}
+   */
   Array.indexOf = function(array,value){
     if(Array.isArray(array)){
       for(var i in array){
@@ -219,16 +219,16 @@ if(typeof Array.indexOf !== 'function'){
   };
 }
 
-/**
- * @function
- * @name includes
- * @memberof Array
- *
- * @param {array} array
- * @param {mixed} value
- * @return {boolean}
- */
 if(typeof Array.includes !== 'function'){
+  /**
+   * @function
+   * @name includes
+   * @memberof Array
+   *
+   * @param {array} array
+   * @param {mixed} value
+   * @return {boolean}
+   */
   Array.includes = function(array,value){
     return (Array.indexOf(array,value) > -1);
   };
@@ -242,15 +242,15 @@ if(typeof Array.includes !== 'function'){
  * @memberof bbbfly.crossbrowser
  */
 
-/**
- * @function
- * @name isDate
- * @memberof Date
- *
- * @param {mixed} value
- * @return {boolean}
- */
 if(typeof Date.isDate !== 'function'){
+  /**
+   * @function
+   * @name isDate
+   * @memberof Date
+   *
+   * @param {mixed} value
+   * @return {boolean}
+   */
   Date.isDate = function(value){
     return (Object.prototype.toString.call(value) === '[object Date]');
   };
@@ -264,29 +264,29 @@ if(typeof Date.isDate !== 'function'){
  * @memberof bbbfly.crossbrowser
  */
 
-/**
- * @function
- * @name isNumber
- * @memberof Number
- *
- * @param {mixed} value
- * @return {boolean}
- */
 if(typeof Number.isNumber !== 'function'){
+  /**
+   * @function
+   * @name isNumber
+   * @memberof Number
+   *
+   * @param {mixed} value
+   * @return {boolean}
+   */
   Number.isNumber = function(value){
     return ((typeof value === 'number') && !this.isNaN(value));
   };
 }
 
-/**
- * @function
- * @name isInteger
- * @memberof Number
- *
- * @param {mixed} value
- * @return {boolean}
- */
 if(typeof Number.isInteger !== 'function'){
+  /**
+   * @function
+   * @name isInteger
+   * @memberof Number
+   *
+   * @param {mixed} value
+   * @return {boolean}
+   */
   Number.isInteger = function(value){
     return (Number.isNumber(value) && (value % 1 === 0));
   };
@@ -300,15 +300,15 @@ if(typeof Number.isInteger !== 'function'){
  * @memberof bbbfly.crossbrowser
  */
 
-/**
- * @function
- * @name isFunction
- * @memberof Function
- *
- * @param {mixed} value
- * @return {boolean}
- */
 if(typeof Function.isFunction !== 'function'){
+  /**
+  * @function
+  * @name isFunction
+  * @memberof Function
+  *
+  * @param {mixed} value
+  * @return {boolean}
+  */
   Function.isFunction = function(value){
     return (typeof value === 'function');
   };
