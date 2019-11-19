@@ -93,14 +93,14 @@ bbbfly.renderer._recalcImageState = function(img,state,pos){
   for(var i in props){
     if(left){
       var lProp = props[i]+'L';
-      if(!Number.isInteger(img[lProp])){
-        img[lProp] = pos.L;
+      if(Number.isInteger(img[lProp])){
+        img[lProp] += pos.L;
       }
     }
     if(top){
       var tProp = props[i]+'T';
-      if(!Number.isInteger(img[tProp])){
-        img[tProp] = pos.T;
+      if(Number.isInteger(img[tProp])){
+        img[tProp] += pos.T;
       }
     }
   }
@@ -145,7 +145,6 @@ bbbfly.renderer._updateImageProps = function(img,map,source){
       if(bbbfly.Renderer.IsImageLTPosition(imgState)){
         var defState = imgState.slice(-1);
         img[imgState] = img[defState];
-        console.info(imgState,defState,img[defState]);
       }
     }
   }
