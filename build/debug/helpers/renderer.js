@@ -8,36 +8,6 @@
 
 var bbbfly = bbbfly || {};
 bbbfly.renderer = {};
-bbbfly.renderer._imageStateProps = function(state){
-  if(!Object.isObject(this._ImgStateProps)){
-    var props = {};
-
-    for(var i in bbbfly.Renderer.stateattr){
-      var attr = bbbfly.Renderer.stateattr[i];
-      props[attr] = [];
-    }
-
-    var scan = function(map){
-      if(!Object.isObject(map)){return;}
-
-      for(var prop in map){
-        var idx = prop.length;
-
-        while(idx--){
-          var attr = prop.charAt(idx);
-          var stack = props[attr];
-          if(Array.isArray(stack)){stack.push(prop);}
-        }
-        scan(map[prop]);
-      }
-    };
-
-    scan(this.ImgStateMap);
-    this._ImgStateProps = props;
-  }
-
-  return this._ImgStateProps[state];
-};
 bbbfly.renderer._isImageLTPosition = function(propName){
   if(!String.isString(propName)){return false;}
   return this.ImgLTPattern.test(propName);
@@ -68,29 +38,36 @@ bbbfly.renderer._styleDim = function(dim,neg){
   }
   return '';
 };
+bbbfly.renderer._containsState = function(propName,state){
+  if(!String.isString(propName)){return false;}
+  if(!Object.isObject(state)){return false;}
+
+  for(var prop in state){
+    var attr = bbbfly.Renderer.stateattr[prop];
+    if(!String.isString(attr)){continue;}
+
+    var hasAttr = !(propName.indexOf(attr) < 0);
+    if(hasAttr !== !!state[prop]){return false;}
+  }
+  return true;
+};
 bbbfly.renderer._recalcImageState = function(img,state,pos){
   if(!Object.isObject(img)){return;}
+  if(!Object.isObject(state)){return;}
   if(!Object.isObject(pos)){return;}
 
-  var props = this.ImageStateProps(state);
-  if(!Array.isArray(props)){return;}
+  var hasLeft = Number.isInteger(pos.L);
+  var hasTop = Number.isInteger(pos.T);
+  if(!hasLeft && !hasTop){return;}
 
-  var left = Number.isInteger(pos.L);
-  var top = Number.isInteger(pos.T);
+  for(var propName in img){
+    if(!Number.isInteger(img[propName])){continue;}
+    if(!this.IsImageLTPosition(propName)){continue;}
+    if(!this.ContainsState(propName,state)){continue;}
 
-  for(var i in props){
-    if(left){
-      var lProp = props[i]+'L';
-      if(Number.isInteger(img[lProp])){
-        img[lProp] += pos.L;
-      }
-    }
-    if(top){
-      var tProp = props[i]+'T';
-      if(Number.isInteger(img[tProp])){
-        img[tProp] += pos.T;
-      }
-    }
+    var lastChar = propName.slice(-1);
+    if(hasLeft && (lastChar === 'L')){img[propName] += pos.L;}
+    if(hasTop && (lastChar === 'T')){img[propName] += pos.T;}
   }
 };
 bbbfly.renderer._recalcImage = function(img){
@@ -497,11 +474,9 @@ bbbfly.Renderer = {
     RIS: { DRIS:true },
     RIG: { DRIG:true }
   },
-
-  _ImgStateProps: null,
-  ImageStateProps: bbbfly.renderer._imageStateProps,
   ImageHTMLProps: bbbfly.renderer._imageHTMLProps,
   StyleDim: bbbfly.renderer._styleDim,
+  ContainsState: bbbfly.renderer._containsState,
   IsImageLTPosition: bbbfly.renderer._isImageLTPosition,
   UpdateHTMLState: bbbfly.renderer._updateHTMLState,
   RecalcImageState: bbbfly.renderer._recalcImageState,
