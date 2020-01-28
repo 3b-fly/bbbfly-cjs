@@ -133,6 +133,12 @@ bbbfly.renderer._imageProxy = function(img,state,id){
   if(Number.isInteger(img.W)){proxy.W = img.W;}
   if(Number.isInteger(img.H)){proxy.H = img.H;}
 
+  if(Object.isObject(img.Anchor)){
+    proxy.Anchor = {L:0,T:0};
+    if(Number.isInteger(img.Anchor.L)){proxy.Anchor.L = img.Anchor.L;}
+    if(Number.isInteger(img.Anchor.T)){proxy.Anchor.T = img.Anchor.T;}
+  }
+
   this.UpdateImageProxy(proxy,state);
   return proxy;
 };
@@ -159,8 +165,46 @@ bbbfly.renderer._frameProxy = function(frame,state,id){
   if(String.isString(id)){proxy.Id = id;}
   return proxy;
 };
+bbbfly.renderer._stackProxy = function(imgs,state,id){
+  if(!Array.isArray(imgs)){imgs = [];}
+  var hasId = String.isString(id);
+
+  function imgId(suffix){
+    return (hasId) ? id+suffix : null;
+  };
+
+  var images = [];
+  var anchor = {L:0,T:0,R:0,B:0};
+
+  for(var i in imgs){
+    var iProxy = this.ImageProxy(imgs[i],state,imgId('_'+i));
+
+    images.push(iProxy);
+    if(!iProxy.W || !iProxy.H){continue;}
+
+    var left = (iProxy.Anchor) ? iProxy.Anchor.L : 0;
+    var top = (iProxy.Anchor) ? iProxy.Anchor.T : 0;
+    var right = (iProxy.W) ? (iProxy.W - left) : 0;
+    var bottom = (iProxy.H) ? (iProxy.H - top) : 0;
+
+    if(left > anchor.L){anchor.L = left;}
+    if(top > anchor.T){anchor.T = top;}
+    if(right > anchor.R){anchor.R = right;}
+    if(bottom > anchor.B){anchor.B = bottom;}
+  }
+
+  var proxy = {
+    Imgs: images,
+    Anchor: anchor,
+    W: (anchor.L+anchor.R),
+    H: (anchor.T+anchor.B)
+  };
+
+  if(String.isString(id)){proxy.Id = id;}
+  return proxy;
+};
 bbbfly.renderer._updateImageProxy = function(proxy,state){
-  if(!Object.isObject(proxy || proxy._mock)){return;}
+  if(!Object.isObject(proxy) || proxy._mock){return;}
   if(!Object.isObject(proxy.Img)){return;}
 
   var l = null;
@@ -222,6 +266,13 @@ bbbfly.renderer._updateFrameProxy = function(proxy,state){
   this.UpdateImageProxy(proxy.LB,state);
   this.UpdateImageProxy(proxy.RB,state);
   this.UpdateImageProxy(proxy.C,state);
+};
+bbbfly.renderer._updateStackProxy = function(proxy,state){
+  if(!Object.isObject(proxy)){return;}
+
+  for(var i in proxy.Imgs){
+    this.UpdateImageProxy(proxy.Imgs[i],state);
+  }
 };
 bbbfly.renderer._imageHTMLProps = function(
   proxy,left,top,right,bottom,state,className,style,innerHtml
@@ -413,6 +464,35 @@ bbbfly.renderer._dynamicFrameHTML = function(
   }
   return frameHtml;
 };
+StackHTML: bbbfly.renderer._stackHTML = function(proxy,state,className){
+  var stackHtml = '';
+
+  if(Object.isObject(proxy) && Array.isArray(proxy.Imgs)){
+
+    var anchorLeft = (proxy.Anchor) ? proxy.Anchor.L : 0;
+    var anchorTop = (proxy.Anchor) ? proxy.Anchor.T : 0;
+
+    for(var i in proxy.Imgs){
+      var iProxy = proxy.Imgs[i];
+
+      var index = (parseInt(i)+1).toString();
+      var style = { 'z-index': index };
+
+      var left = anchorLeft;
+      var top = anchorTop;
+
+      if(iProxy.Anchor){
+        left -= iProxy.Anchor.L;
+        top -= iProxy.Anchor.T;
+      }
+
+      stackHtml += this.ImageHTML(
+        iProxy,left,top,null,null,state,className,style
+      );
+    }
+  }
+  return stackHtml;
+};
 bbbfly.renderer._updateImageHTML = function(proxy,state){
   if(!Object.isObject(proxy) || proxy._mock){return;}
   if(!String.isString(proxy.Id) || (proxy.Id === '')){return;}
@@ -430,16 +510,23 @@ bbbfly.renderer._updateImageHTML = function(proxy,state){
   node.style.backgroundPosition = left+' '+top;
 };
 bbbfly.renderer._updateFrameHTML = function(proxy,state){
-  if(Object.isObject(proxy)){
-    this.UpdateImageHTML(proxy.L,state);
-    this.UpdateImageHTML(proxy.T,state);
-    this.UpdateImageHTML(proxy.R,state);
-    this.UpdateImageHTML(proxy.B,state);
-    this.UpdateImageHTML(proxy.LT,state);
-    this.UpdateImageHTML(proxy.RT,state);
-    this.UpdateImageHTML(proxy.LB,state);
-    this.UpdateImageHTML(proxy.RB,state);
-    this.UpdateImageHTML(proxy.C,state);
+  if(!Object.isObject(proxy)){return;}
+
+  this.UpdateImageHTML(proxy.L,state);
+  this.UpdateImageHTML(proxy.T,state);
+  this.UpdateImageHTML(proxy.R,state);
+  this.UpdateImageHTML(proxy.B,state);
+  this.UpdateImageHTML(proxy.LT,state);
+  this.UpdateImageHTML(proxy.RT,state);
+  this.UpdateImageHTML(proxy.LB,state);
+  this.UpdateImageHTML(proxy.RB,state);
+  this.UpdateImageHTML(proxy.C,state);
+};
+bbbfly.renderer._updateStackHTML = function(proxy,state){
+  if(!Object.isObject(proxy)){return;}
+
+  for(var i in proxy.Imgs){
+    this.UpdateImageHTML(proxy.Imgs[i],state);
   }
 };
 bbbfly.Renderer = {
@@ -484,14 +571,18 @@ bbbfly.Renderer = {
   RecalcFrame: bbbfly.renderer._recalcFrame,
   ImageProxy: bbbfly.renderer._imageProxy,
   FrameProxy: bbbfly.renderer._frameProxy,
+  StackProxy: bbbfly.renderer._stackProxy,
   UpdateImageProxy: bbbfly.renderer._updateImageProxy,
   UpdateFrameProxy: bbbfly.renderer._updateFrameProxy,
+  UpdateStackProxy: bbbfly.renderer._updateStackProxy,
   SetImage: bbbfly.renderer._setImage,
   ImageHTML: bbbfly.renderer._imageHTML,
   FrameHTML: bbbfly.renderer._frameHTML,
   DynamicFrameHTML: bbbfly.renderer._dynamicFrameHTML,
+  StackHTML: bbbfly.renderer._stackHTML,
   UpdateImageHTML: bbbfly.renderer._updateImageHTML,
-  UpdateFrameHTML: bbbfly.renderer._updateFrameHTML
+  UpdateFrameHTML: bbbfly.renderer._updateFrameHTML,
+  UpdateStackHTML: bbbfly.renderer._updateStackHTML
 };
 bbbfly.Renderer.stateattr = {
   mouseover: 'o',
@@ -504,19 +595,14 @@ bbbfly.Renderer.stateattr = {
   };
 
 /**
- * @typedef {object} frameproxy
+ * @typedef {object} stackproxy
  * @memberOf bbbfly.Renderer
  *
- * @description Frame image properties for certain state
+ * @description Images stack properties for certain state
  *
  * @property {string|undefined} [Id] - Frame ID
- * @property {bbbfly.Renderer.imageproxy} [L] - Left image properties
- * @property {bbbfly.Renderer.imageproxy} [T] - Top image properties
- * @property {bbbfly.Renderer.imageproxy} [R] - Right image properties
- * @property {bbbfly.Renderer.imageproxy} [B] - Bottom image properties
- * @property {bbbfly.Renderer.imageproxy} [LT] - LeftTop image properties
- * @property {bbbfly.Renderer.imageproxy} [RT] - RightTop image properties
- * @property {bbbfly.Renderer.imageproxy} [LB] - LeftBottom image properties
- * @property {bbbfly.Renderer.imageproxy} [RB] - RightBottom image properties
- * @property {bbbfly.Renderer.imageproxy} [C] - Center image properties
+ * @property {bbbfly.Renderer.imageproxy[]} Imgs - Image properties
+ * @property {pos} [Anchor] - Stack reference point
+ * @property {px} [W] - Stack width
+ * @property {px} [H] - Stack height
  */
