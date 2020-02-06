@@ -38,6 +38,23 @@ bbbfly.renderer._styleDim = function(dim,neg){
   }
   return '';
 };
+bbbfly.renderer._styleToString = function(style){
+  if(!Object.isObject(style)){return '';}
+  var cssStyle = '';
+
+  for(var prop in style){
+    if(!style.hasOwnProperty(prop)){continue;}
+
+    var propVal = style[prop];
+    if(!String.isString(propVal) || !propVal){continue;}
+
+    cssStyle += prop+':'+propVal+';';
+  }
+  if(cssStyle){
+    cssStyle = ' style="'+cssStyle+'"';
+  }
+  return cssStyle;
+};
 bbbfly.renderer._containsState = function(propName,state){
   if(!String.isString(propName)){return false;}
   if(!Object.isObject(state)){return false;}
@@ -384,20 +401,7 @@ bbbfly.renderer._imageHTML = function(
 
   if(props.id){imgAttrs += ' id="'+props.id+'"';}
   if(props.className){imgAttrs += ' class="'+props.className+'"';}
-
-  if(props.style){
-    for(var prop in props.style){
-      if(!props.style.hasOwnProperty(prop)){continue;}
-
-      var propVal = props.style[prop];
-      if(!String.isString(propVal) || !propVal){continue;}
-
-      imgStyle += prop+':'+propVal+';';
-    }
-    if(imgStyle){
-      imgStyle = ' style="'+imgStyle+'"';
-    }
-  }
+  if(props.style){imgStyle = this.StyleToString(props.style);}
 
   return '<div unselectable="on"'+imgAttrs+imgStyle+'>'
       +props.innerHtml
@@ -563,6 +567,7 @@ bbbfly.Renderer = {
   },
   ImageHTMLProps: bbbfly.renderer._imageHTMLProps,
   StyleDim: bbbfly.renderer._styleDim,
+  StyleToString: bbbfly.renderer._styleToString,
   ContainsState: bbbfly.renderer._containsState,
   IsImageLTPosition: bbbfly.renderer._isImageLTPosition,
   UpdateHTMLState: bbbfly.renderer._updateHTMLState,
