@@ -8,6 +8,10 @@
 
 var bbbfly = bbbfly || {};
 bbbfly.renderer = {};
+bbbfly.renderer._imageId = function(id,suffix){
+  if(!String.isString(id)){return null;}
+  return String.isString(suffix) ? id+suffix : id;
+};
 bbbfly.renderer._isImageLTPosition = function(propName){
   if(!String.isString(propName)){return false;}
   return this.ImgLTPattern.test(propName);
@@ -161,22 +165,17 @@ bbbfly.renderer._imageProxy = function(img,state,id){
 };
 bbbfly.renderer._frameProxy = function(frame,state,id){
   if(!Object.isObject(frame)){frame = {};}
-  var hasId = String.isString(id);
-
-  function imgId(suffix){
-    return (hasId) ? id+suffix : null;
-  };
 
   var proxy = {
-    L: this.ImageProxy(frame.Left,state,imgId('_FL')),
-    T: this.ImageProxy(frame.Top,state,imgId('_FT')),
-    R: this.ImageProxy(frame.Right,state,imgId('_FR')),
-    B: this.ImageProxy(frame.Bottom,state,imgId('_FB')),
-    LT: this.ImageProxy(frame.LeftTop,state,imgId('_FLT')),
-    RT: this.ImageProxy(frame.RightTop,state,imgId('_FRT')),
-    LB: this.ImageProxy(frame.LeftBottom,state,imgId('_FLB')),
-    RB: this.ImageProxy(frame.RightBottom,state,imgId('_FRB')),
-    C: this.ImageProxy(frame.Center,state,imgId('_FC'))
+    L: this.ImageProxy(frame.Left,state,this.ImageId(id,'_FL')),
+    T: this.ImageProxy(frame.Top,state,this.ImageId(id,'_FT')),
+    R: this.ImageProxy(frame.Right,state,this.ImageId(id,'_FR')),
+    B: this.ImageProxy(frame.Bottom,state,this.ImageId(id,'_FB')),
+    LT: this.ImageProxy(frame.LeftTop,state,this.ImageId(id,'_FLT')),
+    RT: this.ImageProxy(frame.RightTop,state,this.ImageId(id,'_FRT')),
+    LB: this.ImageProxy(frame.LeftBottom,state,this.ImageId(id,'_FLB')),
+    RB: this.ImageProxy(frame.RightBottom,state,this.ImageId(id,'_FRB')),
+    C: this.ImageProxy(frame.Center,state,this.ImageId(id,'_FC'))
   };
 
   if(String.isString(id)){proxy.Id = id;}
@@ -184,17 +183,14 @@ bbbfly.renderer._frameProxy = function(frame,state,id){
 };
 bbbfly.renderer._stackProxy = function(imgs,state,id){
   if(!Array.isArray(imgs)){imgs = [];}
-  var hasId = String.isString(id);
-
-  function imgId(suffix){
-    return (hasId) ? id+suffix : null;
-  };
 
   var images = [];
   var anchor = {L:0,T:0,R:0,B:0};
 
   for(var i in imgs){
-    var iProxy = this.ImageProxy(imgs[i],state,imgId('_'+i));
+    var iProxy = this.ImageProxy(
+      imgs[i],state,this.ImageId(id,'_'+i)
+    );
 
     images.push(iProxy);
     if(!iProxy.W || !iProxy.H){continue;}
@@ -292,7 +288,7 @@ bbbfly.renderer._updateStackProxy = function(proxy,state){
   }
 };
 bbbfly.renderer._imageHTMLProps = function(
-  proxy,left,top,right,bottom,state,className,style,innerHtml
+  proxy,left,top,right,bottom,state,className,style,innerHtml,id
 ){
   if(!Object.isObject(proxy) || proxy._mock){return null;}
   if(!String.isString(proxy.Src) || (proxy.Src === '')){return null;}
@@ -344,21 +340,23 @@ bbbfly.renderer._imageHTMLProps = function(
     ng_MergeVarReplace(props.style,style);
   }
 
-  if(String.isString(proxy.Id)){props.id = proxy.Id;}
+  if(String.isString(id)){props.id = id;}
+  else if(String.isString(proxy.Id)){props.id = proxy.Id;}
+
   if(String.isString(className)){props.className = className;}
   if(String.isString(innerHtml)){props.innerHtml = innerHtml;}
 
   return props;
 };
 bbbfly.renderer._setImage = function(
-  node,proxy,left,top,right,bottom,state,className,style,innerHtml
+  node,proxy,left,top,right,bottom,state,className,style,innerHtml,id
 ){
   if(!(node instanceof HTMLElement)){return;}
 
   var props = this.ImageHTMLProps(
     proxy,left,top,right,bottom,
     state,className,style,
-    innerHtml
+    innerHtml,id
   );
 
   if(!props){return;}
@@ -386,12 +384,12 @@ bbbfly.renderer._setImage = function(
   node.innerHtml = props.innerHtml;
 };
 bbbfly.renderer._imageHTML = function(
-  proxy,left,top,right,bottom,state,className,style,innerHtml
+  proxy,left,top,right,bottom,state,className,style,innerHtml,id
 ){
   var props = this.ImageHTMLProps(
     proxy,left,top,right,bottom,
     state,className,style,
-    innerHtml
+    innerHtml,id
   );
 
   if(!props){return '';}
@@ -407,44 +405,53 @@ bbbfly.renderer._imageHTML = function(
       +props.innerHtml
     +'</div>';
 };
-bbbfly.renderer._frameHTML = function(proxy,state,className){
+bbbfly.renderer._frameHTML = function(proxy,state,className,id){
   var frameHtml = '';
 
   if(Object.isObject(proxy)){
     frameHtml += this.ImageHTML(
-      proxy.L,0,proxy.LT.H,null,proxy.LB.H,state,className
+      proxy.L,0,proxy.LT.H,null,proxy.LB.H,state,
+      className,null,this.ImageId(id,'_FL')
     );
     frameHtml += this.ImageHTML(
-      proxy.T,proxy.LT.W,0,proxy.RT.W,null,state,className
+      proxy.T,proxy.LT.W,0,proxy.RT.W,null,state,
+      className,null,this.ImageId(id,'_FT')
     );
     frameHtml += this.ImageHTML(
-      proxy.R,null,proxy.RT.H,0,proxy.RB.H,state,className
+      proxy.R,null,proxy.RT.H,0,proxy.RB.H,state,
+      className,null,this.ImageId(id,'_FR')
     );
     frameHtml += this.ImageHTML(
-      proxy.B,proxy.LB.W,null,proxy.RB.W,0,state,className
+      proxy.B,proxy.LB.W,null,proxy.RB.W,0,state,
+      className,null,this.ImageId(id,'_FB')
     );
     frameHtml += this.ImageHTML(
-      proxy.LT,0,0,null,null,state,className
+      proxy.LT,0,0,null,null,state,
+      className,null,this.ImageId(id,'_FLT')
     );
     frameHtml += this.ImageHTML(
-      proxy.RT,null,0,0,null,state,className
+      proxy.RT,null,0,0,null,state,
+      className,null,this.ImageId(id,'_FRT')
     );
     frameHtml += this.ImageHTML(
-      proxy.LB,0,null,null,0,state,className
+      proxy.LB,0,null,null,0,state,
+      className,null,this.ImageId(id,'_FLB')
     );
     frameHtml += this.ImageHTML(
-      proxy.RB,null,null,0,0,state,className
+      proxy.RB,null,null,0,0,state,
+      className,null,this.ImageId(id,'_FRB')
     );
     frameHtml += this.ImageHTML(
-      proxy.C,proxy.L.W,proxy.T.H,proxy.R.W,proxy.B.H,state,className
+      proxy.C,proxy.L.W,proxy.T.H,proxy.R.W,proxy.B.H,state,
+      className,null,this.ImageId(id,'_FC')
     );
   }
   return frameHtml;
 };
 bbbfly.renderer._dynamicFrameHTML = function(
-  proxy,state,className,innerHtml
+  proxy,state,className,innerHtml,id
 ){
-  var frameHtml = this.FrameHTML(proxy,state,className);
+  var frameHtml = this.FrameHTML(proxy,state,className,id);
 
   if(String.isString(innerHtml)){
     var left = this.StyleDim(proxy.L.W);
@@ -460,15 +467,15 @@ bbbfly.renderer._dynamicFrameHTML = function(
     if(attrs){attrs = ' style="'+attrs+'"';}
 
     if(String.isString(className)){attrs += ' class="'+className+'"';}
-    if(Object.isObject(proxy) && String.isString(proxy.Id)){
-      attrs += ' id="'+proxy.Id+'_C"';
-    }
+
+    if(!String.isString(id) && Object.isObject(proxy)){id = proxy.Id;}
+    if(String.isString(id)){attrs += ' id="'+proxy.Id+'_C"';}
 
     frameHtml += '<div unselectable="on"'+attrs+'>'+innerHtml+'</div>';
   }
   return frameHtml;
 };
-StackHTML: bbbfly.renderer._stackHTML = function(proxy,state,className){
+StackHTML: bbbfly.renderer._stackHTML = function(proxy,state,className,id){
   var stackHtml = '';
 
   if(Object.isObject(proxy) && Array.isArray(proxy.Imgs)){
@@ -491,15 +498,18 @@ StackHTML: bbbfly.renderer._stackHTML = function(proxy,state,className){
       }
 
       stackHtml += this.ImageHTML(
-        iProxy,left,top,null,null,state,className,style
+        iProxy,left,top,null,null,state,
+        className,style,null,this.ImageId(id,'_'+i)
       );
     }
   }
   return stackHtml;
 };
-bbbfly.renderer._updateImageHTML = function(proxy,state){
+bbbfly.renderer._updateImageHTML = function(proxy,state,id){
   if(!Object.isObject(proxy) || proxy._mock){return;}
-  if(!String.isString(proxy.Id) || (proxy.Id === '')){return;}
+
+  if(!String.isString(id)){id = proxy.Id;}
+  if(!String.isString(id) || (id === '')){return;}
 
   var node = document.getElementById(proxy.Id);
   if(!node){return;}
@@ -513,24 +523,26 @@ bbbfly.renderer._updateImageHTML = function(proxy,state){
 
   node.style.backgroundPosition = left+' '+top;
 };
-bbbfly.renderer._updateFrameHTML = function(proxy,state){
+bbbfly.renderer._updateFrameHTML = function(proxy,state,id){
   if(!Object.isObject(proxy)){return;}
 
-  this.UpdateImageHTML(proxy.L,state);
-  this.UpdateImageHTML(proxy.T,state);
-  this.UpdateImageHTML(proxy.R,state);
-  this.UpdateImageHTML(proxy.B,state);
-  this.UpdateImageHTML(proxy.LT,state);
-  this.UpdateImageHTML(proxy.RT,state);
-  this.UpdateImageHTML(proxy.LB,state);
-  this.UpdateImageHTML(proxy.RB,state);
-  this.UpdateImageHTML(proxy.C,state);
+  this.UpdateImageHTML(proxy.L,state,this.ImageId(id,'_FL'));
+  this.UpdateImageHTML(proxy.T,state,this.ImageId(id,'_FT'));
+  this.UpdateImageHTML(proxy.R,state,this.ImageId(id,'_FR'));
+  this.UpdateImageHTML(proxy.B,state,this.ImageId(id,'_FB'));
+  this.UpdateImageHTML(proxy.LT,state,this.ImageId(id,'_FLT'));
+  this.UpdateImageHTML(proxy.RT,state,this.ImageId(id,'_FRT'));
+  this.UpdateImageHTML(proxy.LB,state,this.ImageId(id,'_FLB'));
+  this.UpdateImageHTML(proxy.RB,state,this.ImageId(id,'_FRB'));
+  this.UpdateImageHTML(proxy.C,state,this.ImageId(id,'_FC'));
 };
-bbbfly.renderer._updateStackHTML = function(proxy,state){
+bbbfly.renderer._updateStackHTML = function(proxy,state,id){
   if(!Object.isObject(proxy)){return;}
 
   for(var i in proxy.Imgs){
-    this.UpdateImageHTML(proxy.Imgs[i],state);
+    this.UpdateImageHTML(
+      proxy.Imgs[i],state,this.ImageId(id,'_'+i)
+    );
   }
 };
 bbbfly.Renderer = {
@@ -565,6 +577,7 @@ bbbfly.Renderer = {
     RIS: { DRIS:true },
     RIG: { DRIG:true }
   },
+  ImageId: bbbfly.renderer._imageId,
   ImageHTMLProps: bbbfly.renderer._imageHTMLProps,
   StyleDim: bbbfly.renderer._styleDim,
   StyleToString: bbbfly.renderer._styleToString,
@@ -605,7 +618,7 @@ bbbfly.Renderer.stateattr = {
  *
  * @description Images stack properties for certain state
  *
- * @property {string|undefined} [Id] - Frame ID
+ * @property {string|undefined} [Id] - Stack ID
  * @property {bbbfly.Renderer.imageproxy[]} Imgs - Image properties
  * @property {pos} [Anchor] - Stack reference point
  * @property {px} [W] - Stack width
