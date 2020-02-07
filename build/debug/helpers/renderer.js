@@ -511,7 +511,7 @@ bbbfly.renderer._updateImageHTML = function(proxy,state,id){
   if(!String.isString(id)){id = proxy.Id;}
   if(!String.isString(id) || (id === '')){return;}
 
-  var node = document.getElementById(proxy.Id);
+  var node = document.getElementById(id);
   if(!node){return;}
 
   var over = (state && state.mouseover);
