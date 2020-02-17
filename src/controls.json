@@ -48,6 +48,15 @@
       "DebugFiles": ["helpers/crossbrowser.js"],
       "ReleaseFiles": ["helpers/crossbrowser.js"]
     },
+    "object": {
+      "DebugFiles": ["helpers/object.js"],
+      "ReleaseFiles": ["helpers/object.js"],
+      "Libraries": {
+        "bbbfly-cjs": {
+          "Packages": ["crossbrowser"]
+        }
+      }
+    },
     "downloader": {
       "DebugFiles": ["helpers/downloader.js"],
       "ReleaseFiles": ["helpers/downloader.js"]
