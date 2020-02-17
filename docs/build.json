@@ -10,6 +10,7 @@
       "../src/app/lang/index_en.js",
       "../src/app/loader.js",
       "../src/helpers/crossbrowser.js",
+      "../src/helpers/object.js",
       "../src/helpers/downloader.js",
       "../src/helpers/datetime.js",
       "../src/helpers/geojs.js",
