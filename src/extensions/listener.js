@@ -198,17 +198,21 @@ bbbfly.listener._doAddListener = function(obj,eventNm){
 
   obj[eventNm] = ngAddEvent(obj[eventNm],function(){
     var listeners = this._listeners[eventNm];
+    var result = true;
+
     if(Array.isArray(listeners)){
       for(var i in listeners){
         var listener = listeners[i];
+
         if(Function.isFunction(listener[eventNm])){
-          listener[eventNm].apply(
+          var res = listener[eventNm].apply(
             listener,(arguments ? arguments : [])
           );
+          if(res === false){result = false;}
         }
       }
     }
-    return true;
+    return result;
   });
 };
 
