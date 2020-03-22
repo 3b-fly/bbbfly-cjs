@@ -101,10 +101,14 @@ bbbfly.listener._doAddListener = function(obj,eventNm){
         var listener = listeners[i];
 
         if(Function.isFunction(listener[eventNm])){
+          listener.EventSource = this;
+          
           var res = listener[eventNm].apply(
             listener,(arguments ? arguments : [])
           );
           if(res === false){result = false;}
+
+          delete(listener.EventSource);
         }
       }
     }
