@@ -502,6 +502,7 @@ bbbfly.WidgetRegistry = {
 bbbfly.Widget = function(def,ref,parent){
 
   ng_MergeDef(def,{
+    CreteFromType: 'bbbfly.Panel',
     ParentReferences: false,
     Data: {
       WidgetId: null,
@@ -736,7 +737,7 @@ bbbfly.Widget = function(def,ref,parent){
     }
   });
 
-  var c = ngCreateControlAsType(def,'bbbfly.Panel',ref,parent);
+  var c = ngCreateControlAsType(def,def.CreteFromType,ref,parent);
   if(c){bbbfly.WidgetRegistry.RegisterWidget(c);}
   return c;
 };
