@@ -110,7 +110,7 @@ bbbfly.Downloader = {
 };
 
 /**
- * @enum {number}
+ * @enum {integer}
  * @description
  *   Possible values for {@link bbbfly.Downloader|bbbfly.Downloader.Method}
  */
