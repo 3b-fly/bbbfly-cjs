@@ -77,6 +77,19 @@ bbbfly.apploader._fail = function(){
   errorElm.style.display = 'block';
   return true;
 };
+bbbfly.apploader._show = function(){
+  var loader = this.GetElm(bbbfly.AppLoader.eml.loader);
+  if(!loader){return false;}
+
+  var cn = loader.className;
+  if(String.isString(cn)){
+    loader.className = cn.replace(
+      /( )?bbbflyAppLoaderFinished/g,''
+    );
+    return true;
+  }
+  return false;
+};
 bbbfly.apploader._hide = function(){
   var loader = this.GetElm(bbbfly.AppLoader.eml.loader);
   if(this._Failed || !loader){return false;}
@@ -101,6 +114,7 @@ bbbfly.AppLoader = {
   SetStepsCount: bbbfly.apploader._setStepsCnt,
   MoveByStep: bbbfly.apploader._moveByStep,
   Fail: bbbfly.apploader._fail,
+  Show: bbbfly.apploader._show,
   Hide: bbbfly.apploader._hide
 };
 bbbfly.AppLoader.eml = {

@@ -99,6 +99,21 @@ bbbfly.apploader._fail = function(){
 };
 
 /** @ignore */
+bbbfly.apploader._show = function(){
+  var loader = this.GetElm(bbbfly.AppLoader.eml.loader);
+  if(!loader){return false;}
+
+  var cn = loader.className;
+  if(String.isString(cn)){
+    loader.className = cn.replace(
+      /( )?bbbflyAppLoaderFinished/g,''
+    );
+    return true;
+  }
+  return false;
+};
+
+/** @ignore */
 bbbfly.apploader._hide = function(){
   var loader = this.GetElm(bbbfly.AppLoader.eml.loader);
   if(this._Failed || !loader){return false;}
@@ -241,10 +256,17 @@ bbbfly.AppLoader = {
   Fail: bbbfly.apploader._fail,
   /**
    * @function
+   * @name Show
+   * @memberof bbbfly.AppLoader#
+   *
+   * @return {boolean} If loader was shown
+   */
+  Show: bbbfly.apploader._show,
+  /**
+   * @function
    * @name Hide
    * @memberof bbbfly.AppLoader#
    *
-   * @param {bbbfly.Downloader.method} - Download method to use
    * @return {boolean} If loader was hidden
    */
   Hide: bbbfly.apploader._hide
