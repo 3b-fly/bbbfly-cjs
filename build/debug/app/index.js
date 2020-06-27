@@ -12,7 +12,7 @@ bbbfly.appindex._addURLVersion = function(url){
   if(!String.isString(url)){return '';}
 
   var v = (ngDEBUG) ? Date.now() : ngVERSION;
-  return url+((url.indexOf('?') === -1) ? '?' : '&')+'v='+(v ? v : '');
+  return url+((url.indexOf('?') === -1) ? '?' : '&')+'app_v='+(v ? v : '');
 };
 bbbfly.appindex._initIndex = function(){
   if(typeof ngAppFiles === 'object'){
