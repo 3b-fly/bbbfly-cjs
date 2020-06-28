@@ -106,7 +106,7 @@ if(typeof Date.isDate !== 'function'){
 
 if(typeof Number.isNumber !== 'function'){
   Number.isNumber = function(value){
-    return ((typeof value === 'number') && !this.isNaN(value));
+    return ((typeof value === 'number') && !isNaN(value));
   };
 }
 

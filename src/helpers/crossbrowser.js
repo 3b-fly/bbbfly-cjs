@@ -274,7 +274,7 @@ if(typeof Number.isNumber !== 'function'){
    * @return {boolean}
    */
   Number.isNumber = function(value){
-    return ((typeof value === 'number') && !this.isNaN(value));
+    return ((typeof value === 'number') && !isNaN(value));
   };
 }
 
