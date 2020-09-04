@@ -170,10 +170,34 @@ if(typeof Object.includes !== 'function'){
   Object.includes = function(object,value){
     if(Object.isObject(object)){
       for(var i in object){
-        if(object[i] === value){return true;}
+        if(object.hasOwnProperty(i)){
+          if(object[i] === value){return true;}
+        }
       }
     }
     return false;
+  };
+}
+
+if(typeof Object.keys !== 'function'){
+  /**
+   * @function
+   * @name keys
+   * @memberof Object
+   *
+   * @param {object} object
+   * @param {mixed} value
+   * @return {boolean}
+   */
+  Object.keys = function(object){
+    var keys = [];
+
+    if(Object.isObject(object)){
+      for(var i in object){
+        if(object.hasOwnProperty(i)){keys.push(i);}
+      }
+    }
+    return keys;
   };
 }
 
