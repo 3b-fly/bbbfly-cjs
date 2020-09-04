@@ -186,7 +186,6 @@ if(typeof Object.keys !== 'function'){
    * @memberof Object
    *
    * @param {object} object
-   * @param {mixed} value
    * @return {boolean}
    */
   Object.keys = function(object){
