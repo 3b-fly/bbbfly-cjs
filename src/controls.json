@@ -109,6 +109,24 @@
         }
       }
     },
+    "locale": {
+      "DebugFiles": ["extensions/locale.js"],
+      "ReleaseFiles": ["extensions/locale.js"],
+      "Libraries": {
+        "bbbfly-cjs": {
+          "Packages": ["crossbrowser"]
+        }
+      }
+    },
+    "locale_cs": {
+      "DebugFiles": ["extensions/lang/locale_cs.js"],
+      "ReleaseFiles": ["extensions/lang/locale_cs.js"],
+      "Libraries": {
+        "bbbfly-cjs": {
+          "Packages": ["locale"]
+        }
+      }
+    },
     "widget": {
       "DebugFiles": ["extensions/widget.js"],
       "ReleaseFiles": ["extensions/widget.js"],

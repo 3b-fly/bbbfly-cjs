@@ -18,6 +18,8 @@
 - **geojs** - _Provides geographical data formats conversion._
 - **renderer** - _Provides HTML rendering funcions._
 - **listener** - _Adds event listener support to all created controls._
+- **locale** - _Adds locale support._
+- **locale_..** - _Adds specific locale rules._
 - **widget** - _Contains "bbbfly.Widget" control and widget registry._
 - **appLoader** - _Allows easy application loading progress handling._
 - **appIndex** - _Disables application files caching in debug mode and provides leave application dialog handling._
