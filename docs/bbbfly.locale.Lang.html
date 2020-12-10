@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Class: Array</title>
+    <title>Class: Lang</title>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -962,11 +962,11 @@
 <section class="kind-class">
 <header>
     <h1 class="name">
-          <span class="ancestors"><a href="bbbfly.html">bbbfly</a><a href="bbbfly.crossbrowser.html">.crossbrowser</a></span>
-        Array
+          <span class="ancestors"><a href="bbbfly.html">bbbfly</a><a href="bbbfly.locale.html">.locale</a>.</span>
+        Lang
   <span class="types">
-      <span class="type-signature object">
-        object
+      <span class="type-signature class">
+        class
       </span>
   </span>
     </h1>
@@ -975,39 +975,19 @@
     <div class="container-overview">
 <dt>
     <div class="nameContainer">
-        <h2 id="Array">
-          Array
+        <h2 id="Lang">
+          new 
+          bbbfly.locale.Lang
+          <span class="signature">(lang, <span class="optional">region</span>)</span>
         </h2>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/crossbrowser.js#L203">helpers/crossbrowser.js, line 203</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/locale.js#L197">extensions/locale.js, line 197</a>
         </div>
     </div>
 </dt>
 <dd>
-<dl class="details">
-</dl>
-</dd>
-    </div>
-        <h3>Methods</h3>
-        <dl>
-<dt>
-    <div class="nameContainer">
-        <h4 id=".includes">
-  <span class="attribs">
-      <span class="type-signature static">
-        static
-      </span>
-  </span>
-          Array.includes
-          <span class="signature">(array, value)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/crossbrowser.js#L246">helpers/crossbrowser.js, line 246</a>
-        </div>
-    </div>
-</dt>
-<dd>
-        <h5>Parameters:</h5>
+      <div class="description">Language definition</div>
+        <h3>Parameters</h3>
 <table class="params">
     <thead>
 	<tr>
@@ -1019,175 +999,78 @@
 	<tbody>
         <tr>
                 <td class="name">
-                  <span class="param-name">array</span>
+                  <span class="param-name">lang</span>
                 </td>
             <td class="type">
-<span class="param-type">array</span>
+<span class="param-type">string</span>
             </td>
             <td class="description last">
+                'en'|'en-UK'
             </td>
         </tr>
         <tr>
                 <td class="name">
-                  <span class="param-name">value</span>
+                  <span class="param-name">region</span>
                 </td>
             <td class="type">
-<span class="param-type">mixed</span>
+<span class="param-type">string</span>
             </td>
             <td class="description last">
+                        <span class="optional">optional</span>
+                'UK'
             </td>
         </tr>
 	</tbody>
 </table>
 <dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
+    <h3>Properties</h3>
+    <table class="props" my="test">
+        <thead>
         <tr>
-            <td class="type">
-                        boolean
-            </td>
-            <td class="description last"></td>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th class="last">Description</th>
         </tr>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <tr id="property:Lang">
+                    <td class="name">
+                      <span class="param-name">Lang</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+                </td>
+                    <td class="default">
+                        null
+                    </td>
+                <td class="description last">
+                </td>
+            </tr>
+            <tr id="property:Region">
+                    <td class="name">
+                      <span class="param-name">Region</span>
+                    </td>
+                <td class="type">
+<span class="param-type">string</span>
+                </td>
+                    <td class="default">
+                        null
+                    </td>
+                <td class="description last">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</dl>
+<dl class="details">
+</dl>
 </dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id=".indexOf">
-  <span class="attribs">
-      <span class="type-signature static">
-        static
-      </span>
-  </span>
-          Array.indexOf
-          <span class="signature">(array, value)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/crossbrowser.js#L226">helpers/crossbrowser.js, line 226</a>
-        </div>
     </div>
-</dt>
-<dd>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">array</span>
-                </td>
-            <td class="type">
-<span class="param-type">array</span>
-            </td>
-            <td class="description last">
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">value</span>
-                </td>
-            <td class="type">
-<span class="param-type">mixed</span>
-            </td>
-            <td class="description last">
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        boolean
-            </td>
-            <td class="description last"></td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id=".isArray">
-  <span class="attribs">
-      <span class="type-signature static">
-        static
-      </span>
-  </span>
-          Array.isArray
-          <span class="signature">(value)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/helpers/crossbrowser.js#L212">helpers/crossbrowser.js, line 212</a>
-        </div>
-    </div>
-</dt>
-<dd>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">value</span>
-                </td>
-            <td class="type">
-<span class="param-type">mixed</span>
-            </td>
-            <td class="description last">
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        boolean
-            </td>
-            <td class="description last"></td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-        </dl>
+        <h3>In Packages</h3>
+        <ul>
+              <li><a href="packages.html#package:locale">locale</a></li>
+        </ul>
 </article>
 </section>
         <footer>

@@ -16,6 +16,8 @@
       "../src/helpers/geojs.js",
       "../src/helpers/renderer.js",
       "../src/extensions/listener.js",
+      "../src/extensions/locale.js",
+      "../src/extensions/lang/locale_cs.js",
       "../src/extensions/widget.js"
     ]
   },

@@ -75,6 +75,26 @@
  */
 
 /**
+ * @package locale
+ * @description
+ *   Adds localization support.
+ *
+ * @version 2.0.0
+ *
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
+ */
+
+/**
+ * @package locale_cs
+ * @description
+ *   Adds czech localization support.
+ *
+ * @version 2.0.0
+ *
+ * @requires {@link package:locale|bbbfly-cjs (2.0.0): locale}
+ */
+
+/**
  * @package widget
  * @description
  *   Contains widget control and registry.
