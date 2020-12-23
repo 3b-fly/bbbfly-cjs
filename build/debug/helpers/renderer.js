@@ -89,6 +89,35 @@ bbbfly.renderer._isStateProp = function(propName,nameRoot){
   pattern = new RegExp(pattern);
   return pattern.test(propName);
 };
+bbbfly.renderer._getStateValue = function(value,state,nameRoot){
+  if(!Object.isObject(value)){return value;}
+  if(!Object.isObject(state)){return undefined;}
+
+  var attrs = bbbfly.Renderer.stateattr;
+  var propRoot = this.GetStatePropName(state,nameRoot);
+  var propName = '';
+
+  if(state.highlight){
+    if(state.mouseover){
+      propName = attrs.mouseover+attrs.highlight+propRoot;
+      if(value.hasOwnProperty(propName)){return value[propName];}
+    }
+
+    propName = attrs.highlight+propRoot;
+    if(value.hasOwnProperty(propName)){return value[propName];}
+  }
+
+  propName = attrs.mouseover+propRoot;
+  if(value.hasOwnProperty(propName)){return value[propName];}
+
+  propName = propRoot;
+  if(value.hasOwnProperty(propName)){return value[propName];}
+
+  this.RecalcValue(value,nameRoot);
+  if(value.hasOwnProperty(propName)){return value[propName];}
+
+  return undefined;
+};
 bbbfly.renderer._containsState = function(propName,state){
   if(!String.isString(propName)){return false;}
   if(!Object.isObject(state)){return false;}
@@ -105,6 +134,57 @@ bbbfly.renderer._containsState = function(propName,state){
 bbbfly.renderer._isImagePosition = function(propName){
   if(!String.isString(propName)){return false;}
   return this.IsStateProp(propName,this.StatePropPattern_Pos);
+};
+bbbfly.renderer._recalcValue = function(value,nameRoot){
+  if(!Object.isObject(value)){return;}
+
+  if(!String.isString(nameRoot)){nameRoot = '';}
+  if(!value.hasOwnProperty(nameRoot)){value[nameRoot] = undefined;}
+
+  var map = this.StateMap;
+  if(!Object.isObject(map)){return;}
+
+  bbbfly.renderer._updateValueProps(value,nameRoot,map);
+};
+bbbfly.renderer._updateValueProps = function(value,nameRoot,map,source){
+  if(!Object.isObject(value) || !Object.isObject(map)){return;}
+
+  if(!String.isString(nameRoot)){nameRoot = '';}
+  var hasSource = String.isString(source);
+
+  for(var mapState in map){
+    var propName = mapState+nameRoot;
+
+    if(!value.hasOwnProperty(propName)){
+      value[propName] = hasSource ? value[source+nameRoot] : undefined;
+    }
+
+    var mapObj = map[mapState];
+    if(!Object.isObject(mapObj)){continue;}
+
+    bbbfly.renderer._updateValueProps(value,nameRoot,mapObj,mapState);
+  }
+
+  if(!hasSource){
+    for(var valState in value){
+      if(typeof value[valState] !== 'undefined'){continue;}
+
+      if(bbbfly.Renderer.IsStateProp(valState,nameRoot)){
+        value[valState] = value[nameRoot];
+      }
+    }
+  }
+};
+bbbfly.renderer._recalcImage = function(img){
+  if(!Object.isObject(img)){return;}
+
+  if(!Number.isInteger(img.L)){img.L = 0;}
+  if(!Number.isInteger(img.T)){img.T = 0;}
+
+  var map = this.StateMap;
+  if(!Object.isObject(map)){return;}
+
+  bbbfly.renderer._updateImageProps(img,map);
 };
 bbbfly.renderer._recalcImageState = function(img,state,pos){
   if(!Object.isObject(img)){return;}
@@ -124,17 +204,6 @@ bbbfly.renderer._recalcImageState = function(img,state,pos){
     if(hasLeft && (lastChar === 'L')){img[propName] += pos.L;}
     if(hasTop && (lastChar === 'T')){img[propName] += pos.T;}
   }
-};
-bbbfly.renderer._recalcImage = function(img){
-  if(!Object.isObject(img)){return;}
-
-  if(!Number.isInteger(img.L)){img.L = 0;}
-  if(!Number.isInteger(img.T)){img.T = 0;}
-
-  var map = this.StateMap;
-  if(!Object.isObject(map)){return;}
-
-  bbbfly.renderer._updateImageProps(img,map);
 };
 bbbfly.renderer._updateImageProps = function(img,map,source){
   if(!Object.isObject(img) || !Object.isObject(map)){return;}
@@ -610,11 +679,13 @@ bbbfly.Renderer = {
   StyleToString: bbbfly.renderer._styleToString,
   GetStatePropName: bbbfly.renderer._getStatePropName,
   IsStateProp: bbbfly.renderer._isStateProp,
+  GetStateValue: bbbfly.renderer._getStateValue,
   ContainsState: bbbfly.renderer._containsState,
   IsImagePosition: bbbfly.renderer._isImagePosition,
   UpdateHTMLState: bbbfly.renderer._updateHTMLState,
-  RecalcImageState: bbbfly.renderer._recalcImageState,
+  RecalcValue: bbbfly.renderer._recalcValue,
   RecalcImage: bbbfly.renderer._recalcImage,
+  RecalcImageState: bbbfly.renderer._recalcImageState,
   RecalcFrame: bbbfly.renderer._recalcFrame,
   ImageProxy: bbbfly.renderer._imageProxy,
   FrameProxy: bbbfly.renderer._frameProxy,
