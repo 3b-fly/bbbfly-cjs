@@ -120,6 +120,12 @@ bbbfly.renderer._containsState = function(propName,state){
 };
 
 /** @ignore */
+bbbfly.renderer._isImagePosition = function(propName){
+  if(!String.isString(propName)){return false;}
+  return this.IsStateProp(propName,this.StatePropPattern_Pos);
+};
+
+/** @ignore */
 bbbfly.renderer._recalcImageState = function(img,state,pos){
   if(!Object.isObject(img)){return;}
   if(!Object.isObject(state)){return;}
@@ -131,19 +137,13 @@ bbbfly.renderer._recalcImageState = function(img,state,pos){
 
   for(var propName in img){
     if(!Number.isInteger(img[propName])){continue;}
-    if(!this.IsImageLTPosition(propName)){continue;}
+    if(!this.IsImagePosition(propName)){continue;}
     if(!this.ContainsState(propName,state)){continue;}
 
     var lastChar = propName.slice(-1);
     if(hasLeft && (lastChar === 'L')){img[propName] += pos.L;}
     if(hasTop && (lastChar === 'T')){img[propName] += pos.T;}
   }
-};
-
-/** @ignore */
-bbbfly.renderer._isImageLTPosition = function(propName){
-  if(!String.isString(propName)){return false;}
-  return this.IsStateProp(propName,this.StatePropPattern_Pos);
 };
 
 /** @ignore */
@@ -182,7 +182,7 @@ bbbfly.renderer._updateImageProps = function(img,map,source){
     for(var imgState in img){
       if(Number.isInteger(img[imgState])){continue;}
 
-      if(bbbfly.Renderer.IsImageLTPosition(imgState)){
+      if(bbbfly.Renderer.IsImagePosition(imgState)){
         var defState = imgState.slice(-1);
         img[imgState] = img[defState];
       }
@@ -737,14 +737,14 @@ bbbfly.Renderer = {
   ContainsState: bbbfly.renderer._containsState,
   /**
    * @function
-   * @name IsImageLTPosition
+   * @name IsImagePosition
    * @memberof bbbfly.Renderer#
-   * @description Checks image left/top position property name.
+   * @description Checks image position property name.
    *
    * @param {string} propName
    * @return {boolean}
    */
-  IsImageLTPosition: bbbfly.renderer._isImageLTPosition,
+  IsImagePosition: bbbfly.renderer._isImagePosition,
   /**
    * @function
    * @name UpdateHTMLState

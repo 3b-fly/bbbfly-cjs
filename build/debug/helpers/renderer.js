@@ -102,6 +102,10 @@ bbbfly.renderer._containsState = function(propName,state){
   }
   return true;
 };
+bbbfly.renderer._isImagePosition = function(propName){
+  if(!String.isString(propName)){return false;}
+  return this.IsStateProp(propName,this.StatePropPattern_Pos);
+};
 bbbfly.renderer._recalcImageState = function(img,state,pos){
   if(!Object.isObject(img)){return;}
   if(!Object.isObject(state)){return;}
@@ -113,17 +117,13 @@ bbbfly.renderer._recalcImageState = function(img,state,pos){
 
   for(var propName in img){
     if(!Number.isInteger(img[propName])){continue;}
-    if(!this.IsImageLTPosition(propName)){continue;}
+    if(!this.IsImagePosition(propName)){continue;}
     if(!this.ContainsState(propName,state)){continue;}
 
     var lastChar = propName.slice(-1);
     if(hasLeft && (lastChar === 'L')){img[propName] += pos.L;}
     if(hasTop && (lastChar === 'T')){img[propName] += pos.T;}
   }
-};
-bbbfly.renderer._isImageLTPosition = function(propName){
-  if(!String.isString(propName)){return false;}
-  return this.IsStateProp(propName,this.StatePropPattern_Pos);
 };
 bbbfly.renderer._recalcImage = function(img){
   if(!Object.isObject(img)){return;}
@@ -158,7 +158,7 @@ bbbfly.renderer._updateImageProps = function(img,map,source){
     for(var imgState in img){
       if(Number.isInteger(img[imgState])){continue;}
 
-      if(bbbfly.Renderer.IsImageLTPosition(imgState)){
+      if(bbbfly.Renderer.IsImagePosition(imgState)){
         var defState = imgState.slice(-1);
         img[imgState] = img[defState];
       }
@@ -611,7 +611,7 @@ bbbfly.Renderer = {
   GetStatePropName: bbbfly.renderer._getStatePropName,
   IsStateProp: bbbfly.renderer._isStateProp,
   ContainsState: bbbfly.renderer._containsState,
-  IsImageLTPosition: bbbfly.renderer._isImageLTPosition,
+  IsImagePosition: bbbfly.renderer._isImagePosition,
   UpdateHTMLState: bbbfly.renderer._updateHTMLState,
   RecalcImageState: bbbfly.renderer._recalcImageState,
   RecalcImage: bbbfly.renderer._recalcImage,
