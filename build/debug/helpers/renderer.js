@@ -12,10 +12,6 @@ bbbfly.renderer._imageId = function(id,suffix){
   if(!String.isString(id)){return null;}
   return String.isString(suffix) ? id+suffix : id;
 };
-bbbfly.renderer._isImageLTPosition = function(propName){
-  if(!String.isString(propName)){return false;}
-  return this.ImgLTPattern.test(propName);
-};
 bbbfly.renderer._updateHTMLState = function(node,state){
   if(!(node instanceof HTMLElement)){return;}
   if(!Object.isObject(state)){return;}
@@ -79,6 +75,20 @@ bbbfly.renderer._getStatePropName = function(state,nameRoot){
 
   return propName;
 };
+bbbfly.renderer._isStateProp = function(propName,nameRoot){
+  if(!String.isString(propName)){return false;}
+  var pattern = this.StatePropPattern;
+
+  if(String.isString(nameRoot)){
+    pattern = pattern.replace(
+      this.StatePropPattern_Any,
+      nameRoot
+    );
+  }
+
+  pattern = new RegExp(pattern);
+  return pattern.test(propName);
+};
 bbbfly.renderer._containsState = function(propName,state){
   if(!String.isString(propName)){return false;}
   if(!Object.isObject(state)){return false;}
@@ -111,13 +121,17 @@ bbbfly.renderer._recalcImageState = function(img,state,pos){
     if(hasTop && (lastChar === 'T')){img[propName] += pos.T;}
   }
 };
+bbbfly.renderer._isImageLTPosition = function(propName){
+  if(!String.isString(propName)){return false;}
+  return this.IsStateProp(propName,this.StatePropPattern_Pos);
+};
 bbbfly.renderer._recalcImage = function(img){
   if(!Object.isObject(img)){return;}
 
   if(!Number.isInteger(img.L)){img.L = 0;}
   if(!Number.isInteger(img.T)){img.T = 0;}
 
-  var map = this.ImgStateMap;
+  var map = this.StateMap;
   if(!Object.isObject(map)){return;}
 
   bbbfly.renderer._updateImageProps(img,map);
@@ -556,9 +570,12 @@ bbbfly.renderer._updateStackHTML = function(proxy,state,id){
   }
 };
 bbbfly.Renderer = {
-  ImgLTPattern: new RegExp('^[o]?[h]?[D]?[R]?[I]?[S|G]?[L|T]$'),
+  StatePropPattern: '^[o]?[h]?[D]?[R]?[I]?[S|G]?(.*)$',
 
-  ImgStateMap: {
+  StatePropPattern_Any: '(.*)',
+  StatePropPattern_Pos: '[L|T]',
+
+  StateMap: {
     D: { DR:true, DI:true, DS:true, DG:true },
     R: { DR:true, RI:true, RS:true, RG:true },
     I: { DI:true, RI:true, IS:true, IG:true },
@@ -592,6 +609,7 @@ bbbfly.Renderer = {
   StyleDim: bbbfly.renderer._styleDim,
   StyleToString: bbbfly.renderer._styleToString,
   GetStatePropName: bbbfly.renderer._getStatePropName,
+  IsStateProp: bbbfly.renderer._isStateProp,
   ContainsState: bbbfly.renderer._containsState,
   IsImageLTPosition: bbbfly.renderer._isImageLTPosition,
   UpdateHTMLState: bbbfly.renderer._updateHTMLState,
