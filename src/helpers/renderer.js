@@ -89,18 +89,17 @@ bbbfly.renderer._getStatePropName = function(state,nameRoot){
 };
 
 /** @ignore */
-bbbfly.renderer._isStateProp = function(propName,nameRoot){
+bbbfly.renderer._isStateProp = function(propName,patternRoot){
   if(!String.isString(propName)){return false;}
-  var pattern = this.StatePropPattern;
 
-  if(String.isString(nameRoot)){
-    pattern = pattern.replace(
-      this.StatePropPattern_Any,
-      nameRoot
-    );
+  if(!String.isString(patternRoot)){
+    patternRoot = this.StatePropPattern_Any;
   }
 
-  pattern = new RegExp(pattern);
+  var pattern = new RegExp(
+    '^'+this.StatePropPattern+patternRoot+'$'
+  );
+
   return pattern.test(propName);
 };
 
@@ -707,16 +706,16 @@ bbbfly.renderer._updateStackHTML = function(proxy,state,id){
  *
  * @inpackage renderer
  *
- * @property {string} StatePropPattern='^[o]?[h]?[D]?[R]?[I]?[S|G]?(.*)$'
- *   Value state property name pattern
+ * @property {string} StatePropPattern='[o]?[h]?[D]?[R]?[I]?[S|G]?'
+ *   State property name pattern
  *
- * @property {string} StatePropPattern_Any='(.*)'
- * @property {string} StatePropPattern_Pos='[L|T]'
+ * @property {string} StatePropPattern_Any='(.*)' - Any pattern root
+ * @property {string} StatePropPattern_Pos='[L|T]' - Position pattern root
  *
  * @property {object} StateMap - Value state dependancy map
  */
 bbbfly.Renderer = {
-  StatePropPattern: '^[o]?[h]?[D]?[R]?[I]?[S|G]?(.*)$',
+  StatePropPattern: '[o]?[h]?[D]?[R]?[I]?[S|G]?',
 
   StatePropPattern_Any: '(.*)',
   StatePropPattern_Pos: '[L|T]',
@@ -805,7 +804,7 @@ bbbfly.Renderer = {
    * @memberof bbbfly.Renderer#
    * @description Checks if image property fits state.
    *
-   * @param {void} value
+   * @param {bbbfly.Renderer.statevalues|void} value
    * @param {bbbfly.Renderer.state} state
    * @param {string} [nameRoot=''] - Property name root
    * @return {void}
@@ -1064,7 +1063,7 @@ bbbfly.Renderer.stateattr = {
  * @typedef {object} style
  * @memberOf bbbfly.Renderer
  *
- * @description Object with CSS property name - value pairs.
+ * @description Object containing CSS property name - value pairs.
  */
 
 /**
@@ -1083,25 +1082,26 @@ bbbfly.Renderer.stateattr = {
  */
 
 /**
- * @typedef {px} imagepos
+ * @interface stateval
  * @memberOf bbbfly.Renderer
+ *
  * @description
- *   Property name must meet
- *   <a>/[o]?[h]?[D]?[R]?[I]?[S|G]?[L|T]/</a>
- *   state mask
- *   <br/><br/>
- *   <ul>
- *     <li><b>o</b> - mouse over</li>
- *     <li><b>h</b> - highlight</li>
- *     <li><b>D</b> - disabled</li>
- *     <li><b>R</b> - read only</li>
- *     <li><b>I</b> - invalid</li>
- *     <li><b>S</b> - selected</li>
- *     <li><b>G</b> - grayed</li>
- *     <li><b>L</b> - left</li>
- *     <li><b>T</b> - top</li>
- *   </ul>
- * </code>
+ *   Object property representing specific state value.
+ *   Property name has to satisfy state property name pattern.
+ *
+ * @see {@link bbbfly.Renderer|state property name pattern}
+ * @see {@link bbbfly.Renderer|any pattern root}
+ * @see {@link bbbfly.Renderer.stateattr|pattern parts}
+ */
+
+/**
+ * @typedef {object} statevalues
+ * @memberOf bbbfly.Renderer
+ *
+ * @description
+ *   Object containing values for different states.
+ *
+ * @property {bbbfly.Renderer.stateval} ... - Any number of valid values
  */
 
 /**
@@ -1113,11 +1113,18 @@ bbbfly.Renderer.stateattr = {
  */
 
 /**
+ * @typedef {px} statepos
+ * @memberOf bbbfly.Renderer
+ *
+ * @implements {bbbfly.Renderer.stateval}
+ */
+
+/**
  * @typedef {object} image
  * @memberOf bbbfly.Renderer
  *
- * @property {bbbfly.Renderer.imagepos} ...L
- * @property {bbbfly.Renderer.imagepos} ...T
+ * @property {bbbfly.Renderer.statepos} ...L
+ * @property {bbbfly.Renderer.statepos} ...T
  * @property {px} W
  * @property {px} H
  * @property {url} Src

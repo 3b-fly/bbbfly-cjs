@@ -75,18 +75,17 @@ bbbfly.renderer._getStatePropName = function(state,nameRoot){
 
   return propName;
 };
-bbbfly.renderer._isStateProp = function(propName,nameRoot){
+bbbfly.renderer._isStateProp = function(propName,patternRoot){
   if(!String.isString(propName)){return false;}
-  var pattern = this.StatePropPattern;
 
-  if(String.isString(nameRoot)){
-    pattern = pattern.replace(
-      this.StatePropPattern_Any,
-      nameRoot
-    );
+  if(!String.isString(patternRoot)){
+    patternRoot = this.StatePropPattern_Any;
   }
 
-  pattern = new RegExp(pattern);
+  var pattern = new RegExp(
+    '^'+this.StatePropPattern+patternRoot+'$'
+  );
+
   return pattern.test(propName);
 };
 bbbfly.renderer._getStateValue = function(value,state,nameRoot){
@@ -639,7 +638,7 @@ bbbfly.renderer._updateStackHTML = function(proxy,state,id){
   }
 };
 bbbfly.Renderer = {
-  StatePropPattern: '^[o]?[h]?[D]?[R]?[I]?[S|G]?(.*)$',
+  StatePropPattern: '[o]?[h]?[D]?[R]?[I]?[S|G]?',
 
   StatePropPattern_Any: '(.*)',
   StatePropPattern_Pos: '[L|T]',
