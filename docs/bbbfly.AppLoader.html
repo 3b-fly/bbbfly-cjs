@@ -676,9 +676,6 @@
         <li data-name="bbbfly.Renderer.image">
           <a href="bbbfly.Renderer.html#.image">image</a>
         </li>
-        <li data-name="bbbfly.Renderer.imagepos">
-          <a href="bbbfly.Renderer.html#.imagepos">imagepos</a>
-        </li>
         <li data-name="bbbfly.Renderer.imageproxy">
           <a href="bbbfly.Renderer.html#.imageproxy">imageproxy</a>
         </li>
@@ -691,6 +688,12 @@
         <li data-name="bbbfly.Renderer.state">
           <a href="bbbfly.Renderer.html#.state">state</a>
         </li>
+        <li data-name="bbbfly.Renderer.statepos">
+          <a href="bbbfly.Renderer.html#.statepos">statepos</a>
+        </li>
+        <li data-name="bbbfly.Renderer.statevalues">
+          <a href="bbbfly.Renderer.html#.statevalues">statevalues</a>
+        </li>
         <li data-name="bbbfly.Renderer.style">
           <a href="bbbfly.Renderer.html#.style">style</a>
         </li>
@@ -699,6 +702,12 @@
       <span class="subtitle">Members</span>
         <li data-name="bbbfly.Renderer.stateattr">
           <a href="bbbfly.Renderer.html#.stateattr">stateattr</a>
+        </li>
+    </ul>
+    <ul class="methods itemMembers">
+      <span class="subtitle">Interfaces</span>
+        <li data-name="bbbfly.Renderer.stateval">
+          <a href="bbbfly.Renderer.stateval.html">stateval</a>
         </li>
     </ul>
     <ul class="methods itemMembers">
@@ -1005,7 +1014,7 @@
 <dl class="details">
 </dl>
         <h5>Examples</h5>
-  <pre><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">ngMain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">ClearProgress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">SetStepsCount</span><span class="token punctuation">(</span>actions<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token keyword">in</span> actions<span class="token punctuation">)</span><span class="token punctuation">{</span>    bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">SetProgressMessage</span><span class="token punctuation">(</span>actions<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>    actions<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">MoveByStep</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token punctuation">}</span>  bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">Hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
+    <pre><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">ngMain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">ClearProgress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">SetStepsCount</span><span class="token punctuation">(</span>actions<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token keyword">in</span> actions<span class="token punctuation">)</span><span class="token punctuation">{</span>    bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">SetProgressMessage</span><span class="token punctuation">(</span>actions<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>    actions<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">MoveByStep</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token punctuation">}</span>  bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">Hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
 </dd>
     </div>
         <h3>In Packages</h3>
@@ -1049,104 +1058,136 @@
         <tbody>
             <tr id="property:loader">
                     <td class="name">
-                      <span class="param-name">loader</span>
+                      <span class="param-name">
+                        loader
+                      </span>
                     </td>
                 <td class="type">
 <span class="param-type">string</span>
                 </td>
                     <td class="default">
+                      <span class="param-default">
                         bbbflyAppLoader
+                      </span>
                     </td>
                 <td class="description last">
                 </td>
             </tr>
             <tr id="property:load">
                     <td class="name">
-                      <span class="param-name">load</span>
+                      <span class="param-name">
+                        load
+                      </span>
                     </td>
                 <td class="type">
 <span class="param-type">string</span>
                 </td>
                     <td class="default">
+                      <span class="param-default">
                         bbbflyAppLoaderLoad
+                      </span>
                     </td>
                 <td class="description last">
                 </td>
             </tr>
             <tr id="property:loadBar">
                     <td class="name">
-                      <span class="param-name">loadBar</span>
+                      <span class="param-name">
+                        loadBar
+                      </span>
                     </td>
                 <td class="type">
 <span class="param-type">string</span>
                 </td>
                     <td class="default">
+                      <span class="param-default">
                         bbbflyAppLoaderLoadBar
+                      </span>
                     </td>
                 <td class="description last">
                 </td>
             </tr>
             <tr id="property:loadProgress">
                     <td class="name">
-                      <span class="param-name">loadProgress</span>
+                      <span class="param-name">
+                        loadProgress
+                      </span>
                     </td>
                 <td class="type">
 <span class="param-type">string</span>
                 </td>
                     <td class="default">
+                      <span class="param-default">
                         bbbflyAppLoaderLoadProgress
+                      </span>
                     </td>
                 <td class="description last">
                 </td>
             </tr>
             <tr id="property:loadMessage">
                     <td class="name">
-                      <span class="param-name">loadMessage</span>
+                      <span class="param-name">
+                        loadMessage
+                      </span>
                     </td>
                 <td class="type">
 <span class="param-type">string</span>
                 </td>
                     <td class="default">
+                      <span class="param-default">
                         bbbflyAppLoaderLoadMessage
+                      </span>
                     </td>
                 <td class="description last">
                 </td>
             </tr>
             <tr id="property:error">
                     <td class="name">
-                      <span class="param-name">error</span>
+                      <span class="param-name">
+                        error
+                      </span>
                     </td>
                 <td class="type">
 <span class="param-type">string</span>
                 </td>
                     <td class="default">
+                      <span class="param-default">
                         bbbflyAppLoaderError
+                      </span>
                     </td>
                 <td class="description last">
                 </td>
             </tr>
             <tr id="property:errorMessage">
                     <td class="name">
-                      <span class="param-name">errorMessage</span>
+                      <span class="param-name">
+                        errorMessage
+                      </span>
                     </td>
                 <td class="type">
 <span class="param-type">string</span>
                 </td>
                     <td class="default">
+                      <span class="param-default">
                         bbbflyAppLoaderErrorMessage
+                      </span>
                     </td>
                 <td class="description last">
                 </td>
             </tr>
             <tr id="property:errorReload">
                     <td class="name">
-                      <span class="param-name">errorReload</span>
+                      <span class="param-name">
+                        errorReload
+                      </span>
                     </td>
                 <td class="type">
 <span class="param-type">string</span>
                 </td>
                     <td class="default">
+                      <span class="param-default">
                         bbbflyAppLoaderErrorReload
+                      </span>
                     </td>
                 <td class="description last">
                 </td>
