@@ -5,7 +5,6 @@
  * @license see license in 'LICENSE' file
 */
 
-
 var bbbfly = bbbfly || {};
 bbbfly.object = bbbfly.object || {};
 bbbfly.object.Extend = function(ancestor,descendant){

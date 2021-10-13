@@ -5,7 +5,6 @@
  * @license see license in 'LICENSE' file
 */
 
-
 var bbbfly = bbbfly || {};
 bbbfly.datetime = {};
 bbbfly.datetime._bigIntToUTCDateTime = function(bigint){

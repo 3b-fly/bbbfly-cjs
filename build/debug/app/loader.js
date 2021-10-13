@@ -5,7 +5,6 @@
  * @license see license in 'LICENSE' file
 */
 
-
 var bbbfly = bbbfly || {};
 bbbfly.apploader = {};
 bbbfly.apploader._getElm = function(id){

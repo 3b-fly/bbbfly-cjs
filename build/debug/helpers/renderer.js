@@ -5,7 +5,6 @@
  * @license see license in 'LICENSE' file
 */
 
-
 var bbbfly = bbbfly || {};
 bbbfly.renderer = {};
 bbbfly.renderer._imageId = function(id,suffix){

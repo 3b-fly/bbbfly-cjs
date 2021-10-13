@@ -6,7 +6,6 @@
 */
 
 
-
 if(typeof Boolean.isBoolean !== 'function'){
   Boolean.isBoolean = function(value){
     return (typeof value === 'boolean');

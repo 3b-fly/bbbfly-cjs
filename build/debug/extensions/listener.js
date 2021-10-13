@@ -5,7 +5,6 @@
  * @license see license in 'LICENSE' file
 */
 
-
 var bbbfly = bbbfly || {};
 bbbfly.listener = {
   _initialized: false
