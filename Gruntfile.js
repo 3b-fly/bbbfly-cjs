@@ -74,11 +74,6 @@ module.exports = function(grunt) {
         }]
       },
       libs_debug: {
-        options: {
-          process: function(content){
-            return normalizeLinebreak(content);
-          }
-        },
         files: [{
           cwd: srcPath,
           src: '**/libs/debug/**',
@@ -90,11 +85,6 @@ module.exports = function(grunt) {
         }]
       },
       libs_release: {
-        options: {
-          process: function(content){
-            return normalizeLinebreak(content);
-          }
-        },
         files: [{
           cwd: srcPath,
           src: '**/libs/release/**',
