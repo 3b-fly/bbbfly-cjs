@@ -1,0 +1,41 @@
+{
+  "source": {
+    "include": [
+      "README.md",
+      "package.json",
+      "src/types.jsdoc",
+      "src/controls.jsdoc",
+      "src/app/index.js",
+      "src/app/lang/index_cs.js",
+      "src/app/lang/index_en.js",
+      "src/app/loader.js",
+      "src/helpers/crossbrowser.js",
+      "src/helpers/object.js",
+      "src/helpers/downloader.js",
+      "src/helpers/datetime.js",
+      "src/helpers/geojs.js",
+      "src/helpers/renderer.js",
+      "src/extensions/listener.js",
+      "src/extensions/locale.js",
+      "src/extensions/lang/locale_cs.js",
+      "src/extensions/widget.js"
+    ]
+  },
+  "plugins": [
+    "../controlsjs-jsdoc/plugins/controlsjs"
+  ],
+  "opts": {
+    "template": "../controlsjs-jsdoc",
+    "destination": "docs/"
+  },
+  "templates": {
+    "applicationName": "bbbfly-cjs",
+    "sourceLinks": {
+      "src/": "https://github.com/3b-fly/bbbfly-cjs/blob/master/src/%path%#L%lineno%"
+    },
+    "socialLinks": {
+      "Email": "mailto:support@3b-fly.eu",
+      "GitHub": "https://github.com/3b-fly/bbbfly-cjs"
+    }
+  }
+}
