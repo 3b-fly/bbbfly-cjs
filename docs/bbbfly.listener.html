@@ -1000,12 +1000,43 @@
 </header>
 <article>
     <div class="container-overview">
-            <div class="description">Set any control <a href="bbbfly.listener.Listenable.html">AllowListeners</a> property to true  or use <a href="bbbfly.listener.html#.SetListenable">SetListenable()</a> method  to allow its events listening.</div>
+            <div class="description">Set any control <a href="bbbfly.listener.Listenable.html">AllowListeners</a> property to true
+  or use <a href="bbbfly.listener.html#.SetListenable">SetListenable()</a> method
+  to allow its events listening.</div>
 <dl class="details">
 </dl>
             <h3>Examples</h3>
-    <pre><code class="language-javascript"><span class="token keyword">var</span> appForm<span class="token punctuation">;</span><span class="token keyword">function</span> <span class="token function">ngMain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  appForm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ngControls</span><span class="token punctuation">(</span><span class="token punctuation">{</span>    Invoker<span class="token punctuation">:</span> <span class="token punctuation">{</span>      Type<span class="token punctuation">:</span> <span class="token string">'bbbfly.Panel'</span><span class="token punctuation">,</span>      Data<span class="token punctuation">:</span> <span class="token punctuation">{</span>        AllowListeners<span class="token punctuation">:</span> <span class="token boolean">true</span>      <span class="token punctuation">}</span>    <span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">var</span> Listener <span class="token operator">=</span> <span class="token punctuation">{</span>    OnUpdate<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token punctuation">}</span>    OnUpdated<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">;</span>  appForm<span class="token punctuation">.</span>Invoker<span class="token punctuation">.</span><span class="token function">AddListener</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'OnUpdate'</span><span class="token punctuation">,</span><span class="token string">'OnUpdated'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>Listener<span class="token punctuation">)</span><span class="token punctuation">;</span>  appForm<span class="token punctuation">.</span><span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
-    <pre><code class="language-javascript"><span class="token keyword">var</span> appForm<span class="token punctuation">;</span><span class="token keyword">function</span> <span class="token function">ngMain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  appForm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ngControls</span><span class="token punctuation">(</span><span class="token punctuation">{</span>    Invoker<span class="token punctuation">:</span> <span class="token punctuation">{</span>      Type<span class="token punctuation">:</span> <span class="token string">'bbbfly.Panel'</span>    <span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">var</span> Listener <span class="token operator">=</span> <span class="token punctuation">{</span>    OnUpdate<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token punctuation">}</span>    OnUpdated<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">;</span>  bbbfly<span class="token punctuation">.</span>listener<span class="token punctuation">.</span><span class="token function">SetListenable</span><span class="token punctuation">(</span>appForm<span class="token punctuation">.</span>Invoker<span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  appForm<span class="token punctuation">.</span>Invoker<span class="token punctuation">.</span><span class="token function">AddListener</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'OnUpdate'</span><span class="token punctuation">,</span><span class="token string">'OnUpdated'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>Listener<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre>
+    <pre><code class="language-javascript"><span class="token keyword">var</span> appForm<span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">ngMain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  appForm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ngControls</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    Invoker<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      Type<span class="token punctuation">:</span> <span class="token string">'bbbfly.Panel'</span><span class="token punctuation">,</span>
+      Data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        AllowListeners<span class="token punctuation">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> Listener <span class="token operator">=</span> <span class="token punctuation">{</span>
+    OnUpdate<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+    OnUpdated<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  appForm<span class="token punctuation">.</span>Invoker<span class="token punctuation">.</span><span class="token function">AddListener</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'OnUpdate'</span><span class="token punctuation">,</span><span class="token string">'OnUpdated'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>Listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  appForm<span class="token punctuation">.</span><span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+    <pre><code class="language-javascript"><span class="token keyword">var</span> appForm<span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">ngMain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  appForm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ngControls</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    Invoker<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      Type<span class="token punctuation">:</span> <span class="token string">'bbbfly.Panel'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> Listener <span class="token operator">=</span> <span class="token punctuation">{</span>
+    OnUpdate<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+    OnUpdated<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  bbbfly<span class="token punctuation">.</span>listener<span class="token punctuation">.</span><span class="token function">SetListenable</span><span class="token punctuation">(</span>appForm<span class="token punctuation">.</span>Invoker<span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  appForm<span class="token punctuation">.</span>Invoker<span class="token punctuation">.</span><span class="token function">AddListener</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'OnUpdate'</span><span class="token punctuation">,</span><span class="token string">'OnUpdated'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>Listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
     </div>
         <h3>In Packages</h3>
         <ul>
@@ -1034,7 +1065,8 @@
     </div>
 </dt>
 <dd>
-      <div class="description">Initialize listener to add  <a href="bbbfly.listener.Listenable.html">interface</a> methods automatically</div>
+      <div class="description">Initialize listener to add
+  <a href="bbbfly.listener.Listenable.html">interface</a> methods automatically</div>
 <dl class="details">
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
@@ -1062,7 +1094,8 @@
     </div>
 </dt>
 <dd>
-      <div class="description">Sets <a href="bbbfly.listener.Listenable.html">Listenable</a> interface methods to passed object  if its <a href="bbbfly.listener.Listenable.html">AllowListeners</a> property is set to true.</div>
+      <div class="description">Sets <a href="bbbfly.listener.Listenable.html">Listenable</a> interface methods to passed object
+  if its <a href="bbbfly.listener.Listenable.html">AllowListeners</a> property is set to true.</div>
         <h5>Parameters:</h5>
 <table class="params">
     <thead>
@@ -1092,7 +1125,8 @@
 <span class="param-type">boolean</span>
             </td>
             <td class="description last">
-                Set object listenable even if  its <a href="bbbfly.listener.Listenable.html">AllowListeners</a> property is set to false
+                Set object listenable even if
+  its <a href="bbbfly.listener.Listenable.html">AllowListeners</a> property is set to false
             </td>
         </tr>
 	</tbody>
@@ -1121,7 +1155,7 @@
 </article>
 </section>
         <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a>
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a>
             <br/>Content icons made by <a target="_blank" href="http://www.freepik.com">Freepik</a> from <a target="_blank" href="http://www.flaticon.com">www.flaticon.com</a>
         </footer>
     </div>
