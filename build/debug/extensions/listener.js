@@ -101,7 +101,7 @@ bbbfly.listener._doAddListener = function(obj,eventNm){
 
         if(Function.isFunction(listener[eventNm])){
           listener.EventSource = this;
-          
+
           var res = listener[eventNm].apply(
             listener,(arguments ? arguments : [])
           );
