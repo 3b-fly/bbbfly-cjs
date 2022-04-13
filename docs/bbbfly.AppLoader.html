@@ -1014,14 +1014,14 @@
 <dl class="details">
 </dl>
         <h5>Examples</h5>
-    <pre><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">ngMain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <pre><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">ngMain</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
   bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">ClearProgress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">SetStepsCount</span><span class="token punctuation">(</span>actions<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">SetStepsCount</span><span class="token punctuation">(</span>actions<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token keyword">in</span> actions<span class="token punctuation">)</span><span class="token punctuation">{</span>
     bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">SetProgressMessage</span><span class="token punctuation">(</span>actions<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
     actions<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">Do</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">MoveByStep</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
   bbbfly<span class="token punctuation">.</span>AppLoader<span class="token punctuation">.</span><span class="token function">Hide</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 </dd>
