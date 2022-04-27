@@ -424,6 +424,9 @@
     </ul>
     <ul class="methods itemMembers">
       <span class="subtitle">Methods</span>
+        <li data-name="bbbfly.locale.Compare">
+          <a href="bbbfly.locale.html#.Compare">Compare</a>
+        </li>
         <li data-name="bbbfly.locale.GetLang">
           <a href="bbbfly.locale.html#.GetLang">GetLang</a>
         </li>
@@ -436,11 +439,11 @@
         <li data-name="bbbfly.locale.RemoveDiacritics">
           <a href="bbbfly.locale.html#.RemoveDiacritics">RemoveDiacritics</a>
         </li>
-        <li data-name="bbbfly.locale.RemoveDiacritics">
-          <a href="bbbfly.locale.html#.RemoveDiacritics">RemoveDiacritics</a>
-        </li>
         <li data-name="bbbfly.locale.SetLang">
           <a href="bbbfly.locale.html#.SetLang">SetLang</a>
+        </li>
+        <li data-name="bbbfly.locale.TextToAscii">
+          <a href="bbbfly.locale.html#.TextToAscii">TextToAscii</a>
         </li>
     </ul>
     <ul class="sublist">
@@ -1022,249 +1025,17 @@
         <dl>
 <dt>
     <div class="nameContainer">
-        <h4 id=".GetLang">
+        <h4 id=".Compare">
   <span class="attribs">
       <span class="type-signature static">
         static
       </span>
   </span>
-          bbbfly.locale.GetLang
-          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.locale.Lang.html">bbbfly.locale.Lang</a>}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/locale.js#L41">extensions/locale.js, line 41</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Get default local language</div>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        <a href="bbbfly.locale.Lang.html">bbbfly.locale.Lang</a>
-            </td>
-            <td class="description last"></td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id=".GetLocalRules">
-  <span class="attribs">
-      <span class="type-signature static">
-        static
-      </span>
-  </span>
-          bbbfly.locale.GetLocalRules
-          <span class="signature">(<span class="optional">lang</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.locale.Rules.html">bbbfly.locale.Rules</a>|null}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/locale.js#L84">extensions/locale.js, line 84</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Get local rules</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">lang</span>
-                </td>
-            <td class="type">
-<span class="param-type"><a href="bbbfly.locale.Lang.html">bbbfly.locale.Lang</a></span>
-            </td>
-            <td class="description last">
-                        <span class="optional">optional</span>
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        <a href="bbbfly.locale.Rules.html">bbbfly.locale.Rules</a>
-                         | 
-                        null
-            </td>
-            <td class="description last"></td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id=".Register">
-  <span class="attribs">
-      <span class="type-signature static">
-        static
-      </span>
-  </span>
-          bbbfly.locale.Register
-          <span class="signature">(loc)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/locale.js#L54">extensions/locale.js, line 54</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Register local rules</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">loc</span>
-                </td>
-            <td class="type">
-<span class="param-type"><a href="bbbfly.locale.Rules.html">bbbfly.locale.Rules</a></span>
-            </td>
-            <td class="description last">
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        boolean
-            </td>
-            <td class="description last">- If localization was registered</td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id=".RemoveDiacritics">
-  <span class="attribs">
-      <span class="type-signature static">
-        static
-      </span>
-  </span>
-          bbbfly.locale.RemoveDiacritics
-          <span class="signature">(text, <span class="optional">lang</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{void}</span>
-        </h4>
-        <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/locale.js#L107">extensions/locale.js, line 107</a>
-        </div>
-    </div>
-</dt>
-<dd>
-      <div class="description">Remove local diacritics from string</div>
-        <h5>Parameters:</h5>
-<table class="params">
-    <thead>
-	<tr>
-		<th>Name</th>
-		<th>Type</th>
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	<tbody>
-        <tr>
-                <td class="name">
-                  <span class="param-name">text</span>
-                </td>
-            <td class="type">
-<span class="param-type">void</span>
-            </td>
-            <td class="description last">
-            </td>
-        </tr>
-        <tr>
-                <td class="name">
-                  <span class="param-name">lang</span>
-                </td>
-            <td class="type">
-<span class="param-type"><a href="bbbfly.locale.Lang.html">bbbfly.locale.Lang</a></span>
-            </td>
-            <td class="description last">
-                        <span class="optional">optional</span>
-            </td>
-        </tr>
-	</tbody>
-</table>
-<dl class="details">
-</dl>
-    <h5>Returns:</h5>
-<table class="params">
-    <thead>
-    <tr>
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="type">
-                        void
-            </td>
-            <td class="description last"></td>
-        </tr>
-    </tbody>
-</table>
-</dd>
-<dt>
-    <div class="nameContainer">
-        <h4 id=".RemoveDiacritics">
-  <span class="attribs">
-      <span class="type-signature static">
-        static
-      </span>
-  </span>
-          bbbfly.locale.RemoveDiacritics
+          bbbfly.locale.Compare
           <span class="signature">(valueA, valueB, <span class="optional">lang</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{integer}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/locale.js#L135">extensions/locale.js, line 135</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/locale.js#L538">extensions/locale.js, line 538</a>
         </div>
     </div>
 </dt>
@@ -1335,6 +1106,238 @@
 </dd>
 <dt>
     <div class="nameContainer">
+        <h4 id=".GetLang">
+  <span class="attribs">
+      <span class="type-signature static">
+        static
+      </span>
+  </span>
+          bbbfly.locale.GetLang
+          <span class="signature">()</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.locale.Lang.html">bbbfly.locale.Lang</a>}</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/locale.js#L444">extensions/locale.js, line 444</a>
+        </div>
+    </div>
+</dt>
+<dd>
+      <div class="description">Get default local language</div>
+<dl class="details">
+</dl>
+    <h5>Returns:</h5>
+<table class="params">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="type">
+                        <a href="bbbfly.locale.Lang.html">bbbfly.locale.Lang</a>
+            </td>
+            <td class="description last"></td>
+        </tr>
+    </tbody>
+</table>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id=".GetLocalRules">
+  <span class="attribs">
+      <span class="type-signature static">
+        static
+      </span>
+  </span>
+          bbbfly.locale.GetLocalRules
+          <span class="signature">(<span class="optional">lang</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{<a href="bbbfly.locale.Rules.html">bbbfly.locale.Rules</a>|null}</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/locale.js#L487">extensions/locale.js, line 487</a>
+        </div>
+    </div>
+</dt>
+<dd>
+      <div class="description">Get local rules</div>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">lang</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.locale.Lang.html">bbbfly.locale.Lang</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+    <h5>Returns:</h5>
+<table class="params">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="type">
+                        <a href="bbbfly.locale.Rules.html">bbbfly.locale.Rules</a>
+                         | 
+                        null
+            </td>
+            <td class="description last"></td>
+        </tr>
+    </tbody>
+</table>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id=".Register">
+  <span class="attribs">
+      <span class="type-signature static">
+        static
+      </span>
+  </span>
+          bbbfly.locale.Register
+          <span class="signature">(loc)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/locale.js#L457">extensions/locale.js, line 457</a>
+        </div>
+    </div>
+</dt>
+<dd>
+      <div class="description">Register local rules</div>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">loc</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.locale.Rules.html">bbbfly.locale.Rules</a></span>
+            </td>
+            <td class="description last">
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+    <h5>Returns:</h5>
+<table class="params">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="type">
+                        boolean
+            </td>
+            <td class="description last">- If localization was registered</td>
+        </tr>
+    </tbody>
+</table>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id=".RemoveDiacritics">
+  <span class="attribs">
+      <span class="type-signature static">
+        static
+      </span>
+  </span>
+          bbbfly.locale.RemoveDiacritics
+          <span class="signature">(text, <span class="optional">lang</span>)</span><span class="arrow-right"></span><span class="type-signature returnType">{void}</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/locale.js#L510">extensions/locale.js, line 510</a>
+        </div>
+    </div>
+</dt>
+<dd>
+      <div class="description">Remove local diacritics from string</div>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">text</span>
+                </td>
+            <td class="type">
+<span class="param-type">string</span>
+            </td>
+            <td class="description last">
+            </td>
+        </tr>
+        <tr>
+                <td class="name">
+                  <span class="param-name">lang</span>
+                </td>
+            <td class="type">
+<span class="param-type"><a href="bbbfly.locale.Lang.html">bbbfly.locale.Lang</a></span>
+            </td>
+            <td class="description last">
+                        <span class="optional">optional</span>
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+    <h5>Returns:</h5>
+<table class="params">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="type">
+                        void
+            </td>
+            <td class="description last"></td>
+        </tr>
+    </tbody>
+</table>
+</dd>
+<dt>
+    <div class="nameContainer">
         <h4 id=".SetLang">
   <span class="attribs">
       <span class="type-signature static">
@@ -1345,7 +1348,7 @@
           <span class="signature">(lang)</span><span class="arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
         <div class="tag-source">
-          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/locale.js#L23">extensions/locale.js, line 23</a>
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/locale.js#L426">extensions/locale.js, line 426</a>
         </div>
     </div>
 </dt>
@@ -1389,6 +1392,66 @@
                         boolean
             </td>
             <td class="description last">- If language was set</td>
+        </tr>
+    </tbody>
+</table>
+</dd>
+<dt>
+    <div class="nameContainer">
+        <h4 id=".TextToAscii">
+  <span class="attribs">
+      <span class="type-signature static">
+        static
+      </span>
+  </span>
+          bbbfly.locale.TextToAscii
+          <span class="signature">(text)</span><span class="arrow-right"></span><span class="type-signature returnType">{void}</span>
+        </h4>
+        <div class="tag-source">
+          <a target="_blank" href="https://github.com/3b-fly/bbbfly-cjs/blob/master/src/extensions/locale.js#L616">extensions/locale.js, line 616</a>
+        </div>
+    </div>
+</dt>
+<dd>
+      <div class="description">Remove local diacritics from string</div>
+        <h5>Parameters:</h5>
+<table class="params">
+    <thead>
+	<tr>
+		<th>Name</th>
+		<th>Type</th>
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	<tbody>
+        <tr>
+                <td class="name">
+                  <span class="param-name">text</span>
+                </td>
+            <td class="type">
+<span class="param-type">void</span>
+            </td>
+            <td class="description last">
+            </td>
+        </tr>
+	</tbody>
+</table>
+<dl class="details">
+</dl>
+    <h5>Returns:</h5>
+<table class="params">
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="type">
+                        void
+            </td>
+            <td class="description last"></td>
         </tr>
     </tbody>
 </table>
