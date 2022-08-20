@@ -8,6 +8,22 @@
     "controls.js": "5.0.0"
   },
   "Packages": {
+    "auth": {
+      "FormEditor": false,
+      "DebugFiles": [
+        "debug/extensions/auth.js"
+      ],
+      "ReleaseFiles": [
+        "release/extensions/auth.js"
+      ],
+      "Libraries": {
+        "bbbfly-cjs": {
+          "Packages": [
+            "crossbrowser"
+          ]
+        }
+      }
+    },
     "appIndex": {
       "FormEditor": false,
       "DebugFiles": [
