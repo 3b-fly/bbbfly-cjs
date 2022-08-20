@@ -14,6 +14,7 @@ bbbfly.downloader = {};
 /** @ignore */
 bbbfly.downloader._setMethod = function(method){
   if(!Number.isInteger(method)){return false;}
+  
   for(var i in bbbfly.Downloader.method){
     if(bbbfly.Downloader.method[i] === method){
       this.Method = method;
