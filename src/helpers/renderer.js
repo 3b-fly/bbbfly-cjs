@@ -32,6 +32,17 @@ bbbfly.renderer._updateHTMLState = function(node,state){
 };
 
 /** @ignore */
+bbbfly.renderer._updateHTMLOverflow = function(node,overflowX,overflowY){
+  if(!(node instanceof HTMLElement)){return;}
+  if(!Object.includes(bbbfly.Renderer.overflow,overflowX)){return;}
+  if(!Object.includes(bbbfly.Renderer.overflow,overflowY)){return;}
+  
+  node.style.overflow = '';
+  node.style.overflowX = overflowX;
+  node.style.overflowY = overflowY;
+};
+
+/** @ignore */
 bbbfly.renderer._styleDim = function(dim,neg){
   if(Number.isInteger(dim)){
     if(neg){dim *= -1;}
@@ -843,6 +854,17 @@ bbbfly.Renderer = {
   UpdateHTMLState: bbbfly.renderer._updateHTMLState,
   /**
    * @function
+   * @name UpdateHTMLOverflow
+   * @memberof bbbfly.Renderer#
+   * @description Sets html node overflow style.
+   *
+   * @param {HTMLElement} node
+   * @param {bbbfly.Renderer.overflow} overflowX,
+   * @param {bbbfly.Renderer.overflow} overflowY
+   */
+  UpdateHTMLOverflow: bbbfly.renderer._updateHTMLOverflow,
+  /**
+   * @function
    * @name RecalcValue
    * @memberof bbbfly.Renderer#
    * @description Fills in all value states.
@@ -1049,6 +1071,16 @@ bbbfly.Renderer = {
 /**
  * @enum {string}
  */
+bbbfly.Renderer.overflow = {
+  hidden: 'hidden',
+  visible: 'visible',
+  scroll: 'scroll',
+  auto: 'auto'
+};
+
+/**
+ * @enum {string}
+ */
 bbbfly.Renderer.stateattr = {
   mouseover: 'o',
   highlight: 'h',
@@ -1057,7 +1089,7 @@ bbbfly.Renderer.stateattr = {
   invalid: 'I',
   selected: 'S',
   grayed: 'G'
-  };
+};
 
 /**
  * @typedef {object} style
@@ -1077,8 +1109,6 @@ bbbfly.Renderer.stateattr = {
  * @property {boolean} invalid
  * @property {boolean} selected
  * @property {boolean} grayed
- *
- *
  */
 
 /**

@@ -23,6 +23,15 @@ bbbfly.renderer._updateHTMLState = function(node,state){
     else{node.removeAttribute(attr);}
   }
 };
+bbbfly.renderer._updateHTMLOverflow = function(node,overflowX,overflowY){
+  if(!(node instanceof HTMLElement)){return;}
+  if(!Object.includes(bbbfly.Renderer.overflow,overflowX)){return;}
+  if(!Object.includes(bbbfly.Renderer.overflow,overflowY)){return;}
+
+  node.style.overflow = '';
+  node.style.overflowX = overflowX;
+  node.style.overflowY = overflowY;
+};
 bbbfly.renderer._styleDim = function(dim,neg){
   if(Number.isInteger(dim)){
     if(neg){dim *= -1;}
@@ -681,6 +690,7 @@ bbbfly.Renderer = {
   ContainsState: bbbfly.renderer._containsState,
   IsImagePosition: bbbfly.renderer._isImagePosition,
   UpdateHTMLState: bbbfly.renderer._updateHTMLState,
+  UpdateHTMLOverflow: bbbfly.renderer._updateHTMLOverflow,
   RecalcValue: bbbfly.renderer._recalcValue,
   RecalcImage: bbbfly.renderer._recalcImage,
   RecalcImageState: bbbfly.renderer._recalcImageState,
@@ -700,6 +710,12 @@ bbbfly.Renderer = {
   UpdateFrameHTML: bbbfly.renderer._updateFrameHTML,
   UpdateStackHTML: bbbfly.renderer._updateStackHTML
 };
+bbbfly.Renderer.overflow = {
+  hidden: 'hidden',
+  visible: 'visible',
+  scroll: 'scroll',
+  auto: 'auto'
+};
 bbbfly.Renderer.stateattr = {
   mouseover: 'o',
   highlight: 'h',
@@ -708,7 +724,7 @@ bbbfly.Renderer.stateattr = {
   invalid: 'I',
   selected: 'S',
   grayed: 'G'
-  };
+};
 
 /**
  * @typedef {object} stackproxy
