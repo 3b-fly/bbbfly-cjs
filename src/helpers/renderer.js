@@ -292,9 +292,9 @@ bbbfly.renderer._recalcFrame = function(frame){
 
 /** @ignore */
 bbbfly.renderer._imageProxy = function(img,state,id){
-  if(!Object.isObject(img)){return {W:0, H:0, _mock:true};}
+  if(!Object.isObject(img)){return {W:0, H:0, Visible:false};}
 
-  var proxy = {Img:img, _mock:false};
+  var proxy = {Img:img, Visible:true};
   if(String.isString(id)){proxy.Id = id;}
   if(String.isString(img.Src)){proxy.Src = img.Src;}
 
@@ -339,9 +339,9 @@ bbbfly.renderer._stackProxy = function(imgs,state,id){
   var anchor = {L:0,T:0,R:0,B:0};
 
   for(var i in imgs){
-    var iProxy = this.ImageProxy(
-      imgs[i],state,this.ImageId(id,'_'+i)
-    );
+    var iId = this.ImageId(id,'_'+i);
+    var iProxy = this.ImageProxy(imgs[i],state,iId);
+    if(!iProxy.Visible){continue;}
 
     images.push(iProxy);
     if(!iProxy.W || !iProxy.H){continue;}
@@ -370,7 +370,7 @@ bbbfly.renderer._stackProxy = function(imgs,state,id){
 
 /** @ignore */
 bbbfly.renderer._updateImageProxy = function(proxy,state){
-  if(!Object.isObject(proxy) || proxy._mock){return;}
+  if(!Object.isObject(proxy) || !proxy.Visible){return;}
   if(!Object.isObject(proxy.Img)){return;}
 
   var l = null;
@@ -439,7 +439,7 @@ bbbfly.renderer._updateStackProxy = function(proxy,state){
 bbbfly.renderer._imageHTMLProps = function(
   proxy,left,top,right,bottom,state,className,style,innerHtml,id
 ){
-  if(!Object.isObject(proxy) || proxy._mock){return null;}
+  if(!Object.isObject(proxy) || !proxy.Visible){return null;}
   if(!String.isString(proxy.Src) || (proxy.Src === '')){return null;}
 
   var props = {
@@ -667,7 +667,7 @@ StackHTML: bbbfly.renderer._stackHTML = function(proxy,state,className,id){
 
 /** @ignore */
 bbbfly.renderer._updateImageHTML = function(proxy,state,id){
-  if(!Object.isObject(proxy) || proxy._mock){return;}
+  if(!Object.isObject(proxy) || !proxy.Visible){return;}
 
   if(!String.isString(id)){id = proxy.Id;}
   if(!String.isString(id) || (id === '')){return;}
@@ -1183,6 +1183,7 @@ bbbfly.Renderer.stateattr = {
  * @description Image properties for certain state
  *
  * @property {bbbfly.Renderer.image} [Img] - Full image definition
+ * @property {boolean} [Visible] - If display image
  * @property {string|undefined} [Id] - Image ID
  * @property {url|undefined} [Src] - Image source url
  * @property {px|undefined} [W] - Image width
