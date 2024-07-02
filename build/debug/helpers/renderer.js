@@ -548,6 +548,49 @@ bbbfly.renderer._frameHTML = function(proxy,state,className,id){
   }
   return frameHtml;
 };
+bbbfly.renderer._activeFrameHTML = function(proxy,state,className,id){
+  var frameHtml = '';
+
+  if(Object.isObject(proxy)){
+    frameHtml += this.ActiveImageHTML(
+      proxy.L,0,proxy.LT.H,null,proxy.LB.H,state,
+      className,null,this.ImageId(id,'_FL')
+    );
+    frameHtml += this.ActiveImageHTML(
+      proxy.T,proxy.LT.W,0,proxy.RT.W,null,state,
+      className,null,this.ImageId(id,'_FT')
+    );
+    frameHtml += this.ActiveImageHTML(
+      proxy.R,null,proxy.RT.H,0,proxy.RB.H,state,
+      className,null,this.ImageId(id,'_FR')
+    );
+    frameHtml += this.ActiveImageHTML(
+      proxy.B,proxy.LB.W,null,proxy.RB.W,0,state,
+      className,null,this.ImageId(id,'_FB')
+    );
+    frameHtml += this.ActiveImageHTML(
+      proxy.LT,0,0,null,null,state,
+      className,null,this.ImageId(id,'_FLT')
+    );
+    frameHtml += this.ActiveImageHTML(
+      proxy.RT,null,0,0,null,state,
+      className,null,this.ImageId(id,'_FRT')
+    );
+    frameHtml += this.ActiveImageHTML(
+      proxy.LB,0,null,null,0,state,
+      className,null,this.ImageId(id,'_FLB')
+    );
+    frameHtml += this.ActiveImageHTML(
+      proxy.RB,null,null,0,0,state,
+      className,null,this.ImageId(id,'_FRB')
+    );
+    frameHtml += this.ActiveImageHTML(
+      proxy.C,proxy.L.W,proxy.T.H,proxy.R.W,proxy.B.H,state,
+      className,null,this.ImageId(id,'_FC')
+    );
+  }
+  return frameHtml;
+};
 bbbfly.renderer._dynamicFrameHTML = function(
   proxy,state,className,innerHtml,id
 ){
@@ -704,6 +747,7 @@ bbbfly.Renderer = {
   SetImage: bbbfly.renderer._setImage,
   ImageHTML: bbbfly.renderer._imageHTML,
   FrameHTML: bbbfly.renderer._frameHTML,
+  ActiveFrameHTML: bbbfly.renderer._activeFrameHTML,
   DynamicFrameHTML: bbbfly.renderer._dynamicFrameHTML,
   StackHTML: bbbfly.renderer._stackHTML,
   UpdateImageHTML: bbbfly.renderer._updateImageHTML,
