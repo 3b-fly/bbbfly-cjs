@@ -17,7 +17,7 @@ bbbfly.locale = {
     /** @ignore */
   _lang: null,
   /** @ignore */
-  _locs: {},
+  _defs: {},
   /** @ignore */
   _ascii: {
     //Latin Supplement
@@ -433,9 +433,10 @@ bbbfly.locale = {
  * @return {boolean} - If language was set
  */
 bbbfly.locale.SetLang = function(lang){
-  if(!(lang instanceof bbbfly.locale.Lang)){
-    return false;
-  }
+  if(
+    !Object.isObject(lang)
+    ||!(lang instanceof bbbfly.locale.Lang)
+  ){return false;}
 
   this._lang = lang;
   return true;
@@ -466,19 +467,28 @@ bbbfly.locale.GetLang = function(){
 bbbfly.locale.Register = function(loc){
   if(!Object.isObject(loc)){return false;}
 
-  var lang = loc.Lang;
-  var reg = loc.Region;
+  var defs = this._defs;
 
-  if(!String.isString(lang)){lang = '-';}
-  if(!String.isString(reg)){reg = '-';}
+  var langId = loc.Lang;
+  var hasLang = String.isString(langId);
 
-  if(!Object.isObject(this._locs[lang])){
-    this._locs[lang] = {};
+  var defLangId = bbbfly.locale.id.default;
+  if(!Object.isObject(defs[defLangId])){defs[defLangId] = loc;}
+
+  if(hasLang){
+    var regId = loc.Region;
+    var hasReg = String.isString(regId);
+    if(!hasReg){regId = bbbfly.locale.id.none;}
+
+    var defRegId = (langId+'-'+bbbfly.locale.id.default);
+    if(!Object.isObject(defs[defRegId])){defs[defRegId] = loc;}
+
+    var fullRegId = (langId+'-'+regId);
+    if(!Object.isObject(defs[fullRegId])){defs[fullRegId] = loc;}
   }
-
-  var defs = this._locs[lang];
-  if(!Object.isObject(defs[reg])){
-    defs[reg] = loc;
+  else{
+    var noneLangId = bbbfly.locale.id.none;
+    if(!Object.isObject(defs[noneLangId])){defs[noneLangId] = loc;}
   }
 
   return true;
@@ -494,17 +504,39 @@ bbbfly.locale.Register = function(loc){
  * @return {bbbfly.locale.Rules|null}
  */
 bbbfly.locale.GetLocalRules = function(lang){
-  if(!(lang instanceof bbbfly.locale.Lang)){
-    lang = this.GetLang();
+  if(
+    !Object.isObject(lang)
+    ||!(lang instanceof bbbfly.locale.Lang)
+  ){lang = this.GetLang();}
+
+  var langId = lang.Lang;
+  var regId = lang.Region;
+
+  var hasLang = String.isString(langId);
+  var hasReg = String.isString(regId);
+
+  var defs = this._defs;
+
+  if(hasLang){
+    if(hasReg){
+      var fullRegId = (langId+'-'+regId);
+      if(Object.isObject(defs[fullRegId])){return defs[fullRegId];}
+    }
+
+    var noneRegId = (langId+'-'+bbbfly.locale.id.none);
+    if(Object.isObject(defs[noneRegId])){return defs[noneRegId];}
+
+    var defRegId = (langId+'-'+bbbfly.locale.id.default);
+    if(Object.isObject(defs[defRegId])){return defs[defRegId];}
   }
 
-  var locs = (lang.Lang) ? this._locs[lang.Lang] : null;
-  if(!locs){locs = this._locs['-'];}
-  if(!locs){return null;}
+  var noneLangId = bbbfly.locale.id.none;
+  if(Object.isObject(defs[noneLangId])){return defs[noneLangId];}
+  
+  var defLangId = bbbfly.locale.id.default;
+  if(Object.isObject(defs[defLangId])){return defs[defLangId];}
 
-  var loc = (lang.Region) ? locs[lang.Region] : null;
-  if(!loc){loc = locs['-'];}
-  return (loc) ? loc : null;
+  return null;
 };
 
 /**
@@ -586,34 +618,6 @@ bbbfly.locale.Compare = function(valueA,valueB,lang){
 };
 
 /**
- * @class
- * @description Language definition
- *
- * @inpackage locale
- *
- * @param {string} lang - 'en'|'en-UK'
- * @param {string} [region=undefined] - 'UK'
- *
- * @property {string} [Lang=null]
- * @property {string} [Region=null]
- */
-bbbfly.locale.Lang = function(lang,region){
-  this.Lang = null;
-  this.Region = null;
-
-  if(String.isString(lang)){
-    lang = lang.split('-');
-
-    if(lang[0]){this.Lang = lang[0];}
-    if(lang[1]){this.Region = lang[1];}
-  }
-
-  if(String.isString(region)){
-    this.Region = region;
-  }
-};
-
-/**
  * @function
  * @name TextToAscii
  * @memberOf bbbfly.locale
@@ -637,14 +641,225 @@ bbbfly.locale.TextToAscii = function(text){
 };
 
 /**
+ * @function
+ * @name FormatNumber
+ * @memberOf bbbfly.locale
+ * @description Format number to string
+ *
+ * @param {number} num
+ * @param {bbbfly.locale.Lang} [lang=undefined]
+ * @param {bbbfly.locale.number} [type=decimal]
+ * @return {void}
+ */
+bbbfly.locale.FormatNumber = function(num,lang,type){
+  if(!Number.isNumber(num)){return '';}
+
+  var rules = bbbfly.locale.GetLocalRules(lang);
+  if(rules && String.isString(rules.Locale)){
+
+    var options = null;
+    switch(type){
+      case bbbfly.locale.number.percent:
+        options = {
+          style:'percent'
+        };
+      break;
+      case bbbfly.locale.number.currency_code:
+        if(String.isString(rules.CurrencyCode)){
+          options = {
+            style:'currency',
+            currencyDisplay:'code',
+            currency: rules.CurrencyCode
+          };
+        }
+      break;
+      case bbbfly.locale.number.currency_symbol:
+        if(String.isString(rules.CurrencyCode)){
+          options = {
+            style:'currency',
+            currencyDisplay:'symbol',
+            currency: rules.CurrencyCode
+          };
+        }
+      break;
+    }
+
+    if(options){
+      return num.toLocaleString(rules.Locale,options);
+    }
+  }
+
+  return num.toString();
+};
+
+/**
+ * @function
+ * @name FormatDate
+ * @memberOf bbbfly.locale
+ * @description Format date and/or time to string
+ *
+ * @param {Date} date
+ * @param {bbbfly.locale.Lang} [lang=undefined]
+ * @param {bbbfly.locale.date} [type=datetime_short]
+ * @return {void}
+ */
+bbbfly.locale.FormatDate = function(date,lang,type){
+  if(!Date.isDate(date)){return '';}
+
+  var options = null;
+  switch(type){
+    case bbbfly.locale.date.datetime_short:
+      options = { dateStyle:'short', timeStyle:'short' };
+    break;
+    case bbbfly.locale.date.datetime_long:
+      options = { dateStyle:'medium', timeStyle:'medium' };
+    break;
+    case bbbfly.locale.date.date_short:
+      options = { dateStyle:'short' };
+    break;
+    case bbbfly.locale.date.date_long:
+      options = { dateStyle:'medium' };
+    break;
+    case bbbfly.locale.date.time_short:
+      options = { timeStyle:'short' };
+    break;
+    case bbbfly.locale.date.time_long:
+      options = { timeStyle:'medium' };
+    break;
+  }
+
+  if(options){
+    var rules = bbbfly.locale.GetLocalRules(lang);
+    if(rules && String.isString(rules.Locale)){
+      return date.toLocaleString(rules.Locale,options);
+    }
+  }
+
+  return date.toString();
+};
+
+/**
+ * @function
+ * @name ValidateAddress
+ * @memberOf bbbfly.locale
+ * @description Format number to string
+ *
+ * @param {string} text
+ * @param {bbbfly.locale.Lang} [lang=undefined]
+ * @param {bbbfly.locale.address} [type=none]
+ * @return {boolean}
+ */
+bbbfly.locale.ValidateAddress = function(text,lang,type){
+  if(!String.isString(text)){return false;}
+
+  var rules = bbbfly.locale.GetLocalRules(lang);
+  if(rules && Object.isObject(rules.Format)){
+
+    var patterns = null;
+
+    switch(type){
+      case bbbfly.locale.address.houseno:
+        patterns = rules.Format.HouseNumber;
+      break;
+      case bbbfly.locale.address.zip:
+        patterns = rules.Format.Zip;
+      break;
+    }
+
+    if(Array.isArray(patterns)){
+      for(var i in patterns){
+        var pattern = new RegExp(patterns[i]);
+        if(pattern.test(text)){return true;}
+      }
+    }
+  }
+  
+  return false;
+};
+
+/**
+ * @class
+ * @description Language definition
+ *
+ * @inpackage locale
+ *
+ * @param {string} lang - 'en'|'en-GB'
+ * @param {string} [region=undefined] - 'GB'
+ *
+ * @property {string} [Lang=null]
+ * @property {string} [Region=null]
+ */
+bbbfly.locale.Lang = function(lang,region){
+  this.Lang = null;
+  this.Region = null;
+
+  if(String.isString(lang)){
+    lang = lang.split('-');
+
+    if(lang[0]){this.Lang = lang[0];}
+    if(lang[1]){this.Region = lang[1];}
+  }
+
+  if(String.isString(region)){
+    this.Region = region;
+  }
+};
+
+/** @ignore */
+bbbfly.locale.id = {
+  none: '-',
+  default: '~'
+};
+
+/**
+ * @enum {integer}
+ * @description
+ *   Possible values for {@link bbbfly.locale|bbbfly.locale.FormatNumber}
+ */
+bbbfly.locale.number = {
+  decimal: 0,
+  percent: 1,
+  currency_code: 2,
+  currency_symbol: 3
+};
+
+/**
+ * @enum {integer}
+ * @description
+ *   Possible values for {@link bbbfly.locale|bbbfly.locale.FormatDate}
+ */
+bbbfly.locale.date = {
+  datetime_short: 0,
+  datetime_long: 1,
+  date_short: 2,
+  date_long: 3,
+  time_short: 4,
+  time_long: 5
+};
+
+/**
+ * @enum {integer}
+ * @description
+ *   Possible values for {@link bbbfly.locale|bbbfly.locale.ValidateAddress}
+ */
+bbbfly.locale.address = {
+  none: 0,
+  houseno: 1,
+  zip: 2
+};
+
+/**
  * @interface
  * @name Rules
  * @memberof bbbfly.locale
  * @description Locale rules definition
  *
  * @property {string} Lang - 'en'
- * @property {string} [Region=undefined] - 'UK'
+ * @property {string} [Region=undefined] - 'GB'
+ * @property {string} [Locale=undefined] - 'an-GB'
  *
  * @property {string} CharOrder - 'abc...'
  * @property {object} Diacritics - { 'á': 'a', ... }
+ *
+ * @property {object} Format
  */

@@ -9,7 +9,10 @@
 
 bbbfly.locale.Register({
   Lang: 'cs',
-  Region: '-',
+  Region: 'CZ',
+
+  Locale: 'cs-CZ',
+  CurrencyCode: 'CZK',
 
   CharOrder: '0123456789'
     +'aAáÁ'
@@ -55,5 +58,17 @@ bbbfly.locale.Register({
     'ů': 'u', 'Ů': 'U',
     'ý': 'y', 'Ý': 'Y',
     'ž': 'z', 'Ž': 'Z'
+  },
+
+  Format: {
+    HouseNumber: [
+      '^[1-9][0-9]{0,3}$',
+      '^[1-9][0-9]{0,2}[a-z]?$',
+      '^[1-9][0-9]{0,3}\/[1-9][0-9]{0,2}[a-z]?$'
+    ],
+    Zip: [
+      '^[1-9][0-9]{4}$',
+      '^[1-9][0-9]{2} [0-9]{2}$',
+    ]
   }
 });

@@ -8,7 +8,7 @@
 var bbbfly = bbbfly || {};
 bbbfly.locale = {
   _lang: null,
-  _locs: {},
+  _defs: {},
   _ascii: {
     'à': 'a', 'À': 'A',
     'á': 'a', 'Á': 'A',
@@ -404,9 +404,10 @@ bbbfly.locale = {
   }
 };
 bbbfly.locale.SetLang = function(lang){
-  if(!(lang instanceof bbbfly.locale.Lang)){
-    return false;
-  }
+  if(
+    !Object.isObject(lang)
+    ||!(lang instanceof bbbfly.locale.Lang)
+  ){return false;}
 
   this._lang = lang;
   return true;
@@ -418,35 +419,66 @@ bbbfly.locale.GetLang = function(){
 bbbfly.locale.Register = function(loc){
   if(!Object.isObject(loc)){return false;}
 
-  var lang = loc.Lang;
-  var reg = loc.Region;
+  var defs = this._defs;
 
-  if(!String.isString(lang)){lang = '-';}
-  if(!String.isString(reg)){reg = '-';}
+  var langId = loc.Lang;
+  var hasLang = String.isString(langId);
 
-  if(!Object.isObject(this._locs[lang])){
-    this._locs[lang] = {};
+  var defLangId = bbbfly.locale.id.default;
+  if(!Object.isObject(defs[defLangId])){defs[defLangId] = loc;}
+
+  if(hasLang){
+    var regId = loc.Region;
+    var hasReg = String.isString(regId);
+    if(!hasReg){regId = bbbfly.locale.id.none;}
+
+    var defRegId = (langId+'-'+bbbfly.locale.id.default);
+    if(!Object.isObject(defs[defRegId])){defs[defRegId] = loc;}
+
+    var fullRegId = (langId+'-'+regId);
+    if(!Object.isObject(defs[fullRegId])){defs[fullRegId] = loc;}
   }
-
-  var defs = this._locs[lang];
-  if(!Object.isObject(defs[reg])){
-    defs[reg] = loc;
+  else{
+    var noneLangId = bbbfly.locale.id.none;
+    if(!Object.isObject(defs[noneLangId])){defs[noneLangId] = loc;}
   }
 
   return true;
 };
 bbbfly.locale.GetLocalRules = function(lang){
-  if(!(lang instanceof bbbfly.locale.Lang)){
-    lang = this.GetLang();
+  if(
+    !Object.isObject(lang)
+    ||!(lang instanceof bbbfly.locale.Lang)
+  ){lang = this.GetLang();}
+
+  var langId = lang.Lang;
+  var regId = lang.Region;
+
+  var hasLang = String.isString(langId);
+  var hasReg = String.isString(regId);
+
+  var defs = this._defs;
+
+  if(hasLang){
+    if(hasReg){
+      var fullRegId = (langId+'-'+regId);
+      if(Object.isObject(defs[fullRegId])){return defs[fullRegId];}
+    }
+
+    var noneRegId = (langId+'-'+bbbfly.locale.id.none);
+    if(Object.isObject(defs[noneRegId])){return defs[noneRegId];}
+
+    var defRegId = (langId+'-'+bbbfly.locale.id.default);
+    if(Object.isObject(defs[defRegId])){return defs[defRegId];}
   }
 
-  var locs = (lang.Lang) ? this._locs[lang.Lang] : null;
-  if(!locs){locs = this._locs['-'];}
-  if(!locs){return null;}
+  var noneLangId = bbbfly.locale.id.none;
+  if(Object.isObject(defs[noneLangId])){return defs[noneLangId];}
 
-  var loc = (lang.Region) ? locs[lang.Region] : null;
-  if(!loc){loc = locs['-'];}
-  return (loc) ? loc : null;
+  var defLangId = bbbfly.locale.id.default;
+  if(Object.isObject(defs[defLangId])){return defs[defLangId];}
+
+  return null;
 };
 bbbfly.locale.RemoveDiacritics = function(text,lang){
   if(!String.isString(text)){return text;}
@@ -503,6 +535,120 @@ bbbfly.locale.Compare = function(valueA,valueB,lang){
   else if(valueA > valueB){return 1;}
   return 0;
 };
+bbbfly.locale.TextToAscii = function(text){
+  if(!String.isString(text)){return text;}
+
+  var map = this._ascii;
+
+  for(var key in map){
+    if(map.hasOwnProperty(key)){
+      text = text.replace(new RegExp(key,'gu'),map[key]);
+    }
+  }
+
+  return text.replace(new RegExp('[^\x00-\x7F]','gu'),'');
+};
+bbbfly.locale.FormatNumber = function(num,lang,type){
+  if(!Number.isNumber(num)){return '';}
+
+  var rules = bbbfly.locale.GetLocalRules(lang);
+  if(rules && String.isString(rules.Locale)){
+
+    var options = null;
+    switch(type){
+      case bbbfly.locale.number.percent:
+        options = {
+          style:'percent'
+        };
+      break;
+      case bbbfly.locale.number.currency_code:
+        if(String.isString(rules.CurrencyCode)){
+          options = {
+            style:'currency',
+            currencyDisplay:'code',
+            currency: rules.CurrencyCode
+          };
+        }
+      break;
+      case bbbfly.locale.number.currency_symbol:
+        if(String.isString(rules.CurrencyCode)){
+          options = {
+            style:'currency',
+            currencyDisplay:'symbol',
+            currency: rules.CurrencyCode
+          };
+        }
+      break;
+    }
+
+    if(options){
+      return num.toLocaleString(rules.Locale,options);
+    }
+  }
+
+  return num.toString();
+};
+bbbfly.locale.FormatDate = function(date,lang,type){
+  if(!Date.isDate(date)){return '';}
+
+  var options = null;
+  switch(type){
+    case bbbfly.locale.date.datetime_short:
+      options = { dateStyle:'short', timeStyle:'short' };
+    break;
+    case bbbfly.locale.date.datetime_long:
+      options = { dateStyle:'medium', timeStyle:'medium' };
+    break;
+    case bbbfly.locale.date.date_short:
+      options = { dateStyle:'short' };
+    break;
+    case bbbfly.locale.date.date_long:
+      options = { dateStyle:'medium' };
+    break;
+    case bbbfly.locale.date.time_short:
+      options = { timeStyle:'short' };
+    break;
+    case bbbfly.locale.date.time_long:
+      options = { timeStyle:'medium' };
+    break;
+  }
+
+  if(options){
+    var rules = bbbfly.locale.GetLocalRules(lang);
+    if(rules && String.isString(rules.Locale)){
+      return date.toLocaleString(rules.Locale,options);
+    }
+  }
+
+  return date.toString();
+};
+bbbfly.locale.ValidateAddress = function(text,lang,type){
+  if(!String.isString(text)){return false;}
+
+  var rules = bbbfly.locale.GetLocalRules(lang);
+  if(rules && Object.isObject(rules.Format)){
+
+    var patterns = null;
+
+    switch(type){
+      case bbbfly.locale.address.houseno:
+        patterns = rules.Format.HouseNumber;
+      break;
+      case bbbfly.locale.address.zip:
+        patterns = rules.Format.Zip;
+      break;
+    }
+
+    if(Array.isArray(patterns)){
+      for(var i in patterns){
+        var pattern = new RegExp(patterns[i]);
+        if(pattern.test(text)){return true;}
+      }
+    }
+  }
+
+  return false;
+};
 bbbfly.locale.Lang = function(lang,region){
   this.Lang = null;
   this.Region = null;
@@ -518,18 +664,28 @@ bbbfly.locale.Lang = function(lang,region){
     this.Region = region;
   }
 };
-bbbfly.locale.TextToAscii = function(text){
-  if(!String.isString(text)){return text;}
-
-  var map = this._ascii;
-
-  for(var key in map){
-    if(map.hasOwnProperty(key)){
-      text = text.replace(new RegExp(key,'gu'),map[key]);
-    }
-  }
-
-  return text.replace(new RegExp('[^\x00-\x7F]','gu'),'');
+bbbfly.locale.id = {
+  none: '-',
+  default: '~'
+};
+bbbfly.locale.number = {
+  decimal: 0,
+  percent: 1,
+  currency_code: 2,
+  currency_symbol: 3
+};
+bbbfly.locale.date = {
+  datetime_short: 0,
+  datetime_long: 1,
+  date_short: 2,
+  date_long: 3,
+  time_short: 4,
+  time_long: 5
+};
+bbbfly.locale.address = {
+  none: 0,
+  houseno: 1,
+  zip: 2
 };
 
 /**
@@ -539,8 +695,11 @@ bbbfly.locale.TextToAscii = function(text){
  * @description Locale rules definition
  *
  * @property {string} Lang - 'en'
- * @property {string} [Region=undefined] - 'UK'
+ * @property {string} [Region=undefined] - 'GB'
+ * @property {string} [Locale=undefined] - 'an-GB'
  *
  * @property {string} CharOrder - 'abc...'
  * @property {object} Diacritics - { 'á': 'a', ... }
+ *
+ * @property {object} Format
  */
