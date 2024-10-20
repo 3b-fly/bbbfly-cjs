@@ -87,15 +87,16 @@ bbbfly.appindex._onclick = function(event){
   var hrefTarget = node.getAttribute('target');
   var hrefLocation = node.getAttribute('location');
 
-  if(href.substring(0,1) === '#'){
-    if(hrefTarget !== '_system'){hrefTarget = '_self';}
+  if(String.isString(href)){
+    if(href.substring(0,1) === '#'){
+      if(hrefTarget !== '_system'){hrefTarget = '_self';}
+    }
+    else{
+      if(hrefTarget !== '_system'){hrefTarget = '_blank';}
+      else if(hrefLocation === 'null'){ hrefLocation = 'location=no';}
+    }
+    window.open(href,hrefTarget,hrefLocation);
   }
-  else{
-    if(hrefTarget !== '_system'){hrefTarget = '_blank';}
-    else if(hrefLocation === 'null'){ hrefLocation = 'location=no';}
-  }
-
-  window.open(href,hrefTarget,hrefLocation);
   return false;
 };
 
