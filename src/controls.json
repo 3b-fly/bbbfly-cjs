@@ -1,6 +1,6 @@
 {
   "Lib": "bbbfly-cjs",
-  "Version": "2.0.0",
+  "Version": "2.0.1",
   "Name": "3b-fly's extension for Controls.js",
   "Copyright": "Jan Nejedly",
   "RequiredLibraries": {

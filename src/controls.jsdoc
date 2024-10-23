@@ -10,8 +10,8 @@
  * @description
  *   Basic authentication interface.
  *
- * @version 2.0.0
- * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
+ * @version 2.0.1
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.1): crossbrowser}
  */
 
 /**
@@ -20,10 +20,10 @@
  *   Disables application files caching in debug mode
  *   and provides leave application dialog handling.
  *
- * @version 2.0.0
+ * @version 2.0.1
  *
  * @requires {@link http://controlsjs.com/|controls.js (5.0.0)}
- * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.1): crossbrowser}
  */
 
 /**
@@ -31,10 +31,10 @@
  * @description
  *   Allows easy application loading progress handling.
  *
- * @version 2.0.0
+ * @version 2.0.1
  *
  * @requires {@link http://controlsjs.com/|controls.js (5.0.0)}
- * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.1): crossbrowser}
  */
 
 /**
@@ -42,7 +42,7 @@
  * @description
  *   Adds missing methods to JavaScript types.
  *
- * @version 2.0.0
+ * @version 2.0.1
  */
 
 /**
@@ -50,9 +50,9 @@
  * @description
  *   Extends date and time management.
  *
- * @version 2.0.0
+ * @version 2.0.1
  *
- * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.1): crossbrowser}
  */
 
 /**
@@ -60,7 +60,7 @@
  * @description
  *   Provides easy file download helper.
  *
- * @version 2.0.0
+ * @version 2.0.1
  */
 
 /**
@@ -68,9 +68,9 @@
  * @description
  *   Implements object inheritance.
  *
- * @version 2.0.0
+ * @version 2.0.1
  *
- * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.1): crossbrowser}
  */
 
 /**
@@ -80,9 +80,9 @@
  *   Contains {@link http://terraformer.io/core/|Esri Terraformer 1.0.9}
  *   and {@link http://terraformer.io/wkt-parser/|Esri Terraformer WKT parser 1.2.0}
  *
- * @version 2.0.0
+ * @version 2.0.1
  *
- * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.1): crossbrowser}
  */
 
 /**
@@ -90,10 +90,10 @@
  * @description
  *   Adds event listener support to all created controls.
  *
- * @version 2.0.0
+ * @version 2.0.1
  *
  * @requires {@link http://controlsjs.com/|controls.js (5.0.0)}
- * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.1): crossbrowser}
  */
 
 /**
@@ -101,9 +101,9 @@
  * @description
  *   Adds localization support.
  *
- * @version 2.0.0
+ * @version 2.0.1
  *
- * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.1): crossbrowser}
  */
 
 /**
@@ -111,9 +111,9 @@
  * @description
  *   Adds czech localization support.
  *
- * @version 2.0.0
+ * @version 2.0.1
  *
- * @requires {@link package:locale|bbbfly-cjs (2.0.0): locale}
+ * @requires {@link package:locale|bbbfly-cjs (2.0.1): locale}
  */
 
 /**
@@ -121,9 +121,9 @@
  * @description
  *   Provides HTML rendering funcions.
  *
- * @version 2.0.0
+ * @version 2.0.1
  *
- * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.1): crossbrowser}
  */
 
 /**
@@ -131,8 +131,8 @@
  * @description
  *   Contains widget control and registry.
  *
- * @version 2.0.0
+ * @version 2.0.1
  *
  * @requires {@link http://controlsjs.com/|controls.js (5.0.0)}
- * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.0): crossbrowser}
+ * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.1): crossbrowser}
  */
