@@ -71,10 +71,6 @@
         }
       }
     },
-    "downloader": {
-      "DebugFiles": ["helpers/downloader.js"],
-      "ReleaseFiles": ["helpers/downloader.js"]
-    },
     "datetime": {
       "DebugFiles": ["helpers/datetime.js"],
       "ReleaseFiles": ["helpers/datetime.js"],
@@ -83,6 +79,14 @@
           "Packages": ["crossbrowser"]
         }
       }
+    },
+    "dom": {
+      "DebugFiles": ["helpers/dom.js"],
+      "ReleaseFiles": ["helpers/dom.js"]
+    },
+    "downloader": {
+      "DebugFiles": ["helpers/downloader.js"],
+      "ReleaseFiles": ["helpers/downloader.js"]
     },
     "geojs": {
       "DebugFiles": [

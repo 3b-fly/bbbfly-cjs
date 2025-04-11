@@ -93,14 +93,6 @@
         }
       }
     },
-    "downloader": {
-      "DebugFiles": [
-        "debug/helpers/downloader.js"
-      ],
-      "ReleaseFiles": [
-        "release/helpers/downloader.js"
-      ]
-    },
     "datetime": {
       "DebugFiles": [
         "debug/helpers/datetime.js"
@@ -115,6 +107,22 @@
           ]
         }
       }
+    },
+    "dom": {
+      "DebugFiles": [
+        "debug/helpers/dom.js"
+      ],
+      "ReleaseFiles": [
+        "release/helpers/dom.js"
+      ]
+    },
+    "downloader": {
+      "DebugFiles": [
+        "debug/helpers/downloader.js"
+      ],
+      "ReleaseFiles": [
+        "release/helpers/downloader.js"
+      ]
     },
     "geojs": {
       "DebugFiles": [

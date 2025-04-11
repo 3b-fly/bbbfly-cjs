@@ -55,6 +55,14 @@
  * @requires {@link package:crossbrowser|bbbfly-cjs (2.0.1): crossbrowser}
  */
 
+ /**
+ * @package dom
+ * @description
+ *   Provides HTML DOM helper functions.
+ *
+ * @version 2.0.1
+ */
+
 /**
  * @package downloader
  * @description
