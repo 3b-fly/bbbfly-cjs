@@ -30,8 +30,24 @@ bbbfly.dom._stopEvent = function(event){
     else{event.returnValue = false;}
   }
 };
+bbbfly.dom._elementContains = function(parent,child){
+  if(!(parent instanceof HTMLElement)){return false;}
+  if(!(child instanceof HTMLElement)){return false;}
+
+  if(typeof parent.contains === 'function'){
+    return parent.contains(child);
+  }
+  else{
+    while(child){
+      if((child === parent)){return true;}
+      else{child = child.parentNode;}
+    }
+  }
+  return false;
+};
 bbbfly.DOM = {
   AddEvent: bbbfly.dom._addEvent,
   RemoveEvent: bbbfly.dom._removeEvent,
-  StopEvent: bbbfly.dom._stopEvent
+  StopEvent: bbbfly.dom._stopEvent,
+  ElementContains: bbbfly.dom._elementContains
 };

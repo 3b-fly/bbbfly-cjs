@@ -40,6 +40,23 @@ bbbfly.dom._stopEvent = function(event){
   }
 };
 
+/** @ignore */
+bbbfly.dom._elementContains = function(parent,child){
+  if(!(parent instanceof HTMLElement)){return false;}
+  if(!(child instanceof HTMLElement)){return false;}
+
+  if(typeof parent.contains === 'function'){
+    return parent.contains(child);
+  }
+  else{
+    while(child){
+      if((child === parent)){return true;}
+      else{child = child.parentNode;}
+    }
+  }
+  return false;
+};
+
 /**
  * @class
  * @hideconstructor
@@ -78,5 +95,17 @@ bbbfly.DOM = {
    *
    * @param {Event} event - Event
    */
-  StopEvent: bbbfly.dom._stopEvent
+  StopEvent: bbbfly.dom._stopEvent,
+
+  /**
+   * @function
+   * @name ElementContains
+   * @memberof bbbfly.DOM#
+   * @description Check if MTML Element contains another element while providing old IE support.
+   *
+   * @param {HTMLElement} parent - Parent HTML element
+   * @param {HTMLElement} child - Child HTML element
+   * @return {boolean}
+   */
+  ElementContains: bbbfly.dom._elementContains
 };
