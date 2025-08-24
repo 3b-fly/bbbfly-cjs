@@ -209,13 +209,12 @@ bbbfly.widget.registry._onWidgetShown = function(force){
     if(group){
       for(var i in group){
         var widget = group[i];
+
         if(widget !== this){
-          if(force && Function.isFunction(widget.ForceHide)){
-            widget.ForceHide();
-          }
-          else if(Function.isFunction(widget.Hide)){
-            widget.Hide();
-          }
+          registry._WidgetGroups_Changing[groupName] = true;
+          if(force && Function.isFunction(widget.ForceHide)){widget.ForceHide();}
+          else if(Function.isFunction(widget.Hide)){widget.Hide();}
+          registry._WidgetGroups_Changing[groupName] = false;
         }
       }
       registry._WidgetGroups_Shown[groupName] = this;
@@ -234,7 +233,10 @@ bbbfly.widget.registry._onWidgetHidden = function(force){
   if(String.isString(groupName)){
     if(this === registry.GetGroupShownWidget(groupName)){
       registry._WidgetGroups_Shown[groupName] = null;
-      registry.CallAllWidgets('OnWidgetGroupChanged',[groupName]);
+
+      if(!registry._WidgetGroups_Changing[groupName]){
+        registry.CallAllWidgets('OnWidgetGroupChanged',[groupName]);
+      }
     }
   }
 };
@@ -377,6 +379,8 @@ bbbfly.WidgetRegistry = {
   _WidgetGroups: {},
   /** @private */
   _WidgetGroups_Shown: {},
+    /** @private */
+  _WidgetGroups_Changing: {},
 
   /**
    * @function
