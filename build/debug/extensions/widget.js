@@ -18,7 +18,11 @@ bbbfly.widget.registry._widgetId = function(widget){
   return null;
 };
 bbbfly.widget.registry._registerWidget = function(widget){
-  if(!Object.isObject(widget)){return false;}
+  if(
+    !Object.isObject(widget)
+    || !Function.isFunction(widget.CtrlInheritsFrom)
+    || !widget.CtrlInheritsFrom('bbbfly.Widget')
+  ){return false;}
 
   var widgetId = this.WidgetId(widget);
   if(!widgetId){return false;}
@@ -38,11 +42,19 @@ bbbfly.widget.registry._registerWidgetInGroup = function(widget){
   var widgetGroup = widget.WidgetGroup;
 
   if(registry && String.isString(widgetGroup)){
-    if(typeof registry._WidgetGroups[widgetGroup] !== 'object'){
+
+    if(!registry._WidgetGroups.hasOwnProperty(widgetGroup)){
       registry._WidgetGroups[widgetGroup] = new Array();
+    }
+
+    registry._WidgetGroups[widgetGroup].push(widget);
+
+    if(widget.IsShown()){
+      registry._WidgetGroups_Shown[widgetGroup] = widget;
+    }
+    else if(!registry._WidgetGroups_Shown.hasOwnProperty(widgetGroup)){
       registry._WidgetGroups_Shown[widgetGroup] = null;
     }
-    registry._WidgetGroups[widgetGroup].push(widget);
   }
 };
 bbbfly.widget.registry._unregisterWidgetFromGroup = function(widget){
@@ -203,6 +215,9 @@ bbbfly.widget.registry._onWidgetHidden = function(force){
     }
   }
 };
+bbbfly.widget._onCreated = function(ctrl){
+  bbbfly.WidgetRegistry.RegisterWidget(ctrl);
+};
 bbbfly.widget._setForced = function(forced){
   if(forced){
     var shown = this.IsShown();
@@ -329,6 +344,9 @@ bbbfly.Widget = function(def,ref,parent){
       _forceHidden: false,
       _forceShown: false
     },
+
+    OnCreated: bbbfly.widget._onCreated,
+
     Events: {
       OnShow: null,
       OnHide: null,
@@ -354,9 +372,7 @@ bbbfly.Widget = function(def,ref,parent){
     }
   });
 
-  var c = ngCreateControlAsType(def,def.CreteFromType,ref,parent);
-  if(c){bbbfly.WidgetRegistry.RegisterWidget(c);}
-  return c;
+  return ngCreateControlAsType(def,def.CreteFromType,ref,parent);
 };
 ngUserControls = ngUserControls || new Array();
 ngUserControls['bbbfly_widget'] = {
